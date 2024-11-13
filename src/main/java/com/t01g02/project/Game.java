@@ -18,21 +18,11 @@ public class Game {
     private final Screen screen;
     private final City city;
     private final Viewer viewer;
+
     //private final Controller controller;
 
     public Game() throws IOException {
         this.city = new City(200, 60);
-
-        // Get screen size
-        //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        //int screenWidth = (int) screenSize.getWidth();
-        //int screenHeight = (int) screenSize.getHeight();
-
-        // Adjust terminal size based on screen resolution
-        //int terminalWidth = screenWidth / 20;  // Adjust the divisor to control terminal size
-        //int terminalHeight = screenHeight / 30; // Adjust the divisor for height
-        //TerminalSize terminalSize = new TerminalSize(terminalHeight, terminalWidth);
-        //DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
 
         TerminalSize terminalSize = new TerminalSize(200, 60);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
