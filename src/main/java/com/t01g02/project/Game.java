@@ -24,7 +24,7 @@ public class Game {
     public Game() throws IOException {
         this.city = new City(200, 60);
 
-        TerminalSize terminalSize = new TerminalSize(200, 60);
+        TerminalSize terminalSize = new TerminalSize(city.getWidth() , city.getHeight());
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setTerminalEmulatorTitle("Hello Kitty Game!"); //Sets the title of the terminal;
         //terminalFactory.setTerminalEmulatorFontConfiguration(); fonte
@@ -34,7 +34,7 @@ public class Game {
         screen = new TerminalScreen(terminal);
         screen.setCursorPosition(null); // we don't need a cursor
         screen.startScreen(); // screens must be started
-        screen.doResizeIfNecessary(); // resize screen if necessary
+        //screen.doResizeIfNecessary(); // resize screen if necessary
 
         this.viewer = new Viewer(city, screen); // initializa o viewer
 

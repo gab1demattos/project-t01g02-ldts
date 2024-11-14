@@ -20,6 +20,7 @@ public class Viewer {
 
     }
 
+
     public void draw() throws IOException {
         screen.clear();
 
@@ -29,28 +30,15 @@ public class Viewer {
 
         for (int y = 0; y < city.getHeight(); y++) {
             for (int x = 0; x < city.getWidth(); x++) {
-                City.Tile tile = city.getTileAt(x, y);
+                Tile tile = city.getTileAt(x, y);
                 if (tile != null) {
-                    TerminalPosition pos = new TerminalPosition(x, y);
-
-                    // Render each tile based on its type
-                    switch (tile) {
-                        case ROAD:
-                            graphics.setForegroundColor(TextColor.Factory.fromString("#888888")); // Road color
-                            graphics.putString(pos, "█");  // Display road symbol
-                            break;
-                        case BUILDING:
-                            graphics.setForegroundColor(TextColor.Factory.fromString("#A0A0A0")); // Building color
-                            graphics.putString(pos, "#");  // Display building symbol
-                            break;
-                        case EMPTY:
-                            graphics.setForegroundColor(TextColor.Factory.fromString("#FFFFFF")); // Empty space color
-                            graphics.putString(pos, " ");  // Display empty space
-                            break;
-                    }
+                    graphics.setForegroundColor(tile.getColor());
+                    char displayChar = tile.getType() == Tile.Type.ROAD ? '█' : ' ';
+                    graphics.putString(new TerminalPosition(x, y), String.valueOf(displayChar));
                 }
             }
         }
+
         screen.refresh();
 
     }
