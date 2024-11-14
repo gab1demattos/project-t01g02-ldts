@@ -19,7 +19,16 @@ public class Viewer {
         //this.timerBox = new TimerBox(screen);
 
     }
+    /*public void drawTimer(TextGraphics graphics, int remainingSeconds) {
+        graphics.setForegroundColor(TextColor.ANSI.WHITE);
+        graphics.putString(0, 0, "Time Remaining: " + formatTime(remainingSeconds));  // Draw timer at top row
+    }
 
+    private String formatTime(int totalSeconds) {
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
+        return String.format("%02d:%02d", minutes, seconds);
+    }*/
 
     public void draw() throws IOException {
         screen.clear();
@@ -38,6 +47,10 @@ public class Viewer {
                 }
             }
         }
+        //drawTimer(graphics, remainingSeconds);  // Draw the timer
+        /*Sprite sprite = new Sprite(screen, "hellokitty.png");
+        sprite.scaleImage(150, 50);
+        sprite.drawImage(1, 1);*/ // not working like its supposed to
 
         screen.refresh();
 
