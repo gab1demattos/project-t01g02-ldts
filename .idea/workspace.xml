@@ -59,7 +59,7 @@
     "Gradle.Build project-t01g02.executor": "Run",
     "Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "SquareFontTerminal",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/matilde/IdeaProjects/project-t01g02",
     "project.structure.last.edited": "Project",
