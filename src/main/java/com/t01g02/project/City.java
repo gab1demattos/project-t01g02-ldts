@@ -30,27 +30,27 @@ public class City {
             }
         }
 
-        Tile.fillLine(map, new Position(2,4), new Position(170, 4 ), Tile.Type.ROAD, color); // outside roads
-        Tile.fillLine(map, new Position (2, 4), new Position(2, 50), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (2, 47), new Position(130, 47), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (190, 15), new Position(190, 57), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (130, 54), new Position(190, 54), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (130, 47), new Position(130, 57), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (170, 15), new Position(190, 15), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (170, 4), new Position(170, 15), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(2,15), new Position(410, 15 ), Tile.Type.ROAD, color); // outside roads
+        Tile.fillLine(map, new Position (2, 15), new Position(2, 200), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (2, 200), new Position(300, 200), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (440, 50), new Position(440, 245), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (410, 15), new Position(410, 50), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (410, 50), new Position(440, 50), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (300, 200), new Position(300, 245), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (300, 231), new Position(440, 231), Tile.Type.ROAD, color);
 
-        Tile.fillLine(map, new Position(2,15), new Position(90, 15 ), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(63,15), new Position(63, 29 ), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(40,29), new Position(90, 29 ), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(90,4), new Position(90, 32), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(35,15), new Position(35, 50), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(25,4), new Position(25, 15), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(90,21), new Position(120, 21), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(120,21), new Position(120, 47), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(165,32), new Position(165, 57), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(120,32), new Position(190, 32), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(165,45), new Position(190, 45), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(140,4), new Position(140, 31), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(50,15), new Position(50, 60), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(2,60), new Position(210, 60 ), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(70,60), new Position(70, 200), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(134,60), new Position(134, 120), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(70,120), new Position(210, 120 ), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(196,15), new Position(196, 120), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(197,90), new Position(250, 90), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(250,90), new Position(250, 200), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(250,125), new Position(440, 125), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(325,15), new Position(325, 125), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(375,125), new Position(375, 245), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(375,190), new Position(440, 190), Tile.Type.ROAD, color);
 
 
 

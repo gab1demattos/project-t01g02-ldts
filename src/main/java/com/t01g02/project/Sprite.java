@@ -16,9 +16,10 @@ public class Sprite {
     private BufferedImage image;
     private Screen screen;
 
-    public Sprite(String filepath) throws IOException {
+    public Sprite(Screen screen, String filepath) throws IOException {
         // Loads png image
         this.image = ImageIO.read(new File(filepath));
+        this.screen = screen;
     }
 
     // Drawing a pixel

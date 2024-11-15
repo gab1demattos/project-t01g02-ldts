@@ -49,6 +49,7 @@ public class Viewer {
                 }
             }
         }
+        /*
         graphics.setForegroundColor(TextColor.Factory.fromString("#5386E4"));
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(12, 9), "1");
@@ -57,16 +58,15 @@ public class Viewer {
         graphics.putString(new TerminalPosition(127, 52), "4");
         graphics.putString(new TerminalPosition(150, 30), "H");
         graphics.putString(new TerminalPosition(180, 13), "X");
-
+        */
 
 
 
 
 
         //drawTimer(graphics, remainingSeconds);  // Draw the timer
-        /*Sprite sprite = new Sprite(screen, "hellokitty.png");
-        sprite.scaleImage(150, 50);
-        sprite.drawImage(1, 1);*/
+        Sprite sprite = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/hellokitty.png");
+        sprite.drawImage(new Position(1, 1), 100, 100);
 
         screen.refresh();
 

@@ -8,11 +8,16 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.googlecode.lanterna.terminal.swing.TerminalEmulatorColorConfiguration;
 import com.googlecode.lanterna.terminal.swing.TerminalEmulatorPalette;
+
+import java.net.URISyntaxException;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.*;
+import java.io.File;
+import java.net.URL;
 import java.io.IOException;
 
 public class Game {
@@ -23,14 +28,29 @@ public class Game {
 
     //private final Controller controller;
 
-    public Game() throws IOException {
-        this.city = new City(200, 60);
+    public Game() throws IOException, FontFormatException, URISyntaxException {
+        this.city = new City(500, 250);
+
+        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        if (resource == null) {
+            throw new IOException("Font resource not found");
+        }
+        File fontFile = new File(resource.toURI());
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+        Font newfont = font.deriveFont(Font.PLAIN, 4);
+        AWTTerminalFontConfiguration cfg = AWTTerminalFontConfiguration.newInstance(newfont);
+
+        Terminal terminal = new DefaultTerminalFactory()
+                .setInitialTerminalSize(new TerminalSize(city.getWidth(), city.getHeight()))
+                .setTerminalEmulatorFontConfiguration(cfg)
+                .setForceAWTOverSwing(true)
+                .setTerminalEmulatorTitle("Hello Kitty Game!")
+                .createTerminal();
         //fix the terminal size
-        TerminalSize terminalSize = new TerminalSize(city.getWidth() , city.getHeight());
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize).setTerminalEmulatorTitle("Hello Kitty Game!");
         //terminalFactory.setTerminalEmulatorFontConfiguration(); fonte
         //TerminalEmulatorColorConfiguration colorConfiguration = new TerminalEmulatorPalette(); //pallette interesting
-        Terminal terminal = terminalFactory.createTerminal();
 
         screen = new TerminalScreen(terminal);
         screen.setCursorPosition(null); // we don't need a cursor
@@ -44,16 +64,17 @@ public class Game {
 
     }
 
-    public void run() throws IOException{//this is part of View??
+    public void run() throws IOException {//this is part of View??
 
-        while(true){
+        while (true) {
             viewer.draw();
 
             KeyStroke key = screen.readInput();
-            if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q' || key.getKeyType() == KeyType.EOF){
+            if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q' || key.getKeyType() == KeyType.EOF) {
                 System.exit(0);
             }
         }
     }
-
 }
+
+      
