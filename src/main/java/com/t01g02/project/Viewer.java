@@ -53,9 +53,9 @@ public class Viewer {
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(12, 9), "1");
         graphics.putString(new TerminalPosition(100, 19), "2");
-        graphics.putString(new TerminalPosition(45, 45), "3");
+        graphics.putString(new TerminalPosition(32, 45), "3");
         graphics.putString(new TerminalPosition(127, 52), "4");
-        graphics.putString(new TerminalPosition(12, 45), "H");
+        graphics.putString(new TerminalPosition(150, 30), "H");
         graphics.putString(new TerminalPosition(180, 13), "X");
 
 
