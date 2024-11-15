@@ -40,7 +40,7 @@ public class City {
         Tile.fillLine(map, new Position (170, 4), new Position(170, 15), Tile.Type.ROAD, color);
 
         Tile.fillLine(map, new Position(2,15), new Position(90, 15 ), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position(62,15), new Position(62, 29 ), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position(63,15), new Position(63, 29 ), Tile.Type.ROAD, color);
         Tile.fillLine(map, new Position(40,29), new Position(90, 29 ), Tile.Type.ROAD, color);
         Tile.fillLine(map, new Position(90,4), new Position(90, 32), Tile.Type.ROAD, color);
         Tile.fillLine(map, new Position(35,15), new Position(35, 50), Tile.Type.ROAD, color);
@@ -51,7 +51,6 @@ public class City {
         Tile.fillLine(map, new Position(120,32), new Position(190, 32), Tile.Type.ROAD, color);
         Tile.fillLine(map, new Position(165,45), new Position(190, 45), Tile.Type.ROAD, color);
         Tile.fillLine(map, new Position(140,4), new Position(140, 31), Tile.Type.ROAD, color);
-
 
 
 

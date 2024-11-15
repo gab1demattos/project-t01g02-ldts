@@ -1,5 +1,6 @@
 package com.t01g02.project;
 
+import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -30,6 +31,7 @@ public class Viewer {
         return String.format("%02d:%02d", minutes, seconds);
     }*/
 
+
     public void draw() throws IOException {
         screen.clear();
 
@@ -47,10 +49,24 @@ public class Viewer {
                 }
             }
         }
+        graphics.setForegroundColor(TextColor.Factory.fromString("#5386E4"));
+        graphics.enableModifiers(SGR.BOLD);
+        graphics.putString(new TerminalPosition(12, 9), "1");
+        graphics.putString(new TerminalPosition(100, 19), "2");
+        graphics.putString(new TerminalPosition(45, 45), "3");
+        graphics.putString(new TerminalPosition(127, 52), "4");
+        graphics.putString(new TerminalPosition(12, 45), "H");
+        graphics.putString(new TerminalPosition(180, 13), "X");
+
+
+
+
+
+
         //drawTimer(graphics, remainingSeconds);  // Draw the timer
         /*Sprite sprite = new Sprite(screen, "hellokitty.png");
         sprite.scaleImage(150, 50);
-        sprite.drawImage(1, 1);*/ // not working like its supposed to
+        sprite.drawImage(1, 1);*/
 
         screen.refresh();
 
