@@ -32,7 +32,7 @@ public class Tile {
             for (int y = start.getY(); y <= end.getY(); y++) {
                 // Fill  line
                 map[y][start.getX()] = new Tile(type, color);
-                for (int i = 1; i < 15; i++) {
+                for (int i = 1; i < 25; i++) {
                     if (start.getX() + i < map[0].length) {
                         map[y][start.getX() + i] = new Tile(type, color);
                     }
@@ -41,7 +41,7 @@ public class Tile {
         } else if (start.getY() == end.getY()) {  // Horizontal line
             for (int x = start.getX(); x <= end.getX(); x++) {
                 map[start.getY()][x] = new Tile(type, color);
-                for (int i = 1; i < 15; i++) {
+                for (int i = 1; i < 25; i++) {
                     if (start.getY() + i < map.length) {
                         map[start.getY() + i][x] = new Tile(type, color);
                     }

@@ -65,8 +65,21 @@ public class Viewer {
 
 
         //drawTimer(graphics, remainingSeconds);  // Draw the timer
-        Sprite sprite = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/hellokitty.png");
-        sprite.drawImage(new Position(1, 1), 100, 100);
+        Sprite hellokitty = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/hellokitty.png");
+        hellokitty.drawImage(new Position(340, 127), 26, 20);
+
+        Sprite kuromi = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/kuromi.png");
+        kuromi.drawImage(new Position(273, 226), 26, 20);
+
+        Sprite purin = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/purin.png");
+        purin.drawImage(new Position(28, 41), 26, 20);
+
+        Sprite mymelody = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/mymelody.png");
+        mymelody.drawImage(new Position(42, 177), 26, 25);
+
+        Sprite cinnamoroll = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/cinnamoroll.png");
+        cinnamoroll.drawImage(new Position(222, 73), 26, 25);
+
 
         screen.refresh();
 
