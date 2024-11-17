@@ -30,12 +30,12 @@ public class City {
             }
         }
 
-        Tile.fillLine(map, new Position(2,15), new Position(410, 15 ), Tile.Type.ROAD, color); // outside roads
+        Tile.fillLine(map, new Position(2,15), new Position(400, 15 ), Tile.Type.ROAD, color); // outside roads
         Tile.fillLine(map, new Position (2, 15), new Position(2, 200), Tile.Type.ROAD, color);
         Tile.fillLine(map, new Position (2, 200), new Position(300, 200), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (435, 50), new Position(435, 245), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (400, 15), new Position(400, 50), Tile.Type.ROAD, color);
-        Tile.fillLine(map, new Position (400, 50), new Position(440, 50), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (435, 70), new Position(435, 245), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (380, 15), new Position(380, 70), Tile.Type.ROAD, color);
+        Tile.fillLine(map, new Position (380, 70), new Position(440, 70), Tile.Type.ROAD, color);
         Tile.fillLine(map, new Position (300, 200), new Position(300, 245), Tile.Type.ROAD, color);
         Tile.fillLine(map, new Position (300, 221), new Position(440, 221), Tile.Type.ROAD, color);
 
