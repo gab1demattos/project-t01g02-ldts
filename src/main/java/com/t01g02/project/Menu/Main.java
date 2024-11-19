@@ -9,6 +9,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+// probably delete this class, cause its unnecessary
+
 public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
         System.out.println("Hello");

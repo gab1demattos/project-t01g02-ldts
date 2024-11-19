@@ -16,28 +16,8 @@ public class CityViewer {
     public CityViewer(City city, Screen screen) {
         this.city = city;
         this.screen = screen;
-        /*GameTimer timer = new GameTimer();
-        timer.start();*/
+
     }
-
-    /*public int getRemainingTime() {
-        return timer.getRemainingSeconds();
-    }
-
-    public void drawTimer(TextGraphics graphics) {
-        int seconds = timer.getRemainingSeconds();
-        graphics.setForegroundColor(TextColor.ANSI.WHITE);
-        graphics.putString(0, 0, "Time Remaining: " + formatTime(seconds));  // Draw timer at top row
-    }
-
-
-
-    private String formatTime(int totalSeconds) {
-        int minutes = totalSeconds / 60;
-        int seconds = totalSeconds % 60;
-        return String.format("%02d:%02d", minutes, seconds);
-    }*/
-
 
     public void draw() throws IOException {
         screen.clear();
@@ -56,32 +36,6 @@ public class CityViewer {
                 }
             }
         }
-
-
-        //drawTimer(graphics);
-
-
-        Sprite hellokitty = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/hellokitty.png"); //26*17 ??
-        hellokitty.drawImage(new Position(340, 127), 26, 20);
-
-        Sprite kuromi = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/kuromi.png"); // 25*25
-        kuromi.drawImage(new Position(273, 226), 26, 20);
-
-        Sprite purin = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/purin.png"); //25*16
-        purin.drawImage(new Position(28, 41), 26, 20);
-
-        Sprite mymelody = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/mymelody.png"); //25*19
-        mymelody.drawImage(new Position(42, 177), 26, 25);
-
-        Sprite cinnamoroll = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/cinnamoroll.png"); // 25*20
-        cinnamoroll.drawImage(new Position(222, 73), 26, 25);
-
-        Sprite house = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/extras/partyhouse.png"); // 25*20
-        house.drawImage(new Position(425, 20), 30, 30); // vou aumentar a casa
-
-        Sprite tree = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/extras/tree.png"); // 25*20
-        tree.drawImage(new Position(180, 40), 25, 25); // maybe resize??
-
 
 
         screen.refresh();

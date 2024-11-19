@@ -24,7 +24,7 @@ public class Game {
     private final Screen screen;
     private final City city;
     private final CityViewer cityViewer;
-    //private int remainingSeconds = 300;
+    private CharacterViewer characterViewer;
 
     //private final Controller controller;
 
@@ -49,8 +49,6 @@ public class Game {
                 .setTerminalEmulatorTitle("Hello Kitty Game!")
                 .createTerminal();
         //fix the terminal size
-        //terminalFactory.setTerminalEmulatorFontConfiguration(); fonte
-        //TerminalEmulatorColorConfiguration colorConfiguration = new TerminalEmulatorPalette(); //pallette interesting
 
         screen = new TerminalScreen(terminal);
         screen.setCursorPosition(null); // we don't need a cursor
@@ -58,8 +56,11 @@ public class Game {
         //screen.doResizeIfNecessary(); // resize screen if necessary
 
         this.cityViewer = new CityViewer(city, screen); // initializa o viewer
-
+        this.characterViewer = new CharacterViewer(screen);
         //this.controller = new Controller(screen, city, viewer);
+
+        city.initializeRoads();
+        characterViewer.initializeCharacters();
 
 
     }
@@ -68,6 +69,7 @@ public class Game {
 
         while (true) {
             cityViewer.draw();
+            characterViewer.draw();
 
             KeyStroke key = screen.readInput();
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q' || key.getKeyType() == KeyType.EOF) {
