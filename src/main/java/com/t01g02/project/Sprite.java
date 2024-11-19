@@ -13,8 +13,8 @@ import java.net.URL;
 import java.util.Objects;
 
 public class Sprite {
-    private BufferedImage image;
-    private Screen screen;
+    private final BufferedImage image;
+    private final Screen screen;
 
     public Sprite(Screen screen, String filepath) throws IOException {
         // Loads png image

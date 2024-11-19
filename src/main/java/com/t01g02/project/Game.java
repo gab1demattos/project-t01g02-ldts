@@ -23,13 +23,13 @@ import java.io.IOException;
 public class Game {
     private final Screen screen;
     private final City city;
-    private final Viewer viewer;
+    private final CityViewer cityViewer;
     //private int remainingSeconds = 300;
 
     //private final Controller controller;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
-        this.city = new City(500, 250);
+        this.city = new City(500, 250); //320/200
 
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
         if (resource == null) {
@@ -57,17 +57,17 @@ public class Game {
         screen.startScreen(); // screens must be started
         //screen.doResizeIfNecessary(); // resize screen if necessary
 
-        this.viewer = new Viewer(city, screen); // initializa o viewer
+        this.cityViewer = new CityViewer(city, screen); // initializa o viewer
 
         //this.controller = new Controller(screen, city, viewer);
 
 
     }
 
-    public void run() throws IOException {//this is part of View??
+    public void run() throws IOException {//this is part of view??
 
         while (true) {
-            viewer.draw();
+            cityViewer.draw();
 
             KeyStroke key = screen.readInput();
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q' || key.getKeyType() == KeyType.EOF) {

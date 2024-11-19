@@ -1,9 +1,12 @@
-package org.example;
+package com.t01g02.project.Menu;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
+import com.t01g02.project.Game;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class GameMenuController implements IController{
     private boolean running = true;
@@ -22,7 +25,7 @@ public class GameMenuController implements IController{
     }
 
     @Override
-    public void processInput() throws IOException{
+    public void processInput() throws IOException, URISyntaxException, FontFormatException{
         KeyStroke input = screen.readInput();
             if(input!=null){
                 switch (input.getKeyType()){
@@ -48,7 +51,7 @@ public class GameMenuController implements IController{
 
     }
 
-    void executeSelectedOption(){
+    void executeSelectedOption() throws IOException, URISyntaxException, FontFormatException{
         String selectedOption = model.getOptions()[model.getSelectedOption()];
         switch (selectedOption){
             case "Settings":
@@ -66,8 +69,10 @@ public class GameMenuController implements IController{
         System.out.println("Opening settings...");
     }
 
-    private void startGame(){
+    private void startGame() throws IOException, URISyntaxException, FontFormatException {
         System.out.println("Game Starting...");
+        Game game = new Game();
+        game.run();
     }
 
     @Override

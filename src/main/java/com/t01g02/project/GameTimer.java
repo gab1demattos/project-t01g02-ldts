@@ -7,8 +7,8 @@ public class GameTimer {
     private int remainingSeconds;
     private final Timer timer;
 
-    public GameTimer() {
-        this.remainingSeconds = 300;  // Set countdown in seconds (5 minutes = 300 seconds)
+    public GameTimer(int min) {
+        this.remainingSeconds = min/60;  // Set countdown in seconds
         this.timer = new Timer();
     }
 
@@ -20,7 +20,6 @@ public class GameTimer {
                     System.out.println("Time's up!");
                     timer.cancel(); // Stop the timer when it reaches 0
                 } else {
-                    System.out.print("\rTime Remaining: " + formatTime(remainingSeconds));
                     remainingSeconds--;
                 }
             }
@@ -36,7 +35,7 @@ public class GameTimer {
     public int getRemainingSeconds(){return remainingSeconds;}
 
     public static void main(String[] args) {
-        GameTimer timer = new GameTimer();  // Initialize a 5-minute timer
+        GameTimer timer = new GameTimer(5);
         timer.start();
     }
 

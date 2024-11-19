@@ -1,4 +1,4 @@
-package org.example;
+package com.t01g02.project.Menu;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;

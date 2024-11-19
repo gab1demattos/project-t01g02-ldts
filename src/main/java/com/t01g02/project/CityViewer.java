@@ -1,6 +1,5 @@
 package com.t01g02.project;
 
-import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -8,22 +7,30 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 
 import java.io.IOException;
-import java.util.Timer;
 
-public class Viewer {
+public class CityViewer {
     private final City city;
     private final Screen screen;
+    //private GameTimer timer;
 
-    public Viewer(City city, Screen screen) {
+    public CityViewer(City city, Screen screen) {
         this.city = city;
         this.screen = screen;
-        //this.timerBox = new TimerBox(screen);
+        /*GameTimer timer = new GameTimer();
+        timer.start();*/
+    }
 
+    /*public int getRemainingTime() {
+        return timer.getRemainingSeconds();
     }
-    /*public void drawTimer(TextGraphics graphics, int remainingSeconds) {
+
+    public void drawTimer(TextGraphics graphics) {
+        int seconds = timer.getRemainingSeconds();
         graphics.setForegroundColor(TextColor.ANSI.WHITE);
-        graphics.putString(0, 0, "Time Remaining: " + formatTime(remainingSeconds));  // Draw timer at top row
+        graphics.putString(0, 0, "Time Remaining: " + formatTime(seconds));  // Draw timer at top row
     }
+
+
 
     private String formatTime(int totalSeconds) {
         int minutes = totalSeconds / 60;
@@ -49,22 +56,11 @@ public class Viewer {
                 }
             }
         }
-        /*
-        graphics.setForegroundColor(TextColor.Factory.fromString("#5386E4"));
-        graphics.enableModifiers(SGR.BOLD);
-        graphics.putString(new TerminalPosition(12, 9), "1");
-        graphics.putString(new TerminalPosition(100, 19), "2");
-        graphics.putString(new TerminalPosition(32, 45), "3");
-        graphics.putString(new TerminalPosition(127, 52), "4");
-        graphics.putString(new TerminalPosition(150, 30), "H");
-        graphics.putString(new TerminalPosition(180, 13), "X");
-        */
 
 
+        //drawTimer(graphics);
 
 
-
-        //drawTimer(graphics, remainingSeconds);  // Draw the timer
         Sprite hellokitty = new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/hellokitty.png"); //26*17 ??
         hellokitty.drawImage(new Position(340, 127), 26, 20);
 

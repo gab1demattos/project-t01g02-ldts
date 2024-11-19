@@ -29,6 +29,8 @@ public class City {
                 map[y][x] = new Tile(Tile.Type.EMPTY, TextColor.Factory.fromString("#FFFFFF"));
             }
         }
+        //refazer as roads
+
 
         Tile.fillLine(map, new Position(2,15), new Position(400, 15 ), Tile.Type.ROAD, color); // outside roads
         Tile.fillLine(map, new Position (2, 15), new Position(2, 200), Tile.Type.ROAD, color);
