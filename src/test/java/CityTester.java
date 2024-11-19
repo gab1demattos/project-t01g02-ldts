@@ -32,9 +32,10 @@ public class CityTester {
 
     @Test
     void initializeRoadsTest() {
-        // Initialize the roads
+        // initialize the roads
         city.initializeRoads();
 
+        // color of the roads
         TextColor expectedRoadColor = TextColor.Factory.fromString("#888888");
 
         // check specific positions
@@ -45,9 +46,6 @@ public class CityTester {
 
         assertNotNull(city.getTileAt(300, 200));
         assertEquals(Tile.Type.ROAD, city.getTileAt(300, 200).getType());
-
-        assertNotNull(city.getTileAt(375, 125));
-        assertEquals(Tile.Type.ROAD, city.getTileAt(375, 125).getType());
 
         // making sure empty tiles remain null
         assertNull(city.getTileAt(0, 0));

@@ -25,8 +25,4 @@ public class CharacterModel extends Element{
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/cinnamoroll.png"), new Position(222, 73), "Cinnamoroll") // 25*20
         );
     }
-
-
-
-
 }
