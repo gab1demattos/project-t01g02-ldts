@@ -18,11 +18,11 @@ public class CharacterModel extends Element{
 
     public static void initializeCharacters(Screen screen) throws IOException {
         characters = List.of(
-                new CharacterModel(new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/hellokitty.png"), new Position(340, 127), "HelloKitty"), //26*17 ??
-                new CharacterModel(new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/kuromi.png"), new Position(273, 226), "Kuromi"), // 25*25
-                new CharacterModel(new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/purin.png"), new Position(28, 41), "Purin"), // 25*16
-                new CharacterModel(new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/mymelody.png"), new Position(42, 177), "MyMelody"), // 25*19
-                new CharacterModel(new Sprite(screen, "/home/matilde/IdeaProjects/project-t01g02/src/main/resources/characters/cinnamoroll.png"), new Position(222, 73), "Cinnamoroll") // 25*20
+                new CharacterModel(new Sprite(screen, "src/main/resources/characters/hellokitty.png"), new Position(340, 127), "HelloKitty"), //26*17 ??
+                new CharacterModel(new Sprite(screen, "src/main/resources/characters/kuromi.png"), new Position(273, 226), "Kuromi"), // 25*25
+                new CharacterModel(new Sprite(screen, "src/main/resources/characters/purin.png"), new Position(28, 41), "Purin"), // 25*16
+                new CharacterModel(new Sprite(screen, "src/main/resources/characters/mymelody.png"), new Position(42, 177), "MyMelody"), // 25*19
+                new CharacterModel(new Sprite(screen, "src/main/resources/characters/cinnamoroll.png"), new Position(222, 73), "Cinnamoroll") // 25*20
         );
     }
 
