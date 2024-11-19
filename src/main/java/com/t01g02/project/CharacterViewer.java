@@ -27,7 +27,7 @@ public class CharacterViewer{
         if (CharacterModel.characters != null){
             for (CharacterModel character : CharacterModel.characters) {
                 System.out.println("Drawing character: " + character.getName() + " at position: " + character.getPosition().getX() + ", " + character.getPosition().getY());
-                character.getSprite().drawImage(character.getPosition(), 26, 26); // Example size values
+                character.getSprite().drawImage(character.getPosition()); // Example size values
 
             }
         }
