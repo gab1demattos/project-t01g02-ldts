@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CityModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CityViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CityViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CharacterModelTester.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CharacterViewerTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CityTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SpriteTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/SpriteTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +76,7 @@
     "Gradle.CharacterModelTest.executor": "Run",
     "Gradle.CharacterModelTester.executor": "Run",
     "Gradle.CharacterModelTester.testCharacterInitialization.executor": "Run",
+    "Gradle.CityModelTest.executor": "Run",
     "Gradle.CityTester.executor": "Run",
     "Gradle.CityViewerTest.executor": "Run",
     "Gradle.SpriteTest.executor": "Run",
@@ -117,7 +111,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CharacterModelTest">
+  <component name="RunManager" selected="Gradle.CityModelTest">
     <configuration name="CharacterModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -190,6 +184,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="CityModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.CityModelTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="SpriteTester" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -214,35 +232,13 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'project.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.CityModelTest" />
         <item itemvalue="Gradle.CharacterModelTest" />
         <item itemvalue="Gradle.CharacterModelTester" />
         <item itemvalue="Gradle.CharacterModelTester.testCharacterInitialization" />
         <item itemvalue="Gradle.SpriteTester" />
-        <item itemvalue="Gradle.Tests in 'project.test'" />
       </list>
     </recent_temporary>
   </component>
@@ -256,16 +252,5 @@
       <updated>1731512875665</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

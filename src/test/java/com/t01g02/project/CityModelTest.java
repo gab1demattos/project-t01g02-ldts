@@ -12,7 +12,7 @@ public class CityModelTest {
     @BeforeEach
     void setUp() {
         city = new CityModel(500, 300);
-        city.initializeRoads(); // Initialize roads before tests
+        city.initializeRoads();
     }
 
     @Test
@@ -36,7 +36,7 @@ public class CityModelTest {
 
     @Test
     void testInitializedRoads() {
-        // Test a specific road segment initialized in `initializeRoads()`
+
         Tile tile = city.getTile(2, 15);
         assertNotNull(tile, "Tile should not be null at road position");
         assertEquals(Tile.Type.ROAD, tile.getType(), "Tile type should be ROAD");
@@ -45,7 +45,6 @@ public class CityModelTest {
 
     @Test
     void testOutOfBoundsTileAccess() {
-        // Ensure out-of-bounds access returns null or throws exceptions
         assertNull(city.getTile(-1, -1), "Negative indices should return null");
         assertNull(city.getTile(501, 301), "Indices beyond boundaries should return null");
     }

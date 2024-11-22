@@ -7,7 +7,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Tile {
     public enum Type {
-        ROAD, BUILDING, EMPTY
+        ROAD, TREE, EMPTY
     }
 
     private final Type type;
