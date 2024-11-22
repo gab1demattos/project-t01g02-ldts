@@ -1,20 +1,17 @@
 package com.t01g02.project;
 
 import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class City {
+public class CityModel {
     private final int width;
     private final int height;
     private final Tile[][] map;
 
 
-    public City(int width, int height){
+    public CityModel(int width, int height){
         this.width = width;
         this.height = height;
         this.map = new Tile[height][width];

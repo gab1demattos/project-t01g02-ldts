@@ -7,7 +7,8 @@ import java.util.List;
 
 import static com.t01g02.project.CharacterModel.initializeCharacters;
 
-public class CharacterViewer{
+
+public class CharacterViewer {
     private final Screen screen;
 
 
@@ -19,8 +20,6 @@ public class CharacterViewer{
         // Initialize the characters list with the screen instance
         CharacterModel.initializeCharacters(screen);
     }
-
-
 
 
     public void draw() throws IOException {
