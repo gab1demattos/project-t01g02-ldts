@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CharacterModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CharacterModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CharacterViewer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CityTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CityTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CityModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CityViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/CityViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CharacterModelTester.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CharacterViewerTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CityTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SpriteTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/SpriteTester.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +28,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -47,18 +55,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "gab1demattos"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;gab1demattos&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:FEUP-LDTS-2024/project-t01g02.git",
-    "accountId": "7d8ca9ee-ffde-4249-8191-c81b6845e747"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:FEUP-LDTS-2024/project-t01g02.git&quot;,
+    &quot;accountId&quot;: &quot;7d8ca9ee-ffde-4249-8191-c81b6845e747&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -72,7 +80,9 @@
   "keyToString": {
     "Application.Application.executor": "Run",
     "Gradle.Build project-t01g02.executor": "Run",
+    "Gradle.CharacterModelTest.executor": "Run",
     "Gradle.CharacterModelTester.executor": "Run",
+    "Gradle.CharacterModelTester.testCharacterInitialization.executor": "Run",
     "Gradle.CityTester.executor": "Run",
     "Gradle.CityViewerTest.executor": "Run",
     "Gradle.SpriteTest.executor": "Run",
@@ -83,7 +93,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/matilde/IdeaProjects/ProjP2",
+    "last_opened_file_path": "/home/matilde/IdeaProjects/project-t01g02/src/test/resources",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -92,6 +102,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/extras" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
@@ -106,21 +117,30 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'project.test'">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/java-1.21.0-openjdk-amd64" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.Application" />
-      <module name="project.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="Gradle.CharacterModelTest">
+    <configuration name="CharacterModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.CharacterModelTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <configuration name="CharacterModelTester" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -146,7 +166,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CityTester" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterModelTester.testCharacterInitialization" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -159,7 +179,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.CityTester&quot;" />
+            <option value="&quot;com.t01g02.project.CharacterModelTester.testCharacterInitialization&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="SpriteTester" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.SpriteTester&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -194,10 +238,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'project.test'" />
+        <item itemvalue="Gradle.CharacterModelTest" />
         <item itemvalue="Gradle.CharacterModelTester" />
-        <item itemvalue="Gradle.CityTester" />
-        <item itemvalue="Application.Application" />
+        <item itemvalue="Gradle.CharacterModelTester.testCharacterInitialization" />
+        <item itemvalue="Gradle.SpriteTester" />
+        <item itemvalue="Gradle.Tests in 'project.test'" />
       </list>
     </recent_temporary>
   </component>
@@ -211,5 +256,16 @@
       <updated>1731512875665</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

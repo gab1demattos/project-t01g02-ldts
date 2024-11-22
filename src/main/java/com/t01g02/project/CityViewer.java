@@ -9,11 +9,11 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 
 public class CityViewer {
-    private final City city;
+    private final CityModel city;
     private final Screen screen;
     //private GameTimer timer;
 
-    public CityViewer(City city, Screen screen) {
+    public CityViewer(CityModel city, Screen screen) {
         this.city = city;
         this.screen = screen;
 
@@ -28,7 +28,7 @@ public class CityViewer {
 
         for (int y = 0; y < city.getHeight(); y++) {
             for (int x = 0; x < city.getWidth(); x++) {
-                Tile tile = city.getTileAt(x, y);
+                Tile tile = city.getTile(x, y);
                 if (tile != null) {
                     graphics.setForegroundColor(tile.getColor());
                     char displayChar = tile.getType() == Tile.Type.ROAD ? '█' : ' ';

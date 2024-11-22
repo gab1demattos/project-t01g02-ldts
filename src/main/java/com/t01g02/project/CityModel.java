@@ -52,7 +52,7 @@ public class CityModel {
         }
 
 
-    public Tile getTileAt(int x, int y) {
+    public Tile getTile(int x, int y) {
         if (x >= 0 && x < width && y >= 0 && y < height) {
             return map[y][x];
         }
@@ -63,6 +63,10 @@ public class CityModel {
     public int getWidth(){ return width; };
 
     public int getHeight() { return height; }
+
+    public Tile[][] getMap() {
+        return map;
+    }
 
 
 

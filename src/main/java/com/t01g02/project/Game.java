@@ -1,7 +1,6 @@
 package com.t01g02.project;
 
 import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
@@ -9,12 +8,8 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import com.googlecode.lanterna.terminal.swing.TerminalEmulatorColorConfiguration;
-import com.googlecode.lanterna.terminal.swing.TerminalEmulatorPalette;
 
 import java.net.URISyntaxException;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.awt.*;
 import java.io.File;
 import java.net.URL;
@@ -22,14 +17,14 @@ import java.io.IOException;
 
 public class Game {
     private final Screen screen;
-    private final City city;
+    private final CityModel city;
     private final CityViewer cityViewer;
     private CharacterViewer characterViewer;
 
     //private final Controller controller;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
-        this.city = new City(500, 250); //320/200
+        this.city = new CityModel(500, 250); //320/200
 
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
         if (resource == null) {
