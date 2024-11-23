@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/matilde/IdeaProjects/project-t01g02/src/main/java</OriginalElement>
+  <nodes>
+    <node x="-1051.1093749999989" y="1394.062499999999">com.t01g02.project.viewer.CharacterViewer</node>
+    <node x="-280.0" y="1129.1499999999999">com.t01g02.project.model.CityModel</node>
+    <node x="-869.1093749999994" y="1012.4999999999995">com.t01g02.project.menu.GameMenuView</node>
+    <node x="-280.5" y="915.0000000000001">com.t01g02.project.model.Road</node>
+    <node x="-812.3593749999993" y="1329.4999999999993">com.t01g02.project.Game</node>
+    <node x="435.5" y="776.0000000000003">com.t01g02.project.model.CharacterModel</node>
+    <node x="172.5" y="934.2499999999999">com.t01g02.project.model.Position</node>
+    <node x="-595.8046874999995" y="984.4999999999998">com.t01g02.project.menu.GameMenuController</node>
+    <node x="-462.80468749999955" y="649.5">com.t01g02.project.menu.IController</node>
+    <node x="-792.6093749999997" y="552.5">com.t01g02.project.menu.IModel</node>
+    <node x="-646.6093749999993" y="1406.062499999999">com.t01g02.project.viewer.CityViewer</node>
+    <node x="99.5" y="552.5">com.t01g02.project.viewer.Sprite</node>
+    <node x="47.75000000000023" y="1129.1499999999999">com.t01g02.project.model.Element</node>
+    <node x="-968.1093749999994" y="1207.4999999999995">com.t01g02.project.Application</node>
+    <node x="-170.25" y="738.2500000000002">com.t01g02.project.model.Tile</node>
+    <node x="-708.6093749999994" y="830.4999999999998">com.t01g02.project.menu.IView</node>
+    <node x="-1020.6093749999994" y="760.5">com.t01g02.project.menu.GameMenuModel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.t01g02.project.model.CharacterModel" target="com.t01g02.project.model.Element" relationship="GENERALIZATION">
+      <point x="0.0" y="31.5" />
+      <point x="560.5" y="1181.6499999999999" />
+      <point x="104.0" y="-15.0" />
+    </edge>
+    <edge source="com.t01g02.project.menu.GameMenuView" target="com.t01g02.project.menu.IModel" relationship="TO_ONE">
+      <point x="0.0" y="-55.5" />
+      <point x="-65.99999999999977" y="91.5" />
+    </edge>
+    <edge source="com.t01g02.project.Game" target="com.t01g02.project.model.CityModel" relationship="TO_ONE">
+      <point x="54.5" y="15.0" />
+      <point x="-207.0" y="1375.9999999999993" />
+      <point x="-15.0" y="79.5" />
+    </edge>
+    <edge source="com.t01g02.project.Application" target="com.t01g02.project.menu.GameMenuView" relationship="CREATE">
+      <point x="24.5" y="-31.5" />
+      <point x="-113.5" y="55.5" />
+    </edge>
+    <edge source="com.t01g02.project.model.CharacterModel" target="com.t01g02.project.model.Position" relationship="TO_ONE">
+      <point x="-125.0" y="-3.410605131648481E-13" />
+      <point x="401.0" y="807.5" />
+      <point x="401.0" y="1013.75" />
+      <point x="97.0" y="1.1368683772161603E-13" />
+    </edge>
+    <edge source="com.t01g02.project.Application" target="com.t01g02.project.menu.GameMenuModel" relationship="CREATE">
+      <point x="-24.0" y="-31.5" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="com.t01g02.project.menu.GameMenuController" target="com.t01g02.project.Game" relationship="CREATE">
+      <point x="20.0" y="91.5" />
+      <point x="-457.80468749999955" y="1360.9999999999993" />
+      <point x="54.5" y="0.0" />
+    </edge>
+    <edge source="com.t01g02.project.model.CityModel" target="com.t01g02.project.model.Road" relationship="CREATE">
+      <point x="0.0" y="-79.5" />
+      <point x="0.0" y="67.49999999999989" />
+    </edge>
+    <edge source="com.t01g02.project.Game" target="com.t01g02.project.viewer.CityViewer" relationship="CREATE">
+      <point x="-15.0" y="31.5" />
+      <point x="-772.8593749999993" y="1452.562499999999" />
+      <point x="-67.5" y="15.0" />
+    </edge>
+    <edge source="com.t01g02.project.model.Element" target="com.t01g02.project.viewer.Sprite" relationship="TO_ONE">
+      <point x="103.99999999999977" y="15.0" />
+      <point x="703.0" y="1211.6499999999999" />
+      <point x="703.0" y="521.936" />
+      <point x="251.5" y="521.936" />
+      <point x="18.5" y="67.5" />
+    </edge>
+    <edge source="com.t01g02.project.menu.GameMenuModel" target="com.t01g02.project.menu.IModel" relationship="REALIZATION">
+      <point x="0.0" y="-91.5" />
+      <point x="-910.1093749999994" y="644.0" />
+      <point x="-110.5" y="0.0" />
+    </edge>
+    <edge source="com.t01g02.project.menu.GameMenuController" target="com.t01g02.project.menu.IView" relationship="TO_ONE">
+      <point x="-104.00000000000011" y="-91.5" />
+      <point x="-581.8046874999997" y="950.9999999999998" />
+      <point x="-618.1093749999994" y="950.9999999999998" />
+      <point x="0.0" y="43.5" />
+    </edge>
+    <edge source="com.t01g02.project.menu.GameMenuView" target="com.t01g02.project.menu.IView" relationship="REALIZATION">
+      <point x="113.5" y="-55.5" />
+      <point x="-16.5" y="43.5" />
+    </edge>
+    <edge source="com.t01g02.project.menu.GameMenuController" target="com.t01g02.project.menu.IController" relationship="REALIZATION">
+      <point x="100.0" y="-91.5" />
+      <point x="0.0" y="43.5" />
+    </edge>
+    <edge source="com.t01g02.project.Game" target="com.t01g02.project.viewer.CharacterViewer" relationship="TO_ONE">
+      <point x="-54.5" y="0.0" />
+      <point x="-948.1093749999989" y="1360.9999999999993" />
+      <point x="0.0" y="-43.5" />
+    </edge>
+    <edge source="com.t01g02.project.model.Road" target="com.t01g02.project.model.Position" relationship="TO_ONE">
+      <point x="88.5" y="-65.75000000000011" />
+      <point x="68.71200000000056" y="916.75" />
+      <point x="68.71200000000056" y="1013.75" />
+      <point x="97.0" y="1.1368683772161603E-13" />
+    </edge>
+    <edge source="com.t01g02.project.menu.GameMenuController" target="com.t01g02.project.menu.IModel" relationship="TO_ONE">
+      <point x="-3.1250000046156856E-4" y="-91.49999999999977" />
+      <point x="-477.805" y="784.0" />
+      <point x="-682.109" y="784.0" />
+      <point x="3.749999996216502E-4" y="91.5" />
+    </edge>
+    <edge source="com.t01g02.project.model.CharacterModel" target="com.t01g02.project.viewer.Sprite" relationship="TO_ONE">
+      <point x="-41.30600000000027" y="-30.732000000000426" />
+      <point x="519.1939999999997" y="738.0" />
+      <point x="251.5" y="738.0" />
+      <point x="18.5" y="67.5" />
+    </edge>
+    <edge source="com.t01g02.project.viewer.CityViewer" target="com.t01g02.project.model.CityModel" relationship="TO_ONE">
+      <point x="67.5" y="0.0" />
+      <point x="-192.0" y="1437.562499999999" />
+      <point x="0.0" y="79.5" />
+    </edge>
+    <edge source="com.t01g02.project.model.CharacterModel" target="com.t01g02.project.viewer.Sprite" relationship="CREATE">
+      <point x="-15.0" y="-31.5" />
+      <point x="545.5" y="620.0" />
+      <point x="133.5" y="0.0" />
+    </edge>
+    <edge source="com.t01g02.project.model.Element" target="com.t01g02.project.model.Position" relationship="TO_ONE">
+      <point x="100.59139999999962" y="-40.026000000000295" />
+      <point x="401.0" y="1156.6239999999996" />
+      <point x="401.0" y="1013.75" />
+      <point x="97.0" y="1.1368683772161603E-13" />
+    </edge>
+    <edge source="com.t01g02.project.model.CityModel" target="com.t01g02.project.model.Tile" relationship="TO_MANY">
+      <point x="-88.0" y="0.0" />
+      <point x="-298.0" y="1208.6499999999999" />
+      <point x="-298.0" y="793.7500000000002" />
+      <point x="-197.0" y="0.0" />
+    </edge>
+    <edge source="com.t01g02.project.Application" target="com.t01g02.project.menu.GameMenuController" relationship="CREATE">
+      <point x="82.0" y="0.0" />
+      <point x="-477.80468749999955" y="1238.9999999999995" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="com.t01g02.project.Game" target="com.t01g02.project.viewer.CityViewer" relationship="TO_ONE">
+      <point x="0.0" y="31.5" />
+      <point x="-757.8593749999993" y="1437.562499999999" />
+      <point x="-67.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.0000000000000016" showDependencies="true" x="-399.0400000000013" y="959.499999999999" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

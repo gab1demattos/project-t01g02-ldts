@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/SpriteTester.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +43,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="UML Class" />
       </list>
     </option>
   </component>
@@ -75,6 +74,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Application.executor": "Run",
+    "DefaultPlantUmlFileTemplate": "UML Class",
     "Gradle.Build project-t01g02.executor": "Run",
     "Gradle.CharacterModelTest (1).executor": "Run",
     "Gradle.CharacterModelTest.executor": "Run",
@@ -105,13 +105,20 @@
     "Gradle.TileTester.executor": "Run",
     "Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/matilde/IdeaProjects/project-t01g02/src/test/resources",
+    "last_opened_file_path": "/home/matilde/IdeaProjects/project-t01g02/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -121,18 +128,18 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/main" />
       <recent name="$PROJECT_DIR$/src/test/java" />
       <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/src/main/resources/extras" />
-      <recent name="$PROJECT_DIR$/src/main/resources/Characters" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'com.t01g02.project'">
-    <configuration name="GameMenuControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.CharacterModelTest">
+    <configuration name="CharacterModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -145,7 +152,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.Menu.GameMenuControllerTest&quot;" />
+            <option value="&quot;com.t01g02.project.CharacterModelTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -156,7 +163,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GameMenuModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CharacterViewerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -169,7 +176,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.Menu.GameMenuModelTest&quot;" />
+            <option value="&quot;com.t01g02.project.CharacterViewerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -180,7 +187,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="GameMenuViewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CityModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -193,7 +200,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.Menu.GameMenuViewTest&quot;" />
+            <option value="&quot;com.t01g02.project.CityModelTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CityViewerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.CityViewerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -228,39 +259,23 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'com.t01g02.project.Menu'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.t01g02.project.Menu.*&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'com.t01g02.project'" />
-        <item itemvalue="Gradle.GameMenuViewTest" />
-        <item itemvalue="Gradle.GameMenuControllerTest" />
-        <item itemvalue="Gradle.GameMenuModelTest" />
-        <item itemvalue="Gradle.Tests in 'com.t01g02.project.Menu'" />
+        <item itemvalue="Gradle.CityViewerTest" />
+        <item itemvalue="Gradle.CityModelTest" />
+        <item itemvalue="Gradle.CharacterViewerTest" />
+        <item itemvalue="Gradle.CharacterModelTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -270,8 +285,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731512875665</updated>
+      <workItem from="1732377231840" duration="2082000" />
+      <workItem from="1732379431748" duration="2157000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_Menu_.ic" NAME="Tests in 'com.t01g02.project.Menu' Coverage Results" MODIFIED="1732357575956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
