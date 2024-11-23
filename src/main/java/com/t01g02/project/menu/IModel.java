@@ -1,4 +1,4 @@
-package com.t01g02.project.Menu;
+package com.t01g02.project.menu;
 
 public interface IModel {
     String getGreetings();

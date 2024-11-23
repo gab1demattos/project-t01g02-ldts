@@ -4,9 +4,9 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.t01g02.project.Menu.GameMenuController;
-import com.t01g02.project.Menu.GameMenuModel;
-import com.t01g02.project.Menu.GameMenuView;
+import com.t01g02.project.menu.GameMenuController;
+import com.t01g02.project.menu.GameMenuModel;
+import com.t01g02.project.menu.GameMenuView;
 
 import java.awt.*;
 import java.io.IOException;

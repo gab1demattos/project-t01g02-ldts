@@ -1,4 +1,4 @@
-package com.t01g02.project.Menu;
+package com.t01g02.project.menu;
 
 public class Settings {
     private boolean musicOn;

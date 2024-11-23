@@ -1,4 +1,4 @@
-package com.t01g02.project.Menu;
+package com.t01g02.project.menu;
 
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;

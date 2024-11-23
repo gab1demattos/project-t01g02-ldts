@@ -1,4 +1,4 @@
-package com.t01g02.project.Menu;
+package com.t01g02.project.menu;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

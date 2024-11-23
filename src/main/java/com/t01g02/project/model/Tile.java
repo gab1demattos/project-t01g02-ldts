@@ -1,9 +1,6 @@
-package com.t01g02.project;
+package com.t01g02.project.model;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Tile {
     public enum Type {

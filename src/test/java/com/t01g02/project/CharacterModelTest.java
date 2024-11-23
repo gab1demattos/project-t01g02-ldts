@@ -1,5 +1,9 @@
 package com.t01g02.project;
 
+import com.t01g02.project.model.CharacterModel;
+import com.t01g02.project.model.CityModel;
+import com.t01g02.project.model.Position;
+import com.t01g02.project.viewer.Sprite;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
@@ -16,7 +20,10 @@ public class CharacterModelTest {
             city = new CityModel(500, 300);
 
             characters = List.of(
-                    new CharacterModel(new Sprite(null, "src/test/resources/hellokitty.png"), new Position(340, 127), "HelloKitty"),
+                    new
+
+
+                            CharacterModel(new Sprite(null, "src/test/resources/hellokitty.png"), new Position(340, 127), "HelloKitty"),
                     new CharacterModel(new Sprite(null, "src/test/resources/kuromi.png"), new Position(273, 226), "Kuromi"),
                     new CharacterModel(new Sprite(null, "src/test/resources/purin.png"), new Position(28, 41), "Purin"),
                     new CharacterModel(new Sprite(null, "src/test/resources/mymelody.png"), new Position(42, 177), "MyMelody"),

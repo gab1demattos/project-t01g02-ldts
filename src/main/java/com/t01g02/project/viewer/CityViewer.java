@@ -1,10 +1,12 @@
-package com.t01g02.project;
+package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
+import com.t01g02.project.model.CityModel;
+import com.t01g02.project.model.Tile;
 
 import java.io.IOException;
 

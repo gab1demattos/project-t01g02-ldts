@@ -1,9 +1,6 @@
-package com.t01g02.project;
+package com.t01g02.project.model;
 
-import com.googlecode.lanterna.graphics.TextGraphics;
-
-import java.lang.invoke.SwitchPoint;
-import java.nio.channels.spi.SelectorProvider;
+import com.t01g02.project.viewer.Sprite;
 
 public abstract class Element {
     protected Position position;

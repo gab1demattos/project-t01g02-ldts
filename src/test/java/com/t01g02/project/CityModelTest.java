@@ -1,17 +1,13 @@
 package com.t01g02.project;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
+import com.t01g02.project.model.CityModel;
+import com.t01g02.project.model.Position;
+import com.t01g02.project.model.Tile;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 public class CityModelTest {
     private CityModel city;

@@ -1,4 +1,4 @@
-package com.t01g02.project.Menu;
+package com.t01g02.project.menu;
 
 import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
@@ -6,8 +6,6 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-
-import java.io.IOException;
 
 public class GameMenuView implements IView {
     private Screen screen;

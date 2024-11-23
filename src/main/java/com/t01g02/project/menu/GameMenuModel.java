@@ -1,4 +1,4 @@
-package com.t01g02.project.Menu;
+package com.t01g02.project.menu;
 
 public class GameMenuModel implements IModel {
     private String greetings = "Hey there, thanks for stopping by!\n";

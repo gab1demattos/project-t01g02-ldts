@@ -8,6 +8,9 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.t01g02.project.model.CityModel;
+import com.t01g02.project.viewer.CharacterViewer;
+import com.t01g02.project.viewer.CityViewer;
 
 import java.net.URISyntaxException;
 import java.awt.*;

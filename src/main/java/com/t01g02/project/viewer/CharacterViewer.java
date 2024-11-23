@@ -1,11 +1,9 @@
-package com.t01g02.project;
+package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.screen.Screen;
+import com.t01g02.project.model.CharacterModel;
 
 import java.io.IOException;
-import java.util.List;
-
-import static com.t01g02.project.CharacterModel.initializeCharacters;
 
 
 public class CharacterViewer {
