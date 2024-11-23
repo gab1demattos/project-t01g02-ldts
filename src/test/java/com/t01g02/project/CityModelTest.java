@@ -1,10 +1,17 @@
 package com.t01g02.project;
 
+import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.screen.Screen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class CityModelTest {
     private CityModel city;
@@ -48,4 +55,5 @@ public class CityModelTest {
         assertNull(city.getTile(-1, -1), "Negative indices should return null");
         assertNull(city.getTile(501, 301), "Indices beyond boundaries should return null");
     }
+
 }

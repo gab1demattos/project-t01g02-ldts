@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/SpriteTester.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,15 +76,32 @@
   "keyToString": {
     "Application.Application.executor": "Run",
     "Gradle.Build project-t01g02.executor": "Run",
+    "Gradle.CharacterModelTest (1).executor": "Run",
     "Gradle.CharacterModelTest.executor": "Run",
     "Gradle.CharacterModelTester.executor": "Run",
     "Gradle.CharacterModelTester.testCharacterInitialization.executor": "Run",
+    "Gradle.CharacterViewerTest.executor": "Run",
+    "Gradle.CharacterViewerTester.drawTest.executor": "Run",
+    "Gradle.CharacterViewerTester.executor": "Run",
+    "Gradle.CharacterViewerTester.initializeCharactersTest.executor": "Run",
+    "Gradle.CityModelTest (1).executor": "Run",
     "Gradle.CityModelTest.executor": "Run",
     "Gradle.CityTester.executor": "Run",
     "Gradle.CityViewerTest.executor": "Run",
+    "Gradle.CityViewerTester.executor": "Run",
+    "Gradle.GameMenuControllerTest.executor": "Coverage",
+    "Gradle.GameMenuModelTest.executor": "Coverage",
+    "Gradle.GameMenuViewTest (1).executor": "Run",
+    "Gradle.GameMenuViewTest.executor": "Coverage",
+    "Gradle.GameMenuViewTest.testRedrawScreen.executor": "Run",
+    "Gradle.SpriteTest (1).executor": "Run",
+    "Gradle.SpriteTest.drawPixelTest.executor": "Run",
     "Gradle.SpriteTest.executor": "Run",
+    "Gradle.SpriteTester (1).executor": "Run",
     "Gradle.SpriteTester.executor": "Run",
-    "Gradle.Tests in 'project.test'.executor": "Run",
+    "Gradle.Tests in 'com.t01g02.project'.executor": "Coverage",
+    "Gradle.Tests in 'com.t01g02.project.Menu'.executor": "Coverage",
+    "Gradle.Tests in 'project.test'.executor": "Coverage",
     "Gradle.TileTester.executor": "Run",
     "Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -111,8 +131,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.CityModelTest">
-    <configuration name="CharacterModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Tests in 'com.t01g02.project'">
+    <configuration name="GameMenuControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -125,7 +145,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.CharacterModelTest&quot;" />
+            <option value="&quot;com.t01g02.project.Menu.GameMenuControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -136,7 +156,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterModelTester" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GameMenuModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -149,7 +169,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.CharacterModelTester&quot;" />
+            <option value="&quot;com.t01g02.project.Menu.GameMenuModelTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -160,7 +180,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CharacterModelTester.testCharacterInitialization" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GameMenuViewTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -173,7 +193,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.CharacterModelTester.testCharacterInitialization&quot;" />
+            <option value="&quot;com.t01g02.project.Menu.GameMenuViewTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -184,7 +204,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CityModelTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'com.t01g02.project'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -197,7 +217,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.CityModelTest&quot;" />
+            <option value="&quot;com.t01g02.project.*&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -208,7 +228,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="SpriteTester" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'com.t01g02.project.Menu'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -221,7 +241,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.SpriteTester&quot;" />
+            <option value="&quot;com.t01g02.project.Menu.*&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -234,11 +254,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.CityModelTest" />
-        <item itemvalue="Gradle.CharacterModelTest" />
-        <item itemvalue="Gradle.CharacterModelTester" />
-        <item itemvalue="Gradle.CharacterModelTester.testCharacterInitialization" />
-        <item itemvalue="Gradle.SpriteTester" />
+        <item itemvalue="Gradle.Tests in 'com.t01g02.project'" />
+        <item itemvalue="Gradle.GameMenuViewTest" />
+        <item itemvalue="Gradle.GameMenuControllerTest" />
+        <item itemvalue="Gradle.GameMenuModelTest" />
+        <item itemvalue="Gradle.Tests in 'com.t01g02.project.Menu'" />
       </list>
     </recent_temporary>
   </component>
@@ -252,5 +272,14 @@
       <updated>1731512875665</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_Menu_.ic" NAME="Tests in 'com.t01g02.project.Menu' Coverage Results" MODIFIED="1732357575956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_.ic" NAME="Tests in 'com.t01g02.project' Coverage Results" MODIFIED="1732357786074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$GameMenuControllerTest.ic" NAME="GameMenuControllerTest Coverage Results" MODIFIED="1732357630456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$SpriteTest.ic" NAME="SpriteTest Coverage Results" MODIFIED="1732355583255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$GameMenuModelTest.ic" NAME="GameMenuModelTest Coverage Results" MODIFIED="1732357602759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$GameMenuViewTest.ic" NAME="GameMenuViewTest Coverage Results" MODIFIED="1732357615539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$Tests_in__project_test_.ic" NAME="Tests in 'project.test' Coverage Results" MODIFIED="1732355550982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

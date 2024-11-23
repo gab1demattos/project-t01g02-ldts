@@ -16,11 +16,11 @@ public class CharacterModelTest {
             city = new CityModel(500, 300);
 
             characters = List.of(
-                    new CharacterModel(new Sprite(null, "/home/matilde/IdeaProjects/project-t01g02/src/test/resources/hellokitty.png"), new Position(340, 127), "HelloKitty"),
-                    new CharacterModel(new Sprite(null, "/home/matilde/IdeaProjects/project-t01g02/src/test/resources/kuromi.png"), new Position(273, 226), "Kuromi"),
-                    new CharacterModel(new Sprite(null, "/home/matilde/IdeaProjects/project-t01g02/src/test/resources/purin.png"), new Position(28, 41), "Purin"),
-                    new CharacterModel(new Sprite(null, "/home/matilde/IdeaProjects/project-t01g02/src/test/resources/mymelody.png"), new Position(42, 177), "MyMelody"),
-                    new CharacterModel(new Sprite(null, "/home/matilde/IdeaProjects/project-t01g02/src/test/resources/cinnamoroll.png"), new Position(222, 73), "Cinnamoroll")
+                    new CharacterModel(new Sprite(null, "src/test/resources/hellokitty.png"), new Position(340, 127), "HelloKitty"),
+                    new CharacterModel(new Sprite(null, "src/test/resources/kuromi.png"), new Position(273, 226), "Kuromi"),
+                    new CharacterModel(new Sprite(null, "src/test/resources/purin.png"), new Position(28, 41), "Purin"),
+                    new CharacterModel(new Sprite(null, "src/test/resources/mymelody.png"), new Position(42, 177), "MyMelody"),
+                    new CharacterModel(new Sprite(null, "src/test/resources/cinnamoroll.png"), new Position(222, 73), "Cinnamoroll")
             );
         }
 
