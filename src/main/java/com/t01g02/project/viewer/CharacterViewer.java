@@ -15,7 +15,6 @@ public class CharacterViewer {
     }
 
     public void initializeCharacters() throws IOException {
-        // Initialize the characters list with the screen instance
         CharacterModel.initializeCharacters(screen);
     }
 
