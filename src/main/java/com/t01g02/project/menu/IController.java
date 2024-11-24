@@ -6,5 +6,6 @@ import java.net.URISyntaxException;
 
 public interface IController {
     void processInput() throws IOException, URISyntaxException, FontFormatException;
+
     void updateView();
 }

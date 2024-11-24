@@ -8,52 +8,52 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class GameMenuController implements IController{
+public class GameMenuController implements IController {
     private boolean running = true;
     private final IView view;
     private IModel model;
     private final Screen screen;
 
-    public GameMenuController(GameMenuView view, Screen screen,IModel model){
+    public GameMenuController(GameMenuView view, Screen screen, IModel model) {
         this.view = view;
-        this.screen=screen;
+        this.screen = screen;
         this.model = model;
     }
 
-    public boolean isRunning(){
+    public boolean isRunning() {
         return running;
     }
 
     @Override
-    public void processInput() throws IOException, URISyntaxException, FontFormatException{
+    public void processInput() throws IOException, URISyntaxException, FontFormatException {
         KeyStroke input = screen.readInput();
-            if(input!=null){
-                switch (input.getKeyType()){
-                    case Escape:
-                        running = false;
-                        System.exit(0);
-                        break;
-                    case ArrowLeft:
-                        model.setSelectedOption((model.getSelectedOption() - 1 + model.getOptions().length) % model.getOptions().length);
-                        view.redrawButtons();
-                        break;
-                    case ArrowRight:
-                        model.setSelectedOption((model.getSelectedOption() + 1) % model.getOptions().length);
-                        view.redrawButtons();
-                        break;
-                    case Enter:
-                        executeSelectedOption();
-                        break;
-                    default:
-                        break;
-                }
-            }else return;
+        if (input != null) {
+            switch (input.getKeyType()) {
+                case Escape:
+                    running = false;
+                    System.exit(0);
+                    break;
+                case ArrowLeft:
+                    model.setSelectedOption((model.getSelectedOption() - 1 + model.getOptions().length) % model.getOptions().length);
+                    view.redrawButtons();
+                    break;
+                case ArrowRight:
+                    model.setSelectedOption((model.getSelectedOption() + 1) % model.getOptions().length);
+                    view.redrawButtons();
+                    break;
+                case Enter:
+                    executeSelectedOption();
+                    break;
+                default:
+                    break;
+            }
+        } else return;
 
     }
 
-    void executeSelectedOption() throws IOException, URISyntaxException, FontFormatException{
+    void executeSelectedOption() throws IOException, URISyntaxException, FontFormatException {
         String selectedOption = model.getOptions()[model.getSelectedOption()];
-        switch (selectedOption){
+        switch (selectedOption) {
             case "Settings":
                 openSettings();
                 break;
@@ -65,7 +65,7 @@ public class GameMenuController implements IController{
         }
     }
 
-    private void openSettings(){
+    private void openSettings() {
         System.out.println("Opening settings...");
     }
 
@@ -76,9 +76,9 @@ public class GameMenuController implements IController{
     }
 
     @Override
-    public void updateView(){
+    public void updateView() {
         view.redrawScreen();
-        if(screen.doResizeIfNecessary()!=null){
+        if (screen.doResizeIfNecessary() != null) {
             view.redrawScreen();
         }
     }
