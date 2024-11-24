@@ -22,7 +22,7 @@ public class CharacterViewer {
     public void draw() throws IOException {
         if (CharacterModel.characters != null){
             for (CharacterModel character : CharacterModel.characters) {
-                System.out.println("Drawing character: " + character.getName() + " at position: " + character.getPosition().getX() + ", " + character.getPosition().getY());
+                //System.out.println("Drawing character: " + character.getName() + " at position: " + character.getPosition().getX() + ", " + character.getPosition().getY());
                 character.getSprite().drawImage(character.getPosition()); // Example size values
 
             }

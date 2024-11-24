@@ -6,10 +6,13 @@
 ### Features
 ### Mockups
 
+Menu Mockup
 <p align="center">
-    <img  src="/docs/images/menu_mockup.jpeg" alt="Menu Mockup"/>
+    <img width="500" src="/docs/images/menu_mockup.jpeg" alt="Menu Mockup"/>
 </p>
 
+
+Game Mockup
 <p align="center">
     <img  src="/docs/images/game_mockup.jpg" alt="Menu Mockup"/>
 </p>
