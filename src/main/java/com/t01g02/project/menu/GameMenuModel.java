@@ -3,11 +3,11 @@ package com.t01g02.project.menu;
 public class GameMenuModel implements IModel {
     private String greetings = "Hey there, thanks for stopping by!\n";
     private String infoText = "Can you help Kitty pick up her friends for her party?\n\n" +
-                                "1. Use the arrows to move Kitty\n" + "\n" +
-                                "2.You can only pick up a friend at a time\n" + "\n" +
-                                "3. Avoid roadblocks\n" +"\n"+
-                                "4. Lookout for bonus points ;)\n" + "\n"+
-                                "5. Have fun, and remember to make it on time\n";
+            "1. Use the arrows to move Kitty\n" + "\n" +
+            "2.You can only pick up a friend at a time\n" + "\n" +
+            "3. Avoid roadblocks and mud puddles\n" + "\n" +
+            "4. Lookout for bonus points ;)\n" + "\n" +
+            "5. Have fun, and remember to make it on time!\n";
     private String exitInfo = "Esc to exit";
     private final String[] options = {"Settings", "Play"}; // Option buttons
     private int selectedOption = 1;
@@ -19,7 +19,7 @@ public class GameMenuModel implements IModel {
     }
 
     @Override
-    public String getInfoText(){
+    public String getInfoText() {
         return infoText;
     }
 

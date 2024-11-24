@@ -11,14 +11,15 @@ public class CityModel {
     private final Tile[][] map;
 
 
-    public CityModel(int width, int height){
+    public CityModel(int width, int height) {
         this.width = width;
         this.height = height;
         this.map = new Tile[height][width];
 
 
     }
-    public void initializeRoads(){
+
+    public void initializeRoads() {
 
         TextColor roadColor = TextColor.Factory.fromString("#888888");
 
@@ -49,7 +50,7 @@ public class CityModel {
             Tile.fillLine(map, segment.getStart(), segment.getEnd(), segment.getType(), segment.getColor());
         }
 
-        }
+    }
 
 
     public Tile getTile(int x, int y) {
@@ -60,14 +61,19 @@ public class CityModel {
     }
 
 
-    public int getWidth(){ return width; };
+    public int getWidth() {
+        return width;
+    }
 
-    public int getHeight() { return height; }
+    ;
+
+    public int getHeight() {
+        return height;
+    }
 
     public Tile[][] getMap() {
         return map;
     }
-
 
 
 }
