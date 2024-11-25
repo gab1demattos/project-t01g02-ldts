@@ -1,6 +1,7 @@
 package com.t01g02.project;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.graphics.TextImage;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
@@ -8,10 +9,13 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.CityViewer;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.net.URISyntaxException;
 import java.awt.*;
 import java.io.File;
@@ -27,6 +31,7 @@ public class Game {
     //private final Controller controller;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
+
         this.city = new CityModel(500, 250); //320/200
 
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
@@ -60,14 +65,25 @@ public class Game {
         city.initializeRoads();
         characterViewer.initializeCharacters();
 
+        ((AWTTerminalFrame)terminal).addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
 
     }
 
     public void run() throws IOException {//this is part of view??
+        cityViewer.initializeCityImage();
 
         while (true) {
+            screen.clear();
+
             cityViewer.draw();
             characterViewer.draw();
+
+            screen.refresh();
 
             KeyStroke key = screen.readInput();
             if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q' || key.getKeyType() == KeyType.EOF) {
