@@ -27,7 +27,7 @@ public class CharacterViewerTest {
 
         characterViewer = new CharacterViewer(stubScreen);
 
-        CharacterModel.characters = List.of(
+        CharacterModel.friends = List.of(
                 new CharacterModel(stubSprite, new Position(340, 127), "HelloKitty"),
                 new CharacterModel(stubSprite, new Position(273, 226), "Kuromi")
         );
@@ -37,8 +37,8 @@ public class CharacterViewerTest {
     void testInitializeCharacters() throws IOException {
         characterViewer.initializeCharacters();
 
-        assertNotNull(CharacterModel.characters);
-        assertEquals(5, CharacterModel.characters.size());
+        assertNotNull(CharacterModel.friends);
+        assertEquals(5, CharacterModel.friends.size());
     }
 
 
@@ -46,7 +46,7 @@ public class CharacterViewerTest {
     void testDraw() throws IOException {
         characterViewer.draw();
 
-        for (CharacterModel character : CharacterModel.characters) {
+        for (CharacterModel character : CharacterModel.friends) {
             verify(character.getSprite(), times(1)).drawImage(character.getPosition());
         }
 
