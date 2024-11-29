@@ -31,11 +31,7 @@ public class CharacterModel extends Element {
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/cinnamoroll.png"),
                         new Position(222, 73), "Cinnamoroll")
         );
-        for (CharacterModel character : friends) {
-            System.out.println("Initialized character: " + character.getName() +
-                    ", Position: (" + character.getPosition().getX() +
-                    ", " + character.getPosition().getY() + ")");
-        }
+
     }
 
     public static CharacterModel getHellokitty() {

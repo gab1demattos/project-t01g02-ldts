@@ -30,7 +30,6 @@ public class Game {
     private final CityModel city;
     private final CityViewer cityViewer;
     private CharacterViewer characterViewer;
-    private CharacterModel characterModel;
     private final Controller controller;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
@@ -63,11 +62,12 @@ public class Game {
 
         this.cityViewer = new CityViewer(city, screen);
         this.characterViewer = new CharacterViewer(screen);
-        this.controller = new Controller(screen, CharacterModel.getHellokitty());
 
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
+        this.controller = new Controller(screen, CharacterModel.getHellokitty(), city);
+
 
         ((AWTTerminalFrame)terminal).addWindowListener(new WindowAdapter() {
             @Override

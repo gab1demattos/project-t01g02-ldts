@@ -38,8 +38,6 @@ public class Sprite {
 
                 if (pixelColor.getAlpha() > 0) {  // Non-transparent pixel
                     TextColor color = new TextColor.RGB(pixelColor.getRed(), pixelColor.getGreen(), pixelColor.getBlue());
-                    System.out.println("Drawing sprite at Position: (" + position.getX() + ", " + position.getY() + ")");
-
                     drawPixel(new Position(position.getX() + x, position.getY() + y), color);
                 }
             }
