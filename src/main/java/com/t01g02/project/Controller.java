@@ -51,6 +51,7 @@ public class Controller {
                 break;
         }
 
+        //need to fix hello kitty position
 
         CharacterModel.getHellokitty().setPosition(newPosition);
     }
