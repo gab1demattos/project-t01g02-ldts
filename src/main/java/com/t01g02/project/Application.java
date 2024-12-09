@@ -4,6 +4,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminal;
 import com.t01g02.project.menu.GameMenuController;
 import com.t01g02.project.menu.GameMenuModel;
 import com.t01g02.project.menu.GameMenuView;

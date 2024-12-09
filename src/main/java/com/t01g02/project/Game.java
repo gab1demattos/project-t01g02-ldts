@@ -16,6 +16,8 @@ import com.t01g02.project.model.Element;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.CityViewer;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.net.URISyntaxException;
@@ -47,6 +49,8 @@ public class Game {
         Font newfont = font.deriveFont(Font.PLAIN, 4);
         AWTTerminalFontConfiguration cfg = AWTTerminalFontConfiguration.newInstance(newfont);
 
+
+
         Terminal terminal = new DefaultTerminalFactory()
                 .setInitialTerminalSize(new TerminalSize(city.getWidth(), city.getHeight()))
                 .setTerminalEmulatorFontConfiguration(cfg)
@@ -75,11 +79,26 @@ public class Game {
                 System.exit(0);
             }
         });
+        ((AWTTerminalFrame) terminal).addKeyListener(new GameKeyListener(controller));
+
+        System.out.println("Terminal class: " + terminal.getClass().getName());
+        if (terminal instanceof AWTTerminalFrame) {
+            System.out.println("Terminal is correctly identified as AWTTerminalFrame.");
+        } else {
+            System.out.println("Terminal is not an AWTTerminalFrame!");
+        }
+
+
+
+
+
 
     }
 
     public void run() throws IOException {
         cityViewer.initializeCityImage();
+
+
 
         while (true) {
             screen.clear();
@@ -89,11 +108,13 @@ public class Game {
 
             screen.refresh();
 
-            KeyStroke key = screen.readInput();
-            if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'q' || key.getKeyType() == KeyType.EOF) {
-                System.exit(0);
+            KeyStroke keyStroke = screen.pollInput();
+            if (keyStroke != null) {
+                controller.processInput(keyStroke);
             }
-            controller.processInput(key);
+
+
+
         }
     }
 }
