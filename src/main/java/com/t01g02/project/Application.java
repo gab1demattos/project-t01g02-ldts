@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Application {
-    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException {
+    public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         GameMenuModel menu = new GameMenuModel();
 
         Terminal terminal = new DefaultTerminalFactory().createTerminal();

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public interface IController {
-    void processInput() throws IOException, URISyntaxException, FontFormatException;
+    void processInput() throws IOException, URISyntaxException, FontFormatException, InterruptedException;
 
     void updateView();
 }

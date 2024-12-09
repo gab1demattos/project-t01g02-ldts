@@ -25,7 +25,7 @@ public class GameMenuController implements IController {
     }
 
     @Override
-    public void processInput() throws IOException, URISyntaxException, FontFormatException {
+    public void processInput() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         KeyStroke input = screen.readInput();
         if (input != null) {
             switch (input.getKeyType()) {
@@ -51,7 +51,7 @@ public class GameMenuController implements IController {
 
     }
 
-    void executeSelectedOption() throws IOException, URISyntaxException, FontFormatException {
+    void executeSelectedOption() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         String selectedOption = model.getOptions()[model.getSelectedOption()];
         switch (selectedOption) {
             case "Settings":
@@ -69,7 +69,7 @@ public class GameMenuController implements IController {
         System.out.println("Opening settings...");
     }
 
-    private void startGame() throws IOException, URISyntaxException, FontFormatException {
+    private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         System.out.println("Game Starting...");
         Game game = new Game();
         game.run();

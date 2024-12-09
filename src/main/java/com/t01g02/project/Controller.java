@@ -4,9 +4,12 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.*;
 import com.t01g02.project.viewer.CharacterViewer;
+import com.t01g02.project.viewer.CityViewer;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Controller {
     private CharacterModel hellokitty;
@@ -22,37 +25,48 @@ public class Controller {
         this.cityModel = cityModel;
     }
 
-    public void processInput(KeyStroke keyStroke) {
+    public void processInput(Set<KeyStroke> keys) {
         Position currentPosition = CharacterModel.getHellokitty().getPosition();
         Position newPosition = null;
 
-        switch (keyStroke.getKeyType()) {
-            case ArrowUp:
-                newPosition = new Position(currentPosition.getX(), currentPosition.getY() - 2);
-                break;
-            case ArrowDown:
-                newPosition = new Position(currentPosition.getX(), currentPosition.getY() + 2);
-                break;
-            case ArrowLeft:
-                newPosition = new Position(currentPosition.getX() - 2, currentPosition.getY());
-                break;
-            case ArrowRight:
-                newPosition = new Position(currentPosition.getX() + 2, currentPosition.getY());
-                break;
-            default:
-                return;
+        for (KeyStroke key: keys) {
+            System.out.println("Key is " + key);
+
+            switch (key.getKeyType()) {
+                case ArrowUp:
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - 2);
+                    break;
+                case ArrowDown:
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + 2);
+                    break;
+                case ArrowLeft:
+                    newPosition = new Position(currentPosition.getX() - 2, currentPosition.getY());
+                    break;
+                case ArrowRight:
+                    newPosition = new Position(currentPosition.getX() + 2, currentPosition.getY());
+                    break;
+                default:
+                    return;
+            }
         }
 
-        //need to fix hello kitty position
 
         if (newPosition != null && canMove(newPosition)) {
-            System.out.println("Moving to position: " + newPosition.getX() + ", " + newPosition.getY());
             CharacterModel.getHellokitty().setPosition(newPosition);
+
         }
     }
     private boolean canMove(Position newPosition){
-        Tile tile = cityModel.getTile(newPosition.getX(), newPosition.getY());
-        if (tile == null || tile.getType() != Tile.Type.ROAD) return false;
+        List<Position> corners = new ArrayList<>();
+        corners.add(new Position(newPosition.getX()+3, newPosition.getY()+2)); //upperleft
+        corners.add(new Position(newPosition.getX() + 23, newPosition.getY()+2)); // upper right
+        corners.add(new Position(newPosition.getX()+3, newPosition.getY() + 17)); //lower left
+        corners.add(new Position(newPosition.getX() + 23, newPosition.getY() + 17)); //lower right
+
+        for (Position corner : corners) {
+            Tile tile = cityModel.getTile(corner.getX(), corner.getY());
+            if (tile == null || tile.getType() != Tile.Type.ROAD) return false;
+        }
         return true;
     }
 

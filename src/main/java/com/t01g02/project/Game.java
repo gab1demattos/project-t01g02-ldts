@@ -31,6 +31,7 @@ public class Game {
     private final Screen screen;
     private final CityModel city;
     private final CityViewer cityViewer;
+    private final GameKeyListener gameKeyListener;
     private CharacterViewer characterViewer;
     private final Controller controller;
 
@@ -71,6 +72,8 @@ public class Game {
         city.initializeRoads();
         characterViewer.initializeCharacters();
         this.controller = new Controller(screen, CharacterModel.getHellokitty(), city);
+        this.gameKeyListener = new GameKeyListener(controller);
+
 
 
         ((AWTTerminalFrame)terminal).addWindowListener(new WindowAdapter() {
@@ -79,44 +82,42 @@ public class Game {
                 System.exit(0);
             }
         });
-        ((AWTTerminalFrame) terminal).addKeyListener(new GameKeyListener(controller));
-
-        System.out.println("Terminal class: " + terminal.getClass().getName());
-        if (terminal instanceof AWTTerminalFrame) {
-            System.out.println("Terminal is correctly identified as AWTTerminalFrame.");
-        } else {
-            System.out.println("Terminal is not an AWTTerminalFrame!");
-        }
-
-
-
-
-
+        AWTTerminalFrame terminalFrame = (AWTTerminalFrame) terminal;
+        terminalFrame.addKeyListener(this.gameKeyListener); // Add the key listener here
+        terminalFrame.requestFocusInWindow();
 
     }
 
-    public void run() throws IOException {
+    public void run() throws IOException, InterruptedException {
         cityViewer.initializeCityImage();
-
+        int FPS = 10;
+        int frameTime = 1000 / FPS;
 
 
         while (true) {
+            long startTime = System.currentTimeMillis();
             screen.clear();
 
             cityViewer.draw();
             characterViewer.draw();
 
             screen.refresh();
+            controller.processInput(gameKeyListener.getKeys());
+            System.out.println(gameKeyListener.getKeys());
 
-            KeyStroke keyStroke = screen.pollInput();
-            if (keyStroke != null) {
-                controller.processInput(keyStroke);
+            long elapsedTime = System.currentTimeMillis() - startTime;
+            long sleepTime = frameTime - elapsedTime;
+
+            try {
+                System.out.println(sleepTime);
+                if (sleepTime > 0) Thread.sleep(sleepTime);
+            } catch (InterruptedException e) {
             }
-
+            }
 
 
         }
     }
-}
+
 
       

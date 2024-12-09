@@ -15,6 +15,7 @@ public class Tile {
         this.color = color;
     }
 
+
     public Type getType() {
         return type;
     }
