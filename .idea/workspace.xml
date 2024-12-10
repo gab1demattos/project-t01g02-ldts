@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/IPopus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/Score.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/Timer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/GameKeyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/GameKeyListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/IController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CityViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CityViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -301,7 +293,7 @@
       <workItem from="1733591076889" duration="358000" />
       <workItem from="1733591440942" duration="1835000" />
       <workItem from="1733684369624" duration="826000" />
-      <workItem from="1733734122281" duration="13589000" />
+      <workItem from="1733734122281" duration="16037000" />
     </task>
     <servers />
   </component>

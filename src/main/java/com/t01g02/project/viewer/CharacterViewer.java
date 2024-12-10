@@ -11,12 +11,10 @@ import java.io.IOException;
 
 public class CharacterViewer {
     private final Screen screen;
-    private final Sprite party;
 
 
     public CharacterViewer(Screen screen) throws IOException {
         this.screen = screen;
-        this.party = new Sprite(screen, "src/main/resources/extras/party.png");
     }
 
     public void initializeCharacters() throws IOException {
@@ -25,7 +23,6 @@ public class CharacterViewer {
 
 
     public void draw() throws IOException {
-        party.drawImage(new Position(407, 20));
         CharacterModel.getHellokitty().getSprite().drawImage(CharacterModel.getHellokitty().getPosition());
         if (CharacterModel.friends != null){
             for (CharacterModel character : CharacterModel.friends) {

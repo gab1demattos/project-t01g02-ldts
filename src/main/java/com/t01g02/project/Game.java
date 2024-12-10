@@ -92,6 +92,7 @@ public class Game {
         cityViewer.initializeCityImage();
         int FPS = 10;
         int frameTime = 1000 / FPS;
+        long totalElapsedTime = 0; //timer start
 
 
         while (true) {
@@ -103,7 +104,11 @@ public class Game {
 
             screen.refresh();
             controller.processInput(gameKeyListener.getKeys());
-            System.out.println(gameKeyListener.getKeys());
+
+            //this is a makeshift timer, we'll need to incorporate it in timer class thats model ithink?
+            totalElapsedTime += frameTime;
+            System.out.println("Total elapsed time: " + totalElapsedTime / 1000 + " seconds");
+
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
