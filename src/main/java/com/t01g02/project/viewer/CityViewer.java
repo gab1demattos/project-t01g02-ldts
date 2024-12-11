@@ -33,7 +33,7 @@ public class CityViewer {
     public void initializeCityImage() {
         for (int y = 0; y < city.getHeight(); y++) {
             for (int x = 0; x < city.getWidth(); x++) {
-                TextCharacter defaultChar = new TextCharacter(' ', TextColor.Factory.fromString("#000000"), TextColor.Factory.fromString("#FFE1EA"));
+                TextCharacter defaultChar = new TextCharacter(' ', TextColor.Factory.fromString("#000000"), TextColor.Factory.fromString("#8A9A5B"));
                 cityImage.setCharacterAt(new TerminalPosition(x, y), defaultChar);
             }
         }
@@ -42,7 +42,7 @@ public class CityViewer {
                 Tile tile = city.getTile(x, y);
                 if (tile != null) {
                     char displayChar = tile.getType() == Tile.Type.ROAD ? '█' : ' ';
-                    TextCharacter textChar = new TextCharacter(displayChar, tile.getColor(), TextColor.Factory.fromString("#FFE1EA"));
+                    TextCharacter textChar = new TextCharacter(displayChar, tile.getColor(), TextColor.Factory.fromString("#636363"));
                     cityImage.setCharacterAt(new TerminalPosition(x, y), textChar);
                 }
             }
