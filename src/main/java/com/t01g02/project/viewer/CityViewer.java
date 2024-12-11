@@ -19,6 +19,9 @@ public class CityViewer {
     private final Screen screen;
     private final BasicTextImage cityImage;
     private final Sprite party;
+    private final Sprite house;
+    private final Sprite tree;
+    private final Sprite lighttree;
 
     //private GameTimer timer;
 
@@ -27,8 +30,9 @@ public class CityViewer {
         this.screen = screen;
         this.cityImage = new BasicTextImage(500, 250);
         this.party = new Sprite(screen, "src/main/resources/extras/party.png");
-
-
+        this.house = new Sprite(screen, "src/main/resources/extras/house.png");
+        this.tree = new Sprite(screen, "src/main/resources/extras/tree.png");
+        this.lighttree = new Sprite(screen, "src/main/resources/extras/lighttree.png");
     }
     public void initializeCityImage() {
         for (int y = 0; y < city.getHeight(); y++) {
@@ -65,12 +69,16 @@ public class CityViewer {
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screen.getTerminalSize().getColumns(), screen.getTerminalSize().getRows()), ' ');
 
         graphics.drawImage(new TerminalPosition(0, 0), cityImage);
-        party.drawImage(new Position(407, 20));
+        party.drawImage(new Position(280, 176));
 
+        house.drawImage(new Position(30, 85));
+        house.drawImage(new Position(95, 135));
+        house.drawImage(new Position(280, 85));
+        house.drawImage(new Position(222, 190));
 
-
-
-
+        tree.drawImage(new Position(310, 85));
+        lighttree.drawImage(new Position(315, 95));
+        tree.drawImage(new Position(310, 105));
     }
 }
 

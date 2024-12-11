@@ -24,13 +24,13 @@ public class CharacterModel extends Element {
                 new Position(313, 226), "HelloKitty");
         friends = List.of(
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/kuromi.png"),
-                        new Position(273, 226), "Kuromi"),
+                        new Position(225, 202), "Kuromi"),
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/purin.png"),
-                        new Position(28, 41), "Purin"),
+                        new Position(33, 100), "Purin"),
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/mymelody.png"),
-                        new Position(42, 177), "MyMelody"),
+                        new Position(99, 147), "MyMelody"),
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/cinnamoroll.png"),
-                        new Position(222, 73), "Cinnamoroll")
+                        new Position(285, 103), "Cinnamoroll")
         );
 
     }
