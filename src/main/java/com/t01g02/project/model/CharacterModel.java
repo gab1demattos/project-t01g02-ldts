@@ -21,7 +21,7 @@ public class CharacterModel extends Element {
 
     public static void initializeCharacters(Screen screen) throws IOException {
         hellokitty = new CharacterModel(new Sprite(screen, "src/main/resources/characters/hellokitty.png"),
-                new Position(340, 127), "HelloKitty");
+                new Position(313, 226), "HelloKitty");
         friends = List.of(
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/kuromi.png"),
                         new Position(273, 226), "Kuromi"),
