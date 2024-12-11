@@ -4,15 +4,22 @@ import com.googlecode.lanterna.TextColor;
 
 public class Tile {
     public enum Type {
-        ROAD, TREE, EMPTY
+        ROAD, TREE, PICKUP, DROPOFF, EMPTY
     }
 
     private final Type type;
     private final TextColor color;
+    private final String identifier;
 
     public Tile(Type type, TextColor color) {
+        this(type, color, null);
+    }
+
+
+    public Tile(Type type, TextColor color, String identifier) {
         this.type = type;
         this.color = color;
+        this.identifier = identifier;
     }
 
 
@@ -23,6 +30,11 @@ public class Tile {
     public TextColor getColor() {
         return color;
     }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
 
     // Static method to create a line of tiles in a specified orientation (vertical or horizontal)
     public static void fillLine(Tile[][] map, Position start, Position end, Type type, TextColor color) {

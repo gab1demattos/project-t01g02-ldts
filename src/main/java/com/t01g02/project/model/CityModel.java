@@ -2,6 +2,7 @@ package com.t01g02.project.model;
 
 import com.googlecode.lanterna.TextColor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -9,14 +10,13 @@ public class CityModel {
     private final int width;
     private final int height;
     private final Tile[][] map;
-
+    private final List<Zone> zones;
 
     public CityModel(int width, int height) {
         this.width = width;
         this.height = height;
         this.map = new Tile[height][width];
-
-
+        this.zones = new ArrayList<>();
     }
 
     public void initializeRoads() {
@@ -52,6 +52,21 @@ public class CityModel {
 
     }
 
+    public void initializeZones(){
+        TextColor zonecolor = TextColor.Factory.fromString("#888888"); // same color as roads, do we need to see the
+
+        zones.add( new Zone(new Position(270, 200), new Position(300, 200), "Kuromi", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(0)));
+        zones.add(new Zone(new Position(25, 60), new Position(55, 60), "Purin", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(1)));
+        zones.add(new Zone(new Position(40, 200), new Position(70, 200), "MyMelody", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(2)));
+        zones.add(new Zone(new Position(220, 90), new Position(250, 90), "Cinnamoroll", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(3)));
+        zones.add(new Zone(new Position(410, 70), new Position(440, 70), "Party", Tile.Type.DROPOFF, zonecolor, null));
+
+        for (Zone zone : zones) {
+            Tile.fillLine(map, zone.getStartposition(), zone.getEndposition(), zone.getType(), zone.getColor());
+        }
+
+    }
+
 
     public Tile getTile(int x, int y) {
         if (x >= 0 && x < width && y >= 0 && y < height) {
@@ -73,6 +88,9 @@ public class CityModel {
 
     public Tile[][] getMap() {
         return map;
+    }
+    public List<Zone> getZones(){
+        return zones;
     }
 
 

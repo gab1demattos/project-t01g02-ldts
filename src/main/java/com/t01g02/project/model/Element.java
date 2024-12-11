@@ -25,5 +25,4 @@ public abstract class Element {
         return name;
     }
 
-    //public abstract void draw(TextGraphics graphics);
 }

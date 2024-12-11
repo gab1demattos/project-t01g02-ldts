@@ -30,7 +30,6 @@ public class Controller {
         Position newPosition = null;
 
         for (KeyStroke key: keys) {
-            System.out.println("Key is " + key);
 
             switch (key.getKeyType()) {
                 case ArrowUp:
@@ -53,7 +52,11 @@ public class Controller {
 
         if (newPosition != null && canMove(newPosition)) {
             CharacterModel.getHellokitty().setPosition(newPosition);
+            Tile tile = cityModel.getTile(newPosition.getX(), newPosition.getY());
 
+            if (tile != null){
+                System.out.println(tile.getType());
+            }
         }
     }
     private boolean canMove(Position newPosition){
@@ -65,9 +68,78 @@ public class Controller {
 
         for (Position corner : corners) {
             Tile tile = cityModel.getTile(corner.getX(), corner.getY());
-            if (tile == null || tile.getType() != Tile.Type.ROAD) return false;
+            if (tile == null) {
+                return false;
+            }
+            if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF) {
+                return false;
+            }
         }
         return true;
+    }
+
+    private boolean isWithinZone(Position position, Zone zone) {
+        int tileX = position.getX() / 25;
+        int tileY = position.getY() / 25;
+
+        // Convert zone start and end positions to tile coordinates (divide by 25)
+        int zoneStartX = zone.getStartposition().getX() / 25;
+        int zoneEndX = zone.getEndposition().getX() / 25;
+        int zoneStartY = zone.getStartposition().getY() / 25;
+        int zoneEndY = zone.getEndposition().getY() / 25;
+
+        System.out.println("Checking if position (" + tileX + ", " + tileY + ") is within zone: " +
+                "X range: [" + zoneStartX + ", " + zoneEndX + "], " +
+                "Y range: [" + zoneStartY + ", " + zoneEndY + "]");
+
+        // Check if the tile-based position is within the zone
+        return tileX >= zoneStartX && tileX <= zoneEndX &&
+                tileY >= zoneStartY && tileY <= zoneEndY;
+    }
+
+    public void checkPickup() {
+        Position kittyPosition = CharacterModel.getHellokitty().getPosition();
+
+        List<Zone> zones = cityModel.getZones();
+
+        for (Zone zone : zones) {
+            System.out.println("checking " + zone.getType());
+            System.out.println("Hellokitty position:"  + kittyPosition.getX() + " " + kittyPosition.getY() );
+            System.out.println("Zone position" + zone.getStartposition().getX() + " " + zone.getStartposition().getY() + " " + zone.getEndposition().getX() + " " + zone.getEndposition().getY());
+            if (zone.getType() == Tile.Type.PICKUP && isWithinZone(kittyPosition, zone)) {
+                System.out.println("Hellokitty is within the Pickup zone: " + zone.getIdentifier());
+
+                CharacterModel friend = zone.getAssociatedFriend();
+                if (friend != null && !friend.isFollowing()) {
+                    friend.setFollowing(true);
+                    System.out.println(friend.getName() + " is now following Hello Kitty!");
+                    // Notify score manager
+                }
+            }
+        }
+    }
+    public void checkDropoff() {
+        Position kittyPosition = CharacterModel.getHellokitty().getPosition();
+
+        for (Zone zone : cityModel.getZones()) {
+
+            if (zone.getType() == Tile.Type.DROPOFF && isWithinZone(kittyPosition, zone)) {
+                for (CharacterModel friend : CharacterModel.friends) {
+                    if (friend.isFollowing()) {
+                        friend.setFollowing(false);
+                        System.out.println(friend.getName() + " has been dropped off!");
+                        // Notify score manager
+                    }
+                }
+            }
+        }
+    }
+    public void moveFollowingCharacters() {
+        for (CharacterModel friend : CharacterModel.friends) {
+            if (friend.isFollowing()) {
+                friend.follow(); // Call the follow method to move the friend
+            }
+        }
     }
 
 }

@@ -36,10 +36,8 @@ public class CharacterViewer {
         speed.drawImage(new Position(100, 100));
         star.drawImage(new Position(150, 150));
         CharacterModel.getHellokitty().getSprite().drawImage(CharacterModel.getHellokitty().getPosition());
-        if (CharacterModel.friends != null){
-            for (CharacterModel character : CharacterModel.friends) {
+        for (CharacterModel character : CharacterModel.friends) {
                 character.getSprite().drawImage(character.getPosition());
-            }
         }
     }
 }

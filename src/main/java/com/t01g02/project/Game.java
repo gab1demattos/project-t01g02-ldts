@@ -71,6 +71,9 @@ public class Game {
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
+        System.out.println("Initializing zones...");
+        city.initializeZones();
+        System.out.println(city.getZones().size());
         this.controller = new Controller(screen, CharacterModel.getHellokitty(), city);
         this.gameKeyListener = new GameKeyListener(controller);
 
@@ -104,17 +107,21 @@ public class Game {
 
             screen.refresh();
             controller.processInput(gameKeyListener.getKeys());
+            controller.checkPickup();
+            controller.moveFollowingCharacters();
+            controller.checkDropoff();
+
 
             //this is a makeshift timer, we'll need to incorporate it in timer class thats model ithink?
             totalElapsedTime += frameTime;
-            System.out.println("Total elapsed time: " + totalElapsedTime / 1000 + " seconds");
+            //System.out.println("Total elapsed time: " + totalElapsedTime / 1000 + " seconds");
 
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
 
             try {
-                System.out.println(sleepTime);
+              //  System.out.println(sleepTime);
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
             }
