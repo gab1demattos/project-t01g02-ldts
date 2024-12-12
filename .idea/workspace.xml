@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CharacterModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CharacterModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CityModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CityViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CityViewer.java" afterDir="false" />
-    </list>
+    <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +110,7 @@
     "Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "7defd516",
+    "git-widget-placeholder": "6d8d13d7",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups",
     "node.js.detected.package.eslint": "true",
