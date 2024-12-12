@@ -29,7 +29,7 @@ public class CharacterModel extends Element {
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/mymelody.png"),
                         new Position(42, 177), "MyMelody"),
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/cinnamoroll.png"),
-                        new Position(222, 73), "Cinnamoroll")
+                        new Position(222, 73), "Cinnamonroll")
         );
 
     }

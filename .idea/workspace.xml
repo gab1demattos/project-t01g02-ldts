@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/Music.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CharacterModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CharacterModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +120,7 @@
     "Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "settingsBranch",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups",
     "node.js.detected.package.eslint": "true",
@@ -137,11 +144,11 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\LDTS\project-t01g02\src\main\resources\audio" />
       <recent name="$PROJECT_DIR$/src/main/resources/Pop-ups" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main" />
-      <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
