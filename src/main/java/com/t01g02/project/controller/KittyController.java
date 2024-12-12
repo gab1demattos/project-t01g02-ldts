@@ -1,17 +1,16 @@
-package com.t01g02.project;
+package com.t01g02.project.controller;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.*;
 import com.t01g02.project.viewer.CharacterViewer;
-import com.t01g02.project.viewer.CityViewer;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class Controller {
+public class KittyController {
     private List<KittyObserver> observers = new ArrayList<KittyObserver>();
     private CharacterModel hellokitty;
     private final CharacterViewer characterViewer;
@@ -19,7 +18,7 @@ public class Controller {
     private final CityModel cityModel;
 
 
-    public Controller(Screen screen, CharacterModel hellokitty, CityModel cityModel) throws IOException {
+    public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel) throws IOException {
         this.hellokitty = CharacterModel.getHellokitty();
         this.screen = screen;
         this.characterViewer =new CharacterViewer(screen);
@@ -52,7 +51,7 @@ public class Controller {
 
 
         if (newPosition != null && canMove(newPosition)) {
-            CharacterModel.getHellokitty().setPosition(newPosition);
+            CharacterModel.getHellokitty().kittysetPosition(newPosition);
             Tile tile = cityModel.getTile(newPosition.getX(), newPosition.getY());
 
             if (tile != null){
@@ -132,10 +131,15 @@ public class Controller {
     public void moveFollowingCharacters() {
         for (CharacterModel friend : CharacterModel.friends) {
             if (friend.isFollowing()) {
-                friend.follow(); // Call the follow method to move the friend
+                follow();
             }
         }
     }
+
+    private void follow(){
+
+    }
+
     public void addObserver(KittyObserver observer) {
         observers.add(observer);
     }

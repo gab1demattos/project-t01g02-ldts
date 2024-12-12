@@ -28,7 +28,7 @@ public class CityViewer {
     public CityViewer(CityModel city, Screen screen) throws IOException {
         this.city = city;
         this.screen = screen;
-        this.cityImage = new BasicTextImage(500, 250);
+        this.cityImage = new BasicTextImage(city.getWidth(), city.getHeight());
         this.party = new Sprite(screen, "src/main/resources/extras/party.png");
         this.house = new Sprite(screen, "src/main/resources/extras/house.png");
         this.tree = new Sprite(screen, "src/main/resources/extras/tree.png");

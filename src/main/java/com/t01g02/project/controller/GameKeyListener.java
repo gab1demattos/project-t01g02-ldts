@@ -1,4 +1,4 @@
-package com.t01g02.project;
+package com.t01g02.project.controller;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
@@ -9,10 +9,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GameKeyListener implements KeyListener {
-    private final Controller controller;
+    private final KittyController controller;
     private final Set<KeyStroke> keys;
 
-    public GameKeyListener(Controller controller) {
+    public GameKeyListener(KittyController controller) {
         this.controller = controller;
         this.keys = new HashSet<>();
     }

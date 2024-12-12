@@ -1,4 +1,4 @@
-package com.t01g02.project;
+package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;

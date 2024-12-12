@@ -1,4 +1,4 @@
-package com.t01g02.project;
+package com.t01g02.project.controller;
 
 
 import com.t01g02.project.model.Score;

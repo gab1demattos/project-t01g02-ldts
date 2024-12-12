@@ -2,11 +2,17 @@ package com.t01g02.project;
 
 
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
+import com.t01g02.project.controller.FriendsController;
+import com.t01g02.project.controller.KittyController;
+import com.t01g02.project.controller.GameKeyListener;
+import com.t01g02.project.controller.ScoreController;
 import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.model.Score;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.CityViewer;
+import com.t01g02.project.viewer.LanternaGui;
+
 import java.net.URISyntaxException;
 import java.awt.*;
 import java.io.IOException;
@@ -17,9 +23,10 @@ public class Game {
     private final CityViewer cityViewer;
     private final GameKeyListener gameKeyListener;
     private CharacterViewer characterViewer;
-    private final Controller controller;
+    private final KittyController kittyController;
     private Score score;
     private ScoreController scoreController;
+    private FriendsController friendsController;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
         this.gui = new LanternaGui(345, 180, "Hello Kitty Game!");
@@ -27,14 +34,16 @@ public class Game {
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.scoreController = new ScoreController(score);
+        this.friendsController = new FriendsController(city);
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
         city.initializeZones();
 
-        this.controller = new Controller(gui.getScreen(), CharacterModel.getHellokitty(), city);
-        this.gameKeyListener = new GameKeyListener(controller);
-        controller.addObserver(scoreController);
+        this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city);
+        this.gameKeyListener = new GameKeyListener(kittyController);
+        kittyController.addObserver(scoreController);
+        friendsController.addObserver(scoreController);
 
         AWTTerminalFrame terminalFrame = gui.getTerminalFrame();
         terminalFrame.addKeyListener(this.gameKeyListener);
@@ -56,10 +65,10 @@ public class Game {
             characterViewer.draw();
 
             gui.getScreen().refresh();
-            controller.processInput(gameKeyListener.getKeys());
-            controller.checkPickup();
-            controller.moveFollowingCharacters();
-            controller.checkDropoff();
+            kittyController.processInput(gameKeyListener.getKeys());
+            friendsController.checkPickup();
+            friendsController.moveFollowingCharacters();
+            friendsController.checkDropoff();
 
 
             //this is a makeshift timer, we'll need to incorporate it in timer class thats model ithink?
