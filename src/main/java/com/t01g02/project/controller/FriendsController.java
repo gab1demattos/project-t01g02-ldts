@@ -9,14 +9,14 @@ import static com.t01g02.project.model.CharacterModel.friends;
 import static com.t01g02.project.model.CharacterModel.hellokitty;
 
 public class FriendsController {
-    private final CityModel cityModel;
+    private static CityModel cityModel;
     private List<KittyObserver> observers = new ArrayList<KittyObserver>();
 
     public FriendsController(CityModel cityModel) {
-        this.cityModel = cityModel;
+        FriendsController.cityModel = cityModel;
     }
 
-    private boolean isWithinZone(Position position, Zone zone) {
+    private static boolean isWithinZone(Position position, Zone zone) {
         int tileX = position.getX();
         int tileY = position.getY();
 
@@ -62,7 +62,7 @@ public class FriendsController {
             }
         }
     }
-    public void moveFollowingCharacters() {
+    public static void moveFollowingCharacters() {
         for (int i = 0; i < friends.size(); i++) {
             CharacterModel friend = friends.get(i);
             if (friend.isFollowing()) {
@@ -72,7 +72,7 @@ public class FriendsController {
 
     }
 
-    public void follow(int friendId) {
+    public static void follow(int friendId) {
         Position kittyPos = hellokitty.getPosition();
         Position friendPos = friends.get(friendId).getPosition();
         CharacterModel friend = friends.get(friendId);
@@ -81,56 +81,24 @@ public class FriendsController {
         if (isWithinZone(kittyPos, cityModel.getZones().get(friendId))){
             return;
         }
-        if (friendPos.getY() > kittyPositionHistory.get(0).getY()) {
-            friend.setPosition(new Position(friendPos.getX(), friendPos.getY() - 1));
-            return;
-        }
-        if (!kittyPositionHistory.isEmpty()) {
-            // Get Kitty's last known position (last position in the list)
-            Position kittyLastPosition = kittyPositionHistory.get(kittyPositionHistory.size() - 1);
 
+        if (!kittyPositionHistory.isEmpty()) {
+            Position kittyLastPosition = kittyPositionHistory.get(0);
             Position friendcurrentPos = friend.getPosition();
 
-            // If the friend has not yet reached Kitty's last position, move towards it
-            if (!friendcurrentPos.equals(kittyLastPosition)) {
-                // Move the friend step by step towards Kitty's last position
-                if (friendcurrentPos.getX() < kittyLastPosition.getX()) {
-                    friend.setPosition(new Position(friendcurrentPos.getX() + 2, friendcurrentPos.getY())); // Move right
-                } else if (friendcurrentPos.getX() > kittyLastPosition.getX()) {
-                    friend.setPosition(new Position(friendcurrentPos.getX() - 2, friendcurrentPos.getY())); // Move left
-                }
-
-                if (friendcurrentPos.getY() < kittyLastPosition.getY()) {
-                    friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() + 2)); // Move down
-                } else if (friendcurrentPos.getY() > kittyLastPosition.getY()) {
-                    friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() - 2)); // Move up
-                }
+            if (friendcurrentPos.getX() < kittyLastPosition.getX()) {
+                friend.setPosition(new Position(friendcurrentPos.getX() + 1, friendcurrentPos.getY()));
+            }
+            if (friendcurrentPos.getX() > kittyLastPosition.getX()) {
+                friend.setPosition(new Position(friendcurrentPos.getX() - 1, friendcurrentPos.getY()));
             }
 
-            // Once the friend reaches Kitty's last position, start mimicking the movement direction
-            if (friend.getPosition().equals(kittyLastPosition)) {
-                // Get the direction in which Kitty last moved
-                if (kittyPositionHistory.size() > 1) {
-                    Position previousKittyPosition = kittyPositionHistory.get(kittyPositionHistory.size() - 2);
+            if (friendcurrentPos.getY() < kittyLastPosition.getY()) {
+                friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() + 1));
+            }
+            if (friendcurrentPos.getY() > kittyLastPosition.getY()) {
+                friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() - 1)); // Move up
 
-                    // If Kitty moved right
-                    if (kittyLastPosition.getX() > previousKittyPosition.getX()) {
-                        friend.setPosition(new Position(friendcurrentPos.getX() + 2, friendcurrentPos.getY())); // Move right
-                    }
-                    // If Kitty moved left
-                    else if (kittyLastPosition.getX() < previousKittyPosition.getX()) {
-                        friend.setPosition(new Position(friendcurrentPos.getX() - 2, friendcurrentPos.getY())); // Move left
-                    }
-
-                    // If Kitty moved down
-                    if (kittyLastPosition.getY() > previousKittyPosition.getY()) {
-                        friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() + 2)); // Move down
-                    }
-                    // If Kitty moved up
-                    else if (kittyLastPosition.getY() < previousKittyPosition.getY()) {
-                        friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() - 2)); // Move up
-                    }
-                }
             }
 
         }
@@ -147,8 +115,7 @@ public class FriendsController {
     }
     public void notifyObservers() {
         for (KittyObserver observer : observers) {
-            /*if (isHappyHour()) observer.happyHourStarted(this);
-            else observer.happyHourEnded(this);*/
+
         }
     }
 

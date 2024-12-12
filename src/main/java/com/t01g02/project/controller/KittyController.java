@@ -18,6 +18,8 @@ public class KittyController {
     private final CityModel cityModel;
 
 
+
+
     public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel) throws IOException {
         this.hellokitty = CharacterModel.getHellokitty();
         this.screen = screen;
@@ -33,16 +35,16 @@ public class KittyController {
 
             switch (key.getKeyType()) {
                 case ArrowUp:
-                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - 2);
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - 1);
                     break;
                 case ArrowDown:
-                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + 2);
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + 1);
                     break;
                 case ArrowLeft:
-                    newPosition = new Position(currentPosition.getX() - 2, currentPosition.getY());
+                    newPosition = new Position(currentPosition.getX() - 1, currentPosition.getY());
                     break;
                 case ArrowRight:
-                    newPosition = new Position(currentPosition.getX() + 2, currentPosition.getY());
+                    newPosition = new Position(currentPosition.getX() + 1, currentPosition.getY());
                     break;
                 default:
                     return;
@@ -51,9 +53,9 @@ public class KittyController {
 
 
         if (newPosition != null && canMove(newPosition)) {
-            CharacterModel.getHellokitty().kittysetPosition(newPosition);
+            CharacterModel.getHellokitty().setPosition(newPosition);
+            FriendsController.moveFollowingCharacters();
 
-            Tile tile = cityModel.getTile(newPosition.getX(), newPosition.getY());
 
         }
     }

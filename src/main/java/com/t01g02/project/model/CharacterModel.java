@@ -42,10 +42,11 @@ public class CharacterModel extends Element {
         return hellokitty;
     }
 
-
-    public void kittysetPosition(Position newPosition) {
-        hellokitty.setPosition(newPosition);
+    @Override
+    public void setPosition(Position newPosition) {
+        super.setPosition(newPosition);
         updateKittyPosition(newPosition);
+
 
     }
 
@@ -63,10 +64,10 @@ public class CharacterModel extends Element {
     }
 
     public void updateKittyPosition(Position newPosition) {
-        if (kittyLastPositions.size() >= 20) {
+        if (kittyLastPositions.size() >= 15) {
             kittyLastPositions.remove(0);
         }
-        kittyLastPositions.add(newPosition); // Add the new position
+        kittyLastPositions.add(newPosition);
     }
 
     public List<Position> getKittyLastPositions() {

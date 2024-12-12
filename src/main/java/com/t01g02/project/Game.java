@@ -12,7 +12,7 @@ import com.t01g02.project.model.Score;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.CityViewer;
 import com.t01g02.project.viewer.LanternaGui;
-import com.t01g02.project.viewer.Timer;
+import com.t01g02.project.model.Timer;
 
 import java.net.URISyntaxException;
 import java.awt.*;
@@ -31,8 +31,9 @@ public class Game {
     private Timer timer;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
-        this.gui = new LanternaGui(345, 180, "Hello Kitty Game!");
-        this.city = new CityModel(345, 180);
+        this.gui = new LanternaGui(345, 185, "Hello Kitty Game!");
+
+        this.city = new CityModel(345, 185);
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.scoreController = new ScoreController(score);
@@ -53,7 +54,7 @@ public class Game {
         terminalFrame.requestFocusInWindow();
     }
 
-    public void run() throws IOException, InterruptedException {
+    public void run() throws IOException{
         cityViewer.initializeCityImage();
         int FPS = 10;
         int frameTime = 1000 / FPS;
@@ -69,7 +70,6 @@ public class Game {
             gui.getScreen().refresh();
             kittyController.processInput(gameKeyListener.getKeys());
             friendsController.checkPickup();
-            friendsController.moveFollowingCharacters();
             friendsController.checkDropoff();
 
 
@@ -78,14 +78,13 @@ public class Game {
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
-            System.out.println("Time remaining: " + timer.getFormattedTime());
+            //System.out.println("Time remaining: " + timer.getFormattedTime());
 
             if(timer.isTimeUp()){
                 System.out.println("Game Over! :( ");
             }
 
             try {
-              //  System.out.println(sleepTime);
                 if (sleepTime > 0) Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
             }
