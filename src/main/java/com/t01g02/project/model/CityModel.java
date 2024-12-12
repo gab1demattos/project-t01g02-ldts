@@ -24,18 +24,18 @@ public class CityModel {
         TextColor roadColor = TextColor.Factory.fromString("#222222");
 
         List<Road> roads = List.of(
-                /*new Road(new Position(1, 15), new Position(1, 249), Tile.Type.ROAD, roadColor),
-                new Road(new Position(65, 15), new Position(65, 249), Tile.Type.ROAD, roadColor),
-                new Road(new Position(130, 15), new Position(130, 180), Tile.Type.ROAD, roadColor),
-                new Road(new Position(195, 15), new Position(195, 120), Tile.Type.ROAD, roadColor),
-                new Road(new Position(195, 180), new Position(195, 249), Tile.Type.ROAD, roadColor),
-                new Road(new Position(255, 15), new Position(255, 249), Tile.Type.ROAD, roadColor),
-                new Road(new Position(328, 15), new Position(328, 249), Tile.Type.ROAD, roadColor),
+                new Road(new Position(1, 1), new Position(1, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(65, 1), new Position(65, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(130, 1), new Position(130, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(195, 1), new Position(195, 120), Tile.Type.ROAD, roadColor),
+                new Road(new Position(195, 179), new Position(195, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(255, 1), new Position(255, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(320, 1), new Position(320, 179), Tile.Type.ROAD, roadColor),
 
-                new Road(new Position(1, 225), new Position(499, 225), Tile.Type.ROAD, roadColor),
-                new Road(new Position(1, 120), new Position(499, 120), Tile.Type.ROAD, roadColor),
-                new Road(new Position(65, 170), new Position(255, 170), Tile.Type.ROAD, roadColor),
-                new Road(new Position(1, 65), new Position(499, 65), Tile.Type.ROAD, roadColor)*/
+                new Road(new Position(1, 1), new Position(339, 1), Tile.Type.ROAD, roadColor),
+                new Road(new Position(1, 155), new Position(339, 155), Tile.Type.ROAD, roadColor),
+                new Road(new Position(65, 105), new Position(255, 105), Tile.Type.ROAD, roadColor),
+                new Road(new Position(1, 54), new Position(339, 54), Tile.Type.ROAD, roadColor)
         );
 
         for (Road segment : roads) {
@@ -47,11 +47,11 @@ public class CityModel {
     public void initializeZones(){
         TextColor zonecolor = TextColor.Factory.fromString("#222222"); // same color as roads, do we need to see the
 
-        zones.add( new Zone(new Position(223, 225), new Position(253, 225), "Kuromi", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(0))); // done
-        zones.add(new Zone(new Position(30, 120), new Position(60, 120), "Purin", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(1)));     // done
-        zones.add(new Zone(new Position(95, 170), new Position(125, 170), "MyMelody", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(2)));     // done
-        zones.add(new Zone(new Position(280, 120), new Position(310, 120), "Cinnamoroll", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(3))); // done
-        zones.add(new Zone(new Position(285, 225), new Position(315, 225), "Party", Tile.Type.DROPOFF, zonecolor, null));
+        //zones.add( new Zone(new Position(223, 225), new Position(253, 225), "Kuromi", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(0))); // done
+        //zones.add(new Zone(new Position(30, 120), new Position(60, 120), "Purin", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(1)));     // done
+        //zones.add(new Zone(new Position(95, 170), new Position(125, 170), "MyMelody", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(2)));     // done
+        //zones.add(new Zone(new Position(280, 120), new Position(310, 120), "Cinnamoroll", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(3))); // done
+        //zones.add(new Zone(new Position(285, 225), new Position(315, 225), "Party", Tile.Type.DROPOFF, zonecolor, null));
 
         for (Zone zone : zones) {
             Tile.fillLine(map, zone.getStartposition(), zone.getEndposition(), zone.getType(), zone.getColor());

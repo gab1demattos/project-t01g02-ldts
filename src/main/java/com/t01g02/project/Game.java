@@ -37,7 +37,7 @@ public class Game {
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
 
-        this.city = new CityModel(480, 270); //320/200
+        this.city = new CityModel(340, 180); //320/200
 
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
         if (resource == null) {
