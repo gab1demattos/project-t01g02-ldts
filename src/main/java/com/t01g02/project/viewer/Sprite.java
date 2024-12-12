@@ -21,20 +21,18 @@ public class Sprite {
         this.screen = screen;
     }
 
-    // Drawing a pixel
     public void drawPixel(Position pixelPos, TextColor color) {
         TextGraphics textGraphics = screen.newTextGraphics();
         textGraphics.setBackgroundColor(color);
-        textGraphics.setCharacter(pixelPos.getX(), pixelPos.getY(), ' '); // // We use a blank space to represent a pixel
+        textGraphics.setCharacter(pixelPos.getX(), pixelPos.getY(), ' ');
     }
 
-    // Drawing image pixel by pixel
     public void drawImage(Position position) {
 
         for (int y = 0; y < image.getHeight(); y++) {
             for (int x = 0; x < image.getWidth(); x++) {
                 int argb = image.getRGB(x, y);
-                Color pixelColor = new Color(argb, true);  // include alpha channel
+                Color pixelColor = new Color(argb, true);
 
                 if (pixelColor.getAlpha() > 0) {  // Non-transparent pixel
                     TextColor color = new TextColor.RGB(pixelColor.getRed(), pixelColor.getGreen(), pixelColor.getBlue());
@@ -54,7 +52,4 @@ public class Sprite {
         return new TextColor.RGB(color.getRed(), color.getGreen(), color.getBlue());
     }
 }
-
-// Ainda tenho que descobrir se ha outro jeito melhor de mudar o tamanho da imagem
-// Tambem tenho de ver como vamos botar a imagem na city
 

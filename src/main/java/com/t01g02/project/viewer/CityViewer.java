@@ -71,54 +71,6 @@ public class CityViewer {
 
     }
 
-    private final List<Position> housePositions = List.of(
-            new Position(34, 20),
-            new Position(91, 121),
-            new Position(279, 20),
-            new Position(164, 71)
-    );
-
-    private final List<Position> treePositions = List.of(
-            new Position(307, 20),
-            new Position(307, 34),
-            new Position(26, 18),
-            new Position(24, 38),
-            new Position(151, 73),
-            new Position(119, 129),
-            new Position(155, 78),
-            new Position(155, 87)
-    );
-
-    private final List<Position> yellowHousePositions = List.of(
-            new Position(95, 71),
-            new Position(222, 20),
-            new Position(155, 121)
-    );
-
-    private final List<Position> blueHousePositions = List.of(
-            new Position(95, 20),
-            new Position(188, 121)
-    );
-
-    private final List<Position> pinkHousePositions = List.of(
-            new Position(160, 20),
-            new Position(30, 121),
-            new Position(222,121)
-    );
-
-    private final List<Position> lighttreePositions = List.of(
-            new Position(310, 27),
-            new Position(22, 27),
-            new Position(151, 83),
-            new Position(117, 136)
-    );
-
-    private void drawingHousesAndTrees(Sprite sprite, List<Position> positions) {
-        for (Position position : positions) {
-            sprite.drawImage(position);
-        }
-    }
-
     public void draw() throws IOException {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screen.getTerminalSize().getColumns(), screen.getTerminalSize().getRows()), ' ');
@@ -126,44 +78,13 @@ public class CityViewer {
         graphics.drawImage(new TerminalPosition(0, 0), cityImage);
         party.drawImage(new Position(275, 108));
 
-        drawingHousesAndTrees(house, housePositions);
-        drawingHousesAndTrees(tree, treePositions);
-        drawingHousesAndTrees(lighttree, lighttreePositions);
-        drawingHousesAndTrees(yellowhouse, yellowHousePositions);
-        drawingHousesAndTrees(bluehouse, blueHousePositions);
-        drawingHousesAndTrees(pinkhouse, pinkHousePositions);
+        city.drawingHousesAndTrees(house, city.getHousePositions());
+        city.drawingHousesAndTrees(tree, city.getTreePositions());
+        city.drawingHousesAndTrees(lighttree, city.getLighttreePositions());
+        city.drawingHousesAndTrees(yellowhouse, city.getYellowHousePositions());
+        city.drawingHousesAndTrees(bluehouse, city.getBlueHousePositions());
+        city.drawingHousesAndTrees(pinkhouse, city.getPinkHousePositions());
 
-        /* house.drawImage(new Position(34, 20));
-        house.drawImage(new Position(91, 121));
-        house.drawImage(new Position(279, 20));
-        house.drawImage(new Position(164, 71));
-
-        tree.drawImage(new Position(307, 20));
-        lighttree.drawImage(new Position(310, 27));
-        tree.drawImage(new Position(307, 34));
-
-        tree.drawImage(new Position(26, 18));
-        lighttree.drawImage(new Position(22, 27));
-        tree.drawImage(new Position(24, 38));
-
-        tree.drawImage(new Position(151, 73));
-        tree.drawImage(new Position(155, 78));
-        lighttree.drawImage(new Position(151, 83));
-        tree.drawImage(new Position(155, 87));
-
-        tree.drawImage(new Position(119, 129));
-        lighttree.drawImage(new Position(117, 136));
-
-        yellowhouse.drawImage(new Position(95, 71));
-        yellowhouse.drawImage(new Position(222, 20));
-        yellowhouse.drawImage(new Position(155, 121));
-
-        bluehouse.drawImage(new Position(95, 20));
-        bluehouse.drawImage(new Position(188, 121));
-
-        pinkhouse.drawImage(new Position(160, 20));
-        pinkhouse.drawImage(new Position(30, 121));
-        pinkhouse.drawImage(new Position(222,121));*/
 
     }
 }
