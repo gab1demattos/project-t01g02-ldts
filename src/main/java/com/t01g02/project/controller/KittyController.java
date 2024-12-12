@@ -55,9 +55,6 @@ public class KittyController {
 
             Tile tile = cityModel.getTile(newPosition.getX(), newPosition.getY());
 
-            if (tile != null){
-                System.out.println(tile.getType());
-            }
         }
     }
     private boolean canMove(Position newPosition){
@@ -79,67 +76,6 @@ public class KittyController {
         return true;
     }
 
-    private boolean isWithinZone(Position position, Zone zone) {
-        int tileX = position.getX();
-        int tileY = position.getY();
-
-        int zoneStartX = zone.getStartposition().getX();
-        int zoneEndX = zone.getEndposition().getX()-20;
-        int zoneStartY = zone.getStartposition().getY();
-        int zoneEndY = zone.getEndposition().getY()+25;
-
-        return tileX >= zoneStartX && tileX <= zoneEndX &&
-                tileY >= zoneStartY && tileY <= zoneEndY;
-    }
-
-    public void checkPickup() {
-        Position kittyPosition = CharacterModel.getHellokitty().getPosition();
-
-        List<Zone> zones = cityModel.getZones();
-
-        for (Zone zone : zones) {
-            System.out.println("checking " + zone.getType());
-            System.out.println("Hellokitty position:"  + kittyPosition.getX() + " " + kittyPosition.getY() );
-            System.out.println("Zone position" + zone.getStartposition().getX() + " " + zone.getStartposition().getY() + " " + zone.getEndposition().getX() + " " + zone.getEndposition().getY());
-            if (zone.getType() == Tile.Type.PICKUP && isWithinZone(kittyPosition, zone)) {
-                System.out.println("Hellokitty is within the Pickup zone: " + zone.getIdentifier());
-
-                CharacterModel friend = zone.getAssociatedFriend();
-                if (friend != null && !friend.isFollowing()) {
-                    friend.setFollowing(true);
-                    System.out.println(friend.getName() + " is now following Hello Kitty!");
-                    // Notify score manager
-                }
-            }
-        }
-    }
-    public void checkDropoff() {
-        Position kittyPosition = CharacterModel.getHellokitty().getPosition();
-
-        for (Zone zone : cityModel.getZones()) {
-
-            if (zone.getType() == Tile.Type.DROPOFF && isWithinZone(kittyPosition, zone)) {
-                for (CharacterModel friend : CharacterModel.friends) {
-                    if (friend.isFollowing()) {
-                        friend.setFollowing(false);
-                        System.out.println(friend.getName() + " has been dropped off!");
-                        // Notify score manager
-                    }
-                }
-            }
-        }
-    }
-    public void moveFollowingCharacters() {
-        for (CharacterModel friend : CharacterModel.friends) {
-            if (friend.isFollowing()) {
-                follow();
-            }
-        }
-    }
-
-    private void follow(){
-
-    }
 
     public void addObserver(KittyObserver observer) {
         observers.add(observer);

@@ -45,7 +45,6 @@ public class CharacterModel extends Element {
 
 
     public void kittysetPosition(Position newPosition) {
-        System.out.println("Setting position to: " + newPosition.getX() + ", " + newPosition.getY());
         hellokitty.setPosition(newPosition);
         updateKittyPosition(newPosition);
 

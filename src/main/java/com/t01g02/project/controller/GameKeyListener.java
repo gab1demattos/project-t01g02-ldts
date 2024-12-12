@@ -22,7 +22,6 @@ public class GameKeyListener implements KeyListener {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
                 keys.add(new KeyStroke(KeyType.ArrowUp));
-                System.out.println(keys);
                 break;
             case KeyEvent.VK_DOWN:
                 keys.add(new KeyStroke(KeyType.ArrowDown));
