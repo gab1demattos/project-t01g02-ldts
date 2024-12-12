@@ -1,10 +1,10 @@
 package com.t01g02.project.menu;
 
-public class Settings {
+public class SettingsModel {
     private boolean musicOn;
     private boolean soundOn;
 
-    public Settings() {
+    public SettingsModel() {
         this.musicOn = true;
         this.soundOn = true;
     }
