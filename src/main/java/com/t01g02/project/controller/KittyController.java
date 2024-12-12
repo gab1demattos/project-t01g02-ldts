@@ -52,6 +52,7 @@ public class KittyController {
 
         if (newPosition != null && canMove(newPosition)) {
             CharacterModel.getHellokitty().kittysetPosition(newPosition);
+
             Tile tile = cityModel.getTile(newPosition.getX(), newPosition.getY());
 
             if (tile != null){

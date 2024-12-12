@@ -86,24 +86,54 @@ public class FriendsController {
             return;
         }
         if (!kittyPositionHistory.isEmpty()) {
-            Position kittyPosistionHistory = kittyPositionHistory.get(kittyPositionHistory.size() - 1); // Get the last position of Kitty
+            // Get Kitty's last known position (last position in the list)
+            Position kittyLastPosition = kittyPositionHistory.get(kittyPositionHistory.size() - 1);
 
-            // Move the friend towards Kitty's last known position
-            if (friendPos.getX() < kittyPosistionHistory.getX()) {
-                friend.setPosition(new Position(friendPos.getX() + 1, friendPos.getY())); // Move right
-            } else if (friendPos.getX() > kittyPosistionHistory.getX()) {
-                friend.setPosition(new Position(friendPos.getX() - 1, friendPos.getY())); // Move left
+            Position friendcurrentPos = friend.getPosition();
+
+            // If the friend has not yet reached Kitty's last position, move towards it
+            if (!friendcurrentPos.equals(kittyLastPosition)) {
+                // Move the friend step by step towards Kitty's last position
+                if (friendcurrentPos.getX() < kittyLastPosition.getX()) {
+                    friend.setPosition(new Position(friendcurrentPos.getX() + 2, friendcurrentPos.getY())); // Move right
+                } else if (friendcurrentPos.getX() > kittyLastPosition.getX()) {
+                    friend.setPosition(new Position(friendcurrentPos.getX() - 2, friendcurrentPos.getY())); // Move left
+                }
+
+                if (friendcurrentPos.getY() < kittyLastPosition.getY()) {
+                    friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() + 2)); // Move down
+                } else if (friendcurrentPos.getY() > kittyLastPosition.getY()) {
+                    friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() - 2)); // Move up
+                }
             }
 
-            if (friendPos.getY() < kittyPosistionHistory.getY()) {
-                friend.setPosition(new Position(friendPos.getX(), friendPos.getY() + 1)); // Move down
-            } else if (friendPos.getY() > kittyPosistionHistory.getY()) {
-                friend.setPosition(new Position(friendPos.getX(), friendPos.getY() - 1)); // Move up
+            // Once the friend reaches Kitty's last position, start mimicking the movement direction
+            if (friend.getPosition().equals(kittyLastPosition)) {
+                // Get the direction in which Kitty last moved
+                if (kittyPositionHistory.size() > 1) {
+                    Position previousKittyPosition = kittyPositionHistory.get(kittyPositionHistory.size() - 2);
+
+                    // If Kitty moved right
+                    if (kittyLastPosition.getX() > previousKittyPosition.getX()) {
+                        friend.setPosition(new Position(friendcurrentPos.getX() + 2, friendcurrentPos.getY())); // Move right
+                    }
+                    // If Kitty moved left
+                    else if (kittyLastPosition.getX() < previousKittyPosition.getX()) {
+                        friend.setPosition(new Position(friendcurrentPos.getX() - 2, friendcurrentPos.getY())); // Move left
+                    }
+
+                    // If Kitty moved down
+                    if (kittyLastPosition.getY() > previousKittyPosition.getY()) {
+                        friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() + 2)); // Move down
+                    }
+                    // If Kitty moved up
+                    else if (kittyLastPosition.getY() < previousKittyPosition.getY()) {
+                        friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() - 2)); // Move up
+                    }
+                }
             }
+
         }
-
-        //if (Math.abs(xDiff) > 1) this.setPosition(new Position(this.getPosition().getX() + Integer.signum(xDiff), this.getPosition().getY()));
-        //if (Math.abs(yDiff) > 1) this.setPosition(new Position(this.getPosition().getX(), this.getPosition().getY() + Integer.signum(yDiff)));
 
     }
 
