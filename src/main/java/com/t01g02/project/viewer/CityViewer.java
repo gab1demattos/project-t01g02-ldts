@@ -71,6 +71,12 @@ public class CityViewer {
 
     }
 
+    public void drawingHousesAndTrees(Sprite sprite, List<Position> positions) {
+        for (Position position : positions) {
+            sprite.drawImage(position);
+        }
+    }
+
     public void draw() throws IOException {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screen.getTerminalSize().getColumns(), screen.getTerminalSize().getRows()), ' ');
@@ -78,12 +84,12 @@ public class CityViewer {
         graphics.drawImage(new TerminalPosition(0, 0), cityImage);
         party.drawImage(new Position(275, 108));
 
-        city.drawingHousesAndTrees(house, city.getHousePositions());
-        city.drawingHousesAndTrees(tree, city.getTreePositions());
-        city.drawingHousesAndTrees(lighttree, city.getLighttreePositions());
-        city.drawingHousesAndTrees(yellowhouse, city.getYellowHousePositions());
-        city.drawingHousesAndTrees(bluehouse, city.getBlueHousePositions());
-        city.drawingHousesAndTrees(pinkhouse, city.getPinkHousePositions());
+        drawingHousesAndTrees(house, city.getHousePositions());
+        drawingHousesAndTrees(tree, city.getTreePositions());
+        drawingHousesAndTrees(lighttree, city.getLighttreePositions());
+        drawingHousesAndTrees(yellowhouse, city.getYellowHousePositions());
+        drawingHousesAndTrees(bluehouse, city.getBlueHousePositions());
+        drawingHousesAndTrees(pinkhouse, city.getPinkHousePositions());
 
 
     }

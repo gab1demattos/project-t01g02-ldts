@@ -107,15 +107,6 @@ public class CityModel {
             new Position(117, 136)
     );
 
-    //what the fuck is this??? pq é q temos draws dentro do model????
-
-    public void drawingHousesAndTrees(Sprite sprite, List<Position> positions) {
-        for (Position position : positions) {
-            sprite.drawImage(position);
-        }
-    }
-
-
 
     public Tile getTile(int x, int y) {
         if (x >= 0 && x < width && y >= 0 && y < height) {
