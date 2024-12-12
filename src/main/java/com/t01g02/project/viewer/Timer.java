@@ -10,61 +10,40 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import java.io.IOException;
 
 public class Timer {
-    private Screen screen;
+    private int countdownDuration;
+    private int totalElapsedTime;
+    private boolean isRunning;
 
-    public void drawTimer(Screen screen) throws IOException  {
+    public Timer(int minutes, int seconds) {
+        this.countdownDuration = (minutes * 60 + seconds) * 1000;
+        this.totalElapsedTime = 0;
+        this.isRunning = true;
+    }
 
-        TextColor timerBackgroundColor = TextColor.ANSI.CYAN;  // Timer background
-        TextColor timerTextColor = TextColor.ANSI.WHITE;      // Timer text color
-        int timerWidth = 15;  // Width of the timer box
-        int timerHeight = 3;  // Height of the timer box
-        int timerX = 2;       // X-coordinate of the timer
-        int timerY = 1;       // Y-coordinate of the timer
+    public void update(int frameTime) {
+        if (isRunning) {
+            totalElapsedTime += frameTime;
 
-        // Create a TextGraphics object to draw the timer
-        TextGraphics textGraphics = screen.newTextGraphics();
 
-        // Timer state
-        long startTime = System.currentTimeMillis();
-
-        // Game loop
-        try {
-            while (true) {
-                // Calculate elapsed time
-                long elapsedTime = System.currentTimeMillis() - startTime;
-                int minutes = (int) (elapsedTime / 60000);
-                int seconds = (int) (elapsedTime / 1000) % 60;
-                // Format the timer
-
-                String timerText = String.format("⏱️ %02d:%02d", minutes, seconds);
-
-                // Draw the timer background
-                textGraphics.setBackgroundColor(timerBackgroundColor);
-                textGraphics.setForegroundColor(timerTextColor);
-                for (int x = 0; x < timerWidth; x++) {
-                    for (int y = 0; y < timerHeight; y++) {
-                        textGraphics.setCharacter(timerX + x, timerY + y, ' ');
-                    }
-                }
-
-                // Draw the timer text
-                textGraphics.putString(timerX + 2, timerY + 1, timerText);
-
-                // Render the rest of your game here (example: draw player '@')
-                screen.setCharacter(20, 10, new TextCharacter('@', TextColor.ANSI.YELLOW, TextColor.ANSI.BLACK));
-
-                // Refresh the screen to apply changes
-                screen.refresh();
-
-                // Simulate game update delay (adjust frame rate)
-                Thread.sleep(100);
+            if (totalElapsedTime >= countdownDuration) {
+                totalElapsedTime = countdownDuration;
+                isRunning = false;
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            // Cleanup and close the screen
-            screen.stopScreen();
         }
     }
-}
 
+    public String getFormattedTime() {
+        int remainingTime = countdownDuration - totalElapsedTime;
+
+        if (remainingTime < 0) remainingTime = 0;
+
+        int minutes = (remainingTime / 1000) / 60;
+        int seconds = (remainingTime / 1000) % 60;
+
+        return String.format("%02d:%02d", minutes, seconds);
+    }
+
+    public boolean isTimeUp() {
+        return totalElapsedTime >= countdownDuration;
+    }
+}

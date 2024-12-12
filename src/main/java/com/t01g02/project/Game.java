@@ -12,6 +12,7 @@ import com.t01g02.project.model.Score;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.CityViewer;
 import com.t01g02.project.viewer.LanternaGui;
+import com.t01g02.project.viewer.Timer;
 
 import java.net.URISyntaxException;
 import java.awt.*;
@@ -27,6 +28,7 @@ public class Game {
     private Score score;
     private ScoreController scoreController;
     private FriendsController friendsController;
+    private Timer timer;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
         this.gui = new LanternaGui(345, 180, "Hello Kitty Game!");
@@ -35,6 +37,7 @@ public class Game {
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.scoreController = new ScoreController(score);
         this.friendsController = new FriendsController(city);
+        this.timer = new Timer(5, 0);
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
@@ -54,7 +57,6 @@ public class Game {
         cityViewer.initializeCityImage();
         int FPS = 10;
         int frameTime = 1000 / FPS;
-        long totalElapsedTime = 0; //timer start
 
 
         while (true) {
@@ -71,13 +73,16 @@ public class Game {
             friendsController.checkDropoff();
 
 
-            //this is a makeshift timer, we'll need to incorporate it in timer class thats model ithink?
-            totalElapsedTime += frameTime;
-            //System.out.println("Total elapsed time: " + totalElapsedTime / 1000 + " seconds");
+            timer.update(frameTime);
 
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
+            System.out.println("Time remaining: " + timer.getFormattedTime());
+
+            if(timer.isTimeUp()){
+                System.out.println("Game Over! :( ");
+            }
 
             try {
               //  System.out.println(sleepTime);

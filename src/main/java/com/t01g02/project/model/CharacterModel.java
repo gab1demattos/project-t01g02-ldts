@@ -10,7 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CharacterModel extends Element {
-    private Position position;
     public static CharacterModel hellokitty;
     private boolean isFollowing;
     private boolean isBeingFollowed;
