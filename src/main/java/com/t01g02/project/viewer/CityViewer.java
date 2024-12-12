@@ -69,16 +69,16 @@ public class CityViewer {
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screen.getTerminalSize().getColumns(), screen.getTerminalSize().getRows()), ' ');
 
         graphics.drawImage(new TerminalPosition(0, 0), cityImage);
-        party.drawImage(new Position(280, 176));
+        party.drawImage(new Position(275, 108));
 
-        house.drawImage(new Position(30, 85));
-        house.drawImage(new Position(95, 135));
-        house.drawImage(new Position(280, 85));
-        house.drawImage(new Position(222, 190));
+        house.drawImage(new Position(34, 20));
+        house.drawImage(new Position(91, 121));
+        house.drawImage(new Position(279, 20));
+        house.drawImage(new Position(164, 71));
 
-        tree.drawImage(new Position(310, 85));
-        lighttree.drawImage(new Position(315, 95));
-        tree.drawImage(new Position(310, 105));
+        tree.drawImage(new Position(307, 20));
+        lighttree.drawImage(new Position(310, 27));
+        tree.drawImage(new Position(307, 34));
     }
 }
 

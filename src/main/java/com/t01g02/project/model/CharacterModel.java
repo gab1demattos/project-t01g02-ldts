@@ -21,16 +21,16 @@ public class CharacterModel extends Element {
 
     public static void initializeCharacters(Screen screen) throws IOException {
         hellokitty = new CharacterModel(new Sprite(screen, "src/main/resources/characters/hellokitty.png"),
-                new Position(313, 226), "HelloKitty");
+                new Position(313, 157), "HelloKitty");
         friends = List.of(
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/kuromi.png"),
-                        new Position(225, 202), "Kuromi"),
+                        new Position(168, 83), "Kuromi"),
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/purin.png"),
-                        new Position(33, 100), "Purin"),
+                        new Position(38, 36), "Purin"),
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/mymelody.png"),
-                        new Position(99, 147), "MyMelody"),
+                        new Position(94, 134), "MyMelody"),
                 new CharacterModel(new Sprite(screen, "src/main/resources/characters/cinnamoroll.png"),
-                        new Position(285, 103), "Cinnamoroll")
+                        new Position(283, 39), "Cinnamoroll")
         );
 
     }
