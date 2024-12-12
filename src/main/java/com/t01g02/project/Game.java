@@ -4,6 +4,7 @@ package com.t01g02.project;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.CityModel;
+import com.t01g02.project.model.Score;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.CityViewer;
 import java.net.URISyntaxException;
@@ -17,12 +18,15 @@ public class Game {
     private final GameKeyListener gameKeyListener;
     private CharacterViewer characterViewer;
     private final Controller controller;
+    private Score score;
+    private ScoreController scoreController;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
         this.gui = new LanternaGui(340, 180, "Hello Kitty Game!");
-        this.city = new CityModel(340, 180); //320/200
+        this.city = new CityModel(340, 180);
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
+        this.scoreController = new ScoreController(score);
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
@@ -30,6 +34,7 @@ public class Game {
 
         this.controller = new Controller(gui.getScreen(), CharacterModel.getHellokitty(), city);
         this.gameKeyListener = new GameKeyListener(controller);
+        controller.addObserver(scoreController);
 
         AWTTerminalFrame terminalFrame = gui.getTerminalFrame();
         terminalFrame.addKeyListener(this.gameKeyListener);
