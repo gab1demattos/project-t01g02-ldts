@@ -61,6 +61,7 @@ public class CityModel {
     }
 
 
+
     public Tile getTile(int x, int y) {
         if (x >= 0 && x < width && y >= 0 && y < height) {
             return map[y][x];

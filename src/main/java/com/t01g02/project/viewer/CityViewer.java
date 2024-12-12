@@ -22,6 +22,9 @@ public class CityViewer {
     private final Sprite house;
     private final Sprite tree;
     private final Sprite lighttree;
+    private final Sprite yellowhouse;
+    private final Sprite bluehouse;
+    private final Sprite pinkhouse;
 
     //private GameTimer timer;
 
@@ -33,6 +36,9 @@ public class CityViewer {
         this.house = new Sprite(screen, "src/main/resources/extras/house.png");
         this.tree = new Sprite(screen, "src/main/resources/extras/tree.png");
         this.lighttree = new Sprite(screen, "src/main/resources/extras/lighttree.png");
+        this.yellowhouse = new Sprite(screen, "src/main/resources/extras/yellowhouse.png");
+        this.bluehouse = new Sprite(screen, "src/main/resources/extras/bluehouse.png");
+        this.pinkhouse = new Sprite(screen, "src/main/resources/extras/pinkhouse.png");
     }
     public void initializeCityImage() {
         for (int y = 0; y < city.getHeight(); y++) {
@@ -79,6 +85,30 @@ public class CityViewer {
         tree.drawImage(new Position(307, 20));
         lighttree.drawImage(new Position(310, 27));
         tree.drawImage(new Position(307, 34));
+
+        tree.drawImage(new Position(26, 18));
+        lighttree.drawImage(new Position(22, 27));
+        tree.drawImage(new Position(24, 38));
+
+        tree.drawImage(new Position(151, 73));
+        tree.drawImage(new Position(155, 78));
+        lighttree.drawImage(new Position(151, 83));
+        tree.drawImage(new Position(155, 87));
+
+        tree.drawImage(new Position(119, 129));
+        lighttree.drawImage(new Position(117, 136));
+
+        yellowhouse.drawImage(new Position(95, 71));
+        yellowhouse.drawImage(new Position(222, 20));
+        yellowhouse.drawImage(new Position(155, 121));
+
+        bluehouse.drawImage(new Position(95, 20));
+        bluehouse.drawImage(new Position(188, 121));
+
+        pinkhouse.drawImage(new Position(160, 20));
+        pinkhouse.drawImage(new Position(30, 121));
+        pinkhouse.drawImage(new Position(222,121));
+
     }
 }
 
