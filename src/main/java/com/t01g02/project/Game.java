@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class Game {
-    private final Screen screen;
+    private final LanternaGui gui;
     private final CityModel city;
     private final CityViewer cityViewer;
     private final GameKeyListener gameKeyListener;
@@ -36,59 +36,21 @@ public class Game {
     private final Controller controller;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
-
-        this.city = new CityModel(480, 270); //320/200
-
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
-        if (resource == null) {
-            throw new IOException("Font resource not found");
-        }
-        File fontFile = new File(resource.toURI());
-        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(font);
-        Font newfont = font.deriveFont(Font.PLAIN, 4);
-        AWTTerminalFontConfiguration cfg = AWTTerminalFontConfiguration.newInstance(newfont);
-
-
-
-        Terminal terminal = new DefaultTerminalFactory()
-                .setInitialTerminalSize(new TerminalSize(city.getWidth(), city.getHeight()))
-                .setTerminalEmulatorFontConfiguration(cfg)
-                .setForceAWTOverSwing(true)
-                .setTerminalEmulatorTitle("Hello Kitty Game!")
-                .createTerminal();
-        //fix the terminal size
-
-        screen = new TerminalScreen(terminal);
-        screen.setCursorPosition(null); // we don't need a cursor
-        screen.startScreen(); // screens must be started
-        //screen.doResizeIfNecessary(); // resize screen if necessary
-
-        this.cityViewer = new CityViewer(city, screen);
-        this.characterViewer = new CharacterViewer(screen);
-
+        this.gui = new LanternaGui(340, 180, "Hello Kitty Game!");
+        this.city = new CityModel(340, 180); //320/200
+        this.cityViewer = new CityViewer(city, gui.getScreen());
+        this.characterViewer = new CharacterViewer(gui.getScreen());
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
-        System.out.println("Initializing zones...");
         city.initializeZones();
-        System.out.println(city.getZones().size());
-        this.controller = new Controller(screen, CharacterModel.getHellokitty(), city);
+
+        this.controller = new Controller(gui.getScreen(), CharacterModel.getHellokitty(), city);
         this.gameKeyListener = new GameKeyListener(controller);
 
-
-
-        ((AWTTerminalFrame)terminal).addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-        });
-        AWTTerminalFrame terminalFrame = (AWTTerminalFrame) terminal;
-        terminalFrame.addKeyListener(this.gameKeyListener); // Add the key listener here
+        AWTTerminalFrame terminalFrame = gui.getTerminalFrame();
+        terminalFrame.addKeyListener(this.gameKeyListener);
         terminalFrame.requestFocusInWindow();
-
     }
 
     public void run() throws IOException, InterruptedException {
@@ -100,12 +62,12 @@ public class Game {
 
         while (true) {
             long startTime = System.currentTimeMillis();
-            screen.clear();
+            gui.getScreen().clear();
 
             cityViewer.draw();
             characterViewer.draw();
 
-            screen.refresh();
+            gui.getScreen().refresh();
             controller.processInput(gameKeyListener.getKeys());
             controller.checkPickup();
             controller.moveFollowingCharacters();
