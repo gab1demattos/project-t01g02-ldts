@@ -45,7 +45,7 @@ public class CityModel {
     }
 
     public void initializeZones(){
-        TextColor zonecolor = TextColor.Factory.fromString("#FFFFFF");
+        TextColor zonecolor = TextColor.Factory.fromString("#222222");
 
         zones.add( new Zone(new Position(165, 105), new Position(195, 105), "Kuromi", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(0))); // done
         zones.add(new Zone(new Position(35, 54), new Position(65,  54), "Purin", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(1)));     // done
