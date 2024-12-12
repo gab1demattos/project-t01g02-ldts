@@ -1,7 +1,10 @@
 package com.t01g02.project.model;
 
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.screen.Screen;
+import com.t01g02.project.viewer.Sprite;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +14,7 @@ public class CityModel {
     private final int height;
     private final Tile[][] map;
     private final List<Zone> zones;
+
 
     public CityModel(int width, int height) {
         this.width = width;
@@ -59,7 +63,6 @@ public class CityModel {
         }
 
     }
-
 
 
     public Tile getTile(int x, int y) {

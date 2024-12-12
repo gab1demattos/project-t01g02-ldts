@@ -13,6 +13,7 @@ import com.t01g02.project.model.Position;
 import com.t01g02.project.model.Tile;
 
 import java.io.IOException;
+import java.util.List;
 
 public class CityViewer {
     private final CityModel city;
@@ -70,6 +71,54 @@ public class CityViewer {
 
     }
 
+    private final List<Position> housePositions = List.of(
+            new Position(34, 20),
+            new Position(91, 121),
+            new Position(279, 20),
+            new Position(164, 71)
+    );
+
+    private final List<Position> treePositions = List.of(
+            new Position(307, 20),
+            new Position(307, 34),
+            new Position(26, 18),
+            new Position(24, 38),
+            new Position(151, 73),
+            new Position(119, 129),
+            new Position(155, 78),
+            new Position(155, 87)
+    );
+
+    private final List<Position> yellowHousePositions = List.of(
+            new Position(95, 71),
+            new Position(222, 20),
+            new Position(155, 121)
+    );
+
+    private final List<Position> blueHousePositions = List.of(
+            new Position(95, 20),
+            new Position(188, 121)
+    );
+
+    private final List<Position> pinkHousePositions = List.of(
+            new Position(160, 20),
+            new Position(30, 121),
+            new Position(222,121)
+    );
+
+    private final List<Position> lighttreePositions = List.of(
+            new Position(310, 27),
+            new Position(22, 27),
+            new Position(151, 83),
+            new Position(117, 136)
+    );
+
+    private void drawingHousesAndTrees(Sprite sprite, List<Position> positions) {
+        for (Position position : positions) {
+            sprite.drawImage(position);
+        }
+    }
+
     public void draw() throws IOException {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screen.getTerminalSize().getColumns(), screen.getTerminalSize().getRows()), ' ');
@@ -77,7 +126,14 @@ public class CityViewer {
         graphics.drawImage(new TerminalPosition(0, 0), cityImage);
         party.drawImage(new Position(275, 108));
 
-        house.drawImage(new Position(34, 20));
+        drawingHousesAndTrees(house, housePositions);
+        drawingHousesAndTrees(tree, treePositions);
+        drawingHousesAndTrees(lighttree, lighttreePositions);
+        drawingHousesAndTrees(yellowhouse, yellowHousePositions);
+        drawingHousesAndTrees(bluehouse, blueHousePositions);
+        drawingHousesAndTrees(pinkhouse, pinkHousePositions);
+
+        /* house.drawImage(new Position(34, 20));
         house.drawImage(new Position(91, 121));
         house.drawImage(new Position(279, 20));
         house.drawImage(new Position(164, 71));
@@ -107,7 +163,7 @@ public class CityViewer {
 
         pinkhouse.drawImage(new Position(160, 20));
         pinkhouse.drawImage(new Position(30, 121));
-        pinkhouse.drawImage(new Position(222,121));
+        pinkhouse.drawImage(new Position(222,121));*/
 
     }
 }

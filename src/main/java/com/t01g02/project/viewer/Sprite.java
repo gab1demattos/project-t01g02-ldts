@@ -43,25 +43,6 @@ public class Sprite {
             }
         }
 
-    /*    // Get the terminal size (columns and rows)
-        int terminalWidth = screen.getTerminalSize().getColumns();
-        int terminalHeight = screen.getTerminalSize().getRows();
-
-        for (int dx = 0; dx < image.getWidth(); dx++) {
-            for (int dy = 0; dy < image.getHeight(); dy++) {
-                int argb = image.getRGB(dx, dy); // For each (dx, dy) position it returns the color in that position as int RGB
-                if (getTransparency(argb) == 0)  // Skip transparent pixels
-                    continue;
-                // Calculate final coordinates
-                Position finalpos = new Position(position.getX() +  dx, position.getY() +  dy);
-
-
-                // Ensure the scaled coordinates are within the terminal bounds
-                if (finalpos.getX() < terminalWidth && finalpos.getY() < terminalHeight) {
-                    drawPixel(finalpos, getColor(argb));
-                }
-            }
-        }   */
     }
 
     private int getTransparency(int RGB) {
