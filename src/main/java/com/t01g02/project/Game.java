@@ -22,8 +22,8 @@ public class Game {
     private ScoreController scoreController;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
-        this.gui = new LanternaGui(340, 180, "Hello Kitty Game!");
-        this.city = new CityModel(340, 180);
+        this.gui = new LanternaGui(345, 180, "Hello Kitty Game!");
+        this.city = new CityModel(345, 180);
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.scoreController = new ScoreController(score);

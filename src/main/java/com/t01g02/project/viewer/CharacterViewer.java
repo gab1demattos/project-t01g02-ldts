@@ -11,18 +11,18 @@ import java.io.IOException;
 
 public class CharacterViewer {
     private final Screen screen;
-    private final Sprite block;
+   /*private final Sprite block;
     private final Sprite mud;
     private final Sprite star;
-    private final Sprite speed;
+    private final Sprite speed;*/
 
 
     public CharacterViewer(Screen screen) throws IOException {
         this.screen = screen;
-        this.block = new Sprite(screen, "src/main/resources/Pop-ups/block.png");
+        /*this.block = new Sprite(screen, "src/main/resources/Pop-ups/block.png");
         this.mud = new Sprite(screen, "src/main/resources/Pop-ups/mud.png");
         this.star = new Sprite(screen, "src/main/resources/Pop-ups/star.png");
-        this.speed = new Sprite(screen, "src/main/resources/Pop-ups/speed.png");
+        this.speed = new Sprite(screen, "src/main/resources/Pop-ups/speed.png");*/
     }
 
     public void initializeCharacters() throws IOException {
@@ -31,10 +31,10 @@ public class CharacterViewer {
 
 
     public void draw() throws IOException {
-        mud.drawImage(new Position(15, 20));
+        /*mud.drawImage(new Position(15, 20));
         block.drawImage(new Position(55, 62));
         speed.drawImage(new Position(100, 100));
-        star.drawImage(new Position(150, 150));
+        star.drawImage(new Position(150, 150));*/
         CharacterModel.getHellokitty().getSprite().drawImage(CharacterModel.getHellokitty().getPosition());
         for (CharacterModel character : CharacterModel.friends) {
                 character.getSprite().drawImage(character.getPosition());

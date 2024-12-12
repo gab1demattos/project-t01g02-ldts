@@ -80,20 +80,14 @@ public class Controller {
     }
 
     private boolean isWithinZone(Position position, Zone zone) {
-        int tileX = position.getX() / 25;
-        int tileY = position.getY() / 25;
+        int tileX = position.getX();
+        int tileY = position.getY();
 
-        // Convert zone start and end positions to tile coordinates (divide by 25)
-        int zoneStartX = zone.getStartposition().getX() / 25;
-        int zoneEndX = zone.getEndposition().getX() / 25;
-        int zoneStartY = zone.getStartposition().getY() / 25;
-        int zoneEndY = zone.getEndposition().getY() / 25;
+        int zoneStartX = zone.getStartposition().getX();
+        int zoneEndX = zone.getEndposition().getX()-20;
+        int zoneStartY = zone.getStartposition().getY();
+        int zoneEndY = zone.getEndposition().getY()+25;
 
-        System.out.println("Checking if position (" + tileX + ", " + tileY + ") is within zone: " +
-                "X range: [" + zoneStartX + ", " + zoneEndX + "], " +
-                "Y range: [" + zoneStartY + ", " + zoneEndY + "]");
-
-        // Check if the tile-based position is within the zone
         return tileX >= zoneStartX && tileX <= zoneEndX &&
                 tileY >= zoneStartY && tileY <= zoneEndY;
     }

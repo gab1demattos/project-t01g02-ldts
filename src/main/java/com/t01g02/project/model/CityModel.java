@@ -45,13 +45,14 @@ public class CityModel {
     }
 
     public void initializeZones(){
-        TextColor zonecolor = TextColor.Factory.fromString("#222222"); // same color as roads, do we need to see the
+        TextColor zonecolor = TextColor.Factory.fromString("#FFFFFF");
 
-        //zones.add( new Zone(new Position(223, 225), new Position(253, 225), "Kuromi", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(0))); // done
-        //zones.add(new Zone(new Position(30, 120), new Position(60, 120), "Purin", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(1)));     // done
-        //zones.add(new Zone(new Position(95, 170), new Position(125, 170), "MyMelody", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(2)));     // done
-        //zones.add(new Zone(new Position(280, 120), new Position(310, 120), "Cinnamoroll", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(3))); // done
-        //zones.add(new Zone(new Position(285, 225), new Position(315, 225), "Party", Tile.Type.DROPOFF, zonecolor, null));
+        zones.add( new Zone(new Position(165, 105), new Position(195, 105), "Kuromi", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(0))); // done
+        zones.add(new Zone(new Position(35, 54), new Position(65,  54), "Purin", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(1)));     // done
+        zones.add(new Zone(new Position(90, 155), new Position(120, 155), "MyMelody", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(2)));     // done
+        zones.add(new Zone(new Position(280, 54), new Position(310, 54), "Cinnamoroll", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(3))); // done
+
+        zones.add(new Zone(new Position(285, 155), new Position(315, 155), "Party", Tile.Type.DROPOFF, zonecolor, null));
 
         for (Zone zone : zones) {
             Tile.fillLine(map, zone.getStartposition(), zone.getEndposition(), zone.getType(), zone.getColor());
