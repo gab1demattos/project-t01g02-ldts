@@ -47,13 +47,11 @@ public class FriendsController {
         }
     }
     public void checkDropoff() {
-        Position kittyPosition = CharacterModel.getHellokitty().getPosition();
 
         for (Zone zone : cityModel.getZones()) {
-
-            if (zone.getType() == Tile.Type.DROPOFF && isWithinZone(kittyPosition, zone)) {
-                for (CharacterModel friend : friends) {
-                    if (friend.isFollowing()) {
+            for (CharacterModel friend : friends){
+                if (friend.isFollowing()) {
+                    if (zone.getType() == Tile.Type.DROPOFF && isWithinZone(friend.getPosition(), zone)) {
                         friend.setFollowing(false);
                         hellokitty.setBeingFollowed(false);
                         // Notify score manager
@@ -85,8 +83,8 @@ public class FriendsController {
         if (!kittyPositionHistory.isEmpty()) {
             Position kittyLastPosition = kittyPositionHistory.get(0);
             Position friendcurrentPos = friend.getPosition();
-
-            if (friendcurrentPos.getX() < kittyLastPosition.getX()) {
+            friend.setPosition(kittyLastPosition);
+            /*if (friendcurrentPos.getX() < kittyLastPosition.getX()) {
                 friend.setPosition(new Position(friendcurrentPos.getX() + 1, friendcurrentPos.getY()));
             }
             if (friendcurrentPos.getX() > kittyLastPosition.getX()) {
@@ -99,7 +97,7 @@ public class FriendsController {
             if (friendcurrentPos.getY() > kittyLastPosition.getY()) {
                 friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() - 1)); // Move up
 
-            }
+            }*/
 
         }
 

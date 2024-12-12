@@ -35,16 +35,16 @@ public class KittyController {
 
             switch (key.getKeyType()) {
                 case ArrowUp:
-                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - 1);
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - 2);
                     break;
                 case ArrowDown:
-                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + 1);
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + 2);
                     break;
                 case ArrowLeft:
-                    newPosition = new Position(currentPosition.getX() - 1, currentPosition.getY());
+                    newPosition = new Position(currentPosition.getX() - 2, currentPosition.getY());
                     break;
                 case ArrowRight:
-                    newPosition = new Position(currentPosition.getX() + 1, currentPosition.getY());
+                    newPosition = new Position(currentPosition.getX() + 2, currentPosition.getY());
                     break;
                 default:
                     return;
