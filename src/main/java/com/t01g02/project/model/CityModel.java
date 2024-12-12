@@ -45,7 +45,7 @@ public class CityModel {
     }
 
     public void initializeZones(){
-        TextColor zonecolor = TextColor.Factory.fromString("#636363"); // same color as roads, do we need to see the
+        TextColor zonecolor = TextColor.Factory.fromString("#222222"); // same color as roads, do we need to see the
 
         zones.add( new Zone(new Position(223, 225), new Position(253, 225), "Kuromi", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(0))); // done
         zones.add(new Zone(new Position(30, 120), new Position(60, 120), "Purin", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(1)));     // done

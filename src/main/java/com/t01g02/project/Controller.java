@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Controller {
+    private List<KittyObserver> observers = new ArrayList<KittyObserver>();
     private CharacterModel hellokitty;
     private final CharacterViewer characterViewer;
     private final Screen screen;
@@ -139,6 +140,18 @@ public class Controller {
             if (friend.isFollowing()) {
                 friend.follow(); // Call the follow method to move the friend
             }
+        }
+    }
+    public void addObserver(KittyObserver observer) {
+        observers.add(observer);
+    }
+    public void removeObserver(KittyObserver observer) {
+        observers.remove(observer);
+    }
+    public void notifyObservers() {
+        for (KittyObserver observer : observers) {
+            /*if (isHappyHour()) observer.happyHourStarted(this);
+            else observer.happyHourEnded(this);*/
         }
     }
 
