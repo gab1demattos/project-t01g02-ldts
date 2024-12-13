@@ -38,7 +38,7 @@ public class Game {
         this.scoreController = new ScoreController(score);
         this.friendsController = new FriendsController(city);
         this.timer = new Timer(5, 0);
-        this.popUpsViewer = new PopUpsViewer(gui.getScreen());
+        this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
