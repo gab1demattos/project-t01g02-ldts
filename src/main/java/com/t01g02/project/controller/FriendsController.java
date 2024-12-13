@@ -56,12 +56,20 @@ public class FriendsController {
                     if (zone.getType() == Tile.Type.DROPOFF && isWithinZone(friend.getPosition(), zone)) {
                         friend.setFollowing(false);
                         hellokitty.setBeingFollowed(false);
-                        friend.setInParty(true);
                         notifyDroppedOff();
+                        enterHouse(friends.indexOf(friend));
+                        friend.setInParty(true);
+
 
                     }
                 }
             }
+        }
+    }
+    public static void enterHouse(int friendId) {
+        CharacterModel friend = friends.get(friendId);
+        for(int i = 0; i<10; i++){
+            friend.setPosition(new Position(friend.getPosition().getX(),friend.getPosition().getY()-1));
         }
     }
     public static void moveFollowingCharacters() {
