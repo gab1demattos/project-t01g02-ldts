@@ -46,7 +46,6 @@ public class SettingsController implements IController {
                 case Enter:
                     try {
                         handleEnterKey();
-                        updateView();
                     } catch (UnsupportedAudioFileException e) {
                         throw new RuntimeException(e);
                     } catch (LineUnavailableException e) {
@@ -98,6 +97,7 @@ public class SettingsController implements IController {
     private void handleEnterKey() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         if (inSubMenu){
             int selectedOption = model.getSelectedOption();
+            updateView();
             switch (model.getSelectedOption()){
                 case 0:
                     toggleMusic();

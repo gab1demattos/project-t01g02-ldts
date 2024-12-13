@@ -20,7 +20,6 @@ public class Application {
         Screen screen = new TerminalScreen(terminal);
         screen.startScreen();
 
-
         GameMenuModel model = new GameMenuModel();
         GameMenuView view = new GameMenuView(screen, model);
 

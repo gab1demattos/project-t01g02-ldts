@@ -7,6 +7,8 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 
+import java.io.IOException;
+
 public class SettingsView implements IView{
     private Screen screen;
     private SettingsModel model;
@@ -54,7 +56,6 @@ public class SettingsView implements IView{
             textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
             textGraphics.putString(centerX - enterInfo.length() / 2, centerY + 9, enterInfo, SGR.BOLD);
 
-
             redrawButtons();
             screen.refresh();
 
@@ -81,7 +82,12 @@ public class SettingsView implements IView{
         if (show){
             textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
             textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
-            textGraphics.putString(centerX - BInfo.length() / 2, centerY + 6, BInfo, SGR.BLINK);
+            textGraphics.putString(centerX - BInfo.length() / 2, centerY + 6, BInfo, SGR.ITALIC);
+        }
+        try {
+            screen.refresh();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
     }
