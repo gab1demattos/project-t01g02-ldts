@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/audio/arrowMenuSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/audio/boltSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/audio/dropoffSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/audio/keyPressSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/audio/pickupSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/audio/selectSound.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/FriendsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/Sound.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +119,7 @@
     "Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "audioBranch",
+    "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups",
     "node.js.detected.package.eslint": "true",
@@ -131,55 +132,6 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
-    &quot;Gradle.Build project-t01g02.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTester.testCharacterInitialization.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterViewerTester.drawTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterViewerTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterViewerTester.initializeCharactersTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityModelTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityModelTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityViewerTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GameMenuControllerTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.GameMenuModelTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.GameMenuViewTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GameMenuViewTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.GameMenuViewTest.testRedrawScreen.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTest.drawPixelTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTester (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'com.t01g02.project'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.Tests in 'com.t01g02.project.Menu'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.Tests in 'project.test'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.TileTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;random&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="RecentsManager">
@@ -318,6 +270,14 @@
         <item itemvalue="Gradle.CityModelTest" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

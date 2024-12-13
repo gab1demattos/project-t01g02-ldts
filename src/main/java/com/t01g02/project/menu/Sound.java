@@ -21,6 +21,8 @@ public class Sound {
                 clip.open(in);
                 FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN); volumeControl.setValue(volumeControl.getMaximum());
                 volumeControl.setValue(volumeControl.getMaximum());
+                volumeControl.setValue(-5.0f);
+
                 clip.start();
 
             } catch (Exception e) {
