@@ -5,6 +5,7 @@ import com.t01g02.project.viewer.LanternaGui;
 import com.t01g02.project.viewer.Sprite;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -25,18 +26,38 @@ public class PopUpsModel extends Element {
         return new Position(rx, ry);
     }
 
+    // need to fix this!!
     private static Position findValidRandomPosition(CityModel city) {
         Position position;
-        Tile tile;
+        //Tile tile;
         do {
             position = randomPosition();
-            tile = city.getTile(position.getX(), position.getY());
+            //tile = city.getTile(position.getX(), position.getY());
             if (position.getX() < 0 || position.getX() >= TerminalWidth || position.getY() < 0 || position.getY() >= TerminalHeight) {
                 continue;
             } else break;
-        } while (!(tile.getType() == Tile.Type.ROAD));
+        } while (!canMove(position, city));
         System.out.println(position);
         return position;
+    }
+
+    private static boolean canMove(Position position, CityModel city) {
+        List<Position> corners = new ArrayList<>();
+        corners.add(new Position(position.getX()+3, position.getY()+2)); //upperleft
+        corners.add(new Position(position.getX() + 23, position.getY()+2)); // upper right
+        corners.add(new Position(position.getX()+3, position.getY() + 17)); //lower left
+        corners.add(new Position(position.getX() + 23, position.getY() + 17)); //lower right
+
+        for (Position corner : corners) {
+            Tile tile = city.getTile(corner.getX(), corner.getY());
+            if (tile == null) {
+                return false;
+            }
+            if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF ) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void initializeSpeedPopUps(Screen screen, CityModel city) throws IOException {

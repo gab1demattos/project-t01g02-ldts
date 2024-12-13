@@ -69,8 +69,8 @@ public class Game {
             gui.getScreen().clear();
 
             cityViewer.draw();
-            characterViewer.draw();
             popUpsViewer.draw();
+            characterViewer.draw();
 
             gui.getScreen().refresh();
             kittyController.processInput(gameKeyListener.getKeys());
