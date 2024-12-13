@@ -14,8 +14,6 @@ public class CityModel {
     private final int height;
     private final Tile[][] map;
     private final List<Zone> zones;
-    // private final List<Zone> speedzones;
-
 
     public CityModel(int width, int height) {
         this.width = width;

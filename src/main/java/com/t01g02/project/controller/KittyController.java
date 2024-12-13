@@ -22,14 +22,12 @@ public class KittyController {
     private final PopUpsViewer popUpsViewer;
 
 
-
-
     public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel) throws IOException {
         this.hellokitty = CharacterModel.getHellokitty();
         this.screen = screen;
         this.characterViewer =new CharacterViewer(screen);
         this.cityModel = cityModel;
-        this.popUpsViewer = new PopUpsViewer(screen);
+        this.popUpsViewer = new PopUpsViewer(screen, cityModel);
     }
 
     public void processInput(Set<KeyStroke> keys) {
@@ -40,12 +38,9 @@ public class KittyController {
 
             int speed = 2;
 
-            if (isSpeedOn) {
-                speed = 4;
-            }
-            if (isMudOn) {
-                speed = 1;
-            }
+            if (isSpeedOn) { speed = 4; }
+
+            if (isMudOn) { speed = 1; }
 
             switch (key.getKeyType()) {
                 case ArrowUp:
