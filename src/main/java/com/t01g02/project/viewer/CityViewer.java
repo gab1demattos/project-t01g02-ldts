@@ -64,11 +64,22 @@ public class CityViewer {
             }
         }
 
+
     }
 
     public void drawingHousesAndTrees(Sprite sprite, List<Position> positions) {
         for (Position position : positions) {
             sprite.drawImage(position);
+        }
+    }
+
+    // está a fazer print do background preto, ainda tenho de arranjar isso
+
+    public void drawStringSprite(String text, int startX, int startY, TextGraphics graphics) {
+        String[] sprite = CharacterSprites.getStringSprite(text);
+
+        for (int i = 0; i < sprite.length; i++) {
+            graphics.putString(startX, startY + i, sprite[i]);
         }
     }
 
@@ -78,6 +89,7 @@ public class CityViewer {
 
         graphics.drawImage(new TerminalPosition(0, 0), cityImage);
         party.drawImage(new Position(275, 108));
+        drawStringSprite("SCORE", 10, 185, graphics);
 
         drawingHousesAndTrees(house, city.getHousePositions());
         drawingHousesAndTrees(tree, city.getTreePositions());

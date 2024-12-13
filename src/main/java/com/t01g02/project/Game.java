@@ -30,9 +30,9 @@ public class Game {
     private PopUpsViewer popUpsViewer;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
-        this.gui = new LanternaGui(345, 185, "Hello Kitty Game!");
+        this.gui = new LanternaGui(345, 195, "Hello Kitty Game!");
 
-        this.city = new CityModel(345, 185);
+        this.city = new CityModel(345, 195);
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.scoreController = new ScoreController(score);
