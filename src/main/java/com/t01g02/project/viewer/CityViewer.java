@@ -64,6 +64,17 @@ public class CityViewer {
             }
         }
 
+        for (int y = 0; y < city.getHeight(); y++) {
+            for (int x = 0; x < city.getWidth(); x++) {
+                Tile tile = city.getTile(x, y);
+                if (tile != null && tile.getType() == Tile.Type.SPEED) {
+                    char displayChar = '█';
+                    TextCharacter textChar = new TextCharacter(displayChar, tile.getColor(), TextColor.Factory.fromString("#FFFFFF"));
+                    cityImage.setCharacterAt(new TerminalPosition(x, y), textChar);
+                }
+            }
+        }
+
     }
 
     public void drawingHousesAndTrees(Sprite sprite, List<Position> positions) {

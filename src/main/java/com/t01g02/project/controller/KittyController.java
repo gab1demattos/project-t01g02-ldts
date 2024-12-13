@@ -16,6 +16,7 @@ public class KittyController {
     private final CharacterViewer characterViewer;
     private final Screen screen;
     private final CityModel cityModel;
+    private boolean isSpeedOn = false;
 
 
 
@@ -33,18 +34,20 @@ public class KittyController {
 
         for (KeyStroke key: keys) {
 
+            int speed = isSpeedOn ? 4 : 2;
+
             switch (key.getKeyType()) {
                 case ArrowUp:
-                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - 2);
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - speed);
                     break;
                 case ArrowDown:
-                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + 2);
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + speed);
                     break;
                 case ArrowLeft:
-                    newPosition = new Position(currentPosition.getX() - 2, currentPosition.getY());
+                    newPosition = new Position(currentPosition.getX() - speed, currentPosition.getY());
                     break;
                 case ArrowRight:
-                    newPosition = new Position(currentPosition.getX() + 2, currentPosition.getY());
+                    newPosition = new Position(currentPosition.getX() + speed, currentPosition.getY());
                     break;
                 default:
                     return;
@@ -53,12 +56,23 @@ public class KittyController {
 
 
         if (newPosition != null && canMove(newPosition)) {
+
+            /* for (CharacterModel popup : CharacterModel.popups) {
+                if (newPosition.equals(popup.getPosition()) && popup.getName().equals("Speed")) {
+                    activateSpeed();
+                }
+            }*/
+
             CharacterModel.getHellokitty().setPosition(newPosition);
             FriendsController.moveFollowingCharacters();
-
-
+            //activateSpeed();
         }
     }
+
+    private void activateSpeed() {
+        isSpeedOn = true;
+    }
+
     private boolean canMove(Position newPosition){
         List<Position> corners = new ArrayList<>();
         corners.add(new Position(newPosition.getX()+3, newPosition.getY()+2)); //upperleft
@@ -71,8 +85,11 @@ public class KittyController {
             if (tile == null) {
                 return false;
             }
-            if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF) {
+            if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF && tile.getType() != Tile.Type.SPEED) {
                 return false;
+            }
+            if (tile.getType() == Tile.Type.SPEED) {
+                activateSpeed();
             }
         }
         return true;
