@@ -41,7 +41,6 @@ public class Game {
         SettingsModel settingsModel = new SettingsModel();
 
         this.gui = new LanternaGui(345, 185, "Hello Kitty Game!");
-        this.gui = new LanternaGui(345, 195, "Hello Kitty Game!");
 
         this.city = new CityModel(345, 195);
         this.cityViewer = new CityViewer(city, gui.getScreen());

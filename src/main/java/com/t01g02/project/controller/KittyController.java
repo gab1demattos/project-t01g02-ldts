@@ -104,7 +104,7 @@ public class KittyController {
         return (newposition.getX() >= speedX - 10 && newposition.getX() <= speedX + 10) && (newposition.getY() >= speedY - 10 && newposition.getY() <= speedY + 10);
     }
 
-    private boolean isPositionInSpeed(Position position) {
+   /* private boolean isPositionInSpeed(Position position) {
         int speedX = CharacterModel.popups.get(0).getPosition().getX();
         int speedY = CharacterModel.popups.get(0).getPosition().getY();
         if ( (position.getX() >=  speedX - 10 && position.getX() <= speedX + 10) && (position.getY() >=  speedY - 10 && position.getY() <= speedY + 10)) {
@@ -114,7 +114,7 @@ public class KittyController {
             return true;
         }
         return false;
-    }
+    }*/
         /*private boolean isPositionOnMud (Position position){
             for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
                 int speedX = mudpopup.getPosition().getX();
