@@ -110,8 +110,8 @@ public class GameMenuController implements IController {
     }
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
-        sound.play("/audio/playSound.wav");
-        System.out.println("Audio Playing");
+        Thread.sleep(900); //slight delay so audio can play while still in settings
+
         try {
             playGameMusic();
         } catch (UnsupportedAudioFileException e) {

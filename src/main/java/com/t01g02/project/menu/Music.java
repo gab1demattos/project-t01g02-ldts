@@ -36,6 +36,8 @@ public class Music {
                 clip = AudioSystem.getClip();
                 clip.open(in);
 
+                FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                volumeControl.setValue(-10.0f);
                 clip.start();
                 if(loop){
                     clip.loop(Clip.LOOP_CONTINUOUSLY);
