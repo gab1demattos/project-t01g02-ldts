@@ -14,6 +14,7 @@ public class CityModel {
     private final int height;
     private final Tile[][] map;
     private final List<Zone> zones;
+    private final List<Zone> speedzones;
 
 
     public CityModel(int width, int height) {
@@ -21,6 +22,7 @@ public class CityModel {
         this.height = height;
         this.map = new Tile[height][width];
         this.zones = new ArrayList<>();
+        this.speedzones = new ArrayList<>();
     }
 
     public void initializeRoads() {
@@ -62,6 +64,17 @@ public class CityModel {
             Tile.fillLine(map, zone.getStartposition(), zone.getEndposition(), zone.getType(), zone.getColor());
         }
 
+    }
+
+    public void initializeSpeedZones() {
+        TextColor speedcolor = TextColor.Factory.fromString("#FFFFFF");
+
+        speedzones.add(new Zone(new Position(110, 102), new Position(120, 102), "Speed", Tile.Type.SPEED, speedcolor, CharacterModel.popups.get(0)));
+        //speedzones.add(new Zone(new Position(200, 100), new Position(220, 100), "Speed", Tile.Type.SPEED, speedcolor, CharacterModel.popups.get(1)));
+
+        for (Zone speedzone : speedzones) {
+            Tile.fillLine(map, speedzone.getStartposition(), speedzone.getEndposition(), speedzone.getType(), speedzone.getColor());
+        }
     }
 
     private final List<Position> housePositions = List.of(

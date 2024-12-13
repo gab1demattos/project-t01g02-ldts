@@ -44,6 +44,7 @@ public class Game {
         characterViewer.initializeCharacters();
         characterViewer.initializePopUps();
         city.initializeZones();
+        city.initializeSpeedZones();
 
         this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city);
         this.gameKeyListener = new GameKeyListener(kittyController);
