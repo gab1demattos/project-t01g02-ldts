@@ -13,6 +13,7 @@ public class CharacterModel extends Element {
     public static CharacterModel hellokitty;
     private boolean isFollowing;
     private boolean isBeingFollowed;
+    private boolean inParty;
     public static List<CharacterModel> friends;
     private List<Position> kittyLastPositions = new LinkedList<>();
     public static List<CharacterModel> popups;
@@ -21,6 +22,7 @@ public class CharacterModel extends Element {
     public CharacterModel(Sprite sprite, Position position, String name) {
         super(sprite, position, name);
         this.isFollowing = false;
+        this.inParty = false;
     }
 
     public static void initializeCharacters(Screen screen) throws IOException {
@@ -80,5 +82,12 @@ public class CharacterModel extends Element {
 
     public List<Position> getKittyLastPositions() {
         return kittyLastPositions;
+    }
+
+    public boolean isInParty() {
+        return inParty;
+    }
+    public void setInParty(boolean inParty) {
+        this.inParty = inParty;
     }
 }

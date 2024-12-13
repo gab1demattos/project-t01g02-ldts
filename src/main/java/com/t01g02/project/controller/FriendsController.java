@@ -33,23 +33,19 @@ public class FriendsController {
         Position kittyPosition = CharacterModel.getHellokitty().getPosition();
 
         List<Zone> zones = cityModel.getZones();
-        Zone zoneToRemove = null;
 
         for (Zone zone : zones) {
             if (zone.getType() == Tile.Type.PICKUP && isWithinZone(kittyPosition, zone)) {
                 CharacterModel friend = zone.getAssociatedFriend();
-                if (friend != null && !friend.isFollowing() && !hellokitty.isBeingFollowed()){
+                if (friend != null && !friend.isFollowing() && !hellokitty.isBeingFollowed() && !friend.isInParty()) {
                     friend.setFollowing(true);
                     hellokitty.setBeingFollowed(true);
                     notifyPickedUp();
 
-                    zoneToRemove = zone;
                 }
             }
         }
-        if (zoneToRemove != null) {
-            zones.remove(zoneToRemove);
-        }
+
     }
 
     public void checkDropoff() {
@@ -60,6 +56,7 @@ public class FriendsController {
                     if (zone.getType() == Tile.Type.DROPOFF && isWithinZone(friend.getPosition(), zone)) {
                         friend.setFollowing(false);
                         hellokitty.setBeingFollowed(false);
+                        friend.setInParty(true);
                         notifyDroppedOff();
 
                     }
