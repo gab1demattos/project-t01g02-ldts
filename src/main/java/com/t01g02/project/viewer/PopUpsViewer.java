@@ -15,11 +15,15 @@ public class PopUpsViewer {
 
     public void initializePopUps() throws IOException{
         PopUpsModel.initializeSpeedPopUps(screen);
+        PopUpsModel.initializeMudPopUps(screen);
     }
 
     public void draw() throws IOException {
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
             speedpopup.getSprite().drawImage(speedpopup.getPosition());
+        }
+        for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
+            mudpopup.getSprite().drawImage(mudpopup.getPosition());
         }
     }
 

@@ -18,6 +18,7 @@ public class KittyController {
     private final Screen screen;
     private final CityModel cityModel;
     private boolean isSpeedOn = false;
+    private boolean isMudOn = false;
     private final PopUpsViewer popUpsViewer;
 
 
@@ -37,7 +38,14 @@ public class KittyController {
 
         for (KeyStroke key: keys) {
 
-            int speed = isSpeedOn ? 4 : 2;
+            int speed = 2;
+
+            if (isSpeedOn) {
+                speed = 4;
+            }
+            if (isMudOn) {
+                speed = 1;
+            }
 
             switch (key.getKeyType()) {
                 case ArrowUp:
@@ -60,8 +68,10 @@ public class KittyController {
 
         if (newPosition != null && canMove(newPosition)) {
 
-            if (isPositionInSpeed(newPosition)) {
+            if (isPositionOnSpeed(newPosition)) {
                 activateSpeed();
+            } else if (isPositionOnMud(newPosition)) {
+                activateMud();
             }
 
             CharacterModel.getHellokitty().setPosition(newPosition);
@@ -71,11 +81,26 @@ public class KittyController {
 
     private void activateSpeed() {
         isSpeedOn = true;
+        isMudOn = false;
     }
 
-    private boolean isPositionInSpeed(Position position) {
+    private void activateMud() {
+        isMudOn = true;
+        isSpeedOn = false;
+    }
+
+    private boolean isPositionOnSpeed(Position position) {
         int speedX = PopUpsModel.speedpopups.get(0).getPosition().getX();
         int speedY = PopUpsModel.speedpopups.get(0).getPosition().getY();
+        if ( (position.getX() >=  speedX - 10 && position.getX() <= speedX + 10) && (position.getY() >=  speedY - 10 && position.getY() <= speedY + 10)) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isPositionOnMud(Position position) {
+        int speedX = PopUpsModel.mudpopups.get(0).getPosition().getX();
+        int speedY = PopUpsModel.mudpopups.get(0).getPosition().getY();
         if ( (position.getX() >=  speedX - 10 && position.getX() <= speedX + 10) && (position.getY() >=  speedY - 10 && position.getY() <= speedY + 10)) {
             return true;
         }
