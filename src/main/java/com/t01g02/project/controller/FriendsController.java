@@ -96,12 +96,12 @@ public class FriendsController {
             }
             if (friendcurrentPos.getX() > kittyLastPosition.getX()) {
                 friend.setPosition(new Position(friendcurrentPos.getX() - 1, friendcurrentPos.getY()));
-            }
+            }*/
 
             if (friendcurrentPos.getY() < kittyLastPosition.getY()) {
-                friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() + 1));
+                friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() + 2));
             }
-            if (friendcurrentPos.getY() > kittyLastPosition.getY()) {
+            /*if (friendcurrentPos.getY() > kittyLastPosition.getY()) {
                 friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() - 1)); // Move up
 
             }*/

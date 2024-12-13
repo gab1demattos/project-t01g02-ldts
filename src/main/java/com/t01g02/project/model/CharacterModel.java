@@ -72,7 +72,7 @@ public class CharacterModel extends Element {
     }
 
     public void updateKittyPosition(Position newPosition) {
-        if (kittyLastPositions.size() >= 20) {
+        if (kittyLastPositions.size() >= 10) {
             kittyLastPositions.remove(0);
         }
         kittyLastPositions.add(newPosition);
