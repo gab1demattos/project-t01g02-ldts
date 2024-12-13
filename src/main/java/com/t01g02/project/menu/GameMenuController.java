@@ -31,17 +31,7 @@ public class GameMenuController implements IController {
 
 
         if (settingsModel.isMusicOn()){
-            try {
-
-                music.play("/audio/menuSong.wav",true);
-
-            } catch (UnsupportedAudioFileException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (LineUnavailableException e) {
-                throw new RuntimeException(e);
-            }
+                playMenuMusic();
         }else{
             music.stop();
         }
@@ -103,7 +93,6 @@ public class GameMenuController implements IController {
     }
 
     private void openSettings() {
-        System.out.println("Opening settings...");
         inSettings=true;
         updateView();
     }
@@ -117,8 +106,23 @@ public class GameMenuController implements IController {
     }
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
+        try {
+            playGameMusic();
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
         Game game = new Game();
         game.run();
+    }
+
+    private void playMenuMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
+        music.play("/audio/menuSong.wav",true);
+    }
+    private void playGameMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
+        music.stop();
+        music.play("/audio/gameSong.wav",true);
     }
 
     @Override
