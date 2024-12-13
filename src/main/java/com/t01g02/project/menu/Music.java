@@ -8,10 +8,23 @@ import java.net.URL;
 
 public class Music {
     private Clip clip;
-    private boolean isPlaying = false;
     protected AudioInputStream in;
+    private String currentTrack;
 
-    public void play(String filePath, boolean loop) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+    public void play(String filePath, boolean loop, boolean musicEnabled) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
+        if (!musicEnabled) {
+            stop(); // Stop any playing music if music is disabled
+            return;
+        }
+
+        // Check if the same track is already playing
+        if (clip != null && clip.isRunning() && filePath.equals(currentTrack)) {
+            return;
+        }
+
+        // Start playing the new track
+        stop();
+
         // Start music playback in a separate thread to avoid blocking the main thread
         new Thread(() -> {
             try{
@@ -23,10 +36,13 @@ public class Music {
                 clip = AudioSystem.getClip();
                 clip.open(in);
 
+                FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                volumeControl.setValue(-10.0f);
                 clip.start();
                 if(loop){
                     clip.loop(Clip.LOOP_CONTINUOUSLY);
                 }
+                currentTrack = filePath;
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -45,5 +61,7 @@ public class Music {
         return clip != null && clip.isRunning();
     }
 
-
+    public String getCurrentTrack() {
+        return currentTrack;
+    }
 }

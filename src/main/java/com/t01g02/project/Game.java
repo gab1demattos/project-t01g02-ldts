@@ -7,6 +7,11 @@ import com.t01g02.project.controller.KittyController;
 import com.t01g02.project.controller.GameKeyListener;
 import com.t01g02.project.controller.ScoreController;
 import com.t01g02.project.model.*;
+import com.t01g02.project.menu.SettingsModel;
+import com.t01g02.project.menu.Sound;
+import com.t01g02.project.model.CharacterModel;
+import com.t01g02.project.model.CityModel;
+import com.t01g02.project.model.Score;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.CityViewer;
 import com.t01g02.project.viewer.LanternaGui;
@@ -27,16 +32,22 @@ public class Game {
     private ScoreController scoreController;
     private FriendsController friendsController;
     private Timer timer;
+    //private SettingsModel settingsModel;
+    //private Sound sound;
     private PopUpsViewer popUpsViewer;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
+        Sound sound = new Sound();
+        SettingsModel settingsModel = new SettingsModel();
+
+        this.gui = new LanternaGui(345, 185, "Hello Kitty Game!");
         this.gui = new LanternaGui(345, 195, "Hello Kitty Game!");
 
         this.city = new CityModel(345, 195);
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.scoreController = new ScoreController(score);
-        this.friendsController = new FriendsController(city);
+        this.friendsController = new FriendsController(city, sound, settingsModel);
         this.timer = new Timer(5, 0);
         this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
 
@@ -47,7 +58,7 @@ public class Game {
 
         ScoreController scoreController = new ScoreController(score);
 
-        this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city);
+        this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city,sound,settingsModel);
         this.gameKeyListener = new GameKeyListener(kittyController);
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);

@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/FriendsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +82,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "Gradle.Build project-t01g02.executor": "Run",
+    "Gradle.CharacterModelTest (1).executor": "Run",
+    "Gradle.CharacterModelTest.executor": "Run",
+    "Gradle.CharacterModelTester.executor": "Run",
+    "Gradle.CharacterModelTester.testCharacterInitialization.executor": "Run",
+    "Gradle.CharacterViewerTest.executor": "Run",
+    "Gradle.CharacterViewerTester.drawTest.executor": "Run",
+    "Gradle.CharacterViewerTester.executor": "Run",
+    "Gradle.CharacterViewerTester.initializeCharactersTest.executor": "Run",
+    "Gradle.CityModelTest (1).executor": "Run",
+    "Gradle.CityModelTest.executor": "Run",
+    "Gradle.CityTester.executor": "Run",
+    "Gradle.CityViewerTest.executor": "Run",
+    "Gradle.CityViewerTester.executor": "Run",
+    "Gradle.GameMenuControllerTest.executor": "Coverage",
+    "Gradle.GameMenuModelTest.executor": "Coverage",
+    "Gradle.GameMenuViewTest (1).executor": "Run",
+    "Gradle.GameMenuViewTest.executor": "Coverage",
+    "Gradle.GameMenuViewTest.testRedrawScreen.executor": "Run",
+    "Gradle.SpriteTest (1).executor": "Run",
+    "Gradle.SpriteTest.drawPixelTest.executor": "Run",
+    "Gradle.SpriteTest.executor": "Run",
+    "Gradle.SpriteTester (1).executor": "Run",
+    "Gradle.SpriteTester.executor": "Run",
+    "Gradle.Tests in 'com.t01g02.project'.executor": "Coverage",
+    "Gradle.Tests in 'com.t01g02.project.Menu'.executor": "Coverage",
+    "Gradle.Tests in 'project.test'.executor": "Coverage",
+    "Gradle.TileTester.executor": "Run",
+    "Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor": "Run",
+    "Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "audioBranch",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Application.executor&quot;: &quot;Run&quot;,
@@ -128,7 +181,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/Pop-ups" />
@@ -138,11 +191,11 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\LDTS\project-t01g02\src\main\resources\audio" />
       <recent name="$PROJECT_DIR$/src/main/resources/Pop-ups" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main" />
-      <recent name="$PROJECT_DIR$/src/test/java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />

@@ -26,9 +26,10 @@ public class Application {
         SettingsModel settingsModel = new SettingsModel();
         SettingsView settingsView = new SettingsView(screen, settingsModel);
         Music music = new Music();
+        Sound sound = new Sound();
 
-        GameMenuController menuController = new GameMenuController(view,screen,model,settingsModel,settingsView,music);
-        SettingsController settingsController = new SettingsController(settingsView,screen,settingsModel,music,view,menuController);
+        GameMenuController menuController = new GameMenuController(view,screen,model,settingsModel,settingsView,music, sound);
+        SettingsController settingsController = new SettingsController(settingsView,screen,settingsModel,music,sound,view,menuController);
 
         long lastUpdateTime = System.currentTimeMillis();
         long updateInterval = 100; // Update every 100ms
