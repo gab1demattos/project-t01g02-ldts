@@ -89,6 +89,9 @@ public class KittyController {
     }
 
     private void activateSpeed() {
+        if (settingsModel.isSoundOn()){
+            sound.play("/audio/boltSound.wav");
+        }
         isSpeedOn = true;
         isMudOn = false;
     }
