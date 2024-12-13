@@ -19,13 +19,7 @@ public class CityViewer {
     private final CityModel city;
     private final Screen screen;
     private final BasicTextImage cityImage;
-    private final Sprite party;
-    private final Sprite house;
-    private final Sprite tree;
-    private final Sprite lighttree;
-    private final Sprite yellowhouse;
-    private final Sprite bluehouse;
-    private final Sprite pinkhouse;
+    private final Sprite party, house, tree, lighttree, yellowhouse, bluehouse, pinkhouse; //flowers;
 
     //private GameTimer timer;
 
@@ -40,6 +34,7 @@ public class CityViewer {
         this.yellowhouse = new Sprite(screen, "src/main/resources/extras/yellowhouse.png");
         this.bluehouse = new Sprite(screen, "src/main/resources/extras/bluehouse.png");
         this.pinkhouse = new Sprite(screen, "src/main/resources/extras/pinkhouse.png");
+        // this.flowers = new Sprite(screen, "src/main/resources/extras/flowers.png");
     }
     public void initializeCityImage() {
         for (int y = 0; y < city.getHeight(); y++) {
@@ -90,7 +85,7 @@ public class CityViewer {
         drawingHousesAndTrees(yellowhouse, city.getYellowHousePositions());
         drawingHousesAndTrees(bluehouse, city.getBlueHousePositions());
         drawingHousesAndTrees(pinkhouse, city.getPinkHousePositions());
-
+        // drawingHousesAndTrees(flowers, city.getFlowersPosition());
 
     }
 }

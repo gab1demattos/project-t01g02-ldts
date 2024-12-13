@@ -107,6 +107,10 @@ public class CityModel {
             new Position(117, 136)
     );
 
+    /* private final List<Position> flowersPosition = List.of(
+            new Position(30, 100),
+            new Position(40, 110)
+    ); */
 
     public Tile getTile(int x, int y) {
         if (x >= 0 && x < width && y >= 0 && y < height) {
@@ -154,5 +158,9 @@ public class CityModel {
     public List<Position> getYellowHousePositions() {
         return yellowHousePositions;
     }
+
+    /* public List<Position> getFlowersPosition() {
+        return flowersPosition;
+    } */
 
 }

@@ -15,6 +15,7 @@ public class CharacterModel extends Element {
     private boolean isBeingFollowed;
     public static List<CharacterModel> friends;
     private List<Position> kittyLastPositions = new LinkedList<>();
+    public static List<CharacterModel> popups;
 
 
     public CharacterModel(Sprite sprite, Position position, String name) {
@@ -36,6 +37,13 @@ public class CharacterModel extends Element {
                         new Position(283, 39), "Cinnamoroll")
         );
 
+    }
+
+    public static void initializePopUps(Screen screen) throws IOException {
+        popups = List.of(
+                new CharacterModel(new Sprite(screen, "src/main/resources/Pop-ups/smallstar.png"), new Position(150, 160), "Star"),
+                new CharacterModel(new Sprite(screen, "src/main/resources/Pop-ups/otherspeed.png"), new Position(110, 108), "Speed")
+        );
     }
 
     public static CharacterModel getHellokitty() {

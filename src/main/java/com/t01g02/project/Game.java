@@ -42,6 +42,7 @@ public class Game {
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
+        characterViewer.initializePopUps();
         city.initializeZones();
 
         this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city);
