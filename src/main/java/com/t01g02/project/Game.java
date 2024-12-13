@@ -45,10 +45,13 @@ public class Game {
         characterViewer.initializePopUps();
         city.initializeZones();
 
+        ScoreController scoreController = new ScoreController(score);
+
         this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city);
         this.gameKeyListener = new GameKeyListener(kittyController);
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);
+
 
         AWTTerminalFrame terminalFrame = gui.getTerminalFrame();
         terminalFrame.addKeyListener(this.gameKeyListener);
@@ -79,7 +82,6 @@ public class Game {
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
-            //System.out.println("Time remaining: " + timer.getFormattedTime());
 
             if(timer.isTimeUp()){
                 System.out.println("Game Over! :( ");

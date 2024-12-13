@@ -85,10 +85,10 @@ public class KittyController {
     public void removeObserver(KittyObserver observer) {
         observers.remove(observer);
     }
-    public void notifyObservers() {
+
+    public void pickedStar() {
         for (KittyObserver observer : observers) {
-            /*if (isHappyHour()) observer.happyHourStarted(this);
-            else observer.happyHourEnded(this);*/
+            observer.pickedStar();
         }
     }
 
