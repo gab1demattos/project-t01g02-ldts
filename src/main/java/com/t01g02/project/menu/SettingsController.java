@@ -14,16 +14,18 @@ public class SettingsController implements IController {
     private SettingsView view;
     private final Screen screen;
     private final Music music;
+    private final Sound sound;
     private GameMenuView mainMenuView;
     private GameMenuController mainMenuController;
     private boolean inSubMenu = false;  //access ON and OFF buttons
 
 
-    public SettingsController(SettingsView view, Screen screen, SettingsModel model, Music music, GameMenuView mainMenuView,GameMenuController mainMenuController){
+    public SettingsController(SettingsView view, Screen screen, SettingsModel model, Music music,Sound sound, GameMenuView mainMenuView,GameMenuController mainMenuController){
         this.view = view;
         this.screen = screen;
         this.model=model;
         this.music = music;
+        this.sound = sound;
         this.mainMenuView = mainMenuView;
         this.mainMenuController = mainMenuController;
     }
@@ -38,6 +40,7 @@ public class SettingsController implements IController {
                     mainMenuController.updateView();
                     break;
                 case ArrowLeft:
+
                     handleArrowLeft();
                     break;
                 case ArrowRight:
@@ -95,6 +98,9 @@ public class SettingsController implements IController {
     }
 
     private void handleEnterKey() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        if (model.isSoundOn()){
+            sound.play("/audio/selectSound.wav");
+        }
         if (inSubMenu){
             int selectedOption = model.getSelectedOption();
             updateView();
@@ -126,7 +132,11 @@ public class SettingsController implements IController {
     }
 
     private void toggleSound(){
-
+        if (model.getSoundSelectedOption() == 0) { // ON
+            model.setSoundOn(true);
+        } else { // OFF
+            model.setSoundOn(false);
+        }
     }
 
     @Override

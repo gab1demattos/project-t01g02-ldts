@@ -17,25 +17,26 @@ public class GameMenuController implements IController {
     private final SettingsModel settingsModel;
     private final SettingsView settingsView;
     private final Music music;
+    private final Sound sound;
     private boolean inSettings;
     private SettingsController settingsController;
 
 
-    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.view = view;
         this.screen = screen;
         this.model = model;
         this.settingsModel = settingsModel;
         this.settingsView = settingsView;
         this.music = music;
-
+        this.sound = sound;
 
         if (settingsModel.isMusicOn()){
                 playMenuMusic();
         }else{
             music.stop();
         }
-        this.settingsController = new SettingsController(settingsView, screen, settingsModel, music, view, this);
+        this.settingsController = new SettingsController(settingsView, screen, settingsModel, music,sound, view, this);
     }
 
     public boolean isRunning() {
@@ -67,6 +68,9 @@ public class GameMenuController implements IController {
                     view.redrawButtons();
                     break;
                 case Enter:
+                    if (settingsModel.isSoundOn()){
+                        sound.play("/audio/selectSound.wav");
+                    }
                     executeSelectedOption();
                     break;
                 default:
@@ -106,6 +110,8 @@ public class GameMenuController implements IController {
     }
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
+        sound.play("/audio/playSound.wav");
+        System.out.println("Audio Playing");
         try {
             playGameMusic();
         } catch (UnsupportedAudioFileException e) {
