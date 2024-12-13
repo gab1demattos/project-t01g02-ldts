@@ -73,7 +73,7 @@ public class CityViewer {
         }
     }
 
-    // está a fazer print do background preto, ainda tenho de arranjar isso
+    // está a fazer print do background preto, ainda tenho de arranjar iss
 
     public void drawStringSprite(String text, int startX, int startY, TextGraphics graphics) {
         String[] sprite = CharacterSprites.getStringSprite(text);
