@@ -43,10 +43,10 @@ public class PopUpsModel extends Element {
 
     private static boolean canMove(Position position, CityModel city) {
         List<Position> corners = new ArrayList<>();
-        corners.add(new Position(position.getX()+3, position.getY()+2)); //upperleft
-        corners.add(new Position(position.getX() + 23, position.getY()+2)); // upper right
-        corners.add(new Position(position.getX()+3, position.getY() + 17)); //lower left
-        corners.add(new Position(position.getX() + 23, position.getY() + 17)); //lower right
+        corners.add(new Position(position.getX()+10, position.getY()+13)); //upperleft
+        corners.add(new Position(position.getX() + 23, position.getY()+13)); // upper right
+        corners.add(new Position(position.getX()+10, position.getY() + 13)); //lower left
+        corners.add(new Position(position.getX() + 23, position.getY() + 13)); //lower right
 
         for (Position corner : corners) {
             Tile tile = city.getTile(corner.getX(), corner.getY());
@@ -63,13 +63,21 @@ public class PopUpsModel extends Element {
     public static void initializeSpeedPopUps(Screen screen, CityModel city) throws IOException {
         speedpopups = List.of(
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), findValidRandomPosition(city), "Speed"),
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), findValidRandomPosition(city), "Speed"),
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), findValidRandomPosition(city), "Speed"),
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), findValidRandomPosition(city), "Speed"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), findValidRandomPosition(city), "Speed")
+
+
         );
     }
 
     public static void initializeMudPopUps(Screen screen, CityModel city) throws IOException {
         mudpopups = List.of(
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/smallmud.png"), findValidRandomPosition(city), "Mud"),
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/smallmud.png"), findValidRandomPosition(city), "Mud"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/smallmud.png"), findValidRandomPosition(city), "Mud")
+
         );
     }
 }

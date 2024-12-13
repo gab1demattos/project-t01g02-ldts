@@ -36,9 +36,9 @@ public class KittyController {
 
         for (KeyStroke key: keys) {
 
-            int speed = 2;
+            int speed = 3;
 
-            if (isSpeedOn) { speed = 4; }
+            if (isSpeedOn) { speed = 5; }
 
             if (isMudOn) { speed = 1; }
 
@@ -63,14 +63,22 @@ public class KittyController {
 
         if (newPosition != null && canMove(newPosition)) {
 
-            if (isPositionOnSpeed(newPosition)) {
-                activateSpeed();
-            } else if (isPositionOnMud(newPosition)) {
-                activateMud();
-            }
-
+            activatePopUps(newPosition);
             CharacterModel.getHellokitty().setPosition(newPosition);
             FriendsController.moveFollowingCharacters();
+        }
+    }
+
+    private void activatePopUps(Position newPosition) {
+        for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
+            if (isPositionOnPopUp(newPosition, mudpopup.getPosition())) {
+                activateMud();
+            }
+        }
+        for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
+            if (isPositionOnPopUp(newPosition, speedpopup.getPosition())) {
+                activateSpeed();
+            }
         }
     }
 
@@ -84,56 +92,53 @@ public class KittyController {
         isSpeedOn = false;
     }
 
-    private boolean isPositionOnSpeed(Position position) {
-        int speedX = PopUpsModel.speedpopups.get(0).getPosition().getX();
-        int speedY = PopUpsModel.speedpopups.get(0).getPosition().getY();
-        if ( (position.getX() >=  speedX - 10 && position.getX() <= speedX + 10) && (position.getY() >=  speedY - 10 && position.getY() <= speedY + 10)) {
+    private boolean isPositionOnPopUp(Position newposition, Position popupPosition) {
+        int speedX = popupPosition.getX();
+        int speedY = popupPosition.getY();
+        return (newposition.getX() >= speedX - 10 && newposition.getX() <= speedX + 10) && (newposition.getY() >= speedY - 10 && newposition.getY() <= speedY + 10);
+    }
+
+        /*private boolean isPositionOnMud (Position position){
+            for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
+                int speedX = mudpopup.getPosition().getX();
+                int speedY = mudpopup.getPosition().getY();
+                return (position.getX() >= speedX - 10 && position.getX() <= speedX + 10) && (position.getY() >= speedY - 10 && position.getY() <= speedY + 10);
+            }
+            return false;
+        }*/
+
+        private boolean canMove (Position newPosition){
+            List<Position> corners = new ArrayList<>();
+            corners.add(new Position(newPosition.getX() + 3, newPosition.getY() + 2)); //upperleft
+            corners.add(new Position(newPosition.getX() + 23, newPosition.getY() + 2)); // upper right
+            corners.add(new Position(newPosition.getX() + 3, newPosition.getY() + 17)); //lower left
+            corners.add(new Position(newPosition.getX() + 23, newPosition.getY() + 17)); //lower right
+
+            for (Position corner : corners) {
+                Tile tile = cityModel.getTile(corner.getX(), corner.getY());
+                if (tile == null) {
+                    return false;
+                }
+                if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF /*&& tile.getType() != Tile.Type.SPEED*/) {
+                    return false;
+                }
+            }
             return true;
         }
-        return false;
-    }
 
-    private boolean isPositionOnMud(Position position) {
-        int speedX = PopUpsModel.mudpopups.get(0).getPosition().getX();
-        int speedY = PopUpsModel.mudpopups.get(0).getPosition().getY();
-        if ( (position.getX() >=  speedX - 10 && position.getX() <= speedX + 10) && (position.getY() >=  speedY - 10 && position.getY() <= speedY + 10)) {
-            return true;
+
+        public void addObserver (KittyObserver observer){
+            observers.add(observer);
         }
-        return false;
-    }
+        public void removeObserver (KittyObserver observer){
+            observers.remove(observer);
+        }
 
-    private boolean canMove(Position newPosition){
-        List<Position> corners = new ArrayList<>();
-        corners.add(new Position(newPosition.getX()+3, newPosition.getY()+2)); //upperleft
-        corners.add(new Position(newPosition.getX() + 23, newPosition.getY()+2)); // upper right
-        corners.add(new Position(newPosition.getX()+3, newPosition.getY() + 17)); //lower left
-        corners.add(new Position(newPosition.getX() + 23, newPosition.getY() + 17)); //lower right
-
-        for (Position corner : corners) {
-            Tile tile = cityModel.getTile(corner.getX(), corner.getY());
-            if (tile == null) {
-                return false;
-            }
-            if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF /*&& tile.getType() != Tile.Type.SPEED*/) {
-                return false;
+        public void pickedStar () {
+            for (KittyObserver observer : observers) {
+                observer.pickedStar();
             }
         }
-        return true;
-    }
 
-
-    public void addObserver(KittyObserver observer) {
-        observers.add(observer);
     }
-    public void removeObserver(KittyObserver observer) {
-        observers.remove(observer);
-    }
-
-    public void pickedStar() {
-        for (KittyObserver observer : observers) {
-            observer.pickedStar();
-        }
-    }
-
-}
 
