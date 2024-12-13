@@ -16,7 +16,7 @@ public class CharacterModel extends Element {
     private boolean inParty;
     public static List<CharacterModel> friends;
     private List<Position> kittyLastPositions = new LinkedList<>();
-    public static List<CharacterModel> popups;
+    //public static List<CharacterModel> popups;
 
 
     public CharacterModel(Sprite sprite, Position position, String name) {
@@ -41,12 +41,12 @@ public class CharacterModel extends Element {
 
     }
 
-    public static void initializePopUps(Screen screen) throws IOException {
+    /*public static void initializePopUps(Screen screen) throws IOException {
         popups = List.of(
                 // new CharacterModel(new Sprite(screen, "src/main/resources/Pop-ups/smallstar.png"), new Position(150, 160), "Star"),
                 new CharacterModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), new Position(150, 160), "Speed")
         );
-    }
+    }*/
 
     public static CharacterModel getHellokitty() {
         return hellokitty;
