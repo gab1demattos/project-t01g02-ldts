@@ -6,13 +6,11 @@ import com.t01g02.project.controller.FriendsController;
 import com.t01g02.project.controller.KittyController;
 import com.t01g02.project.controller.GameKeyListener;
 import com.t01g02.project.controller.ScoreController;
-import com.t01g02.project.model.CharacterModel;
-import com.t01g02.project.model.CityModel;
-import com.t01g02.project.model.Score;
+import com.t01g02.project.model.*;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.CityViewer;
 import com.t01g02.project.viewer.LanternaGui;
-import com.t01g02.project.model.Timer;
+import com.t01g02.project.viewer.PopUpsViewer;
 
 import java.net.URISyntaxException;
 import java.awt.*;
@@ -29,6 +27,7 @@ public class Game {
     private ScoreController scoreController;
     private FriendsController friendsController;
     private Timer timer;
+    private PopUpsViewer popUpsViewer;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
         this.gui = new LanternaGui(345, 185, "Hello Kitty Game!");
@@ -39,10 +38,11 @@ public class Game {
         this.scoreController = new ScoreController(score);
         this.friendsController = new FriendsController(city);
         this.timer = new Timer(5, 0);
+        this.popUpsViewer = new PopUpsViewer(gui.getScreen());
 
         city.initializeRoads();
         characterViewer.initializeCharacters();
-        characterViewer.initializePopUps();
+        popUpsViewer.initializePopUps();
         city.initializeZones();
 
         ScoreController scoreController = new ScoreController(score);
@@ -70,6 +70,7 @@ public class Game {
 
             cityViewer.draw();
             characterViewer.draw();
+            popUpsViewer.draw();
 
             gui.getScreen().refresh();
             kittyController.processInput(gameKeyListener.getKeys());

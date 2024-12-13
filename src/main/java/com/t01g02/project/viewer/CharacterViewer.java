@@ -3,6 +3,7 @@ package com.t01g02.project.viewer;
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.Element;
+import com.t01g02.project.model.PopUpsModel;
 import com.t01g02.project.model.Position;
 
 import java.io.IOException;
@@ -29,9 +30,9 @@ public class CharacterViewer {
         CharacterModel.initializeCharacters(screen);
     }
 
-    public void initializePopUps() throws IOException {
+    /*public void initializePopUps() throws IOException {
         CharacterModel.initializePopUps(screen);
-    }
+    }*/
 
     public void draw() throws IOException {
         //mud.drawImage(new Position(15, 20));
@@ -42,8 +43,8 @@ public class CharacterViewer {
         for (CharacterModel character : CharacterModel.friends) {
                 character.getSprite().drawImage(character.getPosition());
         }
-        for (CharacterModel popup : CharacterModel.popups) {
+        /*for (PopUpsModel popup : PopUpsModel.popups) {
             popup.getSprite().drawImage(popup.getPosition());
-        }
+        }*/
     }
 }
