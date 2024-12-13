@@ -49,6 +49,9 @@ public class GameMenuController implements IController {
         if (input != null && !inSettings) {
             switch (input.getKeyType()) {
                 case Escape:
+                    if(settingsModel.isSoundOn()){
+                        sound.play("/audio/keyPressSound.wav");
+                    }
                     if (!inSettings){
                         running = false;
                         System.exit(0);

@@ -36,6 +36,9 @@ public class SettingsController implements IController {
         if (input != null) {
             switch (input.getKeyType()) {
                 case Escape:
+                    if(model.isSoundOn()){
+                        sound.play("/audio/keyPressSound.wav");
+                    }
                     mainMenuController.setInSettings(false);
                     mainMenuController.updateView();
                     break;
@@ -55,6 +58,9 @@ public class SettingsController implements IController {
                     }
                     break;
                 case Character:
+                    if(model.isSoundOn()){
+                        sound.play("/audio/keyPressSound.wav");
+                    }
                     if (input.getCharacter() == 'b') {
                         inSubMenu = false;
                         screen.refresh();
