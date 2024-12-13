@@ -57,20 +57,26 @@ public class KittyController {
 
         if (newPosition != null && canMove(newPosition)) {
 
-            /* for (CharacterModel popup : CharacterModel.popups) {
-                if (newPosition.equals(popup.getPosition()) && popup.getName().equals("Speed")) {
-                    activateSpeed();
-                }
-            }*/
+            if (isPositionInSpeed(newPosition)) {
+                activateSpeed();
+            }
 
             CharacterModel.getHellokitty().setPosition(newPosition);
             FriendsController.moveFollowingCharacters();
-            //activateSpeed();
         }
     }
 
     private void activateSpeed() {
         isSpeedOn = true;
+    }
+
+    private boolean isPositionInSpeed(Position position) {
+        int speedX = CharacterModel.popups.get(0).getPosition().getX();
+        int speedY = CharacterModel.popups.get(0).getPosition().getY();
+        if ( (position.getX() >=  speedX - 10 && position.getX() <= speedX + 10) && (position.getY() >=  speedY - 10 && position.getY() <= speedY + 10)) {
+            return true;
+        }
+        return false;
     }
 
     private boolean canMove(Position newPosition){
@@ -85,11 +91,8 @@ public class KittyController {
             if (tile == null) {
                 return false;
             }
-            if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF && tile.getType() != Tile.Type.SPEED) {
+            if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF /*&& tile.getType() != Tile.Type.SPEED*/) {
                 return false;
-            }
-            if (tile.getType() == Tile.Type.SPEED) {
-                activateSpeed();
             }
         }
         return true;

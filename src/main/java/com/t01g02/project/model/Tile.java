@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TextColor;
 
 public class Tile {
     public enum Type {
-        ROAD, TREE, PICKUP, DROPOFF, EMPTY, SPEED
+        ROAD, TREE, PICKUP, DROPOFF, EMPTY
     }
 
     private final Type type;
