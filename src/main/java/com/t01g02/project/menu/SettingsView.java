@@ -49,8 +49,11 @@ public class SettingsView implements IView{
             textGraphics.putString(centerX - exitInfo.length() / 2, centerY - boxHeight / 2 - 2, exitInfo, SGR.BOLD);
 
             // Enter Info
+            String enterInfo = model.getEnterSettingsInfo();
+            textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
+            textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
+            textGraphics.putString(centerX - enterInfo.length() / 2, centerY + 9, enterInfo, SGR.BOLD);
 
-            // 'B' Info
 
             redrawButtons();
             screen.refresh();
@@ -65,6 +68,23 @@ public class SettingsView implements IView{
         textGraphics.fillRectangle(new TerminalPosition(startX, startY), new TerminalSize(width, height), ' ');
     }
 
+    // 'B' Info
+    public void drawBInfo (boolean show){
+        TerminalSize newSize = screen.getTerminalSize();
+        if (lastKnownSize == null || !lastKnownSize.equals(newSize)) {
+            lastKnownSize = newSize;
+        }
+        int centerX = newSize.getColumns() / 2;
+        int centerY = newSize.getRows() / 2;
+        TextGraphics textGraphics = screen.newTextGraphics();
+        String BInfo = model.getBSettingsInfo();
+        if (show){
+            textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
+            textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
+            textGraphics.putString(centerX - BInfo.length() / 2, centerY + 6, BInfo, SGR.BLINK);
+        }
+
+    }
     @Override
     public void redrawButtons() {
         TerminalSize newSize = screen.getTerminalSize();

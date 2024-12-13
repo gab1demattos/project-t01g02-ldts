@@ -46,6 +46,7 @@ public class SettingsController implements IController {
                 case Enter:
                     try {
                         handleEnterKey();
+                        updateView();
                     } catch (UnsupportedAudioFileException e) {
                         throw new RuntimeException(e);
                     } catch (LineUnavailableException e) {
@@ -108,7 +109,6 @@ public class SettingsController implements IController {
                     break;
             }
         }inSubMenu=true;
-
     }
 
     private void toggleMusic() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
@@ -132,8 +132,10 @@ public class SettingsController implements IController {
     @Override
     public void updateView() {
         view.redrawScreen();
+        view.drawBInfo(inSubMenu);
         if (screen.doResizeIfNecessary() != null) {
             view.redrawScreen();
         }
+
     }
 }
