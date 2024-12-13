@@ -43,8 +43,8 @@ public class CharacterModel extends Element {
 
     public static void initializePopUps(Screen screen) throws IOException {
         popups = List.of(
-                new CharacterModel(new Sprite(screen, "src/main/resources/Pop-ups/smallstar.png"), new Position(150, 160), "Star"),
-                new CharacterModel(new Sprite(screen, "src/main/resources/Pop-ups/otherspeed.png"), new Position(110, 108), "Speed")
+                // new CharacterModel(new Sprite(screen, "src/main/resources/Pop-ups/smallstar.png"), new Position(150, 160), "Star"),
+                new CharacterModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), new Position(150, 160), "Speed")
         );
     }
 

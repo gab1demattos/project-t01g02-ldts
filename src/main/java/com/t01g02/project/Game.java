@@ -44,7 +44,6 @@ public class Game {
         characterViewer.initializeCharacters();
         characterViewer.initializePopUps();
         city.initializeZones();
-        city.initializeSpeedZones();
 
         ScoreController scoreController = new ScoreController(score);
 
