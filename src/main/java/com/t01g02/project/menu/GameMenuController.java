@@ -118,11 +118,11 @@ public class GameMenuController implements IController {
     }
 
     private void playMenuMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
-        music.play("/audio/menuSong.wav",true);
+        music.play("/audio/menuSong.wav",true, settingsModel.isMusicOn());
     }
     private void playGameMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
         music.stop();
-        music.play("/audio/gameSong.wav",true);
+        music.play("/audio/gameSong.wav",true, settingsModel.isMusicOn());
     }
 
     @Override

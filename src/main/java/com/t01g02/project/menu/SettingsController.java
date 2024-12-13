@@ -114,7 +114,7 @@ public class SettingsController implements IController {
     private void toggleMusic() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         if (model.getMusicSelectedOption()==0){
             if (!music.isPlaying()){
-                music.play("/audio/menuSong.wav",true);
+                music.play("/audio/menuSong.wav",true, model.isMusicOn());
             }
             model.setMusicOn(true);
         }else{
