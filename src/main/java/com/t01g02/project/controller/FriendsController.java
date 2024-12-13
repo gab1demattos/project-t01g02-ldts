@@ -1,5 +1,7 @@
 package com.t01g02.project.controller;
 
+import com.t01g02.project.menu.SettingsModel;
+import com.t01g02.project.menu.Sound;
 import com.t01g02.project.model.*;
 
 import java.util.ArrayList;
@@ -11,9 +13,13 @@ import static com.t01g02.project.model.CharacterModel.hellokitty;
 public class FriendsController {
     private static CityModel cityModel;
     private List<KittyObserver> observers = new ArrayList<KittyObserver>();
+    private Sound sound;
+    private SettingsModel settingsModel;
 
-    public FriendsController(CityModel cityModel) {
+    public FriendsController(CityModel cityModel, Sound sound,SettingsModel settingsModel) {
         FriendsController.cityModel = cityModel;
+        this.sound=sound;
+        this.settingsModel= settingsModel;
     }
 
     private static boolean isWithinZone(Position position, Zone zone) {
@@ -40,6 +46,9 @@ public class FriendsController {
                 if (friend != null && !friend.isFollowing() && !hellokitty.isBeingFollowed() && !friend.isInParty()) {
                     friend.setFollowing(true);
                     hellokitty.setBeingFollowed(true);
+                    if (settingsModel.isSoundOn()){
+                        sound.play("/audio/pickupSound.wav");
+                    }
                     notifyPickedUp();
 
                 }
@@ -57,6 +66,9 @@ public class FriendsController {
                         friend.setFollowing(false);
                         hellokitty.setBeingFollowed(false);
                         friend.setInParty(true);
+                        if (settingsModel.isSoundOn()){
+                            sound.play("/audio/dropoffSound.wav");
+                        }
                         notifyDroppedOff();
 
                     }

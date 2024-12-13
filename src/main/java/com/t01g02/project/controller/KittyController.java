@@ -2,6 +2,8 @@ package com.t01g02.project.controller;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
+import com.t01g02.project.menu.SettingsModel;
+import com.t01g02.project.menu.Sound;
 import com.t01g02.project.model.*;
 import com.t01g02.project.viewer.CharacterViewer;
 
@@ -17,15 +19,17 @@ public class KittyController {
     private final Screen screen;
     private final CityModel cityModel;
     private boolean isSpeedOn = false;
+    private Sound sound;
+    private SettingsModel settingsModel;
 
 
-
-
-    public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel) throws IOException {
+    public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel, Sound sound, SettingsModel settingsModel) throws IOException {
         this.hellokitty = CharacterModel.getHellokitty();
         this.screen = screen;
         this.characterViewer =new CharacterViewer(screen);
         this.cityModel = cityModel;
+        this.sound = sound;
+        this.settingsModel = settingsModel;
     }
 
     public void processInput(Set<KeyStroke> keys) {
@@ -74,6 +78,9 @@ public class KittyController {
         int speedX = CharacterModel.popups.get(0).getPosition().getX();
         int speedY = CharacterModel.popups.get(0).getPosition().getY();
         if ( (position.getX() >=  speedX - 10 && position.getX() <= speedX + 10) && (position.getY() >=  speedY - 10 && position.getY() <= speedY + 10)) {
+            if (settingsModel.isSoundOn()){
+                sound.play("/audio/boltSound.wav");
+            }
             return true;
         }
         return false;

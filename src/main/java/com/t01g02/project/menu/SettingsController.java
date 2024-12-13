@@ -40,7 +40,6 @@ public class SettingsController implements IController {
                     mainMenuController.updateView();
                     break;
                 case ArrowLeft:
-
                     handleArrowLeft();
                     break;
                 case ArrowRight:
@@ -69,6 +68,9 @@ public class SettingsController implements IController {
     }
 
     private void handleArrowLeft(){
+        if(model.isSoundOn()){
+            sound.play("/audio/arrowMenuSound.wav");
+        }
         if (inSubMenu){
             int selectedOption = model.getSelectedOption();
             if (selectedOption == 0){
@@ -84,6 +86,9 @@ public class SettingsController implements IController {
     }
 
     private void handleArrowRight(){
+        if(model.isSoundOn()){
+            sound.play("/audio/arrowMenuSound.wav");
+        }
         if (inSubMenu){
             int selectedOption = model.getSelectedOption();
             if (selectedOption == 0){

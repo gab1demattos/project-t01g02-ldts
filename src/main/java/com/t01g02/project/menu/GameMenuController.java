@@ -60,10 +60,16 @@ public class GameMenuController implements IController {
                     }
 
                 case ArrowLeft:
+                    if(settingsModel.isSoundOn()){
+                        sound.play("/audio/arrowMenuSound.wav");
+                    }
                     model.setSelectedOption((model.getSelectedOption() - 1 + model.getOptions().length) % model.getOptions().length);
                     view.redrawButtons();
                     break;
                 case ArrowRight:
+                    if(settingsModel.isSoundOn()){
+                        sound.play("/audio/arrowMenuSound.wav");
+                    }
                     model.setSelectedOption((model.getSelectedOption() + 1) % model.getOptions().length);
                     view.redrawButtons();
                     break;
@@ -110,7 +116,7 @@ public class GameMenuController implements IController {
     }
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
-        Thread.sleep(900); //slight delay so audio can play while still in settings
+        Thread.sleep(870); //slight delay so audio can play while still in settings
 
         try {
             playGameMusic();
