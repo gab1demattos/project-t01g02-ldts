@@ -20,8 +20,16 @@ public class SettingsModel {
         return musicOn;
     }
 
+    public void setMusicOn(boolean musicOn) {
+        this.musicOn = musicOn;
+    }
+
     public boolean isSoundOn() {
         return soundOn;
+    }
+
+    public void setSoundOn(boolean soundOn) {
+        this.soundOn = soundOn;
     }
 
     public void toggleMusic() {this.musicOn = !musicOn;}
@@ -42,6 +50,13 @@ public class SettingsModel {
 
     public String getExitSettingsInfo() {
         return "ESC to exit Settings";
+    }
+
+    public String getEnterSettingsInfo(){
+        return "Enter to select";
+    }
+    public String getBSettingsInfo(){
+        return "B to go back to main options";
     }
 
     public String[] getMusicOptions() {

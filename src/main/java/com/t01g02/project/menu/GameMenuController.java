@@ -18,6 +18,7 @@ public class GameMenuController implements IController {
     private final SettingsView settingsView;
     private final Music music;
     private boolean inSettings;
+    private SettingsController settingsController;
 
 
     public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
@@ -44,6 +45,7 @@ public class GameMenuController implements IController {
         }else{
             music.stop();
         }
+        this.settingsController = new SettingsController(settingsView, screen, settingsModel, music, view, this);
     }
 
     public boolean isRunning() {
@@ -53,7 +55,7 @@ public class GameMenuController implements IController {
     @Override
     public void processInput() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         KeyStroke input = screen.readInput();
-        if (input != null) {
+        if (input != null && !inSettings) {
             switch (input.getKeyType()) {
                 case Escape:
                     if (!inSettings){
@@ -80,8 +82,10 @@ public class GameMenuController implements IController {
                 default:
                     break;
             }
-        } else return;
-
+        } else if (inSettings){
+            settingsController.processInput();
+        }
+        screen.refresh();
     }
 
     void executeSelectedOption() throws IOException, URISyntaxException, FontFormatException, InterruptedException {

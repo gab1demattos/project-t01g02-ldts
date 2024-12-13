@@ -48,6 +48,10 @@ public class SettingsView implements IView{
             textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
             textGraphics.putString(centerX - exitInfo.length() / 2, centerY - boxHeight / 2 - 2, exitInfo, SGR.BOLD);
 
+            // Enter Info
+
+            // 'B' Info
+
             redrawButtons();
             screen.refresh();
 
@@ -82,7 +86,7 @@ public class SettingsView implements IView{
                 soundBoxX + (boxWidth - "Sound".length())/2   // Sound X position
         };
         for (int i = 0; i < options.length; i++) {
-            buttonColor(textGraphics, buttonPositions[i], boxHeight - 2, options[i], model.getMusicSelectedOption() == i);
+            buttonColor(textGraphics, buttonPositions[i], boxHeight - 2, options[i], model.getSelectedOption() == i);
         }
 
         String[] musicOptions = model.getMusicOptions();
@@ -108,10 +112,11 @@ public class SettingsView implements IView{
     private void buttonColor(TextGraphics textGraphics, int x, int y, String name, boolean isSelected) {
         if (isSelected) {
             textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
-            textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
+            textGraphics.setBackgroundColor(new TextColor.RGB(229, 212, 214));
         } else {
             textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
-            textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
+            textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
+
         }
         textGraphics.putString(x, y, name, SGR.BOLD);
     }

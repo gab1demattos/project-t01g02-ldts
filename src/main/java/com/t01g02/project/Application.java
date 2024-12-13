@@ -28,14 +28,20 @@ public class Application {
         SettingsView settingsView = new SettingsView(screen, settingsModel);
         Music music = new Music();
 
-        GameMenuController controller = new GameMenuController(view,screen,model,settingsModel,settingsView,music);
+        GameMenuController menuController = new GameMenuController(view,screen,model,settingsModel,settingsView,music);
+        SettingsController settingsController = new SettingsController(settingsView,screen,settingsModel,music,view,menuController);
 
         long lastUpdateTime = System.currentTimeMillis();
         long updateInterval = 100; // Update every 100ms
 
-        while (controller.isRunning()) {
-            controller.updateView();
-            controller.processInput();
+        while (menuController.isRunning()) {
+            if (menuController.isInSettings()){
+                settingsController.processInput();
+                settingsController.updateView();
+            }else {
+                menuController.updateView();
+                menuController.processInput();
+            }
         }
 
         screen.stopScreen();
