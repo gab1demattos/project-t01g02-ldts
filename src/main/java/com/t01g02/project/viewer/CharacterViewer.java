@@ -12,18 +12,10 @@ import java.io.IOException;
 
 public class CharacterViewer {
     private final Screen screen;
-   /*private final Sprite block;
-    private final Sprite mud;*/
-    //private final Sprite star;
-    //private final Sprite speed;
 
 
     public CharacterViewer(Screen screen) throws IOException {
         this.screen = screen;
-        /*this.block = new Sprite(screen, "src/main/resources/Pop-ups/block.png");
-        this.mud = new Sprite(screen, "src/main/resources/Pop-ups/mud.png");*/
-        //this.star = new Sprite(screen, "src/main/resources/Pop-ups/smallstar.png");
-        //this.speed = new Sprite(screen, "src/main/resources/Pop-ups/otherspeed.png");
     }
 
     public void initializeCharacters() throws IOException {

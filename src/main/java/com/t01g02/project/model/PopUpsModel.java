@@ -2,6 +2,7 @@ package com.t01g02.project.model;
 
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.viewer.LanternaGui;
+import com.t01g02.project.viewer.PopUpsViewer;
 import com.t01g02.project.viewer.Sprite;
 
 import java.io.IOException;
@@ -15,10 +16,13 @@ public class PopUpsModel extends Element {
     private static final Random RANDOM = new Random();
     private static final int TerminalWidth = 345;
     private static final int TerminalHeight = 185;
+    private static PopUpsModel star;
 
     public PopUpsModel(Sprite sprite, Position position, String name) {
         super(sprite, position, name);
     }
+
+
 
 /*    private static Position randomPosition() {
         int rx = RANDOM.nextInt(TerminalWidth);
@@ -65,6 +69,17 @@ public class PopUpsModel extends Element {
         return position;
     }
 
+    public static void initializeStar(Screen screen) throws IOException {
+        star = new PopUpsModel(
+                new Sprite(screen, "src/main/resources/Pop-ups/star.png"),
+                new Position(5, 5),
+                "Star"
+        );
+    }
+    public static PopUpsModel getStar() {
+        return star;
+    }
+
     public static void initializeSpeedPopUps(Screen screen
     ) throws IOException {
         speedpopups = List.of(
@@ -91,4 +106,6 @@ public class PopUpsModel extends Element {
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/block.png"), getRandomPosition(), "Block")
         );
     }
+
+
 }

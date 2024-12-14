@@ -7,6 +7,7 @@ import com.t01g02.project.model.PopUpsModel;
 
 import java.io.IOException;
 
+
 public class PopUpsViewer {
     private final Screen screen;
     private final CityModel city;
@@ -20,7 +21,10 @@ public class PopUpsViewer {
         PopUpsModel.initializeSpeedPopUps(screen);
         PopUpsModel.initializeMudPopUps(screen);
         PopUpsModel.initializeBlockPopUps(screen);
+        PopUpsModel.initializeStar(screen);
     }
+
+
 
     public void draw() throws IOException {
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
@@ -32,5 +36,8 @@ public class PopUpsViewer {
         for (PopUpsModel blockpopup : PopUpsModel.blockpopups) {
             blockpopup.getSprite().drawImage(blockpopup.getPosition());
         }
+        PopUpsModel.getStar().getSprite().drawImage(PopUpsModel.getStar().getPosition());
     }
+
+
 }

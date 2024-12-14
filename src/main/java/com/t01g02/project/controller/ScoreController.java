@@ -22,13 +22,11 @@ public class ScoreController extends KittyObserver {
     @Override
     void friendPickedUp() {
         score.setScore(score.getScore()+50);
-        System.out.println(score.getScore());
     }
 
     @Override
     void friendDroppedOff() {
         score.setScore(score.getScore()+50);
-        System.out.println(score.getScore());
     }
 
     @Override

@@ -55,7 +55,7 @@ public class CityModel {
         zones.add(new Zone(new Position(90, 150), new Position(120, 155), "MyMelody", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(2)));     // done
         zones.add(new Zone(new Position(280, 50), new Position(310, 54), "Cinnamoroll", Tile.Type.PICKUP, zonecolor, CharacterModel.friends.get(3))); // done
 
-        zones.add(new Zone(new Position(285, 155), new Position(315, 155), "Party", Tile.Type.DROPOFF, zonecolor, null));
+        zones.add(new Zone(new Position(285, 150), new Position(315, 155), "Party", Tile.Type.DROPOFF, zonecolor, null));
 
         for (Zone zone : zones) {
             Tile.fillLine(map, zone.getStartposition(), zone.getEndposition(), zone.getType(), zone.getColor());
