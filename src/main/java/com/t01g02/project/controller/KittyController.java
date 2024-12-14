@@ -86,6 +86,8 @@ public class KittyController {
     }
 
     private void activatePopUps(Position newPosition) {
+
+        // PopUpsModel mudToRemove = null;
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
             if (isPositionOnPopUp(newPosition, mudpopup.getPosition())) {
                 if (settingsModel.isSoundOn() && !activatedPopUps.contains(mudpopup.getPosition()) ){
@@ -98,17 +100,29 @@ public class KittyController {
                 activatedPopUps.add(mudpopup.getPosition());
             }
         }
+        /*if (mudToRemove != null){
+            PopUpsModel.mudpopups.remove(mudToRemove);
+        }*/
+
+
+        PopUpsModel speedToRemove = null;
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
             if (isPositionOnPopUp(newPosition, speedpopup.getPosition())) {
                 if (settingsModel.isSoundOn() && !activatedPopUps.contains(speedpopup.getPosition()) ){
                     sound.play("/audio/boltSound.wav");
                     activatedPopUps.add(speedpopup.getPosition());
                 }
+                speedToRemove = speedpopup;
                 isSpeedOn = true;
                 isMudOn = false;
                 speedtimerstart = System.currentTimeMillis();
             }
         }
+        if (speedToRemove != null){
+            PopUpsModel.speedpopups.remove(speedToRemove);
+        }
+
+
         if (PopUpsModel.getStar() != null && isPositionOnPopUp(newPosition, PopUpsModel.getStar().getPosition())) {
             pickedStar();
             if (settingsModel.isSoundOn() ){

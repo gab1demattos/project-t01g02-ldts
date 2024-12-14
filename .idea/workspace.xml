@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
@@ -49,6 +50,67 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" afterDir="false" />
+    </list>
+    <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/audio/mudSound.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/audio/starSound.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="project" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="UML Class" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+>>>>>>> 6ddf7ada5928c4937447251a527f68a24a480227
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
@@ -112,7 +174,11 @@
     "Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+<<<<<<< HEAD
     "git-widget-placeholder": "master",
+=======
+    "git-widget-placeholder": "timerBranch",
+>>>>>>> 6ddf7ada5928c4937447251a527f68a24a480227
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups",
     "node.js.detected.package.eslint": "true",
