@@ -57,9 +57,9 @@ public class CharacterSprites {
                 return new String[]{
                         " █████ ",
                         "█     █",
+                        "█     █",
                         "█  █  █",
-                        "█ █ █ █",
-                        "█  █  █",
+                        "█     █",
                         "█     █",
                         " █████ "
                 };
