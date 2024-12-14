@@ -14,7 +14,6 @@ import java.util.Random;
 public class StarController {
     private final CityModel city;
     private PopUpsModel star;
-    private Random random = new Random();
 
     public StarController(CityModel city, PopUpsModel star) {
         Position position = star.getPosition();
@@ -31,14 +30,8 @@ public class StarController {
 
         List<Position> validMoves = getValidMoves(position);
 
-        Position newPosition;
+        Position newPosition = getEscapeMove(validMoves, kittyPosition);
 
-        if (distance < 200) {
-            newPosition = getEscapeMove(validMoves, kittyPosition);
-        }
-        else {
-            newPosition = getRandomMove(validMoves);
-        }
         if(newPosition != null) {
             star.setPosition(newPosition);
         }
@@ -74,11 +67,6 @@ public class StarController {
 
         return bestMove;
     }
-    private Position getRandomMove(List<Position> validMoves) {
-        if (validMoves.isEmpty()) return null;
-
-        return validMoves.get(random.nextInt(validMoves.size()));
-    }
 
     private boolean isValidMove(Position position) {
         List<Position> corners = new ArrayList<>();
@@ -89,11 +77,13 @@ public class StarController {
 
         for (Position corner : corners) {
             Tile tile = city.getTile(corner.getX(), corner.getY());
-            if (tile == null) {
+            if (tile == null || tile.getType() != Tile.Type.ROAD) {
                 return false;
             }
-            if (tile.getType() != Tile.Type.ROAD) {
-                return false;
+
+            Tile tileBelow = city.getTile(position.getX(), position.getY() + 1); // Check tile below
+            if (tileBelow == null || tileBelow.getType() != Tile.Type.ROAD) {
+                return false; // If there's no road below, this move is invalid
             }
         }
         return true;
