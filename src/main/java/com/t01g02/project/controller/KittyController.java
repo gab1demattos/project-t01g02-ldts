@@ -24,8 +24,13 @@ public class KittyController {
     private SettingsModel settingsModel;
     private boolean isMudOn = false;
     private final PopUpsViewer popUpsViewer;
+    private Speed speed;
 
-    public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel, Sound sound, SettingsModel settingsModel) throws IOException {
+    private long speedtimerstart = 0;
+    private  final long speedtimerduration = 5000;
+
+
+    public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel, Sound sound, SettingsModel settingsModel ) throws IOException {
         this.hellokitty = CharacterModel.getHellokitty();
         this.screen = screen;
         this.characterViewer =new CharacterViewer(screen);
@@ -33,32 +38,37 @@ public class KittyController {
         this.sound = sound;
         this.settingsModel = settingsModel;
         this.popUpsViewer = new PopUpsViewer(screen, cityModel);
+        this.speed = new Speed();
     }
 
     public void processInput(Set<KeyStroke> keys) {
+        if (isSpeedOn && System.currentTimeMillis() - speedtimerstart >= speedtimerduration || isMudOn && System.currentTimeMillis() - speedtimerstart >= speedtimerduration) {
+            speed.resetSpeed();
+           if (isSpeedOn) {deactivateSpeed();}
+           if (isMudOn) {deactivateMud();}
+        }
+
         Position currentPosition = CharacterModel.getHellokitty().getPosition();
         Position newPosition = null;
 
         for (KeyStroke key: keys) {
 
-            int speed = 3;
+            if (isSpeedOn) {speed.increaseSpeed();}
 
-            if (isSpeedOn) { speed = 5; }
-
-            if (isMudOn) { speed = 1; }
+            if (isMudOn) { speed.decreaseSpeed();}
 
             switch (key.getKeyType()) {
                 case ArrowUp:
-                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - speed);
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() - speed.getSpeed());
                     break;
                 case ArrowDown:
-                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + speed);
+                    newPosition = new Position(currentPosition.getX(), currentPosition.getY() + speed.getSpeed());
                     break;
                 case ArrowLeft:
-                    newPosition = new Position(currentPosition.getX() - speed, currentPosition.getY());
+                    newPosition = new Position(currentPosition.getX() - speed.getSpeed(), currentPosition.getY());
                     break;
                 case ArrowRight:
-                    newPosition = new Position(currentPosition.getX() + speed, currentPosition.getY());
+                    newPosition = new Position(currentPosition.getX() + speed.getSpeed(), currentPosition.getY());
                     break;
                 default:
                     return;
@@ -92,11 +102,20 @@ public class KittyController {
         }
         isSpeedOn = true;
         isMudOn = false;
+        speedtimerstart = System.currentTimeMillis();
+    }
+    private void deactivateSpeed() {
+        isSpeedOn = false;
     }
 
     private void activateMud() {
         isMudOn = true;
         isSpeedOn = false;
+        speedtimerstart = System.currentTimeMillis();
+
+    }
+    private void deactivateMud() {
+        isMudOn = false;
     }
 
     private boolean isPositionOnPopUp(Position newposition, Position popupPosition) {

@@ -32,6 +32,7 @@ public class Game {
     private ScoreController scoreController;
     private FriendsController friendsController;
     private Timer timer;
+    private Speed speed;
     //private SettingsModel settingsModel;
     //private Sound sound;
     private PopUpsViewer popUpsViewer;
