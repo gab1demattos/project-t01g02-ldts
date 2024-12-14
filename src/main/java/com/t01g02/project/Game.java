@@ -96,10 +96,7 @@ public class Game {
             friendsController.checkPickup();
             friendsController.checkDropoff();
 
-            drawBottomRow();
-
             timer.update(frameTime);
-
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
@@ -118,14 +115,6 @@ public class Game {
 
         }
 
-        private void drawBottomRow(){
-            TextGraphics graphics = gui.getScreen().newTextGraphics();
-            graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
-            int terminalWidth = gui.getScreen().getTerminalSize().getColumns();
-            int terminalHeight = gui.getScreen().getTerminalSize().getRows();
-
-            graphics.fillRectangle(new TerminalPosition(0, terminalHeight - 15), new TerminalSize(terminalWidth, 15), ' ');
-    }
     }
 
 
