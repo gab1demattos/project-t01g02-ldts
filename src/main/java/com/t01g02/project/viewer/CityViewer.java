@@ -41,6 +41,7 @@ public class CityViewer {
                 cityImage.setCharacterAt(new TerminalPosition(x, y), defaultChar);
             }
         }
+        // Pink section for timer/score
         for (int y = city.getHeight()-15; y < city.getHeight(); y++) {
             for (int x = 0; x < city.getWidth(); x++){
                 TextCharacter pinkChar;
