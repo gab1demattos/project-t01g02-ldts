@@ -84,6 +84,7 @@ public class FriendsController {
         for(int i = 0; i<10; i++){
             friend.setPosition(new Position(friend.getPosition().getX(),friend.getPosition().getY()-1));
         }
+
     }
     public static void moveFollowingCharacters() {
         for (int i = 0; i < friends.size(); i++) {

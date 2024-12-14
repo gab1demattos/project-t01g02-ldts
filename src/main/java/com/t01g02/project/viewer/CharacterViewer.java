@@ -30,21 +30,14 @@ public class CharacterViewer {
         CharacterModel.initializeCharacters(screen);
     }
 
-    /*public void initializePopUps() throws IOException {
-        CharacterModel.initializePopUps(screen);
-    }*/
 
     public void draw() throws IOException {
-        //mud.drawImage(new Position(15, 20));
-        //block.drawImage(new Position(55, 62));
-        //speed.drawImage(new Position(110, 108));
-        //star.drawImage(new Position(150, 160));
+
         CharacterModel.getHellokitty().getSprite().drawImage(CharacterModel.getHellokitty().getPosition());
         for (CharacterModel character : CharacterModel.friends) {
+            if (!character.isInParty())
                 character.getSprite().drawImage(character.getPosition());
         }
-        /*for (PopUpsModel popup : PopUpsModel.popups) {
-            popup.getSprite().drawImage(popup.getPosition());
-        }*/
+
     }
 }
