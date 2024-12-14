@@ -127,7 +127,7 @@ public class KittyController {
             return false;
         }*/
 
-        private boolean canMove (Position newPosition){
+        private boolean canMove(Position newPosition){
             List<Position> corners = new ArrayList<>();
             corners.add(new Position(newPosition.getX() + 3, newPosition.getY() + 2)); //upperleft
             corners.add(new Position(newPosition.getX() + 23, newPosition.getY() + 2)); // upper right
