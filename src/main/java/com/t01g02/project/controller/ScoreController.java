@@ -8,9 +8,16 @@ public class ScoreController extends KittyObserver {
 
 
     public ScoreController(Score score) {
-        this.score= new Score(0);
+        this.score= score;
     }
 
+    public void incrementScore(int value){
+        score.setScore(score.getScore()+value);
+    }
+
+    public int getScore(){
+        return score.getScore();
+    }
 
     @Override
     void friendPickedUp() {

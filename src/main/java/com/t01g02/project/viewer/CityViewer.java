@@ -19,7 +19,7 @@ public class CityViewer {
     private final BasicTextImage cityImage;
     private final Sprite party, house, tree, lighttree, yellowhouse, bluehouse, pinkhouse; //flowers;
     //private GameTimer timer;
-    private final Score score;
+
 
     public CityViewer(CityModel city, Screen screen) throws IOException {
         this.city = city;
@@ -32,7 +32,6 @@ public class CityViewer {
         this.yellowhouse = new Sprite(screen, "src/main/resources/extras/yellowhouse.png");
         this.bluehouse = new Sprite(screen, "src/main/resources/extras/bluehouse.png");
         this.pinkhouse = new Sprite(screen, "src/main/resources/extras/pinkhouse.png");
-        this.score = new Score(0);
         // this.flowers = new Sprite(screen, "src/main/resources/extras/flowers.png");
     }
     public void initializeCityImage() {
@@ -72,40 +71,13 @@ public class CityViewer {
         }
     }
 
-    // cor adicionada
-    public void drawStringSprite(String text, int startX, int startY, TextGraphics graphics) {
-        String[] sprite = CharacterSprites.getStringSprite(text);
-        graphics.setForegroundColor(new TextColor.RGB(183, 134, 141));
-        graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
-        for (int i = 0; i < sprite.length; i++) {
-            for (int j = 0; j<sprite[i].length();j++){
-                char c = sprite[i].charAt(j);
-                graphics.putString(startX, startY + i, sprite[i], SGR.BOLD);
-            }
-        }
-    }
-    public int getScoreEndPos(String text, int startX){
-        String[] sprite = CharacterSprites.getStringSprite(text);
-        int maxLength = 0;
-        for (String line : sprite){
-            if (line.length() > maxLength){
-                maxLength = line.length();
-            }
-        }
-        return startX + maxLength;
-    }
+
     public void draw() throws IOException {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screen.getTerminalSize().getColumns(), screen.getTerminalSize().getRows()), ' ');
 
         graphics.drawImage(new TerminalPosition(0, 0), cityImage);
         party.drawImage(new Position(275, 108));
-        drawStringSprite("SCORE", 10, 185, graphics);
-
-        String scoreText = String.valueOf(score.getScore());
-        int endX = getScoreEndPos("SCORE",10);
-        drawStringSprite(scoreText,endX + 5,185,graphics);
-
 
         drawingHousesAndTrees(house, city.getHousePositions());
         drawingHousesAndTrees(tree, city.getTreePositions());
