@@ -19,6 +19,7 @@ public class PopUpsViewer {
     public void initializePopUps() throws IOException{
         PopUpsModel.initializeSpeedPopUps(screen, city);
         PopUpsModel.initializeMudPopUps(screen, city);
+        PopUpsModel.initializeBlockPopUps(screen, city);
     }
 
     public void draw() throws IOException {
@@ -27,6 +28,9 @@ public class PopUpsViewer {
         }
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
             mudpopup.getSprite().drawImage(mudpopup.getPosition());
+        }
+        for (PopUpsModel blockpopup : PopUpsModel.blockpopups) {
+            blockpopup.getSprite().drawImage(blockpopup.getPosition());
         }
     }
 }

@@ -10,8 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 public class PopUpsModel extends Element {
-    public static List<PopUpsModel> speedpopups;
-    public static List<PopUpsModel> mudpopups;
+    public static List<PopUpsModel> speedpopups, mudpopups, blockpopups;
     private static final Random RANDOM = new Random();
     private static final int TerminalWidth = 345;
     private static final int TerminalHeight = 185;
@@ -59,6 +58,13 @@ public class PopUpsModel extends Element {
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/smallmud.png"), findValidRandomPosition(city), "Mud"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/smallmud.png"), findValidRandomPosition(city), "Mud")
 
+        );
+    }
+
+    public static void initializeBlockPopUps(Screen screen, CityModel city) throws IOException {
+        blockpopups = List.of(
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/smallblock.png"), findValidRandomPosition(city), "Block"),
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/smallblock.png"), findValidRandomPosition(city), "Block")
         );
     }
 }
