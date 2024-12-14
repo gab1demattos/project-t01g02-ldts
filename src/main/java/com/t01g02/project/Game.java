@@ -2,10 +2,7 @@ package com.t01g02.project;
 
 
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
-import com.t01g02.project.controller.FriendsController;
-import com.t01g02.project.controller.KittyController;
-import com.t01g02.project.controller.GameKeyListener;
-import com.t01g02.project.controller.ScoreController;
+import com.t01g02.project.controller.*;
 import com.t01g02.project.model.*;
 import com.t01g02.project.menu.SettingsModel;
 import com.t01g02.project.menu.Sound;
@@ -13,6 +10,7 @@ import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.model.Score;
 import com.t01g02.project.viewer.*;
+import com.t01g02.project.model.Position;
 
 import java.net.URISyntaxException;
 import java.awt.*;
@@ -27,12 +25,11 @@ public class Game {
     private final KittyController kittyController;
     private Score score;
     private ScoreViewer scoreViewer;
-    private ScoreController scoreController;
     private FriendsController friendsController;
     private Timer timer;
-    private Speed speed;
-
+    private StarController starController;
     private PopUpsViewer popUpsViewer;
+    private PopUpsModel star;
 
     public Game() throws IOException, FontFormatException, URISyntaxException {
         this.gui = new LanternaGui(345, 195, "Hello Kitty Game!");
@@ -47,7 +44,7 @@ public class Game {
         this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
         this.score = new Score(0);
         this.scoreViewer = new ScoreViewer(score, gui.getScreen());
-        this.scoreController = new ScoreController(score);
+        ScoreController scoreController = new ScoreController(score);
 
 
         city.initializeRoads();
@@ -55,7 +52,9 @@ public class Game {
         popUpsViewer.initializePopUps();
         city.initializeZones();
 
-        ScoreController scoreController = new ScoreController(score);
+        this.star= PopUpsModel.getStar();
+        this.starController = new StarController(city, star);
+
 
         this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city,sound,settingsModel);
         this.gameKeyListener = new GameKeyListener(kittyController);
@@ -78,6 +77,9 @@ public class Game {
             long startTime = System.currentTimeMillis();
             gui.getScreen().clear();
 
+            Position kittyPosition = CharacterModel.hellokitty.getPosition();
+
+            starController.moveStar(kittyPosition, city);
             cityViewer.draw();
             popUpsViewer.draw();
             characterViewer.draw();

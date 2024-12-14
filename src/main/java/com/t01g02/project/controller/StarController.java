@@ -16,8 +16,8 @@ public class StarController {
     private final CityModel city;
     private PopUpsModel star;
 
-    public StarController(Position position, CityModel city, PopUpsModel star) {
-        this.position = position;
+    public StarController(CityModel city, PopUpsModel star) {
+        this.position = star.getPosition();
         this.city = city;
         this.star = star;
 
@@ -32,7 +32,7 @@ public class StarController {
 
         Position newPosition;
 
-        if (distance < 20) {
+        if (distance < 200) {
             int movex = dx > 0 ? 1 : -1;
             int movey = dy > 0 ? 1 : -1;
             newPosition = new Position(position.getX()+movex, position.getY() +movey);
