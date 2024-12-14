@@ -6,6 +6,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.CityModel;
+import com.t01g02.project.model.Score;
 import com.t01g02.project.viewer.CityViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,7 +29,7 @@ public class CityViewerTest {
         stubTextGraphics = mock(TextGraphics.class);
 
         when(stubScreen.newTextGraphics()).thenReturn(stubTextGraphics);
-
+        Score score = new Score(0);
         cityViewer = new CityViewer(stubCity, stubScreen);
     }
 

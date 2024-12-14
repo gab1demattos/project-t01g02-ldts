@@ -166,6 +166,7 @@ public class CharacterSprites {
         }
     }
     public static String[] getStringSprite(String input) {
+
         String[] result = new String[7]; // 7 lines tall
         for (int i = 0; i < 7; i++) {
             result[i] = "";

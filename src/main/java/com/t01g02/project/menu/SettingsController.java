@@ -68,7 +68,7 @@ public class SettingsController implements IController {
                 default:
                     break;
             }
-            view.redrawButtons();
+            view.redrawScreen();
         }
 
     }
