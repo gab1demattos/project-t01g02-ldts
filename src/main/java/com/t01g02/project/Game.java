@@ -1,6 +1,12 @@
 package com.t01g02.project;
 
 
+import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.screen.Screen;
+import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 import com.t01g02.project.controller.*;
 import com.t01g02.project.model.*;
@@ -27,6 +33,9 @@ public class Game {
     private ScoreViewer scoreViewer;
     private FriendsController friendsController;
     private Timer timer;
+    private TimerViewer timerViewer;
+    private Speed speed;
+
     private StarController starController;
     private PopUpsViewer popUpsViewer;
     private PopUpsModel star;
@@ -41,6 +50,7 @@ public class Game {
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.friendsController = new FriendsController(city, sound, settingsModel);
         this.timer = new Timer(5, 0);
+        this.timerViewer =new TimerViewer(timer, gui.getScreen());
         this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
         this.score = new Score(0);
         this.scoreViewer = new ScoreViewer(score, gui.getScreen());
@@ -84,14 +94,13 @@ public class Game {
             popUpsViewer.draw();
             characterViewer.draw();
             scoreViewer.draw(10,185);
+            timerViewer.draw(185);
             gui.getScreen().refresh();
             kittyController.processInput(gameKeyListener.getKeys());
             friendsController.checkPickup();
             friendsController.checkDropoff();
 
-
             timer.update(frameTime);
-
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
@@ -109,6 +118,7 @@ public class Game {
 
 
         }
+
     }
 
 

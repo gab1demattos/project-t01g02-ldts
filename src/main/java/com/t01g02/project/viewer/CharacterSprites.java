@@ -13,6 +13,36 @@ public class CharacterSprites {
                         "█     █",
                         " █████ "
                 };
+            case 'T':
+                return new String[]{
+                        "███████",
+                        "   █   ",
+                        "   █   ",
+                        "   █   ",
+                        "   █   ",
+                        "   █   ",
+                        "   █   ",
+                };
+            case 'I':
+                return new String[]{
+                        "███████",
+                        "   █   ",
+                        "   █   ",
+                        "   █   ",
+                        "   █   ",
+                        "   █   ",
+                        "███████",
+                };
+            case 'M':
+                return new String[]{
+                        "██   ██",
+                        "█ █ █ █",
+                        "█  █  █",
+                        "█     █",
+                        "█     █",
+                        "█     █",
+                        "█     █",
+                };
             case 'C':
                 return new String[]{
                         " █████ ",
@@ -152,6 +182,16 @@ public class CharacterSprites {
                         "      █",
                         "      █",
                         " █████ "
+                };
+            case ':':
+                return new String[]{
+                        "       ",
+                        "   █   ",
+                        "       ",
+                        "       ",
+                        "       ",
+                        "   █   ",
+                        "       ",
                 };
             default:
                 return new String[]{

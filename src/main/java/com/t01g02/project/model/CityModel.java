@@ -27,7 +27,7 @@ public class CityModel {
         TextColor roadColor = TextColor.Factory.fromString("#222222");
 
         List<Road> roads = List.of(
-                new Road(new Position(1, 1), new Position(1, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(0, 0), new Position(0, 179), Tile.Type.ROAD, roadColor),
                 new Road(new Position(65, 1), new Position(65, 179), Tile.Type.ROAD, roadColor),
                 new Road(new Position(130, 1), new Position(130, 179), Tile.Type.ROAD, roadColor),
                 new Road(new Position(195, 1), new Position(195, 120), Tile.Type.ROAD, roadColor),
@@ -35,7 +35,7 @@ public class CityModel {
                 new Road(new Position(255, 1), new Position(255, 179), Tile.Type.ROAD, roadColor),
                 new Road(new Position(320, 1), new Position(320, 179), Tile.Type.ROAD, roadColor),
 
-                new Road(new Position(1, 1), new Position(339, 1), Tile.Type.ROAD, roadColor),
+                new Road(new Position(0, 0), new Position(344, 0), Tile.Type.ROAD, roadColor),
                 new Road(new Position(1, 155), new Position(339, 155), Tile.Type.ROAD, roadColor),
                 new Road(new Position(65, 105), new Position(255, 105), Tile.Type.ROAD, roadColor),
                 new Road(new Position(1, 54), new Position(339, 54), Tile.Type.ROAD, roadColor)

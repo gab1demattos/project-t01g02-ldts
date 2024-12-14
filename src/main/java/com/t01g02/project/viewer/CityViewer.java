@@ -41,6 +41,18 @@ public class CityViewer {
                 cityImage.setCharacterAt(new TerminalPosition(x, y), defaultChar);
             }
         }
+        for (int y = city.getHeight()-15; y < city.getHeight(); y++) {
+            for (int x = 0; x < city.getWidth(); x++){
+                TextCharacter pinkChar;
+                if (y==city.getHeight()-15){
+                    pinkChar = new TextCharacter(' ', TextColor.Factory.fromString("#000000"), TextColor.Factory.fromString("#B7868D"));
+                }else{
+                    pinkChar = new TextCharacter(' ', TextColor.Factory.fromString("#000000"), TextColor.Factory.fromString("#FFF0F5"));
+                }
+                cityImage.setCharacterAt(new TerminalPosition(x, y), pinkChar);
+            }
+        }
+
         for (int y = 0; y < city.getHeight(); y++) {
             for (int x = 0; x < city.getWidth(); x++) {
                 Tile tile = city.getTile(x, y);
