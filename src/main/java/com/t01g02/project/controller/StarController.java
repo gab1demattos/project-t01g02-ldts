@@ -12,41 +12,75 @@ import java.util.Random;
 
 
 public class StarController {
-    private final Position position;
     private final CityModel city;
     private PopUpsModel star;
+    private Random random = new Random();
 
     public StarController(CityModel city, PopUpsModel star) {
-        this.position = star.getPosition();
+        Position position = star.getPosition();
         this.city = city;
         this.star = star;
 
     }
     public void moveStar(Position kittyPosition, CityModel city) throws IOException {
         Position position = star.getPosition();
-        Random random = new Random();
 
         int dx = position.getX() - kittyPosition.getX();
         int dy = position.getY() - kittyPosition.getY();
         double distance = Math.sqrt(dx * dx + dy * dy);
 
+        List<Position> validMoves = getValidMoves(position);
+
         Position newPosition;
 
         if (distance < 200) {
-            int movex = dx > 0 ? 1 : -1;
-            int movey = dy > 0 ? 1 : -1;
-            newPosition = new Position(position.getX()+movex, position.getY() +movey);
+            newPosition = getEscapeMove(validMoves, kittyPosition);
         }
         else {
-            int randomX = random.nextInt(3) - 1;
-            int randomY = random.nextInt(3) - 1;
-            newPosition = new Position(position.getX() + randomX, position.getY() + randomY);
+            newPosition = getRandomMove(validMoves);
         }
-        if(isValidMove (newPosition, city)){
+        if(newPosition != null) {
             star.setPosition(newPosition);
         }
     }
-    private boolean isValidMove(Position position, CityModel city) {
+
+    private List<Position> getValidMoves(Position currentPosition) {
+        List<Position> moves = new ArrayList<>();
+
+        // Possible movement directions (up, down, left, right)
+        int[][] directions = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
+        for (int[] dir : directions) {
+            Position newPos = new Position(currentPosition.getX() + dir[0] , currentPosition.getY() + dir[1]);
+            if (isValidMove(newPos)) {
+                moves.add(newPos);
+            }
+        }
+
+        return moves;
+    }
+    private Position getEscapeMove(List<Position> validMoves, Position kittyPosition) {
+        if (validMoves.isEmpty()) return null;
+
+        Position bestMove = null;
+        double maxDistance = -1;
+
+        for (Position move : validMoves) {
+            double distance = getDistance(move, kittyPosition);
+            if (distance > maxDistance) {
+                maxDistance = distance;
+                bestMove = move;
+            }
+        }
+
+        return bestMove;
+    }
+    private Position getRandomMove(List<Position> validMoves) {
+        if (validMoves.isEmpty()) return null;
+
+        return validMoves.get(random.nextInt(validMoves.size()));
+    }
+
+    private boolean isValidMove(Position position) {
         List<Position> corners = new ArrayList<>();
         corners.add(new Position(position.getX(), position.getY())); //upperleft
         corners.add(new Position(position.getX() + 25, position.getY() )); // upper right
@@ -63,5 +97,10 @@ public class StarController {
             }
         }
         return true;
+    }
+    private double getDistance(Position position, Position kittyPosition) {
+        int distanceX = position.getX() - kittyPosition.getX();
+        int distanceY = position.getY() - kittyPosition.getY();
+        return Math.sqrt(distanceX * distanceX + distanceY * distanceY);
     }
 }

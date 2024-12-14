@@ -36,7 +36,9 @@ public class PopUpsViewer {
         for (PopUpsModel blockpopup : PopUpsModel.blockpopups) {
             blockpopup.getSprite().drawImage(blockpopup.getPosition());
         }
-        PopUpsModel.getStar().getSprite().drawImage(PopUpsModel.getStar().getPosition());
+        if(PopUpsModel.getStar() != null) {
+            PopUpsModel.getStar().getSprite().drawImage(PopUpsModel.getStar().getPosition());
+        }
     }
 
 

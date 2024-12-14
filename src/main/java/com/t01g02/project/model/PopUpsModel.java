@@ -108,4 +108,7 @@ public class PopUpsModel extends Element {
     }
 
 
+    public static void deleteStar() {
+        star = null;
+    }
 }

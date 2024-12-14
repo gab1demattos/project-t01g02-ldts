@@ -86,33 +86,28 @@ public class KittyController {
     private void activatePopUps(Position newPosition) {
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
             if (isPositionOnPopUp(newPosition, mudpopup.getPosition())) {
-                activateMud();
-            }
+                isMudOn = true;
+                isSpeedOn = false;
+                speedtimerstart = System.currentTimeMillis();            }
         }
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
             if (isPositionOnPopUp(newPosition, speedpopup.getPosition())) {
-                activateSpeed();
+                if (settingsModel.isSoundOn()){
+                    sound.play("/audio/boltSound.wav");
+                }
+                isSpeedOn = true;
+                isMudOn = false;
+                speedtimerstart = System.currentTimeMillis();
             }
         }
+        if (PopUpsModel.getStar() != null && isPositionOnPopUp(newPosition, PopUpsModel.getStar().getPosition())) {
+            pickedStar();
+            PopUpsModel.deleteStar();
+        }
     }
 
-    private void activateSpeed() {
-        if (settingsModel.isSoundOn()){
-            sound.play("/audio/boltSound.wav");
-        }
-        isSpeedOn = true;
-        isMudOn = false;
-        speedtimerstart = System.currentTimeMillis();
-    }
     private void deactivateSpeed() {
         isSpeedOn = false;
-    }
-
-    private void activateMud() {
-        isMudOn = true;
-        isSpeedOn = false;
-        speedtimerstart = System.currentTimeMillis();
-
     }
     private void deactivateMud() {
         isMudOn = false;
