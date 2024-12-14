@@ -10,6 +10,7 @@ import com.t01g02.project.viewer.PopUpsViewer;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -25,6 +26,7 @@ public class KittyController {
     private boolean isMudOn = false;
     private final PopUpsViewer popUpsViewer;
     private Speed speed;
+    private Set<Position> activatedPopUps = new HashSet<>(); // Track activated popups
 
     private long speedtimerstart = 0;
     private  final long speedtimerduration = 5000;
@@ -88,10 +90,15 @@ public class KittyController {
         // PopUpsModel mudToRemove = null;
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
             if (isPositionOnPopUp(newPosition, mudpopup.getPosition())) {
-                //mudToRemove = mudpopup;
+                if (settingsModel.isSoundOn() && !activatedPopUps.contains(mudpopup.getPosition()) ){
+                    sound.play("/audio/mudSound.wav");
+                    activatedPopUps.add(mudpopup.getPosition());
+                }
                 isMudOn = true;
                 isSpeedOn = false;
-                speedtimerstart = System.currentTimeMillis();            }
+                speedtimerstart = System.currentTimeMillis();
+                activatedPopUps.add(mudpopup.getPosition());
+            }
         }
         /*if (mudToRemove != null){
             PopUpsModel.mudpopups.remove(mudToRemove);
@@ -101,8 +108,9 @@ public class KittyController {
         PopUpsModel speedToRemove = null;
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
             if (isPositionOnPopUp(newPosition, speedpopup.getPosition())) {
-                if (settingsModel.isSoundOn()){
+                if (settingsModel.isSoundOn() && !activatedPopUps.contains(speedpopup.getPosition()) ){
                     sound.play("/audio/boltSound.wav");
+                    activatedPopUps.add(speedpopup.getPosition());
                 }
                 speedToRemove = speedpopup;
                 isSpeedOn = true;
@@ -117,6 +125,9 @@ public class KittyController {
 
         if (PopUpsModel.getStar() != null && isPositionOnPopUp(newPosition, PopUpsModel.getStar().getPosition())) {
             pickedStar();
+            if (settingsModel.isSoundOn() ){
+                sound.play("/audio/starSound.wav");
+            }
             PopUpsModel.deleteStar();
         }
     }
