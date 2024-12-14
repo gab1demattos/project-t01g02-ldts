@@ -43,7 +43,7 @@ public class KittyController {
         this.speed = new Speed();
     }
 
-    public void processInput(Set<KeyStroke> keys) {
+    public void processInput(Set<KeyStroke> keys) throws IOException {
         if (isSpeedOn && System.currentTimeMillis() - speedtimerstart >= speedtimerduration || isMudOn && System.currentTimeMillis() - speedtimerstart >= speedtimerduration) {
             speed.resetSpeed();
            if (isSpeedOn) {deactivateSpeed();}
@@ -85,24 +85,26 @@ public class KittyController {
         }
     }
 
-    private void activatePopUps(Position newPosition) {
+    private void activatePopUps(Position newPosition) throws IOException {
 
-        // PopUpsModel mudToRemove = null;
+        PopUpsModel mudToRemove = null;
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
             if (isPositionOnPopUp(newPosition, mudpopup.getPosition())) {
                 if (settingsModel.isSoundOn() && !activatedPopUps.contains(mudpopup.getPosition()) ){
                     sound.play("/audio/mudSound.wav");
                     activatedPopUps.add(mudpopup.getPosition());
                 }
+                mudToRemove = mudpopup;
                 isMudOn = true;
                 isSpeedOn = false;
                 speedtimerstart = System.currentTimeMillis();
                 activatedPopUps.add(mudpopup.getPosition());
             }
         }
-        /*if (mudToRemove != null){
+        if (mudToRemove != null){
             PopUpsModel.mudpopups.remove(mudToRemove);
-        }*/
+            checkMudPopUp();
+        }
 
 
         PopUpsModel speedToRemove = null;
@@ -120,6 +122,7 @@ public class KittyController {
         }
         if (speedToRemove != null){
             PopUpsModel.speedpopups.remove(speedToRemove);
+            checkSpeedPopUp();
         }
 
 
@@ -129,6 +132,18 @@ public class KittyController {
                 sound.play("/audio/starSound.wav");
             }
             PopUpsModel.deleteStar();
+        }
+    }
+
+    private void checkSpeedPopUp() throws IOException {
+        if (PopUpsModel.speedpopups.size() == 2) {
+            PopUpsModel.addSpeed(screen);
+        }
+    }
+
+    private void checkMudPopUp() throws IOException {
+        if (PopUpsModel.mudpopups.size() == 1) {
+            PopUpsModel.addMud(screen);
         }
     }
 
