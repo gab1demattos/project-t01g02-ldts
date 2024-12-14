@@ -17,9 +17,9 @@ public class PopUpsViewer {
     }
 
     public void initializePopUps() throws IOException{
-        PopUpsModel.initializeSpeedPopUps(screen, city);
-        PopUpsModel.initializeMudPopUps(screen, city);
-        PopUpsModel.initializeBlockPopUps(screen, city);
+        PopUpsModel.initializeSpeedPopUps(screen);
+        PopUpsModel.initializeMudPopUps(screen);
+        PopUpsModel.initializeBlockPopUps(screen);
     }
 
     public void draw() throws IOException {

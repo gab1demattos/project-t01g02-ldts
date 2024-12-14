@@ -44,23 +44,18 @@ public class PopUpsModel extends Element {
     }
 */
 
-    private static List<Position> popupsPositions = new ArrayList<>( List.of(
-            new Position(100, 130),
-                new Position(80, 80),
-                new Position(200, 170),
-                new Position(60, 120),
-                new Position(120, 70),
-                new Position(70, 30),
-                new Position(200, 150),
-                new Position(180, 95),
-                new Position(140, 100)
+    private static final List<Position> popupsPositions = new ArrayList<>(
+            List.of(
+                new Position(4, 6),
+                new Position(4, 100),
+                new Position(30, 160),
+                new Position(190, 160),
+                new Position(130, 110),
+                new Position(170, 55),
+                new Position(150, 6),
+                new Position(260, 6),
+                new Position(315, 100)
     ));
-
-    private static void popupsPositions() {
-        while(!popupsPositions.isEmpty()) {
-            getRandomPosition();
-        }
-    }
 
     public static Position getRandomPosition() {
         assert !popupsPositions.isEmpty();
@@ -70,7 +65,8 @@ public class PopUpsModel extends Element {
         return position;
     }
 
-    public static void initializeSpeedPopUps(Screen screen, CityModel city) throws IOException {
+    public static void initializeSpeedPopUps(Screen screen
+    ) throws IOException {
         speedpopups = List.of(
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), getRandomPosition(), "Speed"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), getRandomPosition(), "Speed"),
@@ -80,7 +76,7 @@ public class PopUpsModel extends Element {
         );
     }
 
-    public static void initializeMudPopUps(Screen screen, CityModel city) throws IOException {
+    public static void initializeMudPopUps(Screen screen) throws IOException {
         mudpopups = List.of(
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud.png"), getRandomPosition(), "Mud"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud.png"), getRandomPosition(), "Mud"),
@@ -89,7 +85,7 @@ public class PopUpsModel extends Element {
         );
     }
 
-    public static void initializeBlockPopUps(Screen screen, CityModel city) throws IOException {
+    public static void initializeBlockPopUps(Screen screen) throws IOException {
         blockpopups = List.of(
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/block.png"), getRandomPosition(), "Block"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/block.png"), getRandomPosition(), "Block")
