@@ -84,22 +84,37 @@ public class KittyController {
     }
 
     private void activatePopUps(Position newPosition) {
+
+        // PopUpsModel mudToRemove = null;
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
             if (isPositionOnPopUp(newPosition, mudpopup.getPosition())) {
+                //mudToRemove = mudpopup;
                 isMudOn = true;
                 isSpeedOn = false;
                 speedtimerstart = System.currentTimeMillis();            }
         }
+        /*if (mudToRemove != null){
+            PopUpsModel.mudpopups.remove(mudToRemove);
+        }*/
+
+
+        PopUpsModel speedToRemove = null;
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
             if (isPositionOnPopUp(newPosition, speedpopup.getPosition())) {
                 if (settingsModel.isSoundOn()){
                     sound.play("/audio/boltSound.wav");
                 }
+                speedToRemove = speedpopup;
                 isSpeedOn = true;
                 isMudOn = false;
                 speedtimerstart = System.currentTimeMillis();
             }
         }
+        if (speedToRemove != null){
+            PopUpsModel.speedpopups.remove(speedToRemove);
+        }
+
+
         if (PopUpsModel.getStar() != null && isPositionOnPopUp(newPosition, PopUpsModel.getStar().getPosition())) {
             pickedStar();
             PopUpsModel.deleteStar();

@@ -82,22 +82,22 @@ public class PopUpsModel extends Element {
 
     public static void initializeSpeedPopUps(Screen screen
     ) throws IOException {
-        speedpopups = List.of(
+        speedpopups = new ArrayList<>( List.of(
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), getRandomPosition(), "Speed"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), getRandomPosition(), "Speed"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), getRandomPosition(), "Speed"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/speed.png"), getRandomPosition(), "Speed")
 
-        );
+        ));
     }
 
     public static void initializeMudPopUps(Screen screen) throws IOException {
-        mudpopups = List.of(
+        mudpopups = new ArrayList<>( List.of(
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud.png"), getRandomPosition(), "Mud"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud.png"), getRandomPosition(), "Mud"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud.png"), getRandomPosition(), "Mud")
 
-        );
+        ));
     }
 
     public static void initializeBlockPopUps(Screen screen) throws IOException {
@@ -107,8 +107,18 @@ public class PopUpsModel extends Element {
         );
     }
 
-
     public static void deleteStar() {
         star = null;
     }
+
+    @Override
+    public Position getPosition() {
+        return super.getPosition();
+    }
+
+    @Override
+    public void setPosition(Position position) {
+        super.setPosition(position);
+    }
+
 }
