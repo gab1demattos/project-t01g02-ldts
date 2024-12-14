@@ -1,15 +1,13 @@
 package com.t01g02.project.viewer;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextCharacter;
-import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.graphics.TextImage;
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.model.Position;
+import com.t01g02.project.model.Score;
 import com.t01g02.project.model.Tile;
 
 import java.io.IOException;
@@ -20,8 +18,8 @@ public class CityViewer {
     private final Screen screen;
     private final BasicTextImage cityImage;
     private final Sprite party, house, tree, lighttree, yellowhouse, bluehouse, pinkhouse; //flowers;
-
     //private GameTimer timer;
+    private final Score score;
 
     public CityViewer(CityModel city, Screen screen) throws IOException {
         this.city = city;
@@ -34,6 +32,7 @@ public class CityViewer {
         this.yellowhouse = new Sprite(screen, "src/main/resources/extras/yellowhouse.png");
         this.bluehouse = new Sprite(screen, "src/main/resources/extras/bluehouse.png");
         this.pinkhouse = new Sprite(screen, "src/main/resources/extras/pinkhouse.png");
+        this.score = new Score(0);
         // this.flowers = new Sprite(screen, "src/main/resources/extras/flowers.png");
     }
     public void initializeCityImage() {
@@ -73,16 +72,28 @@ public class CityViewer {
         }
     }
 
-    // está a fazer print do background preto, ainda tenho de arranjar iss
-
+    // cor adicionada
     public void drawStringSprite(String text, int startX, int startY, TextGraphics graphics) {
         String[] sprite = CharacterSprites.getStringSprite(text);
-
+        graphics.setForegroundColor(new TextColor.RGB(183, 134, 141));
+        graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
         for (int i = 0; i < sprite.length; i++) {
-            graphics.putString(startX, startY + i, sprite[i]);
+            for (int j = 0; j<sprite[i].length();j++){
+                char c = sprite[i].charAt(j);
+                graphics.putString(startX, startY + i, sprite[i], SGR.BOLD);
+            }
         }
     }
-
+    public int getScoreEndPos(String text, int startX){
+        String[] sprite = CharacterSprites.getStringSprite(text);
+        int maxLength = 0;
+        for (String line : sprite){
+            if (line.length() > maxLength){
+                maxLength = line.length();
+            }
+        }
+        return startX + maxLength;
+    }
     public void draw() throws IOException {
         TextGraphics graphics = screen.newTextGraphics();
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screen.getTerminalSize().getColumns(), screen.getTerminalSize().getRows()), ' ');
@@ -90,6 +101,11 @@ public class CityViewer {
         graphics.drawImage(new TerminalPosition(0, 0), cityImage);
         party.drawImage(new Position(275, 108));
         drawStringSprite("SCORE", 10, 185, graphics);
+
+        String scoreText = String.valueOf(score.getScore());
+        int endX = getScoreEndPos("SCORE",10);
+        drawStringSprite(scoreText,endX + 5,185,graphics);
+
 
         drawingHousesAndTrees(house, city.getHousePositions());
         drawingHousesAndTrees(tree, city.getTreePositions());
