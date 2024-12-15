@@ -56,7 +56,7 @@ public class Game {
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.friendsController = new FriendsController(city, sound, settingsModel);
-        this.timer = new Timer(0, 2);
+        this.timer = new Timer(5, 0);
         this.timerViewer =new TimerViewer(timer, gui.getScreen());
         this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
         this.score = new Score(0);

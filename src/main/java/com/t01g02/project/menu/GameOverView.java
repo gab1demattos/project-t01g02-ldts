@@ -30,18 +30,18 @@ public class GameOverView implements IView {
         screen.clear();
         TextGraphics graphics = screen.newTextGraphics();
 
-        graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
+        graphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(screen.getTerminalSize().getColumns(), screen.getTerminalSize().getRows()), ' ');
 
         if (isGameOver){
             String message = isWin ? "Congratulations! You did it!" : "You didn´t make it on time :(";
-            graphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
+            graphics.setForegroundColor(new TextColor.RGB(149, 88, 97));
             graphics.putString(new TerminalPosition(screen.getTerminalSize().getColumns() / 2 - message.length() / 2, screen.getTerminalSize().getRows() / 2 - 2), message, SGR.BOLD);
 
             String scoreMessage = "Final score: " + finalScore;
             graphics.putString(new TerminalPosition(screen.getTerminalSize().getColumns() / 2 - scoreMessage.length() / 2, screen.getTerminalSize().getRows() / 2), scoreMessage, SGR.BOLD);
 
-            String menuMessage = "Press B to return to the main menu";
+            String menuMessage = "Press Esc to leave";
             graphics.putString(new TerminalPosition(screen.getTerminalSize().getColumns() / 2 - menuMessage.length() / 2, screen.getTerminalSize().getRows() / 2 + 2), menuMessage, SGR.BORDERED);
 
         }

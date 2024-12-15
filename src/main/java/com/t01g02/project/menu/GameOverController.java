@@ -59,12 +59,12 @@ public class GameOverController implements IController{
                     System.exit(0);
                     break;
 
-                case Character:
+                /*case Character:
                     if (input.getCharacter() == 'b') {
                         gameMenuController.setInGameOver(false);
                         gameMenuController.updateView();
                         screen.refresh();
-                    }
+                    }*/
 
                 default:
                     break;
