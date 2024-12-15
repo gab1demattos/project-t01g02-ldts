@@ -99,7 +99,7 @@ public class FriendsController {
         }
         if(hellokitty.getPosition().getY()<=friend.getPosition().getY()){
             friend.setOutOfHouse(true);
-            //System.out.println("hellokittys y " + hellokitty.getPosition().getY() + " friends y " + friend.getPosition().getY());
+            System.out.println("hellokittys y " + hellokitty.getPosition().getY() + " friends y " + friend.getPosition().getY());
             getCorrectIndex(friendId);
 
         }
@@ -127,17 +127,18 @@ public class FriendsController {
         CharacterModel friend = friends.get(friendId);
         List<Position> kittyPositionHistory = hellokitty.getKittyLastPositions();
         int min = Integer.MAX_VALUE;
-        //System.out.println("fx " +friendPos.getX() + " fy " + friendPos.getY());
+        System.out.println("fx " +friendPos.getX() + " fy " + friendPos.getY());
         for (int i = 0; i< kittyPositionHistory.size() - 1; i++) {
             Position historyPos = kittyPositionHistory.get(i);
-            int distance = Math.abs(historyPos.getX() - friendPos.getX());
+            int distance = (historyPos.getX() - friendPos.getX()) * (historyPos.getX() - friendPos.getX())
+                    + (historyPos.getY() - friendPos.getY()) * (historyPos.getY() - friendPos.getY());
 
-            //System.out.println("x" +historyPos.getX() + " y " + historyPos.getY());
-            if (distance < min && historyPos.getY() >= friendPos.getY()) {
+            System.out.println("x" +historyPos.getX() + " y " + historyPos.getY());
+            if (distance < min) {
                 min = distance;
                 targetPosIndex = i;
-//                System.out.println("last pos: " + historyPos.getX() + " " + historyPos.getY() +
-//                        " friend pos: " + friendPos.getX() + " " + friendPos.getY());
+                System.out.println("last pos: " + historyPos.getX() + " " + historyPos.getY() +
+                       " friend pos: " + friendPos.getX() + " " + friendPos.getY());
             }
         }
         if(min != 0){
