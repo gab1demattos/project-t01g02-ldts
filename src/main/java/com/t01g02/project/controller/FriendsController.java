@@ -16,7 +16,7 @@ public class FriendsController {
     private List<KittyObserver> observers = new ArrayList<KittyObserver>();
     private Sound sound;
     private SettingsModel settingsModel;
-    private static int targetPosIndex = 0;
+    private int targetPosIndex = 0;
 
 
 
@@ -90,7 +90,7 @@ public class FriendsController {
         }
 
     }
-    public static void leaveHouse(int friendId) {
+    public  void leaveHouse(int friendId) {
         int speed = KittyController.speed.getSpeed();
 
         CharacterModel friend = friends.get(friendId);
@@ -105,7 +105,7 @@ public class FriendsController {
         }
 
     }
-    public static void moveFollowingCharacters() {
+    public void moveFollowingCharacters() {
         for (int i = 0; i < friends.size(); i++) {
             CharacterModel friend = friends.get(i);
             if(friend.isFollowing() && !friend.isOutOfHouse()){
@@ -118,7 +118,7 @@ public class FriendsController {
 
     }
 
-    public static void getCorrectIndex(int friendId) {
+    public  void getCorrectIndex(int friendId) {
         Position kittyPos = hellokitty.getPosition();
         Position friendPos = friends.get(friendId).getPosition();
         CharacterModel friend = friends.get(friendId);
@@ -127,14 +127,19 @@ public class FriendsController {
         for (int i = 0; i< kittyPositionHistory.size() - 1; i++) {
             Position historyPos = kittyPositionHistory.get(i);
 
-            if (historyPos.equals(friendPos)) {
+            if (checkSurrounding(historyPos, friendPos)) {
                 targetPosIndex = i;
                 break;
             }
         }
     }
+    private boolean checkSurrounding(Position p1, Position p2) {
+        int deltaX = Math.abs(p1.getX() - p2.getX());
+        int deltaY = Math.abs(p1.getY() - p2.getY());
+        return deltaX <= 2 && deltaY <= 2;
+    }
 
-    private static void follow(int friendId) {
+    private void follow(int friendId) {
         CharacterModel friend = friends.get(friendId);
         int speed = KittyController.speed.getSpeed();
         List<Position> kittyPositionHistory = hellokitty.getKittyLastPositions();

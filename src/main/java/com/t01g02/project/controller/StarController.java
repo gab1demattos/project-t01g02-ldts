@@ -35,7 +35,7 @@ public class StarController {
         );
 
         // Check if the next position is out of bounds
-        if (nextPosition.getX() < 0 || nextPosition.getX() >= city.getWidth()) {
+        if (nextPosition.getX() < 0 || nextPosition.getX() +25 >= city.getWidth()) {
             dx *= -1;
             nextPosition = new Position(
                     currentPosition.getX() + dx,

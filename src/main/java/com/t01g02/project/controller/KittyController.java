@@ -27,9 +27,9 @@ public class KittyController {
     private final PopUpsViewer popUpsViewer;
     public static Speed speed = new Speed(); // Static field initialized
     private Set<Position> activatedPopUps = new HashSet<>(); // Track activated popups
-
     private long speedtimerstart = 0;
     private  final long speedtimerduration = 5000;
+    private FriendsController controller;
 
 
     public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel, Sound sound, SettingsModel settingsModel ) throws IOException {
@@ -40,6 +40,8 @@ public class KittyController {
         this.sound = sound;
         this.settingsModel = settingsModel;
         this.popUpsViewer = new PopUpsViewer(screen, cityModel);
+        this.controller= new FriendsController(cityModel, sound, settingsModel);
+
     }
 
     public void processInput(Set<KeyStroke> keys) throws IOException {
@@ -80,7 +82,7 @@ public class KittyController {
         if (newPosition != null && canMove(newPosition)) {
             activatePopUps(newPosition);
             CharacterModel.getHellokitty().setPosition(newPosition);
-            FriendsController.moveFollowingCharacters();
+            controller.moveFollowingCharacters();
         }
     }
 
