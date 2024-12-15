@@ -83,4 +83,9 @@ public class CharacterModel extends Element {
     public void setInParty(boolean inParty) {
         this.inParty = inParty;
     }
+
+
+
 }
+
+

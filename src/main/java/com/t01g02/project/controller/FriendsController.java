@@ -15,13 +15,11 @@ public class FriendsController {
     private List<KittyObserver> observers = new ArrayList<KittyObserver>();
     private Sound sound;
     private SettingsModel settingsModel;
-    private final List<CharacterModel> friendsList;
 
     public FriendsController(CityModel cityModel, Sound sound,SettingsModel settingsModel) {
         FriendsController.cityModel = cityModel;
         this.sound=sound;
         this.settingsModel= settingsModel;
-        this.friendsList = new ArrayList<>(); // Initialize with friends
     }
 
     private static boolean isWithinZone(Position position, Zone zone) {
@@ -39,9 +37,7 @@ public class FriendsController {
 
     public void checkPickup() {
         Position kittyPosition = CharacterModel.getHellokitty().getPosition();
-
         List<Zone> zones = cityModel.getZones();
-
         for (Zone zone : zones) {
             if (zone.getType() == Tile.Type.PICKUP && isWithinZone(kittyPosition, zone)) {
                 CharacterModel friend = zone.getAssociatedFriend();
@@ -147,13 +143,13 @@ public class FriendsController {
             observer.friendDroppedOff();
         }
     }
-
-    public boolean allFriendsPickedUp(){
-        for (CharacterModel friend : friendsList){
-            if (!friend.isInParty()){
+    public boolean areAllFriendsInParty() {
+        for (CharacterModel friend : friends) {
+            if (!friend.isInParty()) {
                 return false;
             }
         }
         return true;
     }
+
 }

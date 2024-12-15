@@ -106,4 +106,8 @@ public class StarController {
     public boolean isStarPickedUp(){
         return starPickedUp;
     }
+    private void pickedStar() {
+        this.starPickedUp = true;
+    }
+
 }

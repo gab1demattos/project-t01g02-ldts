@@ -27,10 +27,9 @@ public class KittyController {
     private final PopUpsViewer popUpsViewer;
     private Speed speed;
     private Set<Position> activatedPopUps = new HashSet<>(); // Track activated popups
-
     private long speedtimerstart = 0;
     private  final long speedtimerduration = 5000;
-
+    private boolean hasStarBeenPicked=false;
 
     public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel, Sound sound, SettingsModel settingsModel ) throws IOException {
         this.hellokitty = CharacterModel.getHellokitty();
@@ -125,6 +124,7 @@ public class KittyController {
 
         if (PopUpsModel.getStar() != null && isPositionOnPopUp(newPosition, PopUpsModel.getStar().getPosition())) {
             pickedStar();
+            hasStarBeenPicked=true;
             if (settingsModel.isSoundOn() ){
                 sound.play("/audio/starSound.wav");
             }
@@ -184,6 +184,11 @@ public class KittyController {
         for (KittyObserver observer : observers) {
             observer.pickedStar();
         }
+
+    }
+
+    public boolean HasStarBeenPicked() {
+        return hasStarBeenPicked;
     }
 
 }

@@ -2,6 +2,7 @@ package com.t01g02.project.menu;
 
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
+import com.t01g02.project.Game;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -30,12 +31,12 @@ public class GameOverController implements IController{
                     break;
 
                 case Character:
-
                     if (input.getCharacter() == 'b') {
-                        inGameOver=false;
+                        gameMenuController.setInGameOver(false);
                         gameMenuController.updateView();
                         screen.refresh();
                     }
+
                 default:
                     break;
             }

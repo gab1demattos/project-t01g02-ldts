@@ -23,7 +23,7 @@ public class GameMenuController implements IController, GameEndListener {
     private GameOverView gameOverView;
     private GameOverController gameOverController;
     private boolean inGameOver ;
-
+    private boolean hasBeenOver;
 
     public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOverView gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.view = view;
@@ -105,7 +105,12 @@ public class GameMenuController implements IController, GameEndListener {
                 openSettings();
                 break;
             case "Play":
-                startGame();
+                if (!hasBeenOver){
+                    startGame();
+                }
+                else{
+
+                }
                 break;
             default:
                 break;
@@ -131,6 +136,14 @@ public class GameMenuController implements IController, GameEndListener {
         this.inGameOver = inGameOver;
     }
 
+    public boolean HasBeenOver() {
+        return hasBeenOver;
+    }
+
+    public void setHasBeenOver(boolean hasBeenOver) {
+        this.hasBeenOver = hasBeenOver;
+    }
+
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         Thread.sleep(870); //slight delay so audio can play while still in settings
 
@@ -141,6 +154,7 @@ public class GameMenuController implements IController, GameEndListener {
         } catch (LineUnavailableException e) {
             throw new RuntimeException(e);
         }
+
         Game game = new Game(this);
         game.run();
     }
@@ -148,6 +162,7 @@ public class GameMenuController implements IController, GameEndListener {
     @Override
     public void onGameOver(boolean isWin, int finalScore){
         inGameOver = true;
+        hasBeenOver = true;
         gameOverView.setGameOver(isWin, finalScore);
         updateView();
     }

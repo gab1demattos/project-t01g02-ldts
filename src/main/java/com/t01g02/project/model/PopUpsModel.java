@@ -48,7 +48,7 @@ public class PopUpsModel extends Element {
     }
 */
 
-    private static final List<Position> popupsPositions = new ArrayList<>(
+    private static List<Position> popupsPositions = new ArrayList<>(
             List.of(
                 new Position(4, 6),
                 new Position(4, 100),
@@ -121,4 +121,12 @@ public class PopUpsModel extends Element {
         super.setPosition(position);
     }
 
+    public static void reset(Screen screen)throws IOException{
+        popupsPositions = new ArrayList<>(popupsPositions);
+        initializeSpeedPopUps(screen);
+        initializeMudPopUps(screen);
+        initializeBlockPopUps(screen);
+        initializeStar(screen);
+
+    }
 }
