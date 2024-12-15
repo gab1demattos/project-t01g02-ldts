@@ -35,13 +35,13 @@ public class Game {
     private Timer timer;
     private TimerViewer timerViewer;
     private Speed speed;
-    private GameOverView gameOverView;
-    private GameMenuController gameMenuController;
     private StarController starController;
     private PopUpsViewer popUpsViewer;
     private PopUpsModel star;
 
-    public Game() throws IOException, FontFormatException, URISyntaxException {
+    private final GameEndListener gameEndListener;
+
+    public Game(GameEndListener gameEndListener) throws IOException, FontFormatException, URISyntaxException {
         this.gui = new LanternaGui(345, 195, "Hello Kitty Game!");
 
         Sound sound = new Sound();
@@ -56,8 +56,6 @@ public class Game {
         this.score = new Score(0);
         this.scoreViewer = new ScoreViewer(score, gui.getScreen());
         ScoreController scoreController = new ScoreController(score);
-        this.gameOverView = gameOverView;
-        this.gameMenuController=gameMenuController;
         city.initializeRoads();
         characterViewer.initializeCharacters();
         popUpsViewer.initializePopUps();
@@ -72,6 +70,7 @@ public class Game {
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);
 
+        this.gameEndListener = gameEndListener;
 
         AWTTerminalFrame terminalFrame = gui.getTerminalFrame();
         terminalFrame.addKeyListener(this.gameKeyListener);
@@ -108,7 +107,7 @@ public class Game {
 
             if(timer.isTimeUp()){
                 System.out.println("Game Over!");
-                setGameOver(friendsController.allFriendsPickedUp()&&starController.isStarPickedUp(), score.getScore());
+                setGameOver(friendsController.allFriendsPickedUp()&& starController.isStarPickedUp(), score.getScore() );
                 break;
             }
 
@@ -123,14 +122,15 @@ public class Game {
         }
 
         //update here!!!!!
-
-        private void setGameOver (boolean isWin, int finalScore) throws IOException{
-            gameMenuController.setInGameOver(true);
-            gameOverView.setGameOver(isWin,finalScore);
-            gameOverView.redrawScreen();
-            gui.getScreen().refresh();
-            gameMenuController.updateView();
+        private void setGameOver(boolean isWin, int finalScore) {
+            try {
+                gui.getScreen().close(); // Close the game GUI
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            gameEndListener.onGameOver(isWin, finalScore); // Notify the listener
         }
+
 
     }
 

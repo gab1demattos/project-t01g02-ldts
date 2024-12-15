@@ -9,7 +9,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class GameMenuController implements IController {
+public class GameMenuController implements IController, GameEndListener {
     private boolean running = true;
     private final IView view;
     private IModel model;
@@ -141,8 +141,15 @@ public class GameMenuController implements IController {
         } catch (LineUnavailableException e) {
             throw new RuntimeException(e);
         }
-        Game game = new Game();
+        Game game = new Game(this);
         game.run();
+    }
+
+    @Override
+    public void onGameOver(boolean isWin, int finalScore){
+        inGameOver = true;
+        gameOverView.setGameOver(isWin, finalScore);
+        updateView();
     }
 
     private void playMenuMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
