@@ -9,7 +9,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class GameMenuController implements IController {
+public class GameMenuController implements IController, GameEndListener {
     private boolean running = true;
     private final IView view;
     private IModel model;
@@ -20,9 +20,11 @@ public class GameMenuController implements IController {
     private final Sound sound;
     private boolean inSettings;
     private SettingsController settingsController;
+    private GameOverView gameOverView;
+    private GameOverController gameOverController;
+    private boolean inGameOver ;
 
-
-    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOverView gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.view = view;
         this.screen = screen;
         this.model = model;
@@ -30,6 +32,7 @@ public class GameMenuController implements IController {
         this.settingsView = settingsView;
         this.music = music;
         this.sound = sound;
+        this.gameOverView = gameOverView;
 
         if (settingsModel.isMusicOn()){
                 playMenuMusic();
@@ -37,6 +40,7 @@ public class GameMenuController implements IController {
             music.stop();
         }
         this.settingsController = new SettingsController(settingsView, screen, settingsModel, music,sound, view, this);
+        this.gameOverController = new GameOverController(gameOverView,screen,this,settingsModel,music,sound);
     }
 
     public boolean isRunning() {
@@ -87,6 +91,8 @@ public class GameMenuController implements IController {
             }
         } else if (inSettings){
             settingsController.processInput();
+        }else if (inGameOver){
+            gameOverController.processInput();
         }
         screen.refresh();
     }
@@ -113,10 +119,17 @@ public class GameMenuController implements IController {
     public boolean isInSettings() {
         return inSettings;
     }
-
     public void setInSettings(boolean inSettings) {
         this.inSettings = inSettings;
     }
+
+    public boolean isInGameOver(){
+        return inGameOver;
+    }
+    public void setInGameOver(boolean inGameOver) {
+        this.inGameOver = inGameOver;
+    }
+
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         Thread.sleep(870); //slight delay so audio can play while still in settings
@@ -128,8 +141,17 @@ public class GameMenuController implements IController {
         } catch (LineUnavailableException e) {
             throw new RuntimeException(e);
         }
-        Game game = new Game();
+
+        Game game = new Game(this);
         game.run();
+    }
+
+    @Override
+    public void onGameOver(boolean isWin, int finalScore){
+        inGameOver = true;
+        gameOverView.setGameOver(isWin, finalScore);
+        gameOverController.setGameOverState(isWin, finalScore);
+        updateView();
     }
 
     private void playMenuMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
@@ -144,7 +166,11 @@ public class GameMenuController implements IController {
     public void updateView() {
         if (inSettings) {
             settingsView.redrawScreen();
-        } else {
+        }else if (inGameOver){
+            music.stop();
+            gameOverView.redrawScreen();
+        }
+        else {
             view.redrawScreen();  // Redraw main menu view
         }
 

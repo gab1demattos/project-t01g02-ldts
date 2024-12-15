@@ -32,10 +32,6 @@ public class SettingsModel {
         this.soundOn = soundOn;
     }
 
-    public void toggleMusic() {this.musicOn = !musicOn;}
-
-    public void toggleSound() {this.soundOn = !soundOn;}
-
     public String[] getOptions() {
         return options;
     }

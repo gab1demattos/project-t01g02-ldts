@@ -41,9 +41,7 @@ public class FriendsController {
 
     public void checkPickup() {
         Position kittyPosition = CharacterModel.getHellokitty().getPosition();
-
         List<Zone> zones = cityModel.getZones();
-
         for (Zone zone : zones) {
             if (zone.getType() == Tile.Type.PICKUP && isWithinZone(kittyPosition, zone)) {
                 CharacterModel friend = zone.getAssociatedFriend();
@@ -183,6 +181,14 @@ public class FriendsController {
         for (KittyObserver observer : observers) {
             observer.friendDroppedOff();
         }
+    }
+    public boolean areAllFriendsInParty() {
+        for (CharacterModel friend : friends) {
+            if (!friend.isInParty()) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

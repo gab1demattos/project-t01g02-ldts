@@ -101,4 +101,7 @@ public class CharacterModel extends Element {
         }
         return c;
     }
+
+
+
 }

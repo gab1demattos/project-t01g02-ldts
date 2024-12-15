@@ -10,23 +10,26 @@ import java.util.Random;
 
 public class StarController {
     private final CityModel city;
-    private final PopUpsModel star;
+    private PopUpsModel star;
+    private boolean starPickedUp;
     private int dx;
     private int dy;
     private final Random random;
     private int stepsSinceLastChange;
+    private CharacterModel hellokitty;
 
     public StarController(CityModel city, PopUpsModel star) {
         this.city = city;
         this.star = star;
+        this.starPickedUp = false;
         this.random = new Random();
-
+        this.hellokitty = CharacterModel.getHellokitty();
         this.dx = random.nextBoolean() ? 1 : -1;
         this.dy = random.nextBoolean() ? 1 : -1;
         this.stepsSinceLastChange = 0;
     }
-
     public void moveStar() {
+        if (starPickedUp) return;
         Position currentPosition = star.getPosition();
 
         Position nextPosition = new Position(
@@ -41,6 +44,9 @@ public class StarController {
                     currentPosition.getX() + dx,
                     currentPosition.getY() + dy
             );
+        }
+        if(isPosOnStar(hellokitty.getPosition())){
+            starPickedUp=true;
         }
 
         if (nextPosition.getY() < 0 || nextPosition.getY() +20 >= city.getHeight()) {
@@ -61,6 +67,17 @@ public class StarController {
         }
 
         star.setPosition(nextPosition);
+    }
+
+    private boolean isPosOnStar( Position kittyPosition){
+        Position starPosition = star.getPosition();
+        return kittyPosition.equals(starPosition);
+    }
+    public boolean isStarPickedUp(){
+        return starPickedUp;
+    }
+    private void pickedStar() {
+        this.starPickedUp = true;
     }
 
 }

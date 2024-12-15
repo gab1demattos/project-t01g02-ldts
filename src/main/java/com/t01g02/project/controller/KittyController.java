@@ -29,6 +29,7 @@ public class KittyController {
     private Set<Position> activatedPopUps = new HashSet<>(); // Track activated popups
     private long speedtimerstart = 0;
     private  final long speedtimerduration = 5000;
+    private boolean hasStarBeenPicked=false;
     private FriendsController controller;
 
 
@@ -129,6 +130,7 @@ public class KittyController {
 
         if (PopUpsModel.getStar() != null && isPositionOnPopUp(newPosition, PopUpsModel.getStar().getPosition())) {
             pickedStar();
+            hasStarBeenPicked=true;
             if (settingsModel.isSoundOn() ){
                 sound.play("/audio/starSound.wav");
             }
@@ -202,6 +204,11 @@ public class KittyController {
         for (KittyObserver observer : observers) {
             observer.pickedStar();
         }
+
+    }
+
+    public boolean HasStarBeenPicked() {
+        return hasStarBeenPicked;
     }
 
 }
