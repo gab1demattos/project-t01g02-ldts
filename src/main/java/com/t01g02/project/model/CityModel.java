@@ -14,6 +14,7 @@ public class CityModel {
     private final int height;
     private final Tile[][] map;
     private final List<Zone> zones;
+    private static List<Road> roads;
 
     public CityModel(int width, int height) {
         this.width = width;
@@ -22,23 +23,22 @@ public class CityModel {
         this.zones = new ArrayList<>();
     }
 
-    public void initializeRoads() {
+    public  void initializeRoads() {
 
         TextColor roadColor = TextColor.Factory.fromString("#222222");
 
-        List<Road> roads = List.of(
+        roads = List.of(
                 new Road(new Position(0, 0), new Position(0, 179), Tile.Type.ROAD, roadColor),
-                new Road(new Position(65, 1), new Position(65, 179), Tile.Type.ROAD, roadColor),
-                new Road(new Position(130, 1), new Position(130, 179), Tile.Type.ROAD, roadColor),
-                new Road(new Position(195, 1), new Position(195, 120), Tile.Type.ROAD, roadColor),
-                new Road(new Position(195, 179), new Position(195, 179), Tile.Type.ROAD, roadColor),
-                new Road(new Position(255, 1), new Position(255, 179), Tile.Type.ROAD, roadColor),
-                new Road(new Position(320, 1), new Position(320, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(65, 0), new Position(65, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(130, 0), new Position(130, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(195, 0), new Position(195, 120), Tile.Type.ROAD, roadColor),
+                new Road(new Position(255, 0), new Position(255, 179), Tile.Type.ROAD, roadColor),
+                new Road(new Position(320, 0), new Position(320, 179), Tile.Type.ROAD, roadColor),
 
                 new Road(new Position(0, 0), new Position(344, 0), Tile.Type.ROAD, roadColor),
-                new Road(new Position(1, 155), new Position(339, 155), Tile.Type.ROAD, roadColor),
+                new Road(new Position(0, 155), new Position(339, 155), Tile.Type.ROAD, roadColor),
                 new Road(new Position(65, 105), new Position(255, 105), Tile.Type.ROAD, roadColor),
-                new Road(new Position(1, 54), new Position(339, 54), Tile.Type.ROAD, roadColor)
+                new Road(new Position(0, 54), new Position(339, 54), Tile.Type.ROAD, roadColor)
         );
 
         for (Road segment : roads) {
@@ -134,6 +134,9 @@ public class CityModel {
         return zones;
     }
 
+    public List<Road> getRoads() {
+        return roads;
+    }
     public List<Position> getHousePositions() {
         return housePositions;
     }

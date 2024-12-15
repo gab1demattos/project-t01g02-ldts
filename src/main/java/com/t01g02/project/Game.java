@@ -58,6 +58,7 @@ public class Game {
 
 
         city.initializeRoads();
+        System.out.println(city.getRoads());
         characterViewer.initializeCharacters();
         popUpsViewer.initializePopUps();
         city.initializeZones();
@@ -89,7 +90,6 @@ public class Game {
 
             Position kittyPosition = CharacterModel.hellokitty.getPosition();
 
-            starController.moveStar(kittyPosition, city);
             cityViewer.draw();
             popUpsViewer.draw();
             characterViewer.draw();
@@ -99,6 +99,8 @@ public class Game {
             kittyController.processInput(gameKeyListener.getKeys());
             friendsController.checkPickup();
             friendsController.checkDropoff();
+            starController.moveStar();
+
 
             timer.update(frameTime);
 
