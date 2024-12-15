@@ -23,13 +23,20 @@ public class Application {
         GameMenuModel model = new GameMenuModel();
         GameMenuView view = new GameMenuView(screen, model);
 
+        GameOverView gameOverView = new GameOverView(screen);
+
         SettingsModel settingsModel = new SettingsModel();
         SettingsView settingsView = new SettingsView(screen, settingsModel);
+
         Music music = new Music();
         Sound sound = new Sound();
 
-        GameMenuController menuController = new GameMenuController(view,screen,model,settingsModel,settingsView,music, sound);
+
+        GameMenuController menuController = new GameMenuController(view,screen,model,settingsModel,settingsView,music, sound,gameOverView);
         SettingsController settingsController = new SettingsController(settingsView,screen,settingsModel,music,sound,view,menuController);
+        GameOverController gameOverController = new GameOverController(gameOverView, screen, menuController);
+
+
 
         long lastUpdateTime = System.currentTimeMillis();
         long updateInterval = 100; // Update every 100ms
@@ -38,7 +45,11 @@ public class Application {
             if (menuController.isInSettings()){
                 settingsController.processInput();
                 settingsController.updateView();
-            }else {
+            }else if(menuController.isInGameOver()){
+                gameOverController.processInput();
+                gameOverController.updateView();
+            }
+            else {
                 menuController.updateView();
                 menuController.processInput();
             }

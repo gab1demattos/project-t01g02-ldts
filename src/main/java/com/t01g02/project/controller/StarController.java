@@ -14,14 +14,15 @@ import java.util.Random;
 public class StarController {
     private final CityModel city;
     private PopUpsModel star;
-
+    private boolean starPickedUp;
     public StarController(CityModel city, PopUpsModel star) {
         Position position = star.getPosition();
         this.city = city;
         this.star = star;
-
+        this.starPickedUp = false;
     }
     public void moveStar(Position kittyPosition, CityModel city) throws IOException {
+        if (starPickedUp) return;
         Position position = star.getPosition();
 
         int dx = position.getX() - kittyPosition.getX();
@@ -35,6 +36,10 @@ public class StarController {
         if(newPosition != null) {
             star.setPosition(newPosition);
         }
+        if(isPosOnStar(kittyPosition)){
+            starPickedUp=true;
+        }
+
     }
 
     private List<Position> getValidMoves(Position currentPosition) {
@@ -92,5 +97,13 @@ public class StarController {
         int distanceX = position.getX() - kittyPosition.getX();
         int distanceY = position.getY() - kittyPosition.getY();
         return Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    }
+
+    private boolean isPosOnStar( Position kittyPosition){
+        Position starPosition = star.getPosition();
+        return kittyPosition.equals(starPosition);
+    }
+    public boolean isStarPickedUp(){
+        return starPickedUp;
     }
 }

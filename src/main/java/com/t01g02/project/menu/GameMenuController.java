@@ -20,9 +20,12 @@ public class GameMenuController implements IController {
     private final Sound sound;
     private boolean inSettings;
     private SettingsController settingsController;
+    private GameOverView gameOverView;
+    private GameOverController gameOverController;
+    private boolean inGameOver ;
 
 
-    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOverView gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.view = view;
         this.screen = screen;
         this.model = model;
@@ -30,6 +33,7 @@ public class GameMenuController implements IController {
         this.settingsView = settingsView;
         this.music = music;
         this.sound = sound;
+        this.gameOverView = gameOverView;
 
         if (settingsModel.isMusicOn()){
                 playMenuMusic();
@@ -37,6 +41,7 @@ public class GameMenuController implements IController {
             music.stop();
         }
         this.settingsController = new SettingsController(settingsView, screen, settingsModel, music,sound, view, this);
+        this.gameOverController = new GameOverController(gameOverView,screen,this);
     }
 
     public boolean isRunning() {
@@ -87,6 +92,8 @@ public class GameMenuController implements IController {
             }
         } else if (inSettings){
             settingsController.processInput();
+        }else if (inGameOver){
+            gameOverController.processInput();
         }
         screen.refresh();
     }
@@ -113,9 +120,15 @@ public class GameMenuController implements IController {
     public boolean isInSettings() {
         return inSettings;
     }
-
     public void setInSettings(boolean inSettings) {
         this.inSettings = inSettings;
+    }
+
+    public boolean isInGameOver(){
+        return inGameOver;
+    }
+    public void setInGameOver(boolean inGameOver) {
+        this.inGameOver = inGameOver;
     }
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
@@ -144,7 +157,10 @@ public class GameMenuController implements IController {
     public void updateView() {
         if (inSettings) {
             settingsView.redrawScreen();
-        } else {
+        }else if (inGameOver){
+            gameOverView.redrawScreen();
+        }
+        else {
             view.redrawScreen();  // Redraw main menu view
         }
 

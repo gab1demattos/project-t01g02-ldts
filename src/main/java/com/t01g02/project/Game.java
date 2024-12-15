@@ -7,11 +7,11 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 import com.t01g02.project.controller.*;
+import com.t01g02.project.menu.*;
 import com.t01g02.project.model.*;
-import com.t01g02.project.menu.SettingsModel;
-import com.t01g02.project.menu.Sound;
 import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.model.Score;
@@ -35,7 +35,8 @@ public class Game {
     private Timer timer;
     private TimerViewer timerViewer;
     private Speed speed;
-
+    private GameOverView gameOverView;
+    private GameMenuController gameMenuController;
     private StarController starController;
     private PopUpsViewer popUpsViewer;
     private PopUpsModel star;
@@ -49,14 +50,14 @@ public class Game {
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.friendsController = new FriendsController(city, sound, settingsModel);
-        this.timer = new Timer(5, 0);
+        this.timer = new Timer(0, 5);
         this.timerViewer =new TimerViewer(timer, gui.getScreen());
         this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
         this.score = new Score(0);
         this.scoreViewer = new ScoreViewer(score, gui.getScreen());
         ScoreController scoreController = new ScoreController(score);
-
-
+        this.gameOverView = gameOverView;
+        this.gameMenuController=gameMenuController;
         city.initializeRoads();
         characterViewer.initializeCharacters();
         popUpsViewer.initializePopUps();
@@ -106,7 +107,9 @@ public class Game {
             long sleepTime = frameTime - elapsedTime;
 
             if(timer.isTimeUp()){
-                System.out.println("Game Over! :( ");
+                System.out.println("Game Over!");
+                setGameOver(friendsController.allFriendsPickedUp()&&starController.isStarPickedUp(), score.getScore());
+                break;
             }
 
             try {
@@ -117,6 +120,16 @@ public class Game {
             }
 
 
+        }
+
+        //update here!!!!!
+
+        private void setGameOver (boolean isWin, int finalScore) throws IOException{
+            gameMenuController.setInGameOver(true);
+            gameOverView.setGameOver(isWin,finalScore);
+            gameOverView.redrawScreen();
+            gui.getScreen().refresh();
+            gameMenuController.updateView();
         }
 
     }

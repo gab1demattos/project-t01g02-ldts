@@ -15,11 +15,13 @@ public class FriendsController {
     private List<KittyObserver> observers = new ArrayList<KittyObserver>();
     private Sound sound;
     private SettingsModel settingsModel;
+    private final List<CharacterModel> friendsList;
 
     public FriendsController(CityModel cityModel, Sound sound,SettingsModel settingsModel) {
         FriendsController.cityModel = cityModel;
         this.sound=sound;
         this.settingsModel= settingsModel;
+        this.friendsList = new ArrayList<>(); // Initialize with friends
     }
 
     private static boolean isWithinZone(Position position, Zone zone) {
@@ -146,4 +148,12 @@ public class FriendsController {
         }
     }
 
+    public boolean allFriendsPickedUp(){
+        for (CharacterModel friend : friendsList){
+            if (!friend.isInParty()){
+                return false;
+            }
+        }
+        return true;
+    }
 }
