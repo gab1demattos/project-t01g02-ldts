@@ -92,4 +92,13 @@ public class CharacterModel extends Element {
     public void setInParty(boolean inParty) {
         this.inParty = inParty;
     }
+    public static int getFriendInPartyCount() {
+        int c = 0;
+        for (CharacterModel friend : friends) {
+            if (friend.isInParty()) {
+                c++;
+            }
+        }
+        return c;
+    }
 }

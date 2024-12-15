@@ -1,11 +1,13 @@
 package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.screen.Screen;
+import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.model.Element;
 import com.t01g02.project.model.PopUpsModel;
 
 import java.io.IOException;
+import java.util.List;
 
 
 public class PopUpsViewer {
@@ -27,6 +29,8 @@ public class PopUpsViewer {
 
 
     public void draw() throws IOException {
+        int friendsInPartyCount = CharacterModel.getFriendInPartyCount();
+
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
             speedpopup.getSprite().drawImage(speedpopup.getPosition());
         }
@@ -36,9 +40,10 @@ public class PopUpsViewer {
         for (PopUpsModel blockpopup : PopUpsModel.blockpopups) {
             blockpopup.getSprite().drawImage(blockpopup.getPosition());
         }
-        if(PopUpsModel.getStar() != null) {
+        if(PopUpsModel.getStar() != null && friendsInPartyCount >=2) {
             PopUpsModel.getStar().getSprite().drawImage(PopUpsModel.getStar().getPosition());
         }
+
     }
 
 

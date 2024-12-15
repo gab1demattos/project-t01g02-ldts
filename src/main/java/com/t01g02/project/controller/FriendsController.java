@@ -69,13 +69,10 @@ public class FriendsController {
                     if (zone.getType() == Tile.Type.DROPOFF && isWithinZone(friend.getPosition(), zone)) {
                         friend.setFollowing(false);
                         hellokitty.setBeingFollowed(false);
-                        friend.setInParty(true);
                         if (settingsModel.isSoundOn()){
                             sound.play("/audio/dropoffSound.wav");
                         }
                         notifyDroppedOff();
-                        enterHouse(friends.indexOf(friend));
-                        friend.setInParty(true);
 
 
                     }
@@ -85,9 +82,11 @@ public class FriendsController {
     }
     public static void enterHouse(int friendId) {
         CharacterModel friend = friends.get(friendId);
-        for(int i = 0; i<10; i++){
-            friend.setPosition(new Position(friend.getPosition().getX(),friend.getPosition().getY()-2));
+        friend.setPosition(new Position(friend.getPosition().getX(),friend.getPosition().getY()-2));
+        if(friend.getPosition().getY() < 135){
+            friend.setInParty(true);
         }
+
 
     }
     public  void leaveHouse(int friendId) {
@@ -113,6 +112,10 @@ public class FriendsController {
             }
             if (friend.isFollowing() && friend.isOutOfHouse()) {
                 follow(i);
+            }
+            if(!friend.isFollowing() && friend.isOutOfHouse() && !friend.isInParty()){
+                enterHouse(i);
+                System.out.println(friend.getPosition().getX()+" "+friend.getPosition().getY());
             }
         }
 
