@@ -14,5 +14,5 @@ public class Score {
     }
     public void incrementScore(int increment){
         this.score += increment;
-    }
+    } // no final increment score mais seconds
 }

@@ -28,7 +28,7 @@ public class ScoreController extends KittyObserver {
             score.setScore(score.getScore()+50);
         }
         if (hasStarBeenPickedUp) {
-            score.setScore(score.getScore()*2);
+            score.setScore(score.getScore()+100);
         }
     }
 
@@ -38,7 +38,7 @@ public class ScoreController extends KittyObserver {
             score.setScore(score.getScore()+50);
         }
         if (hasStarBeenPickedUp) {
-            score.setScore(score.getScore()*2);
+            score.setScore(score.getScore()+100);
         }
     }
 
