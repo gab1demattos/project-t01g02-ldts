@@ -42,7 +42,7 @@ public class CityViewer {
             }
         }
         // Pink section for timer/score
-        for (int y = city.getHeight()-15; y < city.getHeight(); y++) {
+        /*for (int y = city.getHeight()-15; y < city.getHeight(); y++) {
             for (int x = 0; x < city.getWidth(); x++){
                 TextCharacter pinkChar;
                 if (y==city.getHeight()-15){
@@ -52,7 +52,7 @@ public class CityViewer {
                 }
                 cityImage.setCharacterAt(new TerminalPosition(x, y), pinkChar);
             }
-        }
+        }*/
 
         for (int y = 0; y < city.getHeight(); y++) {
             for (int x = 0; x < city.getWidth(); x++) {

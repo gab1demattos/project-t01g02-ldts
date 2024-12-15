@@ -43,7 +43,7 @@ public class StarController {
             );
         }
 
-        if (nextPosition.getY() < 0 || nextPosition.getY() >= city.getHeight()) {
+        if (nextPosition.getY() < 0 || nextPosition.getY() +20 >= city.getHeight()) {
             dy *= -1;
             nextPosition = new Position(
                     currentPosition.getX() + dx,

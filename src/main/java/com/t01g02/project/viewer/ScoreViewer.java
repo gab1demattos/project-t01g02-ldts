@@ -1,9 +1,6 @@
 package com.t01g02.project.viewer;
 
-import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.Position;
@@ -44,6 +41,17 @@ public class ScoreViewer {
 
     public void draw(int startX, int startY) throws IOException {
         TextGraphics graphics = screen.newTextGraphics();
+        for (int y = 180; y < 195; y++) {
+            for (int x = 0; x < 345; x++){
+                TextCharacter pinkChar;
+                if (y==180){
+                    graphics.setBackgroundColor(TextColor.Factory.fromString("#B7868D"));
+                }else{
+                    graphics.setBackgroundColor(TextColor.Factory.fromString("#FFF0F5"));
+                }
+                graphics.putString(x, y, " ");
+            }
+        }
         graphics.setForegroundColor(new TextColor.RGB(183, 134, 141));
         graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
 

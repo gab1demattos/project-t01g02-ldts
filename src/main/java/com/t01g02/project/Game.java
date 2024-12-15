@@ -45,7 +45,7 @@ public class Game {
 
         Sound sound = new Sound();
         SettingsModel settingsModel = new SettingsModel();
-        this.city = new CityModel(345, 195);
+        this.city = new CityModel(345, 180);
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.friendsController = new FriendsController(city, sound, settingsModel);
