@@ -3,8 +3,11 @@ package com.t01g02.project.controller;
 
 import com.t01g02.project.model.Score;
 
+import java.util.Locale;
+
 public class ScoreController extends KittyObserver {
     private Score score;
+    private boolean hasStarBeenPickedUp = false;
 
 
     public ScoreController(Score score) {
@@ -21,17 +24,28 @@ public class ScoreController extends KittyObserver {
 
     @Override
     void friendPickedUp() {
-        score.setScore(score.getScore()+50);
+        if (!hasStarBeenPickedUp || score.getScore() == 0) {
+            score.setScore(score.getScore()+50);
+        }
+        if (hasStarBeenPickedUp) {
+            score.setScore(score.getScore()*2);
+        }
     }
 
     @Override
     void friendDroppedOff() {
-        score.setScore(score.getScore()+50);
+        if (!hasStarBeenPickedUp || score.getScore() == 0) {
+            score.setScore(score.getScore()+50);
+        }
+        if (hasStarBeenPickedUp) {
+            score.setScore(score.getScore()*2);
+        }
     }
 
     @Override
     void pickedStar() {
         score.setScore(score.getScore()*2);
+        hasStarBeenPickedUp = true;
     }
 
 }
