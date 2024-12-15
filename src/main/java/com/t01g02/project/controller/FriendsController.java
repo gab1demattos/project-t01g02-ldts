@@ -133,11 +133,11 @@ public class FriendsController {
             int distance = Math.abs(historyPos.getX() - friendPos.getX());
 
             //System.out.println("x" +historyPos.getX() + " y " + historyPos.getY());
-            if (distance < min) {
+            if (distance < min && historyPos.getY() >= friendPos.getY()) {
                 min = distance;
                 targetPosIndex = i;
-                /*System.out.println("last pos: " + historyPos.getX() + " " + historyPos.getY() +
-                        " friend pos: " + friendPos.getX() + " " + friendPos.getY());*/
+//                System.out.println("last pos: " + historyPos.getX() + " " + historyPos.getY() +
+//                        " friend pos: " + friendPos.getX() + " " + friendPos.getY());
             }
         }
         if(min != 0){
