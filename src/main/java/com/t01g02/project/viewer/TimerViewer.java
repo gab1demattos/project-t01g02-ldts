@@ -20,7 +20,7 @@ public class TimerViewer {
 
     public void drawStringSprite(String text, int startX, int startY, TextGraphics graphics) {
         String[] sprite = CharacterSprites.getStringSprite(text);
-        graphics.setForegroundColor(new TextColor.RGB(183, 134, 141));
+        graphics.setForegroundColor(new TextColor.RGB(133, 78, 96));
         graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
         for (int i = 0; i < sprite.length; i++) {
                 graphics.putString(startX, startY + i, sprite[i], SGR.BOLD);
@@ -29,7 +29,7 @@ public class TimerViewer {
     public void draw(int startY){
         TextGraphics graphics = screen.newTextGraphics();
         String formattedTime = timer.getFormattedTime();
-        graphics.setForegroundColor(new TextColor.RGB(183, 134, 141));
+        graphics.setForegroundColor(new TextColor.RGB(133, 78, 96));
         graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
 
         TerminalSize terminalSize = screen.getTerminalSize();

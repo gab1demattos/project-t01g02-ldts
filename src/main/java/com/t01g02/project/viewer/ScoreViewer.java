@@ -19,7 +19,7 @@ public class ScoreViewer {
     // cor adicionada
     public void drawStringSprite(String text, int startX, int startY, TextGraphics graphics) {
         String[] sprite = CharacterSprites.getStringSprite(text);
-        graphics.setForegroundColor(new TextColor.RGB(183, 134, 141));
+        graphics.setForegroundColor(new TextColor.RGB(133, 78, 96));
         graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
         for (int i = 0; i < sprite.length; i++) {
             for (int j = 0; j<sprite[i].length();j++){
@@ -52,7 +52,7 @@ public class ScoreViewer {
                 graphics.putString(x, y, " ");
             }
         }
-        graphics.setForegroundColor(new TextColor.RGB(183, 134, 141));
+        graphics.setForegroundColor(new TextColor.RGB(133, 78, 96));
         graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
 
         drawStringSprite("SCORE", startX, startY, graphics);
