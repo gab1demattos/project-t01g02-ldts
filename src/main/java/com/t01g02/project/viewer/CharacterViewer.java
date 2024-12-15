@@ -25,11 +25,12 @@ public class CharacterViewer {
 
     public void draw() throws IOException {
 
-        CharacterModel.getHellokitty().getSprite().drawImage(CharacterModel.getHellokitty().getPosition());
         for (CharacterModel character : CharacterModel.friends) {
             if (!character.isInParty())
                 character.getSprite().drawImage(character.getPosition());
         }
+        CharacterModel.getHellokitty().getSprite().drawImage(CharacterModel.getHellokitty().getPosition());
+
 
     }
 }

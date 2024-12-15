@@ -127,7 +127,11 @@ public class FriendsController {
         for (int i = 0; i< kittyPositionHistory.size() - 1; i++) {
             Position historyPos = kittyPositionHistory.get(i);
 
-            if (checkSurrounding(historyPos, friendPos)) {
+            if (historyPos.equals(friendPos)) {
+                targetPosIndex = i;
+                break;
+            }
+            else if(checkSurrounding(historyPos, friendPos)){
                 targetPosIndex = i;
                 break;
             }
