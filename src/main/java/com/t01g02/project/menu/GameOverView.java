@@ -53,6 +53,10 @@ public class GameOverView implements IView {
         }
     }
 
+    public boolean isWin() {
+        return isWin;
+    }
+
     @Override
     public void redrawButtons(){}
 }

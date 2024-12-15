@@ -34,7 +34,7 @@ public class Application {
 
         GameMenuController menuController = new GameMenuController(view,screen,model,settingsModel,settingsView,music, sound,gameOverView);
         SettingsController settingsController = new SettingsController(settingsView,screen,settingsModel,music,sound,view,menuController);
-        GameOverController gameOverController = new GameOverController(gameOverView, screen, menuController);
+        GameOverController gameOverController = new GameOverController(gameOverView, screen, menuController,settingsModel,music,sound);
 
 
 

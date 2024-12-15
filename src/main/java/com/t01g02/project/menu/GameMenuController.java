@@ -23,7 +23,6 @@ public class GameMenuController implements IController, GameEndListener {
     private GameOverView gameOverView;
     private GameOverController gameOverController;
     private boolean inGameOver ;
-    private boolean hasBeenOver;
 
     public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOverView gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.view = view;
@@ -41,7 +40,7 @@ public class GameMenuController implements IController, GameEndListener {
             music.stop();
         }
         this.settingsController = new SettingsController(settingsView, screen, settingsModel, music,sound, view, this);
-        this.gameOverController = new GameOverController(gameOverView,screen,this);
+        this.gameOverController = new GameOverController(gameOverView,screen,this,settingsModel,music,sound);
     }
 
     public boolean isRunning() {
@@ -105,12 +104,7 @@ public class GameMenuController implements IController, GameEndListener {
                 openSettings();
                 break;
             case "Play":
-                if (!hasBeenOver){
-                    startGame();
-                }
-                else{
-
-                }
+                startGame();
                 break;
             default:
                 break;
@@ -136,13 +130,6 @@ public class GameMenuController implements IController, GameEndListener {
         this.inGameOver = inGameOver;
     }
 
-    public boolean HasBeenOver() {
-        return hasBeenOver;
-    }
-
-    public void setHasBeenOver(boolean hasBeenOver) {
-        this.hasBeenOver = hasBeenOver;
-    }
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         Thread.sleep(870); //slight delay so audio can play while still in settings
@@ -162,8 +149,8 @@ public class GameMenuController implements IController, GameEndListener {
     @Override
     public void onGameOver(boolean isWin, int finalScore){
         inGameOver = true;
-        hasBeenOver = true;
         gameOverView.setGameOver(isWin, finalScore);
+        gameOverController.setGameOverState(isWin, finalScore);
         updateView();
     }
 
@@ -180,6 +167,7 @@ public class GameMenuController implements IController, GameEndListener {
         if (inSettings) {
             settingsView.redrawScreen();
         }else if (inGameOver){
+            music.stop();
             gameOverView.redrawScreen();
         }
         else {

@@ -15,12 +15,41 @@ public class GameOverController implements IController{
     private final Screen screen;
     private boolean inGameOver;
     private GameMenuController gameMenuController;
+    private final Music music;
+    private final SettingsModel settingsModel;
+    private final Sound sound;
 
-    public GameOverController (GameOverView gameOverView, Screen screen, GameMenuController gameMenuController){
+
+    public GameOverController (GameOverView gameOverView, Screen screen, GameMenuController gameMenuController, SettingsModel settingsModel, Music music,Sound sound){
         this.gameOverView=gameOverView;
         this.screen=screen;
         this.gameMenuController=gameMenuController;
+        this.music=music;
+        this.settingsModel=settingsModel;
+        this.sound=sound;
+
+
     }
+
+    public void setGameOverState(boolean isWin, int finalScore) {
+        gameOverView.setGameOver(isWin, finalScore);
+
+        if (settingsModel.isSoundOn()) {
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            if (isWin) {
+                System.out.println("Playing win sound...");
+                sound.play("/audio/winSound.wav");
+            } else {
+                System.out.println("Playing lose sound...");
+                sound.play("/audio/loseSound.wav");
+            }
+        }
+    }
+
     @Override
     public void processInput() throws IOException, URISyntaxException, FontFormatException, InterruptedException{
         KeyStroke input = screen.readInput();

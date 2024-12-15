@@ -56,7 +56,7 @@ public class Game {
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.friendsController = new FriendsController(city, sound, settingsModel);
-        this.timer = new Timer(5, 0);
+        this.timer = new Timer(0, 2);
         this.timerViewer =new TimerViewer(timer, gui.getScreen());
         this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
         this.score = new Score(0);
@@ -123,7 +123,6 @@ public class Game {
 
 
             if(timer.isTimeUp() || (friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked()) ){
-
                 System.out.println("Game Over!");
                 setGameOver(friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked(), score.getScore() );
                 break;
@@ -144,6 +143,7 @@ public class Game {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         gameEndListener.onGameOver(isWin, finalScore);
 
     }
