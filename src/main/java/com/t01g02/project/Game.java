@@ -98,6 +98,7 @@ public class Game {
             gui.getScreen().refresh();
             kittyController.processInput(gameKeyListener.getKeys());
             friendsController.checkPickup();
+
             friendsController.checkDropoff();
             starController.moveStar();
 
@@ -109,6 +110,7 @@ public class Game {
 
             if(timer.isTimeUp()){
                 System.out.println("Game Over! :( ");
+                System.exit(0);
             }
 
             try {

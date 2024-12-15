@@ -16,12 +16,15 @@ public class CharacterModel extends Element {
     private boolean inParty;
     public static List<CharacterModel> friends;
     private List<Position> kittyLastPositions = new LinkedList<>();
+    private boolean outOfHouse;
 
 
     public CharacterModel(Sprite sprite, Position position, String name) {
         super(sprite, position, name);
         this.isFollowing = false;
         this.inParty = false;
+        this.outOfHouse = false;
+
     }
 
     public static void initializeCharacters(Screen screen) throws IOException {
@@ -64,6 +67,12 @@ public class CharacterModel extends Element {
     }
     public void setBeingFollowed(boolean beingFollowed) {
         isBeingFollowed = beingFollowed;
+    }
+    public boolean isOutOfHouse() {
+        return outOfHouse;
+    }
+    public void setOutOfHouse(boolean outOfHouse) {
+        this.outOfHouse = outOfHouse;
     }
 
     public void updateKittyPosition(Position newPosition) {

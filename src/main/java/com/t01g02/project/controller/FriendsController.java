@@ -5,6 +5,7 @@ import com.t01g02.project.menu.Sound;
 import com.t01g02.project.model.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static com.t01g02.project.model.CharacterModel.friends;
@@ -15,6 +16,7 @@ public class FriendsController {
     private List<KittyObserver> observers = new ArrayList<KittyObserver>();
     private Sound sound;
     private SettingsModel settingsModel;
+
 
     public FriendsController(CityModel cityModel, Sound sound,SettingsModel settingsModel) {
         FriendsController.cityModel = cityModel;
@@ -82,14 +84,30 @@ public class FriendsController {
     public static void enterHouse(int friendId) {
         CharacterModel friend = friends.get(friendId);
         for(int i = 0; i<10; i++){
-            friend.setPosition(new Position(friend.getPosition().getX(),friend.getPosition().getY()-1));
+            friend.setPosition(new Position(friend.getPosition().getX(),friend.getPosition().getY()-2));
+        }
+
+    }
+    public static void leaveHouse(int friendId) {
+        int speed = KittyController.speed.getSpeed();
+
+        CharacterModel friend = friends.get(friendId);
+        if (!isWithinZone(hellokitty.getPosition(), cityModel.getZones().get(friendId))) {
+            friend.setPosition(new Position(friend.getPosition().getX(), friend.getPosition().getY() + speed));
+
+        }
+        if(hellokitty.getPosition().getY()<=friend.getPosition().getY()){
+            friend.setOutOfHouse(true);
         }
 
     }
     public static void moveFollowingCharacters() {
         for (int i = 0; i < friends.size(); i++) {
             CharacterModel friend = friends.get(i);
-            if (friend.isFollowing()) {
+            if(friend.isFollowing() && !friend.isOutOfHouse()){
+                leaveHouse(i);
+            }
+            if (friend.isFollowing() && friend.isOutOfHouse()) {
                 follow(i);
             }
         }
@@ -97,38 +115,44 @@ public class FriendsController {
     }
 
     public static void follow(int friendId) {
+
+        int speed = KittyController.speed.getSpeed();
+
         Position kittyPos = hellokitty.getPosition();
         Position friendPos = friends.get(friendId).getPosition();
         CharacterModel friend = friends.get(friendId);
         List<Position> kittyPositionHistory = hellokitty.getKittyLastPositions();
 
-        if (isWithinZone(kittyPos, cityModel.getZones().get(friendId))){
-            return;
+
+        Position targetPos = null;
+
+        for (int i = kittyPositionHistory.size() - 1; i >= 0; i--) {
+            Position historyPos = kittyPositionHistory.get(i);
+
+            if (historyPos.getY() == friendPos.getY()) {
+                targetPos = historyPos;
+                break;
+            }
         }
 
-        if (!kittyPositionHistory.isEmpty()) {
-            Position kittyLastPosition = kittyPositionHistory.get(0);
-            Position friendcurrentPos = friend.getPosition();
-            friend.setPosition(kittyLastPosition);
-            /*if (friendcurrentPos.getX() < kittyLastPosition.getX()) {
-                friend.setPosition(new Position(friendcurrentPos.getX() + 1, friendcurrentPos.getY()));
-            }
-            if (friendcurrentPos.getX() > kittyLastPosition.getX()) {
-                friend.setPosition(new Position(friendcurrentPos.getX() - 1, friendcurrentPos.getY()));
-            }*/
-
-            if (friendcurrentPos.getY() < kittyLastPosition.getY()) {
-                friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() + 2));
-            }
-            /*if (friendcurrentPos.getY() > kittyLastPosition.getY()) {
-                friend.setPosition(new Position(friendcurrentPos.getX(), friendcurrentPos.getY() - 1)); // Move up
-
-            }*/
-
+        if (targetPos == null) {
+            targetPos = kittyPositionHistory.get(kittyPositionHistory.size() - 1);
         }
 
+        if (friendPos.getX() < targetPos.getX()) {
+            friend.setPosition(new Position(friendPos.getX() + speed, friendPos.getY()));
+        } else if (friendPos.getX() > targetPos.getX()) {
+            friend.setPosition(new Position(friendPos.getX() - speed, friendPos.getY()));
+        }
+
+        if (friendPos.getX() == targetPos.getX()) {
+            if (friendPos.getY() < targetPos.getY()) {
+                friend.setPosition(new Position(friendPos.getX(), friendPos.getY() + speed));
+            } else if (friendPos.getY() > targetPos.getY()) {
+                friend.setPosition(new Position(friendPos.getX(), friendPos.getY() - speed));
+            }
+        }
     }
-
 
 
     public void addObserver(KittyObserver observer) {

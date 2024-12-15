@@ -21,7 +21,6 @@ public class StarController {
         this.star = star;
         this.random = new Random();
 
-        // Initialize with random diagonal directions (+1 or -1 for both x and y)
         this.dx = random.nextBoolean() ? 1 : -1;
         this.dy = random.nextBoolean() ? 1 : -1;
         this.stepsSinceLastChange = 0;
@@ -30,7 +29,6 @@ public class StarController {
     public void moveStar() {
         Position currentPosition = star.getPosition();
 
-        // Compute the new position
         Position nextPosition = new Position(
                 currentPosition.getX() + dx,
                 currentPosition.getY() + dy
@@ -38,7 +36,7 @@ public class StarController {
 
         // Check if the next position is out of bounds
         if (nextPosition.getX() < 0 || nextPosition.getX() >= city.getWidth()) {
-            dx *= -1; // Reverse horizontal direction
+            dx *= -1;
             nextPosition = new Position(
                     currentPosition.getX() + dx,
                     currentPosition.getY() + dy
@@ -46,23 +44,22 @@ public class StarController {
         }
 
         if (nextPosition.getY() < 0 || nextPosition.getY() >= city.getHeight()) {
-            dy *= -1; // Reverse vertical direction
+            dy *= -1;
             nextPosition = new Position(
                     currentPosition.getX() + dx,
                     currentPosition.getY() + dy
             );
         }
 
-        // Randomly alter direction less frequently (every 30 steps on average)
-        if (stepsSinceLastChange > 50 && random.nextInt(20) == 0) { // 5% chance after 30 steps
+
+        if (stepsSinceLastChange > 50 && random.nextInt(20) == 0) {
             dx = random.nextBoolean() ? 1 : -1;
             dy = random.nextBoolean() ? 1 : -1;
-            stepsSinceLastChange = 0; // Reset the step counter
+            stepsSinceLastChange = 0;
         } else {
-            stepsSinceLastChange++; // Increment the step counter
+            stepsSinceLastChange++;
         }
 
-        // Set the star's position to the next position
         star.setPosition(nextPosition);
     }
 

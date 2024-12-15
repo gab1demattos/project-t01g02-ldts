@@ -25,7 +25,7 @@ public class KittyController {
     private SettingsModel settingsModel;
     private boolean isMudOn = false;
     private final PopUpsViewer popUpsViewer;
-    private Speed speed;
+    public static Speed speed = new Speed(); // Static field initialized
     private Set<Position> activatedPopUps = new HashSet<>(); // Track activated popups
 
     private long speedtimerstart = 0;
@@ -40,7 +40,6 @@ public class KittyController {
         this.sound = sound;
         this.settingsModel = settingsModel;
         this.popUpsViewer = new PopUpsViewer(screen, cityModel);
-        this.speed = new Speed();
     }
 
     public void processInput(Set<KeyStroke> keys) throws IOException {
@@ -185,7 +184,9 @@ public class KittyController {
         }
         return true;
     }
-
+    public static int getKittySpeed() {
+        return speed.getSpeed();
+    }
 
     public void addObserver (KittyObserver observer){
         observers.add(observer);
