@@ -17,6 +17,8 @@ public class CharacterModel extends Element {
     public static List<CharacterModel> friends;
     private List<Position> kittyLastPositions = new LinkedList<>();
     private boolean outOfHouse;
+    private boolean pickedIndex;
+
 
 
     public CharacterModel(Sprite sprite, Position position, String name) {
@@ -24,6 +26,7 @@ public class CharacterModel extends Element {
         this.isFollowing = false;
         this.inParty = false;
         this.outOfHouse = false;
+        this.pickedIndex = false;
 
     }
 
@@ -102,6 +105,10 @@ public class CharacterModel extends Element {
         return c;
     }
 
-
-
+    public boolean hasPickedIndex() {
+        return pickedIndex;
+    }
+    public void setPickedIndex(boolean pickedIndex) {
+        this.pickedIndex = pickedIndex;
+    }
 }

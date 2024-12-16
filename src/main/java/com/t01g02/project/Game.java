@@ -115,7 +115,7 @@ public class Game {
             gui.getScreen().refresh();
             kittyController.processInput(gameKeyListener.getKeys());
             friendsController.checkPickup();
-
+            friendsController.updateFriendsPosition();
             friendsController.checkDropoff();
             starController.moveStar();
 
