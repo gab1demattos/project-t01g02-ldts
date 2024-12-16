@@ -60,10 +60,10 @@ public class GameOverController implements IController{
                     System.exit(0);
                     break;
 
-                case Character:
-                    if (input.getCharacter() == 'b') {
-                        gameMenuController.setInGameOver(false);
-                    }
+//                case Character:
+//                    if (input.getCharacter() == 'b') {
+//                        gameMenuController.setInGameOver(false);
+//                    }
 
                 default:
                     break;

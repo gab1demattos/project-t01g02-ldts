@@ -13,7 +13,7 @@ public class CityModel {
     private final int width;
     private final int height;
     private final Tile[][] map;
-    private final List<Zone> zones;
+    private List<Zone> zones;
     private static List<Road> roads;
 
     public CityModel(int width, int height) {
@@ -161,19 +161,19 @@ public class CityModel {
         return yellowHousePositions;
     }
 
-    public void reset() {
+    /*public void reset() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 map[y][x] = null; // Reset all tiles to null
             }
         }
 
-        roads = null;
+        roads = new ArrayList<>();
         initializeRoads();
 
-        zones.clear();
+        zones = new ArrayList<>();
         initializeZones();
-    }
+    }*/
 
 
 }

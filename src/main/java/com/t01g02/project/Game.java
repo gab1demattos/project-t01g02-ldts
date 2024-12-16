@@ -123,7 +123,7 @@ public class Game {
 
     }
 
-    private void setGameOver(boolean isWin, int finalScore) {
+    private void setGameOver(boolean isWin, int finalScore) throws IOException {
         try {
             gui.getScreen().close();
         } catch (IOException e) {
@@ -131,7 +131,26 @@ public class Game {
         }
 
         gameEndListener.onGameOver(isWin, finalScore);
+
     }
+
+//    private void resetGame() throws IOException {
+//        CharacterModel.getHellokitty().setBeingFollowed(false);
+//        CharacterModel.getHellokitty().getKittyLastPositions().clear();
+//
+//        for (CharacterModel friend : CharacterModel.friends) {
+//            friend.setFollowing(false);
+//            friend.setInParty(false);
+//            friend.setOutOfHouse(false);
+//        }
+//        CharacterModel.initializeCharacters(gui.getScreen());
+//        city.reset();
+//        PopUpsModel.reset(gui.getScreen());
+//        timer.resetTimer(5, 0);
+//        score.resetScore();
+//        run();
+//
+//    }
 
 }
 
