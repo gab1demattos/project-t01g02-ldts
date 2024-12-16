@@ -62,6 +62,12 @@ public class SettingsController implements IController {
                         sound.play("/audio/keyPressSound.wav");
                     }
                     if (input.getCharacter() == 'b') {
+                        int selectedOption = model.getSelectedOption();
+                        if (selectedOption == 0) {
+                            model.setMusicSelectedOption(model.getLastMusicSelectedOption());
+                        } else if (selectedOption == 1) {
+                            model.setSoundSelectedOption(model.getLastSoundSelectedOption());
+                        }
                         inSubMenu = false;
                         screen.refresh();
                     }
@@ -114,7 +120,6 @@ public class SettingsController implements IController {
         }
         if (inSubMenu){
             int selectedOption = model.getSelectedOption();
-            updateView();
             switch (model.getSelectedOption()){
                 case 0:
                     toggleMusic();
@@ -126,20 +131,26 @@ public class SettingsController implements IController {
                     break;
             }
         }inSubMenu=true;
+
+        updateView();
     }
 
     private void toggleMusic() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         if (model.getMusicSelectedOption()==0){
             if (!music.isPlaying()){
-                music.play("/audio/menuSong.wav",true, model.isMusicOn());
+                music.play("/audio/menuSong.wav",true, true);
             }
             model.setMusicOn(true);
+
         }else{
             if (music.isPlaying()){
                 music.stop();
             }
             model.setMusicOn(false);
         }
+        model.setMusicSelectedOption(model.isMusicOn() ? 0 : 1);
+        model.setLastMusicSelectedOption(model.getMusicSelectedOption());
+
     }
 
     private void toggleSound(){
@@ -148,6 +159,9 @@ public class SettingsController implements IController {
         } else { // OFF
             model.setSoundOn(false);
         }
+        model.setSoundSelectedOption(model.isSoundOn() ? 0 : 1);
+        model.setLastSoundSelectedOption(model.getSoundSelectedOption());
+
     }
 
     @Override
