@@ -39,6 +39,7 @@ public class Game {
     private PopUpsViewer popUpsViewer;
     private PopUpsModel star;
     private final GameEndListener gameEndListener;
+    ScoreController scoreController;
 
 
     public Game(GameEndListener gameEndListener) throws IOException, FontFormatException, URISyntaxException {
@@ -61,7 +62,7 @@ public class Game {
         this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
         this.score = new Score(0);
         this.scoreViewer = new ScoreViewer(score, gui.getScreen());
-        ScoreController scoreController = new ScoreController(score);
+        this.scoreController = new ScoreController(score);
 
         city.initializeRoads();
         System.out.println(city.getRoads());
@@ -126,6 +127,7 @@ public class Game {
 
 
             if(timer.isTimeUp() || (friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked()) ){
+                scoreController.incrementScore(timer.getRemainingSeconds());
                 System.out.println("Game Over!");
                 setGameOver(friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked(), score.getScore() );
                 break;

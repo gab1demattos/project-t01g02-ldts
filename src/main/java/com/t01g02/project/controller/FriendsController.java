@@ -97,7 +97,6 @@ public class FriendsController {
         }
         if(hellokitty.getPosition().getY()<=friend.getPosition().getY()){
             friend.setOutOfHouse(true);
-            System.out.println("hellokittys y " + hellokitty.getPosition().getY() + " friends y " + friend.getPosition().getY());
             getCorrectIndex(friendId);
 
         }
@@ -120,23 +119,17 @@ public class FriendsController {
     }
 
     public void getCorrectIndex(int friendId) {
-        Position kittyPos = hellokitty.getPosition();
         Position friendPos = friends.get(friendId).getPosition();
-        CharacterModel friend = friends.get(friendId);
         List<Position> kittyPositionHistory = hellokitty.getKittyLastPositions();
         int min = Integer.MAX_VALUE;
-        System.out.println("fx " +friendPos.getX() + " fy " + friendPos.getY());
         for (int i = 0; i< kittyPositionHistory.size() - 1; i++) {
             Position historyPos = kittyPositionHistory.get(i);
             int distance = (historyPos.getX() - friendPos.getX()) * (historyPos.getX() - friendPos.getX())
                     + (historyPos.getY() - friendPos.getY()) * (historyPos.getY() - friendPos.getY());
 
-            System.out.println("x" +historyPos.getX() + " y " + historyPos.getY());
             if (distance < min) {
                 min = distance;
                 targetPosIndex = i;
-                System.out.println("last pos: " + historyPos.getX() + " " + historyPos.getY() +
-                       " friend pos: " + friendPos.getX() + " " + friendPos.getY());
             }
         }
         if(min != 0){
@@ -159,12 +152,23 @@ public class FriendsController {
 
     private void follow(int friendId) {
         CharacterModel friend = friends.get(friendId);
+        Position friendPos = friend.getPosition();
         int speed = KittyController.speed.getSpeed();
         List<Position> kittyPositionHistory = hellokitty.getKittyLastPositions();
+        Position kittyPos = kittyPositionHistory.get(targetPosIndex);
 
-        Position kittyLastPosition = kittyPositionHistory.get(targetPosIndex);
-
-        friend.setPosition(kittyLastPosition);
+        if (friendPos.getY() == kittyPos.getY() && friendPos.getX() < kittyPos.getX() - 25) {
+            friend.setPosition(new Position(friendPos.getX() + speed, friendPos.getY()));
+        } else if (friendPos.getY() == kittyPos.getY() && friendPos.getX() > kittyPos.getX() + 25) {
+            friend.setPosition(new Position(friendPos.getX() - speed, friendPos.getY()));
+        } else if (friendPos.getX() == kittyPos.getX() && friendPos.getY() < kittyPos.getY() - 25) {
+            friend.setPosition(new Position(friend.getPosition().getX(), friendPos.getY() + speed));
+        } else if (friendPos.getX() == kittyPos.getX() && friendPos.getY() > kittyPos.getY() + 25) {
+            friend.setPosition(new Position(friend.getPosition().getX(), friendPos.getY() - speed));
+        }
+        else{
+            friend.setPosition(kittyPos);
+        }
     }
 
 

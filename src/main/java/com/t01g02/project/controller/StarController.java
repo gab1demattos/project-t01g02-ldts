@@ -28,6 +28,7 @@ public class StarController {
         this.dy = random.nextBoolean() ? 1 : -1;
         this.stepsSinceLastChange = 0;
     }
+
     public void moveStar() {
         if (starPickedUp) return;
         Position currentPosition = star.getPosition();
@@ -38,18 +39,18 @@ public class StarController {
         );
 
         // Check if the next position is out of bounds
-        if (nextPosition.getX() < 0 || nextPosition.getX() +25 >= city.getWidth()) {
+        if (nextPosition.getX() < 0 || nextPosition.getX() + 25 >= city.getWidth()) {
             dx *= -1;
             nextPosition = new Position(
                     currentPosition.getX() + dx,
                     currentPosition.getY() + dy
             );
         }
-        if(isPosOnStar(hellokitty.getPosition())){
-            starPickedUp=true;
+        if (isPosOnStar(hellokitty.getPosition())) {
+            starPickedUp = true;
         }
 
-        if (nextPosition.getY() < 0 || nextPosition.getY() +20 >= city.getHeight()) {
+        if (nextPosition.getY() < 0 || nextPosition.getY() + 20 >= city.getHeight()) {
             dy *= -1;
             nextPosition = new Position(
                     currentPosition.getX() + dx,
@@ -69,7 +70,7 @@ public class StarController {
         star.setPosition(nextPosition);
     }
 
-    private boolean isPosOnStar( Position kittyPosition){
+    private boolean isPosOnStar(Position kittyPosition){
         Position starPosition = star.getPosition();
         return kittyPosition.equals(starPosition);
     }

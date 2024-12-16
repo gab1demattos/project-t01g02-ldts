@@ -24,7 +24,6 @@ public class KittyController {
     private Sound sound;
     private SettingsModel settingsModel;
     private boolean isMudOn = false;
-    private final PopUpsViewer popUpsViewer;
     public static Speed speed = new Speed(); // Static field initialized
     private Set<Position> activatedPopUps = new HashSet<>(); // Track activated popups
     private long speedtimerstart = 0;
@@ -40,7 +39,6 @@ public class KittyController {
         this.cityModel = cityModel;
         this.sound = sound;
         this.settingsModel = settingsModel;
-        this.popUpsViewer = new PopUpsViewer(screen, cityModel);
         this.controller= new FriendsController(cityModel, sound, settingsModel);
 
     }

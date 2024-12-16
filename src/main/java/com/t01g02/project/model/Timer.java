@@ -37,4 +37,8 @@ public class Timer {
     public boolean isTimeUp() {
         return totalElapsedTime >= countdownDuration;
     }
+    public int getRemainingSeconds() {
+        return ((countdownDuration - totalElapsedTime) / 1000)
+                ;
+    }
 }
