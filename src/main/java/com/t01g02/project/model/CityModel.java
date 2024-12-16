@@ -161,9 +161,19 @@ public class CityModel {
         return yellowHousePositions;
     }
 
-    /* public List<Position> getFlowersPosition() {
-        return flowersPosition;
-    } */
+    public void reset() {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                map[y][x] = null; // Reset all tiles to null
+            }
+        }
+
+        roads = null;
+        initializeRoads();
+
+        zones.clear();
+        initializeZones();
+    }
 
 
 }

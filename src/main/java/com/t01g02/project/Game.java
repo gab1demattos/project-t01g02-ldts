@@ -40,7 +40,6 @@ public class Game {
     private PopUpsModel star;
     private final GameEndListener gameEndListener;
 
-
     public Game(GameEndListener gameEndListener) throws IOException, FontFormatException, URISyntaxException {
         this.gui = new LanternaGui(345, 195, "Hello Kitty Game!");
         this.gameEndListener = gameEndListener;
@@ -74,8 +73,6 @@ public class Game {
         this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city,sound,settingsModel);
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);
-
-
     }
 
     private void addKeyListener(){
@@ -86,25 +83,13 @@ public class Game {
     }
 
     public void run() throws IOException{
-
-       /* try {
-            resetGame();
-        } catch (FontFormatException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }*/
-
         cityViewer.initializeCityImage();
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
-
         while (true) {
             long startTime = System.currentTimeMillis();
             gui.getScreen().clear();
-
-            Position kittyPosition = CharacterModel.hellokitty.getPosition();
 
             cityViewer.draw();
             popUpsViewer.draw();
@@ -112,18 +97,16 @@ public class Game {
             scoreViewer.draw(10,185);
             timerViewer.draw(185);
             gui.getScreen().refresh();
+
             kittyController.processInput(gameKeyListener.getKeys());
             friendsController.checkPickup();
-
             friendsController.checkDropoff();
             starController.moveStar();
-
 
             timer.update(frameTime);
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
-
 
             if(timer.isTimeUp() || (friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked()) ){
                 System.out.println("Game Over!");
@@ -148,31 +131,7 @@ public class Game {
         }
 
         gameEndListener.onGameOver(isWin, finalScore);
-
     }
-
-    public void clearScene() {
-        city = null;
-        cityViewer = null;
-        gameKeyListener = null;
-        characterViewer = null;
-        kittyController = null;
-        score = null;
-        scoreViewer = null;
-        friendsController = null;
-        timer = null;
-        timerViewer = null;
-        speed = null;
-        starController = null;
-        popUpsViewer = null;
-        star = null;
-
-        gui.getScreen().clear();
-        gui.getTerminalFrame().removeKeyListener(this.gameKeyListener);
-
-    }
-
-
 
 }
 

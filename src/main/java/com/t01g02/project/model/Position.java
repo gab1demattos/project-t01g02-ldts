@@ -31,5 +31,11 @@ public class Position {
         Position position = (Position) obj;
         return x == position.x && y == position.y;
     }
+
+    public void reset(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
 }
 

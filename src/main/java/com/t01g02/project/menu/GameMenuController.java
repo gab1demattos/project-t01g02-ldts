@@ -183,4 +183,7 @@ public class GameMenuController implements IController, GameEndListener {
         }
     }
 
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
 }

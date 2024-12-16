@@ -18,7 +18,6 @@ public class CharacterModel extends Element {
     private List<Position> kittyLastPositions = new LinkedList<>();
     private boolean outOfHouse;
 
-
     public CharacterModel(Sprite sprite, Position position, String name) {
         super(sprite, position, name);
         this.isFollowing = false;
@@ -42,7 +41,6 @@ public class CharacterModel extends Element {
         );
 
     }
-
 
     public static CharacterModel getHellokitty() {
         return hellokitty;
@@ -102,6 +100,23 @@ public class CharacterModel extends Element {
         return c;
     }
 
+    public static void resetCharacters(Screen screen) throws IOException {
+        initializeCharacters(screen);
 
+        for (CharacterModel friend : friends) {
+            friend.resetState();
+        }
 
+        if (hellokitty != null) {
+            hellokitty.resetState();
+        }
+    }
+
+    private void resetState() {
+        this.isFollowing = false;
+        this.isBeingFollowed = false;
+        this.inParty = false;
+        this.outOfHouse = false;
+        this.kittyLastPositions.clear();
+    }
 }
