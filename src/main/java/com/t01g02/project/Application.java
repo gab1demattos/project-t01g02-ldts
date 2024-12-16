@@ -4,11 +4,15 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
+import com.googlecode.lanterna.terminal.swing.SwingTerminalFrame;
 import com.t01g02.project.menu.*;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -19,6 +23,21 @@ public class Application {
         Terminal terminal = new DefaultTerminalFactory().createTerminal();
         Screen screen = new TerminalScreen(terminal);
         screen.startScreen();
+
+        if (terminal instanceof SwingTerminalFrame) {
+            SwingTerminalFrame terminalFrame = (SwingTerminalFrame) terminal;
+            terminalFrame.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent e) {
+                    try {
+                        screen.stopScreen();  // Ensure Lanterna cleans up
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                    System.exit(0); // Ensure the application exits
+                }
+            });
+        }
 
         GameMenuModel model = new GameMenuModel();
         GameMenuView view = new GameMenuView(screen, model);
@@ -56,6 +75,7 @@ public class Application {
         }
 
         screen.stopScreen();
+
 
     }
 }
