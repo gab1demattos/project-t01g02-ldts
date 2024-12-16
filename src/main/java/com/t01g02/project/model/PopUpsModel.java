@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class PopUpsModel extends Element {
     public static List<PopUpsModel> speedpopups, mudpopups, blockpopups;
-    private static final Random RANDOM = new Random();
+    static Random random = new Random();
     private static final int TerminalWidth = 345;
     private static final int TerminalHeight = 185;
     private static PopUpsModel star;
@@ -68,7 +68,7 @@ public class PopUpsModel extends Element {
 
     public static Position getRandomPosition() {
         assert !popupsPositions.isEmpty();
-        int randomIndex = RANDOM.nextInt(popupsPositions.size());
+        int randomIndex = random.nextInt(popupsPositions.size());
         Position position = popupsPositions.get(randomIndex);
         popupsPositions.remove(randomIndex);
         return position;
@@ -134,12 +134,27 @@ public class PopUpsModel extends Element {
         super.setPosition(position);
     }
 
-    public static void reset(Screen screen)throws IOException{
-        popupsPositions = new ArrayList<>(popupsPositions);
+    /*public static void reset(Screen screen) throws IOException {
+        popupsPositions = new ArrayList<>(List.of(
+                new Position(4, 6),
+                new Position(4, 100),
+                new Position(30, 160),
+                new Position(190, 160),
+                new Position(130, 110),
+                new Position(170, 55),
+                new Position(150, 6),
+                new Position(260, 6),
+                new Position(320, 100),
+                new Position(255, 110),
+                new Position(130, 160),
+                new Position(100, 55),
+                new Position(200, 7),
+                new Position(320, 55)
+        ));
+
         initializeSpeedPopUps(screen);
         initializeMudPopUps(screen);
         initializeBlockPopUps(screen);
         initializeStar(screen);
-
-    }
+    }*/
 }

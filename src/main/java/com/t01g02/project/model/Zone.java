@@ -39,4 +39,6 @@ public class Zone {
     public CharacterModel getAssociatedFriend() {
         return associatedFriend;
     }
+
+
 }

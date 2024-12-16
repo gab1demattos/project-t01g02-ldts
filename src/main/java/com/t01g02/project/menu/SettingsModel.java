@@ -9,6 +9,8 @@ public class SettingsModel {
     private int musicSelectedOption = 0;
     private int soundSelectedOption = 0;
     private final String[] soundOptions = {"ON", "OFF"};
+    private int lastMusicSelectedOption;
+    private int lastSoundSelectedOption;
 
 
     public SettingsModel() {
@@ -77,5 +79,21 @@ public class SettingsModel {
 
     public void setSoundSelectedOption(int soundSelectedOption) {
         this.soundSelectedOption = soundSelectedOption;
+    }
+
+    public int getLastMusicSelectedOption() {
+        return lastMusicSelectedOption;
+    }
+
+    public void setLastMusicSelectedOption(int option) {
+        lastMusicSelectedOption = option;
+    }
+
+    public int getLastSoundSelectedOption() {
+        return lastSoundSelectedOption;
+    }
+
+    public void setLastSoundSelectedOption(int option) {
+        lastSoundSelectedOption = option;
     }
 }

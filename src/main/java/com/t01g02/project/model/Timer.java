@@ -41,4 +41,10 @@ public class Timer {
         return ((countdownDuration - totalElapsedTime) / 1000)
                 ;
     }
+
+    public void resetTimer(int minutes, int seconds) {
+        this.countdownDuration = (minutes * 60 + seconds) * 1000;
+        this.totalElapsedTime = 0;
+        this.isRunning = true;
+    }
 }

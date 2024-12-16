@@ -61,7 +61,5 @@ public class Music {
         return clip != null && clip.isRunning();
     }
 
-    public String getCurrentTrack() {
-        return currentTrack;
-    }
+
 }

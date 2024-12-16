@@ -111,4 +111,23 @@ public class CharacterModel extends Element {
     public void setPickedIndex(boolean pickedIndex) {
         this.pickedIndex = pickedIndex;
     }
+    public static void resetCharacters(Screen screen) throws IOException {
+        initializeCharacters(screen);
+
+        for (CharacterModel friend : friends) {
+            friend.resetState();
+        }
+
+        if (hellokitty != null) {
+            hellokitty.resetState();
+        }
+    }
+
+    private void resetState() {
+        this.isFollowing = false;
+        this.isBeingFollowed = false;
+        this.inParty = false;
+        this.outOfHouse = false;
+        this.kittyLastPositions.clear();
+    }
 }

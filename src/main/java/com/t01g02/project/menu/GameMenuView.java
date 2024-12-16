@@ -15,6 +15,7 @@ public class GameMenuView implements IView {
     public GameMenuView(Screen screen, GameMenuModel model) {
         this.screen = screen;
         this.model = model;
+
     }
 
     @Override

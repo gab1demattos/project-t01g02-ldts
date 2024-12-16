@@ -87,25 +87,13 @@ public class Game {
     }
 
     public void run() throws IOException{
-
-       /* try {
-            resetGame();
-        } catch (FontFormatException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }*/
-
         cityViewer.initializeCityImage();
         int FPS = 10;
         int frameTime = 1000 / FPS;
 
-
         while (true) {
             long startTime = System.currentTimeMillis();
             gui.getScreen().clear();
-
-            Position kittyPosition = CharacterModel.hellokitty.getPosition();
 
             cityViewer.draw();
             popUpsViewer.draw();
@@ -142,7 +130,7 @@ public class Game {
 
     }
 
-    private void setGameOver(boolean isWin, int finalScore) {
+    private void setGameOver(boolean isWin, int finalScore) throws IOException {
         try {
             gui.getScreen().close();
         } catch (IOException e) {
@@ -153,28 +141,23 @@ public class Game {
 
     }
 
-    public void clearScene() {
-        city = null;
-        cityViewer = null;
-        gameKeyListener = null;
-        characterViewer = null;
-        kittyController = null;
-        score = null;
-        scoreViewer = null;
-        friendsController = null;
-        timer = null;
-        timerViewer = null;
-        speed = null;
-        starController = null;
-        popUpsViewer = null;
-        star = null;
-
-        gui.getScreen().clear();
-        gui.getTerminalFrame().removeKeyListener(this.gameKeyListener);
-
-    }
-
-
+//    private void resetGame() throws IOException {
+//        CharacterModel.getHellokitty().setBeingFollowed(false);
+//        CharacterModel.getHellokitty().getKittyLastPositions().clear();
+//
+//        for (CharacterModel friend : CharacterModel.friends) {
+//            friend.setFollowing(false);
+//            friend.setInParty(false);
+//            friend.setOutOfHouse(false);
+//        }
+//        CharacterModel.initializeCharacters(gui.getScreen());
+//        city.reset();
+//        PopUpsModel.reset(gui.getScreen());
+//        timer.resetTimer(5, 0);
+//        score.resetScore();
+//        run();
+//
+//    }
 
 }
 

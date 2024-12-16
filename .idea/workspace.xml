@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CityModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,57 +80,106 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Application.executor": "Run",
-    "DefaultPlantUmlFileTemplate": "UML Class",
-    "Gradle.Build project-t01g02.executor": "Run",
-    "Gradle.CharacterModelTest (1).executor": "Run",
-    "Gradle.CharacterModelTest.executor": "Run",
-    "Gradle.CharacterModelTester.executor": "Run",
-    "Gradle.CharacterModelTester.testCharacterInitialization.executor": "Run",
-    "Gradle.CharacterViewerTest.executor": "Run",
-    "Gradle.CharacterViewerTester.drawTest.executor": "Run",
-    "Gradle.CharacterViewerTester.executor": "Run",
-    "Gradle.CharacterViewerTester.initializeCharactersTest.executor": "Run",
-    "Gradle.CityModelTest (1).executor": "Run",
-    "Gradle.CityModelTest.executor": "Run",
-    "Gradle.CityTester.executor": "Run",
-    "Gradle.CityViewerTest.executor": "Run",
-    "Gradle.CityViewerTester.executor": "Run",
-    "Gradle.GameMenuControllerTest.executor": "Coverage",
-    "Gradle.GameMenuModelTest.executor": "Coverage",
-    "Gradle.GameMenuViewTest (1).executor": "Run",
-    "Gradle.GameMenuViewTest.executor": "Coverage",
-    "Gradle.GameMenuViewTest.testRedrawScreen.executor": "Run",
-    "Gradle.SpriteTest (1).executor": "Run",
-    "Gradle.SpriteTest.drawPixelTest.executor": "Run",
-    "Gradle.SpriteTest.executor": "Run",
-    "Gradle.SpriteTester (1).executor": "Run",
-    "Gradle.SpriteTester.executor": "Run",
-    "Gradle.Tests in 'com.t01g02.project'.executor": "Coverage",
-    "Gradle.Tests in 'com.t01g02.project.Menu'.executor": "Coverage",
-    "Gradle.Tests in 'project.test'.executor": "Coverage",
-    "Gradle.TileTester.executor": "Run",
-    "Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor": "Run",
-    "Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
+    &quot;Gradle.Build project-t01g02.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CharacterModelTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CharacterModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CharacterModelTester.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CharacterModelTester.testCharacterInitialization.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CharacterViewerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CharacterViewerTester.drawTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CharacterViewerTester.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CharacterViewerTester.initializeCharactersTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CityModelTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CityModelTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CityTester.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CityViewerTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.CityViewerTester.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GameMenuControllerTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.GameMenuModelTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.GameMenuViewTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.GameMenuViewTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.GameMenuViewTest.testRedrawScreen.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SpriteTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SpriteTest.drawPixelTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SpriteTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SpriteTester (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.SpriteTester.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Tests in 'com.t01g02.project'.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.Tests in 'com.t01g02.project.Menu'.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.Tests in 'project.test'.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.TileTester.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  &lt;component name=&quot;PropertiesComponent&quot;&gt;{
+  &amp;quot;keyToString&amp;quot;: {
+    &amp;quot;Application.Application.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;DefaultPlantUmlFileTemplate&amp;quot;: &amp;quot;UML Class&amp;quot;,
+    &amp;quot;Gradle.Build project-t01g02.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CharacterModelTest (1).executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CharacterModelTest.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CharacterModelTester.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CharacterModelTester.testCharacterInitialization.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CharacterViewerTest.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CharacterViewerTester.drawTest.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CharacterViewerTester.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CharacterViewerTester.initializeCharactersTest.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CityModelTest (1).executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CityModelTest.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CityTester.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CityViewerTest.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.CityViewerTester.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.GameMenuControllerTest.executor&amp;quot;: &amp;quot;Coverage&amp;quot;,
+    &amp;quot;Gradle.GameMenuModelTest.executor&amp;quot;: &amp;quot;Coverage&amp;quot;,
+    &amp;quot;Gradle.GameMenuViewTest (1).executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.GameMenuViewTest.executor&amp;quot;: &amp;quot;Coverage&amp;quot;,
+    &amp;quot;Gradle.GameMenuViewTest.testRedrawScreen.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.SpriteTest (1).executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.SpriteTest.drawPixelTest.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.SpriteTest.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.SpriteTester (1).executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.SpriteTester.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.Tests in 'com.t01g02.project'.executor&amp;quot;: &amp;quot;Coverage&amp;quot;,
+    &amp;quot;Gradle.Tests in 'com.t01g02.project.Menu'.executor&amp;quot;: &amp;quot;Coverage&amp;quot;,
+    &amp;quot;Gradle.Tests in 'project.test'.executor&amp;quot;: &amp;quot;Coverage&amp;quot;,
+    &amp;quot;Gradle.TileTester.executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor&amp;quot;: &amp;quot;Run&amp;quot;,
+    &amp;quot;RunOnceActivity.ShowReadmeOnStart&amp;quot;: &amp;quot;true&amp;quot;,
+    &amp;quot;RunOnceActivity.git.unshallow&amp;quot;: &amp;quot;true&amp;quot;,
+    &amp;quot;git-widget-placeholder&amp;quot;: &amp;quot;modBranch&amp;quot;,
+    &amp;quot;kotlin-language-version-configured&amp;quot;: &amp;quot;true&amp;quot;,
+    &amp;quot;last_opened_file_path&amp;quot;: &amp;quot;/home/matilde/Documents/LDTS/project-t01g02/src/main/resources/Pop-ups&amp;quot;,
+    &amp;quot;node.js.detected.package.eslint&amp;quot;: &amp;quot;true&amp;quot;,
+    &amp;quot;node.js.detected.package.tslint&amp;quot;: &amp;quot;true&amp;quot;,
+    &amp;quot;node.js.selected.package.eslint&amp;quot;: &amp;quot;(autodetect)&amp;quot;,
+    &amp;quot;node.js.selected.package.tslint&amp;quot;: &amp;quot;(autodetect)&amp;quot;,
+    &amp;quot;nodejs_package_manager_path&amp;quot;: &amp;quot;npm&amp;quot;,
+    &amp;quot;project.structure.last.edited&amp;quot;: &amp;quot;Project&amp;quot;,
+    &amp;quot;project.structure.proportion&amp;quot;: &amp;quot;0.15&amp;quot;,
+    &amp;quot;project.structure.side.proportion&amp;quot;: &amp;quot;0.2&amp;quot;,
+    &amp;quot;settings.editor.selected.configurable&amp;quot;: &amp;quot;reference.settingsdialog.project.gradle&amp;quot;,
+    &amp;quot;vue.rearranger.settings.migration&amp;quot;: &amp;quot;true&amp;quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/Pop-ups" />
@@ -263,14 +316,6 @@
         <item itemvalue="Gradle.CityModelTest" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
