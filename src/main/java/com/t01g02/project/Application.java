@@ -26,15 +26,16 @@ public class Application {
 
         if (terminal instanceof SwingTerminalFrame) {
             SwingTerminalFrame terminalFrame = (SwingTerminalFrame) terminal;
+            terminalFrame.setTitle("Hello Kitty Game!");
             terminalFrame.addWindowListener(new WindowAdapter() {
                 @Override
                 public void windowClosing(WindowEvent e) {
                     try {
-                        screen.stopScreen();  // Ensure Lanterna cleans up
+                        screen.stopScreen();
                     } catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
-                    System.exit(0); // Ensure the application exits
+                    System.exit(0);
                 }
             });
         }
