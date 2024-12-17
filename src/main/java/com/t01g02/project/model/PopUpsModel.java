@@ -116,12 +116,17 @@ public class PopUpsModel extends Element {
     public static void initializeBlockPopUps(Screen screen) throws IOException {
         blockpopups = List.of(
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/block.png"), getRandomPosition(), "Block"),
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/block.png"), getRandomPosition(), "Block"),
                 new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/block.png"), getRandomPosition(), "Block")
-        );
+                );
     }
 
     public static void deleteStar() {
         star = null;
+    }
+
+    public static List<Position> getPopupsPositions() {
+        return popupsPositions;
     }
 
     @Override
