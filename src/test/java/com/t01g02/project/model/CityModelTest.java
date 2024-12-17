@@ -1,8 +1,7 @@
-package com.t01g02.project;
+package com.t01g02.project.model;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.screen.Screen;
-import com.t01g02.project.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

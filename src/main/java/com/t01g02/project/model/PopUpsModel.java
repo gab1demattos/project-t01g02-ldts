@@ -23,31 +23,6 @@ public class PopUpsModel extends Element {
     }
 
 
-
-/*    private static Position randomPosition() {
-        int rx = RANDOM.nextInt(TerminalWidth);
-        int ry = RANDOM.nextInt(TerminalHeight);
-        return new Position(rx, ry);
-    }
-
-    // need to fix this!!
-    private static Position findValidRandomPosition(CityModel city) {
-        Position position;
-        do {
-            position = randomPosition();
-            if (position.getX() >= 0 || position.getX() < TerminalWidth || position.getY() >= 0 || position.getY() < TerminalHeight) {
-                break;
-            }
-        } while (!canMove(position, city));
-        return position;
-    }
-
-    private static boolean canMove(Position position, CityModel city) {
-        Tile tile = city.getTile(position.getX(), position.getY());
-        return (tile.getType() == Tile.Type.ROAD);
-    }
-*/
-
     private static List<Position> popupsPositions = new ArrayList<>(
             List.of(
                 new Position(4, 6),

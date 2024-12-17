@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityViewerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CharacterViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CharacterViewerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CityModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/CityViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CityViewerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,16 +151,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in project.test">
-    <configuration name="All in project.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CityViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ScoreViewerTest.testDraw">
+    <configuration name="PopUpsViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
         <pattern>
@@ -169,13 +161,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.CityViewerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CityViewerTest.testDraw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PopUpsViewerTest.testDrawPopUps" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
         <pattern>
@@ -184,59 +176,74 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.CityViewerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
+      <option name="METHOD_NAME" value="testDrawPopUps" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PopUpsViewerTest.testInitializePopUps" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
+      <option name="METHOD_NAME" value="testInitializePopUps" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.ScoreViewerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScoreViewerTest.testDraw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.ScoreViewerTest" />
       <option name="METHOD_NAME" value="testDraw" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CityViewerTest.testDrawingHousesAndTrees" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.CityViewerTest" />
-      <option name="METHOD_NAME" value="testDrawingHousesAndTrees" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CityViewerTest.testInitializeCityImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.CityViewerTest" />
-      <option name="METHOD_NAME" value="testInitializeCityImage" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="JUnit.All in project.test" />
-      <item itemvalue="JUnit.CityViewerTest" />
-      <item itemvalue="JUnit.CityViewerTest.testDraw" />
-      <item itemvalue="JUnit.CityViewerTest.testDrawingHousesAndTrees" />
-      <item itemvalue="JUnit.CityViewerTest.testInitializeCityImage" />
+      <item itemvalue="JUnit.PopUpsViewerTest" />
+      <item itemvalue="JUnit.PopUpsViewerTest.testDrawPopUps" />
+      <item itemvalue="JUnit.PopUpsViewerTest.testInitializePopUps" />
+      <item itemvalue="JUnit.ScoreViewerTest" />
+      <item itemvalue="JUnit.ScoreViewerTest.testDraw" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in project.test" />
-        <item itemvalue="JUnit.CityViewerTest" />
-        <item itemvalue="JUnit.CityViewerTest.testInitializeCityImage" />
-        <item itemvalue="JUnit.CityViewerTest.testDrawingHousesAndTrees" />
-        <item itemvalue="JUnit.CityViewerTest.testDraw" />
+        <item itemvalue="JUnit.ScoreViewerTest.testDraw" />
+        <item itemvalue="JUnit.ScoreViewerTest" />
+        <item itemvalue="JUnit.PopUpsViewerTest.testDrawPopUps" />
+        <item itemvalue="JUnit.PopUpsViewerTest" />
+        <item itemvalue="JUnit.PopUpsViewerTest.testInitializePopUps" />
       </list>
     </recent_temporary>
   </component>
@@ -296,6 +303,7 @@
     <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_Menu_.ic" NAME="Tests in 'com.t01g02.project.Menu' Coverage Results" MODIFIED="1732357575956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_.ic" NAME="Tests in 'com.t01g02.project' Coverage Results" MODIFIED="1732357786074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$GameMenuControllerTest.ic" NAME="GameMenuControllerTest Coverage Results" MODIFIED="1732357630456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$All_in_project_test.ic" NAME="All in project.test Coverage Results" MODIFIED="1734468529999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$SpriteTest.ic" NAME="SpriteTest Coverage Results" MODIFIED="1732355583255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$GameMenuModelTest.ic" NAME="GameMenuModelTest Coverage Results" MODIFIED="1732357602759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$GameMenuViewTest.ic" NAME="GameMenuViewTest Coverage Results" MODIFIED="1732357615539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
