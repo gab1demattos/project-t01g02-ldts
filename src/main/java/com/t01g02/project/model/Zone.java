@@ -40,5 +40,18 @@ public class Zone {
         return associatedFriend;
     }
 
+    public boolean isWithinZone(Position position) {
+        int tileX = position.getX();
+        int tileY = position.getY();
+
+        int zoneStartX = this.getStartposition().getX();
+        int zoneEndX = this.getEndposition().getX()-20;
+        int zoneStartY = this.getStartposition().getY();
+        int zoneEndY = this.getEndposition().getY()+25;
+
+        return tileX >= zoneStartX && tileX <= zoneEndX &&
+                tileY >= zoneStartY && tileY <= zoneEndY;
+    }
+
 
 }

@@ -54,9 +54,9 @@ public class CharacterModel extends Element {
     @Override
     public void setPosition(Position newPosition) {
         super.setPosition(newPosition);
-        updateKittyPosition(newPosition);
-
-
+        if(isBeingFollowed) {
+            updateKittyPosition(newPosition);
+        }
     }
 
     public boolean isFollowing() {
@@ -79,7 +79,7 @@ public class CharacterModel extends Element {
     }
 
     public void updateKittyPosition(Position newPosition) {
-        if (kittyLastPositions.size() >= 75) {
+        if (kittyLastPositions.size() >= 10) {
             kittyLastPositions.remove(0);
         }
         kittyLastPositions.add(newPosition);
@@ -105,12 +105,7 @@ public class CharacterModel extends Element {
         return c;
     }
 
-    public boolean hasPickedIndex() {
-        return pickedIndex;
-    }
-    public void setPickedIndex(boolean pickedIndex) {
-        this.pickedIndex = pickedIndex;
-    }
+
     public static void resetCharacters(Screen screen) throws IOException {
         initializeCharacters(screen);
 

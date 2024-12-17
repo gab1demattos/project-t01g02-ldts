@@ -186,9 +186,7 @@ public class KittyController {
         }
         return true;
     }
-    public static int getKittySpeed() {
-        return speed.getSpeed();
-    }
+
 
     public void addObserver (KittyObserver observer){
         observers.add(observer);
