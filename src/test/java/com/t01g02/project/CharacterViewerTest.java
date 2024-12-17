@@ -21,16 +21,17 @@ public class CharacterViewerTest {
 
     @BeforeEach
     void setUp() throws IOException {
-
         stubScreen = mock(Screen.class);
         stubSprite = mock(Sprite.class);
 
         characterViewer = new CharacterViewer(stubScreen);
 
         CharacterModel.friends = List.of(
-                new CharacterModel(stubSprite, new Position(340, 127), "HelloKitty"),
-                new CharacterModel(stubSprite, new Position(273, 226), "Kuromi")
+                new CharacterModel(stubSprite, new Position(340, 127), "Kuromi"),
+                new CharacterModel(stubSprite, new Position(273, 226), "Purin")
         );
+
+        CharacterModel.hellokitty = new CharacterModel(stubSprite, new Position(313, 157), "HelloKitty");
     }
 
     @Test
@@ -38,9 +39,9 @@ public class CharacterViewerTest {
         characterViewer.initializeCharacters();
 
         assertNotNull(CharacterModel.friends);
-        assertEquals(5, CharacterModel.friends.size());
+        assertNotNull(CharacterModel.getHellokitty());
+        assertEquals(4, CharacterModel.friends.size());
     }
-
 
     @Test
     void testDraw() throws IOException {
@@ -50,6 +51,6 @@ public class CharacterViewerTest {
             verify(character.getSprite(), times(1)).drawImage(character.getPosition());
         }
 
-        verify(stubScreen, times(1)).refresh();
+        verify(CharacterModel.getHellokitty().getSprite(), times(1)).drawImage(CharacterModel.getHellokitty().getPosition());
     }
 }

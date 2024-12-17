@@ -31,6 +31,5 @@ public class CharacterViewer {
         }
         CharacterModel.getHellokitty().getSprite().drawImage(CharacterModel.getHellokitty().getPosition());
 
-
     }
 }

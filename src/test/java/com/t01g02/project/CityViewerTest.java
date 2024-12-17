@@ -1,25 +1,25 @@
-package com.t01g02.project;
+package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.CityModel;
-import com.t01g02.project.model.Score;
-import com.t01g02.project.viewer.CityViewer;
+import com.t01g02.project.model.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 import static org.mockito.Mockito.*;
-import static org.mockito.Mockito.verify;
 
 public class CityViewerTest {
     private CityModel stubCity;
     private Screen stubScreen;
     private TextGraphics stubTextGraphics;
+    private Sprite stubSprite;
     private CityViewer cityViewer;
 
     @BeforeEach
@@ -27,26 +27,50 @@ public class CityViewerTest {
         stubCity = mock(CityModel.class);
         stubScreen = mock(Screen.class);
         stubTextGraphics = mock(TextGraphics.class);
+        stubSprite = mock(Sprite.class);
 
         when(stubScreen.newTextGraphics()).thenReturn(stubTextGraphics);
-        Score score = new Score(0);
-        cityViewer = new CityViewer(stubCity, stubScreen);
+        when(stubCity.getWidth()).thenReturn(345);
+        when(stubCity.getHeight()).thenReturn(180);
+        when(stubCity.getHousePositions()).thenReturn(Collections.emptyList());
+        when(stubCity.getTreePositions()).thenReturn(Collections.emptyList());
+        when(stubCity.getLighttreePositions()).thenReturn(Collections.emptyList());
+        when(stubCity.getYellowHousePositions()).thenReturn(Collections.emptyList());
+        when(stubCity.getBlueHousePositions()).thenReturn(Collections.emptyList());
+        when(stubCity.getPinkHousePositions()).thenReturn(Collections.emptyList());
+
+        cityViewer = spy(new CityViewer(stubCity, stubScreen));
     }
 
     @Test
-    void testDrawBackground() throws IOException {
+    void testInitializeCityImage() {
+        when(stubCity.getWidth()).thenReturn(345);
+        when(stubCity.getHeight()).thenReturn(180);
+
+        cityViewer.initializeCityImage();
+    }
+
+    @Test
+    void testDrawingHousesAndTrees() throws IOException {
+        List<Position> positions = List.of(new Position(10, 10), new Position(20, 20));
+        doNothing().when(stubSprite).drawImage(any(Position.class));
+
+        cityViewer.drawingHousesAndTrees(stubSprite, positions);
+
+        verify(stubSprite, times(positions.size())).drawImage(any(Position.class));
+    }
+
+    @Test
+    void testDraw() throws IOException {
         when(stubScreen.getTerminalSize()).thenReturn(new TerminalSize(80, 24));
-        when(stubCity.getHeight()).thenReturn(0);
-        when(stubCity.getWidth()).thenReturn(0);
+        doNothing().when(cityViewer).drawingHousesAndTrees(any(Sprite.class), anyList());
 
         cityViewer.draw();
 
-        verify(stubTextGraphics).setBackgroundColor(TextColor.Factory.fromString("#FFE1EA"));
-        verify(stubTextGraphics).fillRectangle(
-                new TerminalPosition(0, 0),
-                new TerminalSize(80, 24),
-                ' '
-        );
-        verify(stubScreen).refresh();
+        verify(stubTextGraphics).fillRectangle(new TerminalPosition(0, 0), new TerminalSize(80, 24), ' ');
+
+        verify(stubTextGraphics).drawImage(eq(new TerminalPosition(0, 0)), any());
+
+        verify(cityViewer, times(6)).drawingHousesAndTrees(any(Sprite.class), anyList());
     }
 }
