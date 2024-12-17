@@ -27,12 +27,11 @@ public class FriendsController {
         Position kittyPosition = CharacterModel.getHellokitty().getPosition();
         List<Zone> zones = cityModel.getZones();
         for (Zone zone : zones) {
-            if (zone.getType() == Tile.Type.PICKUP && zone.isWithinZone(kittyPosition)) {
+            if (zone.getType() == Tile.Type.PICKUP && zone.isWithin(kittyPosition)) {
                 CharacterModel friend = zone.getAssociatedFriend();
                 if (friend != null && !friend.isFollowing() && !hellokitty.isBeingFollowed() && !friend.isInParty()) {
                     friend.setFollowing(true);
                     hellokitty.setBeingFollowed(true);
-                    hellokitty.updateKittyPosition(hellokitty.getPosition());
                     if (settingsModel.isSoundOn()){
                         sound.play("/audio/pickupSound.wav");
                     }
@@ -49,7 +48,7 @@ public class FriendsController {
         for (Zone zone : cityModel.getZones()) {
             for (CharacterModel friend : friends){
                 if (friend.isFollowing()) {
-                    if (zone.getType() == Tile.Type.DROPOFF && zone.isWithinZone(friend.getPosition())) {
+                    if (zone.getType() == Tile.Type.DROPOFF && zone.isWithin(friend.getPosition())) {
                         friend.setFollowing(false);
                         hellokitty.setBeingFollowed(false);
                         if (settingsModel.isSoundOn()){
@@ -76,10 +75,10 @@ public class FriendsController {
         int speed = KittyController.speed.getSpeed();
 
         CharacterModel friend = friends.get(friendId);
-        if (!cityModel.getZones().get(friendId).isWithinZone(hellokitty.getPosition())) {
+        if (!cityModel.getZones().get(friendId).isWithin(hellokitty.getPosition())) {
             friend.setPosition(new Position(friend.getPosition().getX(), friend.getPosition().getY() + speed));
         }
-        if(hellokitty.getPosition().getY()<=friend.getPosition().getY()){
+        if(cityModel.getZones().get(friendId).isWithin(friend.getPosition())){
             friend.setOutOfHouse(true);
         }
 

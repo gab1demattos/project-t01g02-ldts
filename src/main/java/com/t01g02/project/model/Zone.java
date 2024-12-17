@@ -40,7 +40,7 @@ public class Zone {
         return associatedFriend;
     }
 
-    public boolean isWithinZone(Position position) {
+    public boolean isWithin(Position position) {
         int tileX = position.getX();
         int tileY = position.getY();
 
