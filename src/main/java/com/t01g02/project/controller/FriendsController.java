@@ -106,7 +106,7 @@ public class FriendsController {
         }
     }
 
-    private void follow(int friendId) {
+    void follow(int friendId) {
         CharacterModel friend = friends.get(friendId);
         List<Position> kittyPositionHistory = hellokitty.getKittyLastPositions();
         Position kittyPos = kittyPositionHistory.getFirst();

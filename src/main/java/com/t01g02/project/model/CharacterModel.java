@@ -15,11 +15,9 @@ public class CharacterModel extends Element {
     private boolean isFollowing;
     private boolean isBeingFollowed;
     private boolean inParty;
-    public static List<CharacterModel> friends;
+    public static List<CharacterModel> friends = new ArrayList<>();
     private List<Position> kittyLastPositions = new ArrayList<>();
     private boolean outOfHouse;
-    private boolean pickedIndex;
-
 
 
     public CharacterModel(Sprite sprite, Position position, String name) {
@@ -27,23 +25,14 @@ public class CharacterModel extends Element {
         this.isFollowing = false;
         this.inParty = false;
         this.outOfHouse = false;
-        this.pickedIndex = false;
-
     }
 
     public static void initializeCharacters(Screen screen) throws IOException {
-        hellokitty = new CharacterModel(new Sprite(screen, "src/main/resources/characters/hellokitty.png"),
-                new Position(313, 157), "HelloKitty");
-        friends = List.of(
-                new CharacterModel(new Sprite(screen, "src/main/resources/characters/kuromi.png"),
-                        new Position(168, 83), "Kuromi"),
-                new CharacterModel(new Sprite(screen, "src/main/resources/characters/purin.png"),
-                        new Position(38, 36), "Purin"),
-                new CharacterModel(new Sprite(screen, "src/main/resources/characters/mymelody.png"),
-                        new Position(94, 134), "MyMelody"),
-                new CharacterModel(new Sprite(screen, "src/main/resources/characters/cinnamoroll.png"),
-                        new Position(283, 39), "Cinnamoroll")
-        );
+        hellokitty = new CharacterModel(new Sprite(screen, "src/main/resources/characters/hellokitty.png"), new Position(313, 157), "HelloKitty");
+        friends.add(new CharacterModel(new Sprite(screen, "src/main/resources/characters/kuromi.png"), new Position(168, 83), "Kuromi"));
+        friends.add(new CharacterModel(new Sprite(screen, "src/main/resources/characters/purin.png"), new Position(38, 36), "Purin"));
+        friends.add(new CharacterModel(new Sprite(screen, "src/main/resources/characters/mymelody.png"), new Position(94, 134), "MyMelody"));
+        friends.add(new CharacterModel(new Sprite(screen, "src/main/resources/characters/cinnamoroll.png"), new Position(283, 39), "Cinnamoroll"));
 
     }
 

@@ -14,7 +14,7 @@ public class CharacterViewer {
     private final Screen screen;
 
 
-    public CharacterViewer(Screen screen) throws IOException {
+    public CharacterViewer(Screen screen) {
         this.screen = screen;
     }
 
