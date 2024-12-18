@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CityModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CityModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CharacterViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CharacterViewerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CityViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CityViewerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,9 +115,14 @@
     "JUnit.CityModelTest.executor": "Run",
     "JUnit.CityModelTest.testGetTileOutOfBounds.executor": "Run",
     "JUnit.CityViewerTest.executor": "Run",
-    "JUnit.DecorViewerTest.executor": "Run",
+    "JUnit.DecorViewerTest.executor": "Debug",
     "JUnit.DecorViewerTest.testDrawDecorations.executor": "Run",
     "JUnit.FriendsControllerTest.executor": "Run",
+    "JUnit.PopUpsViewerTest.executor": "Run",
+    "JUnit.PopUpsViewerTest.testAddMudPopUp.executor": "Run",
+    "JUnit.PopUpsViewerTest.testDeleteStar.executor": "Run",
+    "JUnit.PopUpsViewerTest.testDraw.executor": "Run",
+    "JUnit.SpriteTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "random",
@@ -167,7 +168,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CharacterViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PopUpsViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
         <pattern>
@@ -176,44 +177,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.CharacterViewerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CityModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PopUpsViewerTest.testDeleteStar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.t01g02.project.model.*" />
+          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.model" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.model.CityModelTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CityModelTest.testGetTileOutOfBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.model" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.model.CityModelTest" />
-      <option name="METHOD_NAME" value="testGetTileOutOfBounds" />
+      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
+      <option name="METHOD_NAME" value="testDeleteStar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CityViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PopUpsViewerTest.testDraw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
         <pattern>
@@ -222,26 +208,42 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.CityViewerTest" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
+      <option name="METHOD_NAME" value="testDraw" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpriteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.SpriteTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.PopUpsViewerTest" />
+      <item itemvalue="JUnit.PopUpsViewerTest.testDeleteStar" />
+      <item itemvalue="JUnit.PopUpsViewerTest.testDraw" />
+      <item itemvalue="JUnit.SpriteTest" />
       <item itemvalue="JUnit.All in project.test" />
-      <item itemvalue="JUnit.CharacterViewerTest" />
-      <item itemvalue="JUnit.CityModelTest.testGetTileOutOfBounds" />
-      <item itemvalue="JUnit.CityModelTest" />
-      <item itemvalue="JUnit.CityViewerTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in project.test" />
-        <item itemvalue="JUnit.CityViewerTest" />
-        <item itemvalue="JUnit.CharacterViewerTest" />
-        <item itemvalue="JUnit.CityModelTest" />
-        <item itemvalue="JUnit.CityModelTest.testGetTileOutOfBounds" />
+        <item itemvalue="JUnit.SpriteTest" />
+        <item itemvalue="JUnit.PopUpsViewerTest" />
+        <item itemvalue="JUnit.PopUpsViewerTest.testDraw" />
+        <item itemvalue="JUnit.PopUpsViewerTest.testDeleteStar" />
       </list>
     </recent_temporary>
   </component>
@@ -302,7 +304,7 @@
     <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_Menu_.ic" NAME="Tests in 'com.t01g02.project.Menu' Coverage Results" MODIFIED="1732357575956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_.ic" NAME="Tests in 'com.t01g02.project' Coverage Results" MODIFIED="1732357786074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$GameMenuControllerTest.ic" NAME="GameMenuControllerTest Coverage Results" MODIFIED="1732357630456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/project$All_in_project_test.ic" NAME="All in project.test Coverage Results" MODIFIED="1734552919203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$All_in_project_test.ic" NAME="All in project.test Coverage Results" MODIFIED="1734554889066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$SpriteTest.ic" NAME="SpriteTest Coverage Results" MODIFIED="1732355583255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$CharacterViewerTest.ic" NAME="CharacterViewerTest Coverage Results" MODIFIED="1734552341777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.t01g02.project.viewer.*</FILTER>
