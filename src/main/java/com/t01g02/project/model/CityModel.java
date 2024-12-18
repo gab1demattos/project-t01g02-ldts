@@ -1,10 +1,7 @@
 package com.t01g02.project.model;
 
 import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.screen.Screen;
-import com.t01g02.project.viewer.Sprite;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +10,7 @@ public class CityModel {
     private final int width;
     private final int height;
     private final Tile[][] map;
-    private List<Zone> zones;
+    private final List<Zone> zones;
     private static List<Road> roads;
 
     public CityModel(int width, int height) {
@@ -24,7 +21,6 @@ public class CityModel {
     }
 
     public  void initializeRoads() {
-
         TextColor roadColor = TextColor.Factory.fromString("#222222");
 
         roads = List.of(
@@ -63,53 +59,7 @@ public class CityModel {
 
     }
 
-    private final List<Position> housePositions = List.of(
-            new Position(34, 20),
-            new Position(91, 121),
-            new Position(279, 20),
-            new Position(164, 71)
-    );
 
-    private final List<Position> treePositions = List.of(
-            new Position(307, 20),
-            new Position(307, 34),
-            new Position(26, 18),
-            new Position(24, 38),
-            new Position(151, 73),
-            new Position(119, 129),
-            new Position(155, 78),
-            new Position(155, 87)
-    );
-
-    private final List<Position> yellowHousePositions = List.of(
-            new Position(95, 71),
-            new Position(222, 20),
-            new Position(155, 121)
-    );
-
-    private final List<Position> blueHousePositions = List.of(
-            new Position(95, 20),
-            new Position(188, 121),
-            new Position(222, 71)
-    );
-
-    private final List<Position> pinkHousePositions = List.of(
-            new Position(160, 20),
-            new Position(30, 121),
-            new Position(222,121)
-    );
-
-    private final List<Position> lighttreePositions = List.of(
-            new Position(310, 27),
-            new Position(22, 27),
-            new Position(151, 83),
-            new Position(117, 136)
-    );
-
-    /* private final List<Position> flowersPosition = List.of(
-            new Position(30, 100),
-            new Position(40, 110)
-    ); */
 
     public Tile getTile(int x, int y) {
         if (x >= 0 && x < width && y >= 0 && y < height) {
@@ -137,29 +87,7 @@ public class CityModel {
     public List<Road> getRoads() {
         return roads;
     }
-    public List<Position> getHousePositions() {
-        return housePositions;
-    }
 
-    public List<Position> getBlueHousePositions() {
-        return blueHousePositions;
-    }
-
-    public List<Position> getLighttreePositions() {
-        return lighttreePositions;
-    }
-
-    public List<Position> getPinkHousePositions() {
-        return pinkHousePositions;
-    }
-
-    public List<Position> getTreePositions() {
-        return treePositions;
-    }
-
-    public List<Position> getYellowHousePositions() {
-        return yellowHousePositions;
-    }
 
     /*public void reset() {
         for (int y = 0; y < height; y++) {

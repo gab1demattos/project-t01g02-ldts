@@ -76,7 +76,7 @@ public class CityModelTest {
 
         assertTrue(housePositions.contains(new Position(34, 20)));
         assertTrue(treePositions.contains(new Position(26, 18)));
-    }
+    }*/
 
     @Test
     void testOutOfBoundsTileAccess() {
