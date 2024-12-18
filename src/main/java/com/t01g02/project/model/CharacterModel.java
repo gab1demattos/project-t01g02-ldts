@@ -1,14 +1,13 @@
 package com.t01g02.project.model;
 
 import com.googlecode.lanterna.screen.Screen;
-import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.Sprite;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
+
 import java.util.List;
-import java.util.Set;
+
 
 public class CharacterModel extends Element {
     public static CharacterModel hellokitty;
@@ -41,47 +40,14 @@ public class CharacterModel extends Element {
         return hellokitty;
     }
 
-    @Override
-    public void setPosition(Position newPosition) {
-        super.setPosition(newPosition);
-        if(isBeingFollowed) {
-            updateKittyPosition(newPosition);
-            System.out.println("x : " + newPosition.getX() + " y : " + newPosition.getY());
-        }
-    }
+    public boolean isFollowing() { return isFollowing; }
+    public void setFollowing(boolean following) { this.isFollowing = following; }
 
-    public boolean isFollowing() {
-        return isFollowing;
-    }
-    public void setFollowing(boolean following) {
-        this.isFollowing = following;
-    }
-    public boolean isBeingFollowed() {
-        return isBeingFollowed;
-    }
-    public void setBeingFollowed(boolean beingFollowed) {
-        isBeingFollowed = beingFollowed;
-    }
-    public boolean isOutOfHouse() {
-        return outOfHouse;
-    }
-    public void setOutOfHouse(boolean outOfHouse) {
-        this.outOfHouse = outOfHouse;
-    }
+    public boolean isBeingFollowed() { return isBeingFollowed; }
+    public void setBeingFollowed(boolean beingFollowed) { isBeingFollowed = beingFollowed; }
 
-    public void updateKittyPosition(Position newPosition) {
-        if (kittyLastPositions.size() >= 10) {
-            kittyLastPositions.remove(0);
-        }
-        kittyLastPositions.add(newPosition);
-    }
-    public void eraseKittyPosition() {
-        kittyLastPositions = new ArrayList<>();
-    }
-
-    public List<Position> getKittyLastPositions() {
-        return kittyLastPositions;
-    }
+    public boolean isOutOfHouse() { return outOfHouse; }
+    public void setOutOfHouse(boolean outOfHouse) { this.outOfHouse = outOfHouse; }
 
     public boolean isInParty() {
         return inParty;
@@ -89,6 +55,19 @@ public class CharacterModel extends Element {
     public void setInParty(boolean inParty) {
         this.inParty = inParty;
     }
+
+    public void updateKittyPosition(Position newPosition) {
+        if (kittyLastPositions.size() >= 10) {
+            kittyLastPositions.removeFirst();
+        }
+        kittyLastPositions.add(newPosition);
+    }
+    public void eraseKittyPosition() { kittyLastPositions = new ArrayList<>(); }
+
+    public List<Position> getKittyLastPositions() {
+        return kittyLastPositions;
+    }
+
     public static int getFriendInPartyCount() {
         int c = 0;
         for (CharacterModel friend : friends) {
@@ -98,8 +77,6 @@ public class CharacterModel extends Element {
         }
         return c;
     }
-
-
     public static void resetCharacters(Screen screen) throws IOException {
         initializeCharacters(screen);
 
@@ -118,5 +95,12 @@ public class CharacterModel extends Element {
         this.inParty = false;
         this.outOfHouse = false;
         this.kittyLastPositions.clear();
+    }
+    @Override
+    public void setPosition(Position newPosition) {
+        super.setPosition(newPosition);
+        if(isBeingFollowed) {
+            updateKittyPosition(newPosition);
+        }
     }
 }
