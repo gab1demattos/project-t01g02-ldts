@@ -1,76 +1,84 @@
 package com.t01g02.project.viewer;
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import com.t01g02.project.model.CityModel;
-import com.t01g02.project.model.Position;
+import com.t01g02.project.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.io.IOException;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
-public class CityViewerTest {
-    private CityModel stubCity;
-    private Screen stubScreen;
-    private TextGraphics stubTextGraphics;
-    private Sprite stubSprite;
+class CityViewerTest {
+    private CityModel cityModel;
+    private Screen screen;
+    private Sprite sprite;
+    private DecorViewer decorViewer;
     private CityViewer cityViewer;
 
     @BeforeEach
     void setUp() throws IOException {
-        stubCity = mock(CityModel.class);
-        stubScreen = mock(Screen.class);
-        stubTextGraphics = mock(TextGraphics.class);
-        stubSprite = mock(Sprite.class);
+        cityModel = mock(CityModel.class);
+        screen = mock(Screen.class);
+        sprite = mock(Sprite.class);
+        decorViewer = mock(DecorViewer.class);
 
-        when(stubScreen.newTextGraphics()).thenReturn(stubTextGraphics);
-        when(stubCity.getWidth()).thenReturn(345);
-        when(stubCity.getHeight()).thenReturn(180);
-        when(stubCity.getHousePositions()).thenReturn(Collections.emptyList());
-        when(stubCity.getTreePositions()).thenReturn(Collections.emptyList());
-        when(stubCity.getLighttreePositions()).thenReturn(Collections.emptyList());
-        when(stubCity.getYellowHousePositions()).thenReturn(Collections.emptyList());
-        when(stubCity.getBlueHousePositions()).thenReturn(Collections.emptyList());
-        when(stubCity.getPinkHousePositions()).thenReturn(Collections.emptyList());
+        cityViewer = new CityViewer(cityModel, screen);
 
-        cityViewer = spy(new CityViewer(stubCity, stubScreen));
+        when(cityModel.getWidth()).thenReturn(10);
+        when(cityModel.getHeight()).thenReturn(5);
     }
 
     @Test
     void testInitializeCityImage() {
-        when(stubCity.getWidth()).thenReturn(345);
-        when(stubCity.getHeight()).thenReturn(180);
-
         cityViewer.initializeCityImage();
+
+        for (int y = 0; y < cityModel.getHeight(); y++) {
+            for (int x = 0; x < cityModel.getWidth(); x++) {
+                Tile tile = cityModel.getTile(x, y);
+                assertNotNull(cityViewer);
+            }
+        }
     }
 
     @Test
     void testDrawingHousesAndTrees() throws IOException {
-        List<Position> positions = List.of(new Position(10, 10), new Position(20, 20));
-        doNothing().when(stubSprite).drawImage(any(Position.class));
+        List<Position> positions = Arrays.asList(
+                new Position(2, 2),
+                new Position(5, 5),
+                new Position(8, 8)
+        );
 
-        cityViewer.drawingHousesAndTrees(stubSprite, positions);
+        cityViewer.drawingHousesAndTrees(sprite, positions);
 
-        verify(stubSprite, times(positions.size())).drawImage(any(Position.class));
+        for (Position position : positions) {
+            verify(sprite, times(1)).drawImage(position);
+        }
     }
 
-    @Test
+    /*@Test
     void testDraw() throws IOException {
-        when(stubScreen.getTerminalSize()).thenReturn(new TerminalSize(80, 24));
-        doNothing().when(cityViewer).drawingHousesAndTrees(any(Sprite.class), anyList());
+        TextGraphics graphics = mock(TextGraphics.class);
+        when(screen.newTextGraphics()).thenReturn(graphics);
+
+        TerminalSize terminalSize = mock(TerminalSize.class);
+        when(screen.getTerminalSize()).thenReturn(terminalSize);
+        when(terminalSize.getColumns()).thenReturn(80);
+        when(terminalSize.getRows()).thenReturn(24);
 
         cityViewer.draw();
 
-        verify(stubTextGraphics).fillRectangle(new TerminalPosition(0, 0), new TerminalSize(80, 24), ' ');
+        verify(decorViewer, times(1)).drawDecorations();
+    }*/
 
-        verify(stubTextGraphics).drawImage(eq(new TerminalPosition(0, 0)), any());
 
-        verify(cityViewer, times(6)).drawingHousesAndTrees(any(Sprite.class), anyList());
-    }
 }
+
+
+

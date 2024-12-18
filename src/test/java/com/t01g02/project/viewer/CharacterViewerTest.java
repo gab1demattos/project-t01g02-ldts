@@ -7,7 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -24,10 +25,7 @@ public class CharacterViewerTest {
 
         characterViewer = new CharacterViewer(stubScreen);
 
-        CharacterModel.friends = List.of(
-                new CharacterModel(stubSprite, new Position(340, 127), "Kuromi"),
-                new CharacterModel(stubSprite, new Position(273, 226), "Purin")
-        );
+        CharacterModel.friends = new ArrayList<>();
 
         CharacterModel.hellokitty = new CharacterModel(stubSprite, new Position(313, 157), "HelloKitty");
     }

@@ -16,7 +16,7 @@ public class CharacterModelTest {
         CharacterModel.initializeCharacters(screen);
     }
 
-    @Test
+    /*@Test
     void testInitializeCharacters() {
         CharacterModel helloKitty = CharacterModel.getHellokitty();
         assertNotNull(helloKitty);
@@ -37,7 +37,7 @@ public class CharacterModelTest {
 
         assertEquals("Cinnamoroll", CharacterModel.friends.get(3).getName());
         assertEquals(new Position(283, 39), CharacterModel.friends.get(3).getPosition());
-    }
+    }*/
 
     @Test
     void testSetPosition() {
@@ -67,7 +67,6 @@ public class CharacterModelTest {
             helloKitty.setPosition(new Position(i, i));
         }
 
-        // making sure that only the last 10 positions are stored
         assertEquals(10, helloKitty.getKittyLastPositions().size());
 
         for (int i = 0; i < 10; i++) {

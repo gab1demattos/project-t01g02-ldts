@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/DecorViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CityModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CityViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CityViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CityModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CityModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CharacterViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CharacterViewerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CityViewerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/viewer/CityViewerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,10 +114,17 @@
     "Gradle.TileTester.executor": "Run",
     "Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor": "Run",
     "Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor": "Run",
+    "JUnit.All in project.test.executor": "Coverage",
+    "JUnit.CharacterViewerTest.executor": "Run",
+    "JUnit.CityModelTest.executor": "Run",
+    "JUnit.CityModelTest.testGetTileOutOfBounds.executor": "Run",
+    "JUnit.CityViewerTest.executor": "Run",
+    "JUnit.DecorViewerTest.executor": "Run",
+    "JUnit.DecorViewerTest.testDrawDecorations.executor": "Run",
     "JUnit.FriendsControllerTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "random",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/matilde/Documents/LDTS/Proj3",
     "node.js.detected.package.eslint": "true",
@@ -150,16 +158,26 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CityModelTest">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.Application" />
-      <module name="project.main" />
+  <component name="RunManager" selected="JUnit.All in project.test">
+    <configuration name="All in project.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CharacterViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.t01g02.project.*" />
+          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.CharacterViewerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -179,6 +197,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CityModelTest.testGetTileOutOfBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.t01g02.project.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.t01g02.project.model" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.model.CityModelTest" />
+      <option name="METHOD_NAME" value="testGetTileOutOfBounds" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CityViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
@@ -194,50 +228,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FriendsControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.FriendsControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TimerViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.TimerViewerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.Application" />
+      <item itemvalue="JUnit.All in project.test" />
+      <item itemvalue="JUnit.CharacterViewerTest" />
+      <item itemvalue="JUnit.CityModelTest.testGetTileOutOfBounds" />
       <item itemvalue="JUnit.CityModelTest" />
       <item itemvalue="JUnit.CityViewerTest" />
-      <item itemvalue="JUnit.FriendsControllerTest" />
-      <item itemvalue="JUnit.TimerViewerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CityModelTest" />
+        <item itemvalue="JUnit.All in project.test" />
         <item itemvalue="JUnit.CityViewerTest" />
-        <item itemvalue="Application.Application" />
-        <item itemvalue="JUnit.FriendsControllerTest" />
-        <item itemvalue="JUnit.TimerViewerTest" />
+        <item itemvalue="JUnit.CharacterViewerTest" />
+        <item itemvalue="JUnit.CityModelTest" />
+        <item itemvalue="JUnit.CityModelTest.testGetTileOutOfBounds" />
       </list>
     </recent_temporary>
   </component>
@@ -298,8 +302,11 @@
     <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_Menu_.ic" NAME="Tests in 'com.t01g02.project.Menu' Coverage Results" MODIFIED="1732357575956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$Tests_in__com_t01g02_project_.ic" NAME="Tests in 'com.t01g02.project' Coverage Results" MODIFIED="1732357786074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$GameMenuControllerTest.ic" NAME="GameMenuControllerTest Coverage Results" MODIFIED="1732357630456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/project$All_in_project_test.ic" NAME="All in project.test Coverage Results" MODIFIED="1734470719150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$All_in_project_test.ic" NAME="All in project.test Coverage Results" MODIFIED="1734552919203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$SpriteTest.ic" NAME="SpriteTest Coverage Results" MODIFIED="1732355583255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/project$CharacterViewerTest.ic" NAME="CharacterViewerTest Coverage Results" MODIFIED="1734552341777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.t01g02.project.viewer.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/project$GameMenuModelTest.ic" NAME="GameMenuModelTest Coverage Results" MODIFIED="1732357602759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$GameMenuViewTest.ic" NAME="GameMenuViewTest Coverage Results" MODIFIED="1732357615539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/project$Tests_in__project_test_.ic" NAME="Tests in 'project.test' Coverage Results" MODIFIED="1732355550982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
