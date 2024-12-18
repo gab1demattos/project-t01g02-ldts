@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class CharacterModel extends Element {
     public static CharacterModel hellokitty;
@@ -15,7 +16,7 @@ public class CharacterModel extends Element {
     private boolean isBeingFollowed;
     private boolean inParty;
     public static List<CharacterModel> friends;
-    private List<Position> kittyLastPositions = new LinkedList<>();
+    private List<Position> kittyLastPositions = new ArrayList<>();
     private boolean outOfHouse;
     private boolean pickedIndex;
 
@@ -56,6 +57,7 @@ public class CharacterModel extends Element {
         super.setPosition(newPosition);
         if(isBeingFollowed) {
             updateKittyPosition(newPosition);
+            System.out.println("x : " + newPosition.getX() + " y : " + newPosition.getY());
         }
     }
 
@@ -83,6 +85,9 @@ public class CharacterModel extends Element {
             kittyLastPositions.remove(0);
         }
         kittyLastPositions.add(newPosition);
+    }
+    public void eraseKittyPosition() {
+        kittyLastPositions = new ArrayList<>();
     }
 
     public List<Position> getKittyLastPositions() {

@@ -49,11 +49,12 @@ public class FriendsController {
             for (CharacterModel friend : friends){
                 if (friend.isFollowing()) {
                     if (zone.getType() == Tile.Type.DROPOFF && zone.isWithin(friend.getPosition())) {
-                        friend.setFollowing(false);
                         hellokitty.setBeingFollowed(false);
+                        friend.setFollowing(false);
                         if (settingsModel.isSoundOn()){
                             sound.play("/audio/dropoffSound.wav");
                         }
+                        hellokitty.eraseKittyPosition();
                         notifyDroppedOff();
 
 
@@ -109,6 +110,7 @@ public class FriendsController {
         CharacterModel friend = friends.get(friendId);
         List<Position> kittyPositionHistory = hellokitty.getKittyLastPositions();
         Position kittyPos = kittyPositionHistory.getFirst();
+        System.out.println("fx: "+kittyPos.getX()+"fy: "+kittyPos.getY());
 
         friend.setPosition(kittyPos);
     }
