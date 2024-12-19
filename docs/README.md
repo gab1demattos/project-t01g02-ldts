@@ -1,4 +1,4 @@
-# LDTS Project - Hello Kitty's Party
+# LDTS Project T01G02 - Hello Kitty's Party
 
 
 ## Description
@@ -15,6 +15,8 @@ The aim of the game is to pick up the four friends and drop them off at the part
 
 To make the game more interesting and enjoyable there will be power-ups and obstacles. Lightning bolts will increase Kitty´s speed, helping you complete the tasks more efficiently. Hearts add extra points to your score. Avoid roadblocks and beware of mud puddles, as they will slow Kitty down and reduce your score.
 
+METER SCREENSHOTS DAS FEATURES
+
 ### Mockups
 
 Menu Mockup
@@ -28,8 +30,34 @@ Game Mockup
     <img  src="/docs/images/game_mockup.jpg" alt="Menu Mockup"/>
 </p>
 
+### Design Patterns
 
-## Design Patterns
+> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
+
+- **Problem in Context.** Explain the diifferent problemsThe description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
+- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
+- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
+- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
+
+**Example of one of such subsections**:
+
+------
+
+#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
+
+**Problem in Context**
+
+There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
+
+**The Pattern**
+
+We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
+
+**Implementation**
+
+The following figure shows how the pattern’s roles were mapped to the application classes.
+
+///rewrite this into the top part
 Having studied design and architectural patterns, we took them into consideration before starting to write our code to improve readability, flexibility and code reusability.
 
 ### Menu
@@ -84,6 +112,24 @@ tiles and groups (like roads) uniformly.
 This approach simplifies game logic by allowing it to handle tiles and composed structures the same way. It also makes 
 the system more flexible, as adding new components like buildings or new road types can be done without modifying the
 existing structure.
+ ////
+
+#### KNOWN CODE SMELLS
+
+> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
+
+Menu and game start is confusing and should the game start and loop should be cleaner
 
 
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/rUa5vdmg)
+### TESTING
+
+- Screenshot of coverage report.
+- Link to mutation testing report.
+
+### SELF-EVALUATION
+
+- Gabriela de Mattos:
+- Matilde Duarte:
+- Matilde Sousa:
+
+

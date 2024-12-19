@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.Random;
 
 public class PopUpsModel extends Element {
-    public static List<PopUpsModel> speedpopups, mudpopups, blockpopups;
+    public static List<PopUpsModel> speedpopups = new ArrayList<>();
+    public static List<PopUpsModel> mudpopups = new ArrayList<>();
+    public static List<PopUpsModel> blockpopups = new ArrayList<>();
     static Random random = new Random();
     private static PopUpsModel star;
 

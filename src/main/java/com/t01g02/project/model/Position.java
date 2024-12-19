@@ -1,5 +1,7 @@
 package com.t01g02.project.model;
 
+import java.util.Objects;
+
 public class Position {
     private int x;
     private int y;
@@ -31,6 +33,7 @@ public class Position {
         Position position = (Position) obj;
         return x == position.x && y == position.y;
     }
+
 
     public void reset(int x, int y) {
         this.x = x;

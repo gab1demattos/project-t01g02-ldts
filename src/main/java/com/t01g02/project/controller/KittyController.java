@@ -18,6 +18,7 @@ public class KittyController {
     private final List<KittyObserver> observers = new ArrayList<KittyObserver>();
     private final Screen screen;
     private final CityModel cityModel;
+    private final CharacterModel hellokitty;
     private boolean isSpeedOn = false;
     private final Sound sound;
     private final SettingsModel settingsModel;
@@ -28,7 +29,8 @@ public class KittyController {
     private final FriendsController controller;
 
 
-    public KittyController(Screen screen, CityModel cityModel, Sound sound, SettingsModel settingsModel ) throws IOException {
+    public KittyController(Screen screen, CityModel cityModel, Sound sound, SettingsModel settingsModel, CharacterModel hellokitty) throws IOException {
+        this.hellokitty = hellokitty;
         this.screen = screen;
         this.cityModel = cityModel;
         this.sound = sound;
@@ -45,7 +47,7 @@ public class KittyController {
            if (isMudOn) {deactivateMud();}
         }
 
-        Position currentPosition = CharacterModel.getHellokitty().getPosition();
+        Position currentPosition = hellokitty.getPosition();
         Position newPosition = null;
 
         for (KeyStroke key: keys) {
@@ -159,7 +161,7 @@ public class KittyController {
         return (newposition.getX() >= speedX - 10 && newposition.getX() <= speedX + 10) && (newposition.getY() >= speedY - 10 && newposition.getY() <= speedY + 10);
     }
 
-    private boolean canMove(Position newPosition){
+    boolean canMove(Position newPosition){
 
         for (PopUpsModel blockpopup : PopUpsModel.blockpopups) {
             if (isPositionOnPopUp(newPosition, blockpopup.getPosition())) {

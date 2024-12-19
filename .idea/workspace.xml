@@ -6,27 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/GameKeyListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/GameKeyListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/ScoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/ScoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/StarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/StarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameMenuView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/GameOverController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/menu/SettingsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/LetterSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CharacterViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CityViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/CityViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/DecorViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/DecorViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/LanternaGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/LanternaGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/PopUpsViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/PopUpsViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/ScoreViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/ScoreViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/Sprite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/TimerViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/TimerViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +123,9 @@
     "JUnit.DecorViewerTest.executor": "Debug",
     "JUnit.DecorViewerTest.testDrawDecorations.executor": "Run",
     "JUnit.FriendsControllerTest.executor": "Run",
+    "JUnit.KittyControllerTest.executor": "Run",
+    "JUnit.KittyControllerTest.testCanMove.executor": "Run",
+    "JUnit.KittyControllerTest.testMoveKittyUp.executor": "Run",
     "JUnit.PopUpsViewerTest.executor": "Run",
     "JUnit.PopUpsViewerTest.testAddMudPopUp.executor": "Run",
     "JUnit.PopUpsViewerTest.testDeleteStar.executor": "Run",
@@ -180,7 +167,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.KittyControllerTest.testCanMove">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.Application" />
+      <module name="project.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.t01g02.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in project.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -189,82 +189,67 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PopUpsViewerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KittyControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
+          <option name="PATTERN" value="com.t01g02.project.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
+      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PopUpsViewerTest.testDeleteStar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KittyControllerTest.testCanMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
+          <option name="PATTERN" value="com.t01g02.project.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
-      <option name="METHOD_NAME" value="testDeleteStar" />
+      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
+      <option name="METHOD_NAME" value="testCanMove" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PopUpsViewerTest.testDraw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="KittyControllerTest.testMoveKittyUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
+          <option name="PATTERN" value="com.t01g02.project.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.PopUpsViewerTest" />
-      <option name="METHOD_NAME" value="testDraw" />
+      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
+      <option name="METHOD_NAME" value="testMoveKittyUp" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SpriteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.viewer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.viewer" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.viewer.SpriteTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.PopUpsViewerTest" />
-      <item itemvalue="JUnit.PopUpsViewerTest.testDeleteStar" />
-      <item itemvalue="JUnit.PopUpsViewerTest.testDraw" />
-      <item itemvalue="JUnit.SpriteTest" />
+      <item itemvalue="Application.Application" />
+      <item itemvalue="JUnit.KittyControllerTest" />
+      <item itemvalue="JUnit.KittyControllerTest.testCanMove" />
+      <item itemvalue="JUnit.KittyControllerTest.testMoveKittyUp" />
       <item itemvalue="JUnit.All in project.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.KittyControllerTest.testCanMove" />
+        <item itemvalue="JUnit.KittyControllerTest" />
+        <item itemvalue="JUnit.KittyControllerTest.testMoveKittyUp" />
+        <item itemvalue="Application.Application" />
         <item itemvalue="JUnit.All in project.test" />
-        <item itemvalue="JUnit.SpriteTest" />
-        <item itemvalue="JUnit.PopUpsViewerTest" />
-        <item itemvalue="JUnit.PopUpsViewerTest.testDraw" />
-        <item itemvalue="JUnit.PopUpsViewerTest.testDeleteStar" />
       </list>
     </recent_temporary>
   </component>
@@ -300,6 +285,7 @@
       <workItem from="1734306377504" duration="5449000" />
       <workItem from="1734433151504" duration="2009000" />
       <workItem from="1734543225803" duration="15821000" />
+      <workItem from="1734610099638" duration="7300000" />
     </task>
     <servers />
   </component>

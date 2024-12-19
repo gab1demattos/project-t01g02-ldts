@@ -60,7 +60,7 @@ public class Game {
 
         PopUpsModel star = PopUpsModel.getStar();
         this.starController = new StarController(city, star);
-        this.kittyController = new KittyController(gui.getScreen(), city,sound,settingsModel);
+        this.kittyController = new KittyController(gui.getScreen(), city,sound,settingsModel, CharacterModel.getHellokitty());
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);
 
