@@ -14,8 +14,6 @@ import java.util.Random;
 public class PopUpsModel extends Element {
     public static List<PopUpsModel> speedpopups, mudpopups, blockpopups;
     static Random random = new Random();
-    private static final int TerminalWidth = 345;
-    private static final int TerminalHeight = 185;
     private static PopUpsModel star;
 
     public PopUpsModel(Sprite sprite, Position position, String name) {
@@ -53,8 +51,7 @@ public class PopUpsModel extends Element {
         star = new PopUpsModel(
                 new Sprite(screen, "src/main/resources/Pop-ups/star.png"),
                 new Position(5, 5),
-                "Star"
-        );
+                "Star");
     }
     public static PopUpsModel getStar() {
         return star;

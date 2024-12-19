@@ -7,7 +7,6 @@ public class Road {
     private final Position end;
     private final Tile.Type type;
     private final TextColor color;
-    public Position getCenter;
 
     public Road(Position start, Position end, Tile.Type type, TextColor color) {
         this.start = start;
@@ -15,17 +14,6 @@ public class Road {
         this.type = type;
         this.color = color;
     }
-    
-    public Position getCenter(){
-        if(start.getX()==end.getX()){
-            return new Position(start.getX()+12,end.getY());
-        }
-        else if(start.getY()==end.getY()){
-            return new Position(start.getX(),end.getY()+12);
-        }
-        return null;
-    }
-    
 
     public Position getStart() {
         return start;

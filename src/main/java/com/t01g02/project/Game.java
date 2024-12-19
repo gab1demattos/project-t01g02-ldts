@@ -76,7 +76,6 @@ public class Game {
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);
 
-
     }
 
     private void addKeyListener(){

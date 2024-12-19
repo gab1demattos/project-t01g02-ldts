@@ -35,7 +35,6 @@ public class CharacterModel extends Element {
 
     }
 
-
     public static CharacterModel getHellokitty() {
         return hellokitty;
     }
@@ -77,6 +76,15 @@ public class CharacterModel extends Element {
         }
         return c;
     }
+
+    @Override
+    public void setPosition(Position newPosition) {
+        super.setPosition(newPosition);
+        if(isBeingFollowed) {
+            updateKittyPosition(newPosition);
+        }
+    }
+
     public static void resetCharacters(Screen screen) throws IOException {
         initializeCharacters(screen);
 
@@ -95,12 +103,5 @@ public class CharacterModel extends Element {
         this.inParty = false;
         this.outOfHouse = false;
         this.kittyLastPositions.clear();
-    }
-    @Override
-    public void setPosition(Position newPosition) {
-        super.setPosition(newPosition);
-        if(isBeingFollowed) {
-            updateKittyPosition(newPosition);
-        }
     }
 }

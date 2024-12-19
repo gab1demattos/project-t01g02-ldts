@@ -38,8 +38,7 @@ public class Timer {
         return totalElapsedTime >= countdownDuration;
     }
     public int getRemainingSeconds() {
-        return ((countdownDuration - totalElapsedTime) / 1000)
-                ;
+        return ((countdownDuration - totalElapsedTime) / 1000);
     }
 
     public void resetTimer(int minutes, int seconds) {

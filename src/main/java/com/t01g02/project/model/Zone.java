@@ -8,7 +8,7 @@ public class Zone {
     private final String identifier;
     private final Tile.Type type;
     private final TextColor color;
-    private CharacterModel associatedFriend;
+    private final CharacterModel associatedFriend;
 
 
     public Zone(Position startposition, Position endposition, String identifier, Tile.Type type, TextColor color, CharacterModel associatedFriend) {
@@ -49,8 +49,7 @@ public class Zone {
         int zoneStartY = this.getStartposition().getY();
         int zoneEndY = this.getEndposition().getY()+25;
 
-        return tileX >= zoneStartX && tileX <= zoneEndX &&
-                tileY >= zoneStartY && tileY <= zoneEndY;
+        return tileX >= zoneStartX && tileX <= zoneEndX && tileY >= zoneStartY && tileY <= zoneEndY;
     }
 
 
