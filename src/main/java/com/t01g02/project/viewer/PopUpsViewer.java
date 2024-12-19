@@ -2,21 +2,16 @@ package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.CharacterModel;
-import com.t01g02.project.model.CityModel;
-import com.t01g02.project.model.Element;
 import com.t01g02.project.model.PopUpsModel;
 
 import java.io.IOException;
-import java.util.List;
 
 
 public class PopUpsViewer {
     private final Screen screen;
-    private final CityModel city;
 
-    public PopUpsViewer(Screen screen, CityModel city) throws IOException {
+    public PopUpsViewer(Screen screen) throws IOException {
         this.screen = screen;
-        this.city = city;
     }
 
     public void initializePopUps() throws IOException{

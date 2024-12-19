@@ -16,7 +16,6 @@ public class Sprite {
     private final Screen screen;
 
     public Sprite(Screen screen, String filepath) throws IOException {
-        // Loads png image
         this.image = ImageIO.read(new File(filepath));
         this.screen = screen;
     }
@@ -43,13 +42,5 @@ public class Sprite {
 
     }
 
-    private int getTransparency(int RGB) {
-        return new Color(RGB, true).getAlpha();
-    }
-
-    private TextColor getColor(int RGB) {
-        Color color = new Color(RGB, true);
-        return new TextColor.RGB(color.getRed(), color.getGreen(), color.getBlue());
-    }
 }
 

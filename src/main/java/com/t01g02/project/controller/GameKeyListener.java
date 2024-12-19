@@ -9,11 +9,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GameKeyListener implements KeyListener {
-    private final KittyController controller;
     private final Set<KeyStroke> keys;
 
-    public GameKeyListener(KittyController controller) {
-        this.controller = controller;
+    public GameKeyListener() {
         this.keys = new HashSet<>();
     }
 

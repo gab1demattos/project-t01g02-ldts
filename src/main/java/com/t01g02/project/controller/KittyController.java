@@ -15,27 +15,21 @@ import java.util.List;
 import java.util.Set;
 
 public class KittyController {
-    private List<KittyObserver> observers = new ArrayList<KittyObserver>();
-    private CharacterModel hellokitty;
-    private final CharacterViewer characterViewer;
+    private final List<KittyObserver> observers = new ArrayList<KittyObserver>();
     private final Screen screen;
     private final CityModel cityModel;
     private boolean isSpeedOn = false;
-    private Sound sound;
-    private SettingsModel settingsModel;
+    private final Sound sound;
+    private final SettingsModel settingsModel;
     private boolean isMudOn = false;
     public static Speed speed = new Speed(); // Static field initialized
-    //private Set<Position> activatedPopUps = new HashSet<>(); // Track activated popups
     private long speedtimerstart = 0;
-    private  final long speedtimerduration = 5000;
     private boolean hasStarBeenPicked=false;
-    private FriendsController controller;
+    private final FriendsController controller;
 
 
-    public KittyController(Screen screen, CharacterModel hellokitty, CityModel cityModel, Sound sound, SettingsModel settingsModel ) throws IOException {
-        this.hellokitty = CharacterModel.getHellokitty();
+    public KittyController(Screen screen, CityModel cityModel, Sound sound, SettingsModel settingsModel ) throws IOException {
         this.screen = screen;
-        this.characterViewer =new CharacterViewer(screen);
         this.cityModel = cityModel;
         this.sound = sound;
         this.settingsModel = settingsModel;
@@ -44,6 +38,7 @@ public class KittyController {
     }
 
     public void processInput(Set<KeyStroke> keys) throws IOException {
+        long speedtimerduration = 5000;
         if (isSpeedOn && System.currentTimeMillis() - speedtimerstart >= speedtimerduration || isMudOn && System.currentTimeMillis() - speedtimerstart >= speedtimerduration) {
             speed.resetSpeed();
            if (isSpeedOn) {deactivateSpeed();}
@@ -90,15 +85,13 @@ public class KittyController {
         PopUpsModel mudToRemove = null;
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
             if (isPositionOnPopUp(newPosition, mudpopup.getPosition())) {
-                if (settingsModel.isSoundOn() ){//&& !activatedPopUps.contains(mudpopup.getPosition()) ){
+                if (settingsModel.isSoundOn() ){
                     sound.play("/audio/mudSound.wav");
-                    //activatedPopUps.add(mudpopup.getPosition());
                 }
                 mudToRemove = mudpopup;
                 isMudOn = true;
                 isSpeedOn = false;
                 speedtimerstart = System.currentTimeMillis();
-                //activatedPopUps.add(mudpopup.getPosition());
             }
         }
         if (mudToRemove != null){ removeMud(mudToRemove);}
@@ -107,9 +100,8 @@ public class KittyController {
         PopUpsModel speedToRemove = null;
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
             if (isPositionOnPopUp(newPosition, speedpopup.getPosition())) {
-                if (settingsModel.isSoundOn() ){//&& !activatedPopUps.contains(speedpopup.getPosition()) ){
+                if (settingsModel.isSoundOn() ){
                     sound.play("/audio/boltSound.wav");
-                    //activatedPopUps.add(speedpopup.getPosition());
                 }
                 speedToRemove = speedpopup;
                 isSpeedOn = true;

@@ -1,7 +1,6 @@
 package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.SGR;
-import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -19,7 +18,7 @@ public class TimerViewer {
     }
 
     public void drawStringSprite(String text, int startX, int startY, TextGraphics graphics) {
-        String[] sprite = CharacterSprites.getStringSprite(text);
+        String[] sprite = LetterSprites.getStringSprite(text);
         graphics.setForegroundColor(new TextColor.RGB(133, 78, 96));
         graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
         for (int i = 0; i < sprite.length; i++) {

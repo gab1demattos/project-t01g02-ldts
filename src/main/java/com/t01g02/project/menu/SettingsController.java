@@ -10,28 +10,26 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class SettingsController implements IController {
-    private SettingsModel model;
-    private SettingsView view;
+    private final SettingsModel model;
+    private final SettingsView view;
     private final Screen screen;
     private final Music music;
     private final Sound sound;
-    private GameMenuView mainMenuView;
-    private GameMenuController mainMenuController;
+    private final GameMenuController mainMenuController;
     private boolean inSubMenu = false;  //access ON and OFF buttons
 
 
-    public SettingsController(SettingsView view, Screen screen, SettingsModel model, Music music,Sound sound, GameMenuView mainMenuView,GameMenuController mainMenuController){
+    public SettingsController(SettingsView view, Screen screen, SettingsModel model, Music music,Sound sound,GameMenuController mainMenuController){
         this.view = view;
         this.screen = screen;
         this.model=model;
         this.music = music;
         this.sound = sound;
-        this.mainMenuView = mainMenuView;
         this.mainMenuController = mainMenuController;
     }
 
     @Override
-    public void processInput() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
+    public void processInput() throws IOException {
         KeyStroke input = screen.readInput();
         if (input != null) {
             switch (input.getKeyType()) {

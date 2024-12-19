@@ -8,8 +8,8 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 
 public class GameMenuView implements IView {
-    private Screen screen;
-    private IModel model;
+    private final Screen screen;
+    private final IModel model;
     private TerminalSize lastKnownSize; //Make Terminal Resizable, First Save Size
 
     public GameMenuView(Screen screen, GameMenuModel model) {

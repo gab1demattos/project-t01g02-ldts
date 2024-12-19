@@ -17,7 +17,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class LanternaGui {
-    private Screen screen;
+    private final Screen screen;
     private final AWTTerminalFrame terminalFrame;
 
 
@@ -35,7 +35,6 @@ public class LanternaGui {
         Font derivedFont = font.deriveFont(Font.PLAIN, 4); // Derive smaller font
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(derivedFont);
 
-        // Configure and create the terminal
         terminalFrame = (AWTTerminalFrame) new DefaultTerminalFactory()
                 .setInitialTerminalSize(new TerminalSize(width, height))
                 .setTerminalEmulatorFontConfiguration(fontConfig)
@@ -43,12 +42,11 @@ public class LanternaGui {
                 .setTerminalEmulatorTitle(title)
                 .createTerminal();
 
-        // Initialize the screen
         screen = new TerminalScreen(terminalFrame);
         screen.setCursorPosition(null); // Hide the cursor
         screen.startScreen(); // Start the screen
 
-        ((AWTTerminalFrame)terminalFrame).addWindowListener(new WindowAdapter() {
+        (terminalFrame).addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 System.exit(0);

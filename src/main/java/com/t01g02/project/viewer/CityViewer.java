@@ -42,29 +42,6 @@ public class CityViewer {
                 }
             }
         }
-//        for (int y = 0; y < city.getHeight(); y++) {
-//            for (int x = 0; x < city.getWidth(); x++) {
-//                Tile tile = city.getTile(x, y);
-//                if (tile != null) {
-//                    char displayChar = tile.getType() == Tile.Type.ROAD ? '█' : ' ';
-//                    TextCharacter textChar = new TextCharacter(displayChar, tile.getColor(), TextColor.Factory.fromString("#636363"));
-//                    cityImage.setCharacterAt(new TerminalPosition(x, y), textChar);
-//                }
-//
-//            }
-//        }
-//        for (int y = 0; y < city.getHeight(); y++) {
-//            for (int x = 0; x < city.getWidth(); x++) {
-//                Tile tile = city.getTile(x, y);
-//                if (tile != null && tile.getType() == Tile.Type.PICKUP || tile != null && tile.getType() == Tile.Type.DROPOFF) {
-//                    char displayChar = '█';
-//                    TextCharacter textChar = new TextCharacter(displayChar, tile.getColor(), TextColor.Factory.fromString("#636363"));
-//                    cityImage.setCharacterAt(new TerminalPosition(x, y), textChar);
-//                }
-//            }
-//        }
-//
-
     }
 
     public void drawingHousesAndTrees(Sprite sprite, List<Position> positions) {

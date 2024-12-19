@@ -10,12 +10,11 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 
 public class SettingsView implements IView{
-    private Screen screen;
-    private SettingsModel model;
+    private final Screen screen;
+    private final SettingsModel model;
     private TerminalSize lastKnownSize;
 
     public SettingsView(Screen screen, SettingsModel model){
-        // default settings
         this.screen=screen;
         this.model=model;
     }

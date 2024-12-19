@@ -1,30 +1,20 @@
 package com.t01g02.project;
 
 
-import com.googlecode.lanterna.TerminalPosition;
-import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 import com.t01g02.project.controller.*;
 import com.t01g02.project.menu.*;
 import com.t01g02.project.model.*;
-import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.model.Score;
 import com.t01g02.project.viewer.*;
-import com.t01g02.project.model.Position;
 
 import java.net.URISyntaxException;
 import java.awt.*;
 import java.io.IOException;
 
 public class Game {
-    private LanternaGui gui;
-    private  CityModel city;
+    private final LanternaGui gui;
     private CityViewer cityViewer;
     private GameKeyListener gameKeyListener;
     private CharacterViewer characterViewer;
@@ -34,10 +24,8 @@ public class Game {
     private FriendsController friendsController;
     private Timer timer;
     private TimerViewer timerViewer;
-    private Speed speed;
     private StarController starController;
     private PopUpsViewer popUpsViewer;
-    private PopUpsModel star;
     private final GameEndListener gameEndListener;
     ScoreController scoreController;
 
@@ -53,13 +41,13 @@ public class Game {
     public void initializeGameComponents() throws IOException, FontFormatException, URISyntaxException{
         Sound sound = new Sound();
         SettingsModel settingsModel = new SettingsModel();
-        this.city = new CityModel(345, 180);
+        CityModel city = new CityModel(345, 180);
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());
         this.friendsController = new FriendsController(city, sound, settingsModel);
         this.timer = new Timer(5, 0);
         this.timerViewer =new TimerViewer(timer, gui.getScreen());
-        this.popUpsViewer = new PopUpsViewer(gui.getScreen(), city);
+        this.popUpsViewer = new PopUpsViewer(gui.getScreen());
         this.score = new Score(0);
         this.scoreViewer = new ScoreViewer(score, gui.getScreen());
         this.scoreController = new ScoreController(score);
@@ -70,9 +58,9 @@ public class Game {
         popUpsViewer.initializePopUps();
         city.initializeZones();
 
-        this.star= PopUpsModel.getStar();
+        PopUpsModel star = PopUpsModel.getStar();
         this.starController = new StarController(city, star);
-        this.kittyController = new KittyController(gui.getScreen(), CharacterModel.getHellokitty(), city,sound,settingsModel);
+        this.kittyController = new KittyController(gui.getScreen(), city,sound,settingsModel);
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);
 
@@ -80,7 +68,7 @@ public class Game {
 
     private void addKeyListener(){
         AWTTerminalFrame terminalFrame = gui.getTerminalFrame();
-        this.gameKeyListener = new GameKeyListener(kittyController);
+        this.gameKeyListener = new GameKeyListener();
         terminalFrame.addKeyListener(this.gameKeyListener);
         terminalFrame.requestFocusInWindow();
     }

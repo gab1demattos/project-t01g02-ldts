@@ -3,7 +3,6 @@ package com.t01g02.project.viewer;
 import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
-import com.t01g02.project.model.Position;
 import com.t01g02.project.model.Score;
 
 import java.io.IOException;
@@ -16,9 +15,9 @@ public class ScoreViewer {
         this.score=score;
         this.screen=screen;
     }
-    // cor adicionada
+
     public void drawStringSprite(String text, int startX, int startY, TextGraphics graphics) {
-        String[] sprite = CharacterSprites.getStringSprite(text);
+        String[] sprite = LetterSprites.getStringSprite(text);
         graphics.setForegroundColor(new TextColor.RGB(133, 78, 96));
         graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
         for (int i = 0; i < sprite.length; i++) {
@@ -29,7 +28,7 @@ public class ScoreViewer {
         }
     }
     public int getScoreEndPos(String text, int startX){
-        String[] sprite = CharacterSprites.getStringSprite(text);
+        String[] sprite = LetterSprites.getStringSprite(text);
         int maxLength = 0;
         for (String line : sprite){
             if (line.length() > maxLength){

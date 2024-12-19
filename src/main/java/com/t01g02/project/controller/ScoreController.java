@@ -3,10 +3,9 @@ package com.t01g02.project.controller;
 
 import com.t01g02.project.model.Score;
 
-import java.util.Locale;
 
 public class ScoreController extends KittyObserver {
-    private Score score;
+    private final Score score;
     private boolean hasStarBeenPickedUp = false;
 
 

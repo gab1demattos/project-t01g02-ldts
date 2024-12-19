@@ -2,9 +2,6 @@ package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.CharacterModel;
-import com.t01g02.project.model.Element;
-import com.t01g02.project.model.PopUpsModel;
-import com.t01g02.project.model.Position;
 
 import java.io.IOException;
 

@@ -2,21 +2,18 @@ package com.t01g02.project.controller;
 
 import com.t01g02.project.model.*;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
 public class StarController {
     private final CityModel city;
-    private PopUpsModel star;
+    private final PopUpsModel star;
     private boolean starPickedUp;
     private int dx;
     private int dy;
     private final Random random;
     private int stepsSinceLastChange;
-    private CharacterModel hellokitty;
+    private final CharacterModel hellokitty;
 
     public StarController(CityModel city, PopUpsModel star) {
         this.city = city;
@@ -38,7 +35,6 @@ public class StarController {
                 currentPosition.getY() + dy
         );
 
-        // Check if the next position is out of bounds
         if (nextPosition.getX() < 0 || nextPosition.getX() + 25 >= city.getWidth()) {
             dx *= -1;
             nextPosition = new Position(
@@ -74,11 +70,4 @@ public class StarController {
         Position starPosition = star.getPosition();
         return kittyPosition.equals(starPosition);
     }
-    public boolean isStarPickedUp(){
-        return starPickedUp;
-    }
-    private void pickedStar() {
-        this.starPickedUp = true;
-    }
-
 }

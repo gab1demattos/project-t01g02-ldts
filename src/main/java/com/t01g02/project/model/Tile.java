@@ -36,7 +36,6 @@ public class Tile {
     public static void fillLine(Tile[][] map, Position start, Position end, Type type, TextColor color) {
         if (start.getX() == end.getX()) {  // Vertical line
             for (int y = start.getY(); y <= end.getY(); y++) {
-                // Fill  line
                 map[y][start.getX()] = new Tile(type, color);
                 for (int i = 1; i < 25; i++) {
                     if (start.getX() + i < map[0].length) {

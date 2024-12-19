@@ -1,6 +1,6 @@
 package com.t01g02.project.viewer;
 
-public class CharacterSprites {
+public class LetterSprites {
     public static String[] getSprite(char c) {
         switch (Character.toUpperCase(c)) {
             case 'S':

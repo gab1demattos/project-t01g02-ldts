@@ -12,16 +12,16 @@ import java.net.URISyntaxException;
 public class GameMenuController implements IController, GameEndListener {
     private boolean running = true;
     private final IView view;
-    private IModel model;
-    private  Screen screen;
+    private final IModel model;
+    private final Screen screen;
     private final SettingsModel settingsModel;
     private final SettingsView settingsView;
     private final Music music;
     private final Sound sound;
     private boolean inSettings;
-    private SettingsController settingsController;
-    private GameOverView gameOverView;
-    private GameOverController gameOverController;
+    private final SettingsController settingsController;
+    private final GameOverView gameOverView;
+    private final GameOverController gameOverController;
     private boolean inGameOver ;
 
     public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOverView gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
@@ -39,8 +39,8 @@ public class GameMenuController implements IController, GameEndListener {
         }else{
             music.stop();
         }
-        this.settingsController = new SettingsController(settingsView, screen, settingsModel, music,sound, view, this);
-        this.gameOverController = new GameOverController(gameOverView,screen,this,settingsModel,music,sound);
+        this.settingsController = new SettingsController(settingsView, screen, settingsModel, music,sound, this);
+        this.gameOverController = new GameOverController(gameOverView,screen,settingsModel,sound);
     }
 
     public boolean isRunning() {

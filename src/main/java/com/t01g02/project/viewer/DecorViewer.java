@@ -2,7 +2,6 @@ package com.t01g02.project.viewer;
 
 import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.Position;
-import com.t01g02.project.model.Tile;
 
 import java.io.IOException;
 import java.util.List;

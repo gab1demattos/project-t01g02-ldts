@@ -4,10 +4,8 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 import com.googlecode.lanterna.terminal.swing.SwingTerminalFrame;
 import com.t01g02.project.menu.*;
-import com.t01g02.project.viewer.LanternaGui;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -54,8 +52,8 @@ public class Application {
 
 
         GameMenuController menuController = new GameMenuController(view,screen,model,settingsModel,settingsView,music, sound,gameOverView);
-        SettingsController settingsController = new SettingsController(settingsView,screen,settingsModel,music,sound,view,menuController);
-        GameOverController gameOverController = new GameOverController(gameOverView, screen, menuController,settingsModel,music,sound);
+        SettingsController settingsController = new SettingsController(settingsView,screen,settingsModel,music,sound,menuController);
+        GameOverController gameOverController = new GameOverController(gameOverView, screen ,settingsModel,sound);
 
 
         while (menuController.isRunning()) {
