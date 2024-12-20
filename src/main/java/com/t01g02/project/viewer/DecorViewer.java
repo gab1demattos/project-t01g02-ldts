@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class DecorViewer {
-    private final Sprite house, tree, lighttree, yellowhouse, bluehouse, pinkhouse; //flowers;
+    private final Sprite house, tree, lighttree, yellowhouse, bluehouse, pinkhouse, pinkflower, yellowflower, blueflower, groundhouse, partyground;
 
 
     public DecorViewer(Screen screen) throws IOException {
@@ -17,6 +17,11 @@ public class DecorViewer {
         this.yellowhouse = new Sprite(screen, "src/main/resources/extras/yellowhouse.png");
         this.bluehouse = new Sprite(screen, "src/main/resources/extras/bluehouse.png");
         this.pinkhouse = new Sprite(screen, "src/main/resources/extras/pinkhouse.png");
+        this.pinkflower = new Sprite(screen, "src/main/resources/extras/pinkflower.png");
+        this.blueflower = new Sprite(screen, "src/main/resources/extras/blueflower.png");
+        this.yellowflower = new Sprite(screen, "src/main/resources/extras/yellowflower.png");
+        this.groundhouse = new Sprite(screen, "src/main/resources/extras/groundhouse.png");
+        this.partyground = new Sprite(screen, "src/main/resources/extras/partyground.png");
     }
 
     private final List<Position> housePositions = List.of(
@@ -61,10 +66,27 @@ public class DecorViewer {
             new Position(151, 83),
             new Position(117, 136)
     );
+
+    private final List<Position> pinkflowerPositions = List.of(
+            new Position(10, 130),
+            new Position(140, 30)
+            );
+    private final List<Position> blueflowerPositions = List.of(
+            new Position(75, 30)
+    );
+    private final List<Position> yellowflowerPositions = List.of(
+            new Position(75, 80)
+    );
+    private final List<Position> groundPositions = List.of(
+            new Position(20, 75)
+    );
+    private final List<Position> partygroundPositions = List.of(
+            new Position(275, 75)
+    );
+
     public List<Position> getHousePositions() {
         return housePositions;
     }
-
     public List<Position> getBlueHousePositions() {
         return blueHousePositions;
     }
@@ -84,6 +106,7 @@ public class DecorViewer {
     public List<Position> getYellowHousePositions() {
         return yellowHousePositions;
     }
+
     public void drawElements(Sprite sprite, List<Position> positions) {
         for (Position position : positions) {
             sprite.drawImage(position);
@@ -96,6 +119,11 @@ public class DecorViewer {
         drawElements(yellowhouse, yellowHousePositions);
         drawElements(bluehouse, blueHousePositions);
         drawElements(pinkhouse, pinkHousePositions);
+        drawElements(pinkflower, pinkflowerPositions);
+        drawElements(blueflower, blueflowerPositions);
+        drawElements(yellowflower, yellowflowerPositions);
+        drawElements(groundhouse, groundPositions);
+        drawElements(partyground, partygroundPositions);
     }
 
 }

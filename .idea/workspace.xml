@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/extras/blueflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/extras/ground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/extras/groundhouse.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/extras/pinkflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/extras/shrub.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/extras/yellowflower.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/DecorViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/viewer/DecorViewer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +151,7 @@
     "JUnit.TimerViewerTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "modBranch",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/matilde/Documents/LDTS/Proj3",
     "node.js.detected.package.eslint": "true",
@@ -171,17 +175,30 @@
       <recent name="$PROJECT_DIR$/src/test/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\LDTS\project-t01g02\src\main\resources\extras" />
       <recent name="C:\LDTS\project-t01g02\src\main\resources\audio" />
       <recent name="$PROJECT_DIR$/src/main/resources/Pop-ups" />
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KittyControllerTest.testSpeedResetsAfterDelay">
+  <component name="RunManager" selected="Application.Application">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.Application" />
+      <module name="project.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.t01g02.project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="KittyControllerTest.testActivateMudPopUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="project.test" />
       <extension name="coverage">
@@ -193,22 +210,6 @@
       <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
       <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
       <option name="METHOD_NAME" value="testActivateMudPopUp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KittyControllerTest.testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
-      <option name="METHOD_NAME" value="testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -263,19 +264,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Application" />
       <item itemvalue="JUnit.KittyControllerTest.testActivateMudPopUp" />
-      <item itemvalue="JUnit.KittyControllerTest.testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar" />
       <item itemvalue="JUnit.KittyControllerTest.testActivateStarPopUps" />
       <item itemvalue="JUnit.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches" />
       <item itemvalue="JUnit.KittyControllerTest.testSpeedResetsAfterDelay" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Application" />
         <item itemvalue="JUnit.KittyControllerTest.testSpeedResetsAfterDelay" />
         <item itemvalue="JUnit.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches" />
         <item itemvalue="JUnit.KittyControllerTest.testActivateStarPopUps" />
         <item itemvalue="JUnit.KittyControllerTest.testActivateMudPopUp" />
-        <item itemvalue="JUnit.KittyControllerTest.testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar" />
       </list>
     </recent_temporary>
   </component>
