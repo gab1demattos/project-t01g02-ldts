@@ -110,6 +110,13 @@ public class PopUpsModel extends Element {
         super.setPosition(position);
     }
 
+    public boolean isPositionOnPopUp(Position newposition) {
+        Position popupPosition = getPosition();
+        int speedX = popupPosition.getX();
+        int speedY = popupPosition.getY();
+        return (newposition.getX() >= speedX - 10 && newposition.getX() <= speedX + 10) && (newposition.getY() >= speedY - 10 && newposition.getY() <= speedY + 10);
+    }
+
     /*public static void reset(Screen screen) throws IOException {
         popupsPositions = new ArrayList<>(List.of(
                 new Position(4, 6),

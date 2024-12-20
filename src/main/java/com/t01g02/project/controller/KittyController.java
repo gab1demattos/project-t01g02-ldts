@@ -19,13 +19,13 @@ public class KittyController {
     private final Screen screen;
     private final CityModel cityModel;
     private final CharacterModel hellokitty;
-    private boolean isSpeedOn = false;
+    boolean isSpeedOn = false;
     private final Sound sound;
     private final SettingsModel settingsModel;
-    private boolean isMudOn = false;
-    public static Speed speed = new Speed(); // Static field initialized
+    boolean isMudOn = false;
+    public static Speed speed = new Speed();
     private long speedtimerstart = 0;
-    private boolean hasStarBeenPicked=false;
+    boolean hasStarBeenPicked=false;
     private final FriendsController controller;
 
 
@@ -59,6 +59,7 @@ public class KittyController {
             switch (key.getKeyType()) {
                 case ArrowUp:
                     newPosition = new Position(currentPosition.getX(), currentPosition.getY() - speed.getSpeed());
+                    System.out.println("x:" + newPosition.getX() + " y:" + newPosition.getY());
                     break;
                 case ArrowDown:
                     newPosition = new Position(currentPosition.getX(), currentPosition.getY() + speed.getSpeed());
@@ -76,17 +77,18 @@ public class KittyController {
 
 
         if (newPosition != null && canMove(newPosition)) {
-            activatePopUps(newPosition);
             CharacterModel.getHellokitty().setPosition(newPosition);
+            System.out.println(CharacterModel.getHellokitty());
+            activatePopUps(newPosition);
             controller.moveFollowingCharacters();
         }
     }
 
-    private void activatePopUps(Position newPosition) throws IOException {
+    void activatePopUps(Position newPosition) throws IOException {
 
         PopUpsModel mudToRemove = null;
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
-            if (isPositionOnPopUp(newPosition, mudpopup.getPosition())) {
+            if (mudpopup.isPositionOnPopUp(newPosition)) {
                 if (settingsModel.isSoundOn() ){
                     sound.play("/audio/mudSound.wav");
                 }
@@ -101,7 +103,7 @@ public class KittyController {
 
         PopUpsModel speedToRemove = null;
         for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
-            if (isPositionOnPopUp(newPosition, speedpopup.getPosition())) {
+            if (speedpopup.isPositionOnPopUp(newPosition)) {
                 if (settingsModel.isSoundOn() ){
                     sound.play("/audio/boltSound.wav");
                 }
@@ -114,7 +116,7 @@ public class KittyController {
         if (speedToRemove != null){ removeSpeed(speedToRemove);}
 
 
-        if (PopUpsModel.getStar() != null && isPositionOnPopUp(newPosition, PopUpsModel.getStar().getPosition())) {
+        if (PopUpsModel.getStar() != null && PopUpsModel.getStar().isPositionOnPopUp(newPosition)) {
             pickedStar();
             hasStarBeenPicked=true;
             if (settingsModel.isSoundOn() ){
@@ -155,16 +157,12 @@ public class KittyController {
         isMudOn = false;
     }
 
-    private boolean isPositionOnPopUp(Position newposition, Position popupPosition) {
-        int speedX = popupPosition.getX();
-        int speedY = popupPosition.getY();
-        return (newposition.getX() >= speedX - 10 && newposition.getX() <= speedX + 10) && (newposition.getY() >= speedY - 10 && newposition.getY() <= speedY + 10);
-    }
+
 
     boolean canMove(Position newPosition){
 
         for (PopUpsModel blockpopup : PopUpsModel.blockpopups) {
-            if (isPositionOnPopUp(newPosition, blockpopup.getPosition())) {
+            if (blockpopup.isPositionOnPopUp(newPosition)) {
                 return false;
             }
         }
@@ -177,10 +175,15 @@ public class KittyController {
 
         for (Position corner : corners) {
             Tile tile = cityModel.getTile(corner.getX(), corner.getY());
+            System.out.println("Tile at " + corner.getX() + ", " + corner.getY() + ": " + tile + " (Type: " + (tile != null ? tile.getType() : "null") + ")");
             if (tile == null) {
+                System.out.println("No tile found at position: " + corner.getX() + "," + corner.getY());
+
                 return false;
             }
             if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF) {
+                System.out.println("Invalid tile found at position: " + corner.getX() + "," + corner.getY() + " (Type: " + tile.getType() + ")");
+
                 return false;
             }
         }
