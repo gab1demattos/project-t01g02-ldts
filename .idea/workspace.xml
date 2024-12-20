@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/PopUpsModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/FriendsControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/FriendsControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,6 +97,9 @@
     "Gradle.CityTester.executor": "Run",
     "Gradle.CityViewerTest.executor": "Run",
     "Gradle.CityViewerTester.executor": "Run",
+    "Gradle.FriendsControllerPBT.executor": "Run",
+    "Gradle.FriendsControllerTest.followOnlyChangesValidFriendsState.executor": "Run",
+    "Gradle.FriendsControllerTest.friendShouldAlwaysFollowTheMostRecentKittyPosition.executor": "Run",
     "Gradle.GameMenuControllerTest.executor": "Coverage",
     "Gradle.GameMenuModelTest.executor": "Coverage",
     "Gradle.GameMenuViewTest (1).executor": "Run",
@@ -181,101 +184,141 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.KittyControllerTest.testSpeedResetsAfterDelay">
-    <configuration name="KittyControllerTest.testActivateMudPopUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
-      <option name="METHOD_NAME" value="testActivateMudPopUp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="Gradle.FriendsControllerTest">
+    <configuration name="FriendsControllerPBT" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.controller.FriendsControllerPBT&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest.testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
-      <option name="METHOD_NAME" value="testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="FriendsControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.controller.FriendsControllerTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest.testActivateStarPopUps" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
-      <option name="METHOD_NAME" value="testActivateStarPopUps" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="FriendsControllerTest.followOnlyChangesValidFriendsState" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.controller.FriendsControllerTest.followOnlyChangesValidFriendsState&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
-      <option name="METHOD_NAME" value="testActivateStarPopUps_ShouldPickStar_WhenPositionMatches" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="FriendsControllerTest.friendShouldAlwaysFollowTheMostRecentKittyPosition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.controller.FriendsControllerTest.friendShouldAlwaysFollowTheMostRecentKittyPosition&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest.testSpeedResetsAfterDelay" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="project.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.t01g02.project.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.t01g02.project.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.t01g02.project.controller.KittyControllerTest" />
-      <option name="METHOD_NAME" value="testSpeedResetsAfterDelay" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="FriendsControllerTest.friendShouldConsistentlyFollowKittyAcrossMultipleCalls" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.controller.FriendsControllerTest.friendShouldConsistentlyFollowKittyAcrossMultipleCalls&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.KittyControllerTest.testActivateMudPopUp" />
-      <item itemvalue="JUnit.KittyControllerTest.testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar" />
-      <item itemvalue="JUnit.KittyControllerTest.testActivateStarPopUps" />
-      <item itemvalue="JUnit.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches" />
-      <item itemvalue="JUnit.KittyControllerTest.testSpeedResetsAfterDelay" />
+      <item itemvalue="Gradle.FriendsControllerPBT" />
+      <item itemvalue="Gradle.FriendsControllerTest" />
+      <item itemvalue="Gradle.FriendsControllerTest.followOnlyChangesValidFriendsState" />
+      <item itemvalue="Gradle.FriendsControllerTest.friendShouldAlwaysFollowTheMostRecentKittyPosition" />
+      <item itemvalue="Gradle.FriendsControllerTest.friendShouldConsistentlyFollowKittyAcrossMultipleCalls" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.KittyControllerTest.testSpeedResetsAfterDelay" />
-        <item itemvalue="JUnit.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches" />
-        <item itemvalue="JUnit.KittyControllerTest.testActivateStarPopUps" />
-        <item itemvalue="JUnit.KittyControllerTest.testActivateMudPopUp" />
-        <item itemvalue="JUnit.KittyControllerTest.testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar" />
+        <item itemvalue="Gradle.FriendsControllerTest" />
+        <item itemvalue="Gradle.FriendsControllerTest.friendShouldConsistentlyFollowKittyAcrossMultipleCalls" />
+        <item itemvalue="Gradle.FriendsControllerTest.friendShouldAlwaysFollowTheMostRecentKittyPosition" />
+        <item itemvalue="Gradle.FriendsControllerTest.followOnlyChangesValidFriendsState" />
+        <item itemvalue="Gradle.FriendsControllerPBT" />
       </list>
     </recent_temporary>
   </component>
@@ -312,7 +355,7 @@
       <workItem from="1734433151504" duration="2009000" />
       <workItem from="1734543225803" duration="15821000" />
       <workItem from="1734610099638" duration="7300000" />
-      <workItem from="1734705159461" duration="3670000" />
+      <workItem from="1734705159461" duration="6786000" />
     </task>
     <servers />
   </component>

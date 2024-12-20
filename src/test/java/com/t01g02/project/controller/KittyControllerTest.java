@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import static com.t01g02.project.model.CharacterModel.hellokitty;
 import static org.junit.jupiter.api.Assertions.*;
