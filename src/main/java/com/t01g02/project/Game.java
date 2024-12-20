@@ -101,7 +101,7 @@ public class Game {
             long sleepTime = frameTime - elapsedTime;
 
 
-            if(timer.isTimeUp() || (friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked()) ){
+            if(isGameOver()){
                 scoreController.incrementScore(timer.getRemainingSeconds());
                 System.out.println("Game Over!");
                 setGameOver(friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked(), score.getScore() );
@@ -115,6 +115,9 @@ public class Game {
             }
         }
 
+    }
+    boolean isGameOver(){
+        return timer.isTimeUp() || (friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked());
     }
 
     private void setGameOver(boolean isWin, int finalScore) throws IOException {
