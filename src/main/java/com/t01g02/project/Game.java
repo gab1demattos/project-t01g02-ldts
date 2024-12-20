@@ -53,7 +53,6 @@ public class Game {
         this.scoreController = new ScoreController(score);
 
         city.initializeRoads();
-        System.out.println(city.getRoads());
         characterViewer.initializeCharacters();
         popUpsViewer.initializePopUps();
         city.initializeZones();

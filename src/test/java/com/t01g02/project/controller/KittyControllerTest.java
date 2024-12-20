@@ -48,6 +48,8 @@ public class KittyControllerTest {
         }).when(hellokitty).setPosition(any(Position.class));
 
         kittyController = new KittyController(screen, cityModel, sound, settingsModel, hellokitty);
+        PopUpsModel.mudpopups.clear();
+        PopUpsModel.speedpopups.clear();
 
     }
     private void mockCityModelTiles() {
@@ -95,9 +97,7 @@ public class KittyControllerTest {
 
 
         kittyController.processInput(keyStrokes);
-        for(KeyStroke key : keyStrokes) {
-            System.out.println(key.getKeyType());
-        }
+
 
         Position expectedPosition = new Position(5, 3);
         Position newPosition = hellokitty.getPosition();

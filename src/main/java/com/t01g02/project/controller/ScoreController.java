@@ -15,9 +15,7 @@ public class ScoreController extends KittyObserver {
 
     public void incrementScore(int value){
         if(hasStarBeenPickedUp) {
-            System.out.println(score.getScore()+" "+value+" "+score.getScore());
             score.setScore(score.getScore()+(value*2));
-            System.out.println(score.getScore());
         }
         else score.setScore(score.getScore()+value);
     }

@@ -59,7 +59,6 @@ public class KittyController {
             switch (key.getKeyType()) {
                 case ArrowUp:
                     newPosition = new Position(currentPosition.getX(), currentPosition.getY() - speed.getSpeed());
-                    System.out.println("x:" + newPosition.getX() + " y:" + newPosition.getY());
                     break;
                 case ArrowDown:
                     newPosition = new Position(currentPosition.getX(), currentPosition.getY() + speed.getSpeed());
@@ -78,7 +77,6 @@ public class KittyController {
 
         if (newPosition != null && canMove(newPosition)) {
             CharacterModel.getHellokitty().setPosition(newPosition);
-            System.out.println(CharacterModel.getHellokitty());
             activatePopUps(newPosition);
             controller.moveFollowingCharacters();
         }
@@ -175,15 +173,10 @@ public class KittyController {
 
         for (Position corner : corners) {
             Tile tile = cityModel.getTile(corner.getX(), corner.getY());
-            System.out.println("Tile at " + corner.getX() + ", " + corner.getY() + ": " + tile + " (Type: " + (tile != null ? tile.getType() : "null") + ")");
             if (tile == null) {
-                System.out.println("No tile found at position: " + corner.getX() + "," + corner.getY());
-
                 return false;
             }
             if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF) {
-                System.out.println("Invalid tile found at position: " + corner.getX() + "," + corner.getY() + " (Type: " + tile.getType() + ")");
-
                 return false;
             }
         }
