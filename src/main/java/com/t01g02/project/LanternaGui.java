@@ -1,12 +1,14 @@
-package com.t01g02.project.viewer;
+package com.t01g02.project;
 
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
+import com.t01g02.project.controller.GameKeyListener;
 
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -15,10 +17,12 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Set;
 
-public class LanternaGui {
+public class LanternaGui implements GUI {
     private final Screen screen;
     private final AWTTerminalFrame terminalFrame;
+    private GameKeyListener keyListener;
 
 
     public LanternaGui(int width, int height, String title) throws IOException, URISyntaxException, FontFormatException {
@@ -63,12 +67,30 @@ public class LanternaGui {
         return screen.newTextGraphics();
     }
 
+    @Override
+    public void clear() {
+        screen.clear();
+    }
+    @Override
+    public void refresh() throws IOException {
+        screen.refresh();
+    }
+    @Override
     public void close() throws IOException {
         screen.stopScreen();
     }
 
     public AWTTerminalFrame getTerminalFrame() {
         return terminalFrame;
+    }
+
+    void addKeyListener(GameKeyListener keyListener) {
+        this.keyListener = keyListener;
+        terminalFrame.addKeyListener(keyListener);
+        terminalFrame.requestFocusInWindow();
+    }
+    public Set<KeyStroke> getKeyListener() {
+        return (Set<KeyStroke>) keyListener;
     }
 
 }
