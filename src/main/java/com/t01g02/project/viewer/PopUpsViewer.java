@@ -21,8 +21,6 @@ public class PopUpsViewer {
         PopUpsModel.initializeStar(screen);
     }
 
-
-
     public void draw() throws IOException {
         int friendsInPartyCount = CharacterModel.getFriendInPartyCount();
 
@@ -40,6 +38,4 @@ public class PopUpsViewer {
         }
 
     }
-
-
 }
