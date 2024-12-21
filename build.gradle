@@ -35,10 +35,18 @@ sourceSets {
             srcDir 'src/main/resources'
         }
     }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
 }
 pitest {
     junit5PluginVersion = '1.0.0'
-    threads=1
+    threads = 1
+    verbose = true
+    targetClasses = ['com.t01g02.project.*']
+    targetTests = ['com.t01g02.project.*Test']
 
 }
 tasks.named("processResources") {

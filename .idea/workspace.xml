@@ -7,11 +7,7 @@
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/FriendsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/FriendsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CharacterModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/model/CharacterModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CityModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CityModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/ScoreControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/ScoreControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,14 +109,19 @@
     "Gradle.GameMenuViewTest (1).executor": "Run",
     "Gradle.GameMenuViewTest.executor": "Coverage",
     "Gradle.GameMenuViewTest.testRedrawScreen.executor": "Run",
-    "Gradle.KittyControllerTest.testActivateMudPopUp.executor": "Debug",
+    "Gradle.KittyControllerTest.testActivateMudPopUp.executor": "Run",
+    "Gradle.KittyControllerTest.testActivateMudPopUps.executor": "Run",
     "Gradle.KittyControllerTest.testActivateSpeedPopUps.executor": "Run",
+    "Gradle.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches.executor": "Run",
     "Gradle.KittyControllerTest.testMoveKittyUp.executor": "Run",
+    "Gradle.ScoreControllerTest.executor": "Run",
     "Gradle.SpriteTest (1).executor": "Run",
     "Gradle.SpriteTest.drawPixelTest.executor": "Run",
     "Gradle.SpriteTest.executor": "Run",
     "Gradle.SpriteTester (1).executor": "Run",
     "Gradle.SpriteTester.executor": "Run",
+    "Gradle.StarControllerTest.testConstructorInitializesValuesCorrectly.executor": "Run",
+    "Gradle.StarControllerTest.testMoveStar_updatesStarPosition.executor": "Run",
     "Gradle.Tests in 'com.t01g02.project'.executor": "Coverage",
     "Gradle.Tests in 'com.t01g02.project.Menu'.executor": "Coverage",
     "Gradle.Tests in 'com.t01g02.project.controller'.executor": "Run",
@@ -164,7 +165,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/matilde/Documents/LDTS/Proj3",
+    "last_opened_file_path": "/home/matilde/Documents/LDTS/project-t01g02",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -196,8 +197,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'project.test'">
-    <configuration name="CharacterModelTest.testFriendsWithinParty" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.KittyControllerTest.testActivateMudPopUp">
+    <configuration name="KittyControllerTest.testActivateMudPopUp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -210,7 +211,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.model.CharacterModelTest.testFriendsWithinParty&quot;" />
+            <option value="&quot;com.t01g02.project.controller.KittyControllerTest.testActivateMudPopUp&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -221,7 +222,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FriendsControllerTest.testFriendFollowKittyPosition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="KittyControllerTest.testActivateSpeedPopUps" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -234,7 +235,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.FriendsControllerTest.testFriendFollowKittyPosition&quot;" />
+            <option value="&quot;com.t01g02.project.controller.KittyControllerTest.testActivateSpeedPopUps&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -245,7 +246,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FriendsControllerTest.testMoveFollowingCharacters" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ScoreControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -258,7 +259,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.FriendsControllerTest.testMoveFollowingCharacters&quot;" />
+            <option value="&quot;com.t01g02.project.controller.ScoreControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -269,7 +270,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest.testMoveKittyUp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StarControllerTest.testConstructorInitializesValuesCorrectly" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -282,7 +283,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.KittyControllerTest.testMoveKittyUp&quot;" />
+            <option value="&quot;com.t01g02.project.controller.StarControllerTest.testConstructorInitializesValuesCorrectly&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -293,7 +294,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'project.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StarControllerTest.testMoveStar_updatesStarPosition" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -305,6 +306,8 @@
         <option name="taskNames">
           <list>
             <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.t01g02.project.controller.StarControllerTest.testMoveStar_updatesStarPosition&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -316,19 +319,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.CharacterModelTest.testFriendsWithinParty" />
-      <item itemvalue="Gradle.FriendsControllerTest.testFriendFollowKittyPosition" />
-      <item itemvalue="Gradle.FriendsControllerTest.testMoveFollowingCharacters" />
-      <item itemvalue="Gradle.KittyControllerTest.testMoveKittyUp" />
-      <item itemvalue="Gradle.Tests in 'project.test'" />
+      <item itemvalue="Gradle.KittyControllerTest.testActivateMudPopUp" />
+      <item itemvalue="Gradle.KittyControllerTest.testActivateSpeedPopUps" />
+      <item itemvalue="Gradle.ScoreControllerTest" />
+      <item itemvalue="Gradle.StarControllerTest.testConstructorInitializesValuesCorrectly" />
+      <item itemvalue="Gradle.StarControllerTest.testMoveStar_updatesStarPosition" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'project.test'" />
-        <item itemvalue="Gradle.CharacterModelTest.testFriendsWithinParty" />
-        <item itemvalue="Gradle.KittyControllerTest.testMoveKittyUp" />
-        <item itemvalue="Gradle.FriendsControllerTest.testMoveFollowingCharacters" />
-        <item itemvalue="Gradle.FriendsControllerTest.testFriendFollowKittyPosition" />
+        <item itemvalue="Gradle.KittyControllerTest.testActivateMudPopUp" />
+        <item itemvalue="Gradle.ScoreControllerTest" />
+        <item itemvalue="Gradle.KittyControllerTest.testActivateSpeedPopUps" />
+        <item itemvalue="Gradle.StarControllerTest.testMoveStar_updatesStarPosition" />
+        <item itemvalue="Gradle.StarControllerTest.testConstructorInitializesValuesCorrectly" />
       </list>
     </recent_temporary>
   </component>
@@ -365,7 +368,8 @@
       <workItem from="1734433151504" duration="2009000" />
       <workItem from="1734543225803" duration="15821000" />
       <workItem from="1734610099638" duration="7300000" />
-      <workItem from="1734705159461" duration="24211000" />
+      <workItem from="1734705159461" duration="30338000" />
+      <workItem from="1734790467641" duration="2387000" />
     </task>
     <servers />
   </component>

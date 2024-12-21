@@ -125,10 +125,12 @@ public class KittyControllerTest {
     void testActivateMudPopUp() throws IOException {
         Position newPosition = new Position(2, 3);
         PopUpsModel mudPopup = mock(PopUpsModel.class);
+
         when(mudPopup.getPosition()).thenReturn(newPosition);
+        when(mudPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+        when(settingsModel.isSoundOn()).thenReturn(true);
 
         PopUpsModel.mudpopups.add(mudPopup);
-        when(settingsModel.isSoundOn()).thenReturn(true);
 
         kittyController.activatePopUps(newPosition);
 
@@ -143,10 +145,10 @@ public class KittyControllerTest {
     void testActivateSpeedPopUps() throws IOException {
         Position newPosition = new Position(5, 6);
         PopUpsModel speedPopup = mock(PopUpsModel.class);
-        when(speedPopup.getPosition()).thenReturn(newPosition);
+        when(speedPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+        when(settingsModel.isSoundOn()).thenReturn(true);
 
         PopUpsModel.speedpopups.add(speedPopup);
-        when(settingsModel.isSoundOn()).thenReturn(true);
 
         kittyController.activatePopUps(newPosition);
 
