@@ -8,6 +8,7 @@ import com.t01g02.project.menu.SettingsModel;
 import com.t01g02.project.menu.Sound;
 import com.t01g02.project.model.*;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -48,8 +49,7 @@ public class KittyControllerTest {
         }).when(hellokitty).setPosition(any(Position.class));
 
         kittyController = new KittyController(screen, cityModel, sound, settingsModel, hellokitty);
-        PopUpsModel.mudpopups.clear();
-        PopUpsModel.speedpopups.clear();
+
 
     }
     private void mockCityModelTiles() {
@@ -77,32 +77,32 @@ public class KittyControllerTest {
             return (x >= 0 && y >= 0 && x < map.length && y < map[0].length) ? map[y][x] : null;
         });
     }
-    //   @Test
-//    void testMoveKittyUp() throws Exception {
-//        mockCityModelTiles();
-//
-//        Set<KeyStroke> keyStrokes = new HashSet<>();
-//        KeyStroke upArrow = mock(KeyStroke.class);
-//        when(upArrow.getKeyType()).thenReturn(KeyType.ArrowUp);
-//        keyStrokes.add(upArrow);
-//
-//        Tile roadTile = mock(Tile.class);
-//        when(roadTile.getType()).thenReturn(Tile.Type.ROAD);
-//
-//
-//        Position initialPosition = new Position(5, 5);
-//        hellokitty.setPosition(initialPosition);
-//
-//
-//        kittyController.processInput(keyStrokes);
-//
-//
-//        Position expectedPosition = new Position(5, 3);
-//        Position newPosition = hellokitty.getPosition();
-//
-//        assertEquals(expectedPosition.getX(), newPosition.getX());
-//        assertEquals(expectedPosition.getY(), newPosition.getY());
-//    }
+    @Test
+    void testMoveKittyUp() throws Exception {
+        mockCityModelTiles();
+
+        Set<KeyStroke> keyStrokes = new HashSet<>();
+        KeyStroke upArrow = mock(KeyStroke.class);
+        when(upArrow.getKeyType()).thenReturn(KeyType.ArrowUp);
+        keyStrokes.add(upArrow);
+
+        Tile roadTile = mock(Tile.class);
+        when(roadTile.getType()).thenReturn(Tile.Type.ROAD);
+
+
+        Position initialPosition = new Position(5, 5);
+        hellokitty.setPosition(initialPosition);
+
+
+        kittyController.processInput(keyStrokes);
+
+
+        Position expectedPosition = new Position(5, 3);
+        Position newPosition = hellokitty.getPosition();
+
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
 
 
     @Test
@@ -158,23 +158,29 @@ public class KittyControllerTest {
         assertFalse(PopUpsModel.speedpopups.contains(speedPopup));
     }
 
-//    @Test
-//    void testActivateStarPopUp() throws IOException {
-//        Position starPosition = new Position(7, 8);
-//        Position newPosition = new Position(7, 8);
-//
-//        PopUpsModel starPopup = mock(PopUpsModel.class);
-//        when(starPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
-//        when(settingsModel.isSoundOn()).thenReturn(true);
-//        when(PopUpsModel.getStar() != null).thenReturn(true);
-//        kittyController.activatePopUps(newPosition);
-//
-//        assertTrue(kittyController.hasStarBeenPicked, "Star should be picked after activation");
-//
-//        verify(sound).play("/audio/starSound.wav");
-//
-//        assertNull(PopUpsModel.getStar(), "Star should be null after deletion");
-//    }
+    @Test
+    void testActivateStarPopUp() throws IOException {
+        Position newPosition = new Position(7, 8);
+
+        PopUpsModel mockPopUpsModel = mock(PopUpsModel.class);
+        when(mockPopUpsModel.isPositionOnPopUp(newPosition)).thenReturn(true);
+        when(settingsModel.isSoundOn()).thenReturn(true);
+
+        kittyController.star = mockPopUpsModel;
+
+        kittyController.activatePopUps(newPosition);
+
+        assertTrue(kittyController.hasStarBeenPicked, "Star should be picked after activation");
+        verify(sound).play("/audio/starSound.wav");
+        assertNull(kittyController.star, "Star should be null after deletion");
+    }
+    @AfterEach
+    void tearDown() {
+        hellokitty = null;
+        cityModel = null;
+        PopUpsModel.mudpopups.clear();
+        PopUpsModel.speedpopups.clear();
+    }
 
 
 }

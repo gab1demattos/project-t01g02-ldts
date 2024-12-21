@@ -26,6 +26,7 @@ public class KittyController {
     boolean isMudOn = false;
     public static Speed speed = new Speed();
     private long speedtimerstart = 0;
+    PopUpsModel star;
     boolean hasStarBeenPicked=false;
     private final FriendsController controller;
 
@@ -37,6 +38,7 @@ public class KittyController {
         this.sound = sound;
         this.settingsModel = settingsModel;
         this.controller= new FriendsController(cityModel, sound, settingsModel);
+        this.star = PopUpsModel.getStar();
 
     }
 
@@ -79,7 +81,9 @@ public class KittyController {
         if (newPosition != null && canMove(newPosition)) {
             CharacterModel.getHellokitty().setPosition(newPosition);
             activatePopUps(newPosition);
-            controller.moveFollowingCharacters();
+            if(hellokitty.isBeingFollowed()){
+                controller.moveFollowingCharacters();
+            }
         }
     }
 
@@ -113,13 +117,14 @@ public class KittyController {
             }
         }
         if (speedToRemove != null){ removeSpeed(speedToRemove);}
-        if (PopUpsModel.getStar() != null && PopUpsModel.getStar().isPositionOnPopUp(newPosition)) {
+        if (star != null && star.isPositionOnPopUp(newPosition)) {
             pickedStar();
 
-            hasStarBeenPicked=true;
-            if (settingsModel.isSoundOn() ){
+            hasStarBeenPicked = true;
+            if (settingsModel.isSoundOn()) {
                 sound.play("/audio/starSound.wav");
             }
+            star = null;
             PopUpsModel.deleteStar();
         }
     }

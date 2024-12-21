@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/StarControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/StarControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,112 +79,113 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultPlantUmlFileTemplate&quot;: &quot;UML Class&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Gradle.Build project-t01g02.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTest.testFriendsWithinParty.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterModelTester.testCharacterInitialization.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterViewerTester.drawTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterViewerTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CharacterViewerTester.initializeCharactersTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityModelTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityModelTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.CityViewerTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FriendsControllerPBT.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FriendsControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FriendsControllerTest.followOnlyChangesValidFriendsState.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FriendsControllerTest.friendShouldAlwaysFollowTheMostRecentKittyPosition.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FriendsControllerTest.friendShouldConsistentlyFollowKittyAcrossMultipleCalls.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FriendsControllerTest.testFriendFollowKittyPosition.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.FriendsControllerTest.testMoveFollowingCharacters.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GameMenuControllerTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.GameMenuModelTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.GameMenuViewTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.GameMenuViewTest.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.GameMenuViewTest.testRedrawScreen.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.KittyControllerTest.testActivateMudPopUp.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.KittyControllerTest.testActivateMudPopUps.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.KittyControllerTest.testActivateSpeedPopUps.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.KittyControllerTest.testActivateStarPopUp.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.KittyControllerTest.testMoveKittyUp.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.ScoreControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTest.drawPixelTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTester (1).executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.SpriteTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.StarControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.StarControllerTest.testConstructorInitializesValuesCorrectly.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.StarControllerTest.testMoveStar_updatesStarPosition.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'com.t01g02.project'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.Tests in 'com.t01g02.project.Menu'.executor&quot;: &quot;Coverage&quot;,
-    &quot;Gradle.Tests in 'com.t01g02.project.controller'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Tests in 'project.test'.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.TileTester.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in project.test (1).executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.All in project.test.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CharacterViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CityModelTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CityModelTest.testGetTileOutOfBounds.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CityViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DecorViewerTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.DecorViewerTest.testDrawDecorations.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FriendsControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testActivateMudPopUp.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testActivatePopUp.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testActivateSpeedPopUps.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testActivateStarPopUps.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testCanMove (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testCanMove.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testMoveKittyUp (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testMoveKittyUp.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KittyControllerTest.testSpeedResetsAfterDelay.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LanternaGuiTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LetterSpritesTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PopUpsViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PopUpsViewerTest.testAddMudPopUp.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PopUpsViewerTest.testDeleteStar.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PopUpsViewerTest.testDraw.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.PopUpsViewerTest.testInitializePopUps.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ScoreViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ScoreViewerTest.testGetScoreEndPos.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SpriteTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TimerViewerTest.executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/matilde/Documents/LDTS/project-t01g02&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Application.executor": "Run",
+    "DefaultPlantUmlFileTemplate": "UML Class",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.Build project-t01g02.executor": "Run",
+    "Gradle.CharacterModelTest (1).executor": "Run",
+    "Gradle.CharacterModelTest.executor": "Run",
+    "Gradle.CharacterModelTest.testFriendsWithinParty.executor": "Run",
+    "Gradle.CharacterModelTester.executor": "Run",
+    "Gradle.CharacterModelTester.testCharacterInitialization.executor": "Run",
+    "Gradle.CharacterViewerTest.executor": "Run",
+    "Gradle.CharacterViewerTester.drawTest.executor": "Run",
+    "Gradle.CharacterViewerTester.executor": "Run",
+    "Gradle.CharacterViewerTester.initializeCharactersTest.executor": "Run",
+    "Gradle.CityModelTest (1).executor": "Run",
+    "Gradle.CityModelTest.executor": "Run",
+    "Gradle.CityTester.executor": "Run",
+    "Gradle.CityViewerTest.executor": "Run",
+    "Gradle.CityViewerTester.executor": "Run",
+    "Gradle.FriendsControllerPBT.executor": "Run",
+    "Gradle.FriendsControllerTest.executor": "Run",
+    "Gradle.FriendsControllerTest.followOnlyChangesValidFriendsState.executor": "Run",
+    "Gradle.FriendsControllerTest.friendShouldAlwaysFollowTheMostRecentKittyPosition.executor": "Run",
+    "Gradle.FriendsControllerTest.friendShouldConsistentlyFollowKittyAcrossMultipleCalls.executor": "Run",
+    "Gradle.FriendsControllerTest.testFriendFollowKittyPosition.executor": "Run",
+    "Gradle.FriendsControllerTest.testMoveFollowingCharacters.executor": "Run",
+    "Gradle.GameMenuControllerTest.executor": "Coverage",
+    "Gradle.GameMenuModelTest.executor": "Coverage",
+    "Gradle.GameMenuViewTest (1).executor": "Run",
+    "Gradle.GameMenuViewTest.executor": "Coverage",
+    "Gradle.GameMenuViewTest.testRedrawScreen.executor": "Run",
+    "Gradle.KittyControllerTest.executor": "Run",
+    "Gradle.KittyControllerTest.testActivateMudPopUp.executor": "Run",
+    "Gradle.KittyControllerTest.testActivateMudPopUps.executor": "Run",
+    "Gradle.KittyControllerTest.testActivateSpeedPopUps.executor": "Run",
+    "Gradle.KittyControllerTest.testActivateStarPopUp.executor": "Run",
+    "Gradle.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches.executor": "Run",
+    "Gradle.KittyControllerTest.testMoveKittyUp.executor": "Run",
+    "Gradle.ScoreControllerTest.executor": "Run",
+    "Gradle.SpriteTest (1).executor": "Run",
+    "Gradle.SpriteTest.drawPixelTest.executor": "Run",
+    "Gradle.SpriteTest.executor": "Run",
+    "Gradle.SpriteTester (1).executor": "Run",
+    "Gradle.SpriteTester.executor": "Run",
+    "Gradle.StarControllerTest.executor": "Run",
+    "Gradle.StarControllerTest.testConstructorInitializesValuesCorrectly.executor": "Run",
+    "Gradle.StarControllerTest.testMoveStar_updatesStarPosition.executor": "Run",
+    "Gradle.Tests in 'com.t01g02.project'.executor": "Coverage",
+    "Gradle.Tests in 'com.t01g02.project.Menu'.executor": "Coverage",
+    "Gradle.Tests in 'com.t01g02.project.controller'.executor": "Run",
+    "Gradle.Tests in 'project.test'.executor": "Run",
+    "Gradle.TileTester.executor": "Run",
+    "Gradle.project-t01g02 [:com.t01g02.project.Application.main()].executor": "Run",
+    "Gradle.project-t01g02 [:com.t01g02.project.KeyListenerTest.main()].executor": "Run",
+    "JUnit.All in project.test (1).executor": "Coverage",
+    "JUnit.All in project.test.executor": "Run",
+    "JUnit.CharacterViewerTest.executor": "Run",
+    "JUnit.CityModelTest.executor": "Run",
+    "JUnit.CityModelTest.testGetTileOutOfBounds.executor": "Run",
+    "JUnit.CityViewerTest.executor": "Run",
+    "JUnit.DecorViewerTest.executor": "Debug",
+    "JUnit.DecorViewerTest.testDrawDecorations.executor": "Run",
+    "JUnit.FriendsControllerTest.executor": "Run",
+    "JUnit.KittyControllerTest.executor": "Run",
+    "JUnit.KittyControllerTest.testActivateMudPopUp.executor": "Run",
+    "JUnit.KittyControllerTest.testActivatePopUp.executor": "Run",
+    "JUnit.KittyControllerTest.testActivatePopUps_ShouldPickStar_WhenPositionMatchesStar.executor": "Run",
+    "JUnit.KittyControllerTest.testActivateSpeedPopUps.executor": "Run",
+    "JUnit.KittyControllerTest.testActivateStarPopUps.executor": "Run",
+    "JUnit.KittyControllerTest.testActivateStarPopUps_ShouldPickStar_WhenPositionMatches.executor": "Run",
+    "JUnit.KittyControllerTest.testCanMove (1).executor": "Run",
+    "JUnit.KittyControllerTest.testCanMove.executor": "Run",
+    "JUnit.KittyControllerTest.testMoveKittyUp (1).executor": "Run",
+    "JUnit.KittyControllerTest.testMoveKittyUp.executor": "Run",
+    "JUnit.KittyControllerTest.testSpeedResetsAfterDelay.executor": "Run",
+    "JUnit.LanternaGuiTest.executor": "Run",
+    "JUnit.LetterSpritesTest.executor": "Run",
+    "JUnit.PopUpsViewerTest.executor": "Run",
+    "JUnit.PopUpsViewerTest.testAddMudPopUp.executor": "Run",
+    "JUnit.PopUpsViewerTest.testDeleteStar.executor": "Run",
+    "JUnit.PopUpsViewerTest.testDraw.executor": "Run",
+    "JUnit.PopUpsViewerTest.testInitializePopUps.executor": "Run",
+    "JUnit.ScoreViewerTest.executor": "Run",
+    "JUnit.ScoreViewerTest.testGetScoreEndPos.executor": "Run",
+    "JUnit.SpriteTest.executor": "Run",
+    "JUnit.TimerViewerTest.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/matilde/Documents/LDTS/project-t01g02",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/Pop-ups" />
@@ -205,8 +205,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.StarControllerTest">
-    <configuration name="KittyControllerTest.testActivateMudPopUp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Tests in 'project.test'">
+    <configuration name="CharacterModelTest.testFriendsWithinParty" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -219,7 +219,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.KittyControllerTest.testActivateMudPopUp&quot;" />
+            <option value="&quot;com.t01g02.project.model.CharacterModelTest.testFriendsWithinParty&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -230,7 +230,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest.testActivateSpeedPopUps" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="KittyControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -243,7 +243,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.KittyControllerTest.testActivateSpeedPopUps&quot;" />
+            <option value="&quot;com.t01g02.project.controller.KittyControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -278,7 +278,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ScoreControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="KittyControllerTest.testMoveKittyUp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -291,7 +291,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.ScoreControllerTest&quot;" />
+            <option value="&quot;com.t01g02.project.controller.KittyControllerTest.testMoveKittyUp&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -302,7 +302,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="StarControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'project.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -314,8 +314,6 @@
         <option name="taskNames">
           <list>
             <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.StarControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -327,19 +325,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.KittyControllerTest.testActivateMudPopUp" />
-      <item itemvalue="Gradle.KittyControllerTest.testActivateSpeedPopUps" />
+      <item itemvalue="Gradle.CharacterModelTest.testFriendsWithinParty" />
+      <item itemvalue="Gradle.KittyControllerTest" />
+      <item itemvalue="Gradle.KittyControllerTest.testMoveKittyUp" />
+      <item itemvalue="Gradle.Tests in 'project.test'" />
       <item itemvalue="Gradle.KittyControllerTest.testActivateStarPopUp" />
-      <item itemvalue="Gradle.StarControllerTest" />
-      <item itemvalue="Gradle.ScoreControllerTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.StarControllerTest" />
+        <item itemvalue="Gradle.Tests in 'project.test'" />
         <item itemvalue="Gradle.KittyControllerTest.testActivateStarPopUp" />
-        <item itemvalue="Gradle.KittyControllerTest.testActivateSpeedPopUps" />
-        <item itemvalue="Gradle.KittyControllerTest.testActivateMudPopUp" />
-        <item itemvalue="Gradle.ScoreControllerTest" />
+        <item itemvalue="Gradle.KittyControllerTest" />
+        <item itemvalue="Gradle.KittyControllerTest.testMoveKittyUp" />
+        <item itemvalue="Gradle.CharacterModelTest.testFriendsWithinParty" />
       </list>
     </recent_temporary>
   </component>
@@ -378,7 +376,7 @@
       <workItem from="1734610099638" duration="7300000" />
       <workItem from="1734705159461" duration="30338000" />
       <workItem from="1734790467641" duration="6034000" />
-      <workItem from="1734796522393" duration="4192000" />
+      <workItem from="1734796522393" duration="7905000" />
     </task>
     <servers />
   </component>
@@ -395,17 +393,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java</url>
-          <line>171</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

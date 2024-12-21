@@ -13,6 +13,7 @@ public class CharacterModelTest {
 
     @BeforeEach
     void setUp() throws IOException {
+        CharacterModel.friends.clear();
         CharacterModel.initializeCharacters(screen);
     }
 
@@ -48,15 +49,15 @@ public class CharacterModelTest {
         assertEquals(newPosition, helloKitty.getPosition());
     }
 
-//    @Test
-//    void testFriendsWithinParty() {
-//        assertEquals(0, CharacterModel.getFriendInPartyCount());
-//
-//        CharacterModel.friends.get(0).setInParty(true);
-//        CharacterModel.friends.get(1).setInParty(true);
-//
-//        assertEquals(2, CharacterModel.getFriendInPartyCount());
-//    }
+    @Test
+    void testFriendsWithinParty() {
+        assertEquals(0, CharacterModel.getFriendInPartyCount());
+
+        CharacterModel.friends.get(0).setInParty(true);
+        CharacterModel.friends.get(1).setInParty(true);
+
+        assertEquals(2, CharacterModel.getFriendInPartyCount());
+    }
 
     @Test
     void testKittyLastPositions() {
