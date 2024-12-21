@@ -8,6 +8,7 @@ import com.t01g02.project.model.*;
 import com.t01g02.project.viewer.CharacterViewer;
 import com.t01g02.project.viewer.PopUpsViewer;
 
+import javax.crypto.spec.PSource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -112,10 +113,9 @@ public class KittyController {
             }
         }
         if (speedToRemove != null){ removeSpeed(speedToRemove);}
-
-
         if (PopUpsModel.getStar() != null && PopUpsModel.getStar().isPositionOnPopUp(newPosition)) {
             pickedStar();
+
             hasStarBeenPicked=true;
             if (settingsModel.isSoundOn() ){
                 sound.play("/audio/starSound.wav");

@@ -8,7 +8,7 @@ import java.util.Random;
 public class StarController {
     private final CityModel city;
     private final PopUpsModel star;
-    private boolean starPickedUp;
+    boolean starPickedUp;
     private int dx;
     private int dy;
     private final Random random;
@@ -66,7 +66,7 @@ public class StarController {
         star.setPosition(nextPosition);
     }
 
-    private boolean isPosOnStar(Position kittyPosition){
+    boolean isPosOnStar(Position kittyPosition){
         Position starPosition = star.getPosition();
         return kittyPosition.equals(starPosition);
     }
