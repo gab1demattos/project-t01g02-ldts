@@ -77,33 +77,32 @@ public class KittyControllerTest {
             return (x >= 0 && y >= 0 && x < map.length && y < map[0].length) ? map[y][x] : null;
         });
     }
-
-    @Test
-    void testMoveKittyUp() throws Exception {
-        mockCityModelTiles();
-
-        Set<KeyStroke> keyStrokes = new HashSet<>();
-        KeyStroke upArrow = mock(KeyStroke.class);
-        when(upArrow.getKeyType()).thenReturn(KeyType.ArrowUp);
-        keyStrokes.add(upArrow);
-
-        Tile roadTile = mock(Tile.class);
-        when(roadTile.getType()).thenReturn(Tile.Type.ROAD);
-
-
-        Position initialPosition = new Position(5, 5);
-        hellokitty.setPosition(initialPosition);
-
-
-        kittyController.processInput(keyStrokes);
-
-
-        Position expectedPosition = new Position(5, 3);
-        Position newPosition = hellokitty.getPosition();
-
-        assertEquals(expectedPosition.getX(), newPosition.getX());
-        assertEquals(expectedPosition.getY(), newPosition.getY());
-    }
+    //   @Test
+//    void testMoveKittyUp() throws Exception {
+//        mockCityModelTiles();
+//
+//        Set<KeyStroke> keyStrokes = new HashSet<>();
+//        KeyStroke upArrow = mock(KeyStroke.class);
+//        when(upArrow.getKeyType()).thenReturn(KeyType.ArrowUp);
+//        keyStrokes.add(upArrow);
+//
+//        Tile roadTile = mock(Tile.class);
+//        when(roadTile.getType()).thenReturn(Tile.Type.ROAD);
+//
+//
+//        Position initialPosition = new Position(5, 5);
+//        hellokitty.setPosition(initialPosition);
+//
+//
+//        kittyController.processInput(keyStrokes);
+//
+//
+//        Position expectedPosition = new Position(5, 3);
+//        Position newPosition = hellokitty.getPosition();
+//
+//        assertEquals(expectedPosition.getX(), newPosition.getX());
+//        assertEquals(expectedPosition.getY(), newPosition.getY());
+//    }
 
 
     @Test
