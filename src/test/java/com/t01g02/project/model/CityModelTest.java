@@ -1,6 +1,7 @@
 package com.t01g02.project.model;
 
 import com.googlecode.lanterna.TextColor;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,7 +34,7 @@ public class CityModelTest {
         Road road = roads.get(0);
         assertEquals(new Position(0, 0), road.getStart());
         assertEquals(new Position(0, 179), road.getEnd());
-        assertEquals(Tile.Type.ROAD, road.getType());
+        Assertions.assertEquals(Tile.Type.ROAD, road.getType());
         assertEquals(TextColor.Factory.fromString("#222222"), road.getColor());
 
         Tile roadTile = cityModel.getTile(0, 0);

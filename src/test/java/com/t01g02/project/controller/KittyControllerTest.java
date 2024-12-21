@@ -80,7 +80,6 @@ public class KittyControllerTest {
 
     @Test
     void testMoveKittyUp() throws Exception {
-        KittyController kittyController = new KittyController(screen, cityModel, sound, settingsModel, hellokitty);
         mockCityModelTiles();
 
         Set<KeyStroke> keyStrokes = new HashSet<>();

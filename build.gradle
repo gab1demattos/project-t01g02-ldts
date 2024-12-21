@@ -38,7 +38,7 @@ sourceSets {
 }
 pitest {
     junit5PluginVersion = '1.0.0'
-    verbose = true
+    threads=1
 
 }
 tasks.named("processResources") {

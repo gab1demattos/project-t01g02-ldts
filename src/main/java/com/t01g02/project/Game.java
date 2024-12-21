@@ -87,6 +87,7 @@ public class Game {
             scoreViewer.draw(10,185);
             timerViewer.draw(185);
             gui.getScreen().refresh();
+
             kittyController.processInput(gameKeyListener.getKeys());
             friendsController.checkPickup();
             friendsController.updateFriendsPosition();
