@@ -9,13 +9,13 @@ import com.googlecode.lanterna.screen.Screen;
 
 import java.io.IOException;
 
-public class GameOverView implements IView {
+public class GameOver implements IView {
     private final Screen screen;
     private boolean isGameOver;
     private boolean isWin;
     private int finalScore;
 
-    public GameOverView(Screen screen){
+    public GameOver(Screen screen){
         this.screen = screen;
         this.isGameOver = false;
     }

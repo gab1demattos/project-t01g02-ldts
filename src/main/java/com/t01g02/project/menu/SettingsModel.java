@@ -2,7 +2,7 @@ package com.t01g02.project.menu;
 
 public class SettingsModel {
     private boolean musicOn;
-    private boolean soundOn;
+    public boolean soundOn;
     private final String[] options = {"Music", "Sound"};
     private int selectedOption = 0;
     private final String[] musicOptions = {"ON", "OFF"};

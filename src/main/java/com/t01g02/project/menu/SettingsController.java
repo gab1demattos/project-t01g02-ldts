@@ -117,7 +117,6 @@ public class SettingsController implements IController {
             sound.play("/audio/selectSound.wav");
         }
         if (inSubMenu){
-            int selectedOption = model.getSelectedOption();
             switch (model.getSelectedOption()){
                 case 0:
                     toggleMusic();
@@ -152,14 +151,8 @@ public class SettingsController implements IController {
     }
 
     private void toggleSound(){
-        if (model.getSoundSelectedOption() == 0) { // ON
-            model.setSoundOn(true);
-        } else { // OFF
-            model.setSoundOn(false);
-        }
-        model.setSoundSelectedOption(model.isSoundOn() ? 0 : 1);
+        model.setSoundOn(model.getSoundSelectedOption()==0);
         model.setLastSoundSelectedOption(model.getSoundSelectedOption());
-
     }
 
     @Override
@@ -169,6 +162,5 @@ public class SettingsController implements IController {
         if (screen.doResizeIfNecessary() != null) {
             view.redrawScreen();
         }
-
     }
 }

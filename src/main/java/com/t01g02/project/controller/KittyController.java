@@ -89,7 +89,7 @@ public class KittyController {
         PopUpsModel mudToRemove = null;
         for (PopUpsModel mudpopup : PopUpsModel.mudpopups) {
             if (mudpopup.isPositionOnPopUp(newPosition)) {
-                if (settingsModel.isSoundOn() ){
+                if (settingsModel.isSoundOn()){
                     sound.play("/audio/mudSound.wav");
                 }
                 mudToRemove = mudpopup;
@@ -175,14 +175,14 @@ public class KittyController {
 
         for (Position corner : corners) {
             Tile tile = cityModel.getTile(corner.getX(), corner.getY());
-            System.out.println("Tile at " + corner.getX() + ", " + corner.getY() + ": " + tile + " (Type: " + (tile != null ? tile.getType() : "null") + ")");
+            //System.out.println("Tile at " + corner.getX() + ", " + corner.getY() + ": " + tile + " (Type: " + (tile != null ? tile.getType() : "null") + ")");
             if (tile == null) {
-                System.out.println("No tile found at position: " + corner.getX() + "," + corner.getY());
+                //System.out.println("No tile found at position: " + corner.getX() + "," + corner.getY());
 
                 return false;
             }
             if (tile.getType() != Tile.Type.ROAD && tile.getType() != Tile.Type.PICKUP && tile.getType() != Tile.Type.DROPOFF) {
-                System.out.println("Invalid tile found at position: " + corner.getX() + "," + corner.getY() + " (Type: " + tile.getType() + ")");
+                //System.out.println("Invalid tile found at position: " + corner.getX() + "," + corner.getY() + " (Type: " + tile.getType() + ")");
 
                 return false;
             }

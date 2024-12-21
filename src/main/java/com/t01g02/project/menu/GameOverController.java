@@ -8,21 +8,19 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class GameOverController implements IController{
-    private GameOverView gameOverView;
+    private GameOver gameOverView;
     private final Screen screen;
 
     private final SettingsModel settingsModel;
     private final Sound sound;
 
 
-    public GameOverController (GameOverView gameOverView, Screen screen , SettingsModel settingsModel ,Sound sound){
+    public GameOverController (GameOver gameOverView, Screen screen , SettingsModel settingsModel , Sound sound){
         this.gameOverView=gameOverView;
         this.screen=screen;
 
         this.settingsModel=settingsModel;
         this.sound=sound;
-
-
     }
 
     public void setGameOverState(boolean isWin, int finalScore) {
@@ -69,7 +67,5 @@ public class GameOverController implements IController{
     public void updateView() {
         gameOverView.redrawScreen();
     }
-
-
 
 }

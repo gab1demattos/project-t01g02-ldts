@@ -30,15 +30,4 @@ public class Sound {
             }
         }).start();
     }
-
-    public void stop(){
-        if (clip != null && clip.isRunning()){
-            clip.stop();
-            clip.close();
-        }
-    }
-
-    public boolean isPlaying(){
-        return clip!= null && clip.isRunning();
-    }
 }

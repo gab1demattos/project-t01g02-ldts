@@ -20,11 +20,11 @@ public class GameMenuController implements IController, GameEndListener {
     private final Sound sound;
     private boolean inSettings;
     private final SettingsController settingsController;
-    private final GameOverView gameOverView;
+    private final GameOver gameOverView;
     private final GameOverController gameOverController;
     private boolean inGameOver ;
 
-    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOverView gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOver gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.view = view;
         this.screen = screen;
         this.model = model;
@@ -142,7 +142,7 @@ public class GameMenuController implements IController, GameEndListener {
             throw new RuntimeException(e);
         }
 
-        Game game = new Game(this);
+        Game game = new Game(this,settingsModel);
         game.run();
     }
 

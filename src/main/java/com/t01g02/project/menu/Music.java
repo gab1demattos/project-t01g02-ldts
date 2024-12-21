@@ -13,19 +13,16 @@ public class Music {
 
     public void play(String filePath, boolean loop, boolean musicEnabled) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
         if (!musicEnabled) {
-            stop(); // Stop any playing music if music is disabled
+            stop();
             return;
         }
 
-        // Check if the same track is already playing
         if (clip != null && clip.isRunning() && filePath.equals(currentTrack)) {
             return;
         }
 
-        // Start playing the new track
         stop();
 
-        // Start music playback in a separate thread to avoid blocking the main thread
         new Thread(() -> {
             try{
                 URL url = getClass().getResource(filePath);

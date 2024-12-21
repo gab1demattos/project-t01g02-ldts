@@ -10,86 +10,86 @@ import com.googlecode.lanterna.screen.Screen;
 public class GameMenuView implements IView {
     private final Screen screen;
     private final IModel model;
-    private TerminalSize lastKnownSize; //Make Terminal Resizable, First Save Size
+    private TerminalSize lastKnownSize;
 
     public GameMenuView(Screen screen, GameMenuModel model) {
         this.screen = screen;
         this.model = model;
-
     }
 
     @Override
     public void redrawScreen() {
         try {
-            // Get the new size of the terminal
             TerminalSize newSize = screen.getTerminalSize();
 
-            // Check if the terminal size has changed
             if (lastKnownSize == null || !lastKnownSize.equals(newSize)) {
                 lastKnownSize = newSize;
             }
 
-            // Clear the screen
             screen.clear();
 
-            // Create TextGraphics to draw
             TextGraphics textGraphics = screen.newTextGraphics();
-
-            // Set background color
-            textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237)); // Pink
-            textGraphics.fillRectangle(new TerminalPosition(0, 0), newSize, ' '); // Fill screen with background color
-
-            //Calculate Text Positions
-            int centerX = newSize.getColumns() / 2;
-            int centerY = newSize.getRows() / 2;
-            String[] infoLines = model.getInfoText().split("\n");
-            int messageWidth = Math.max(model.getGreetings().length(), getMaxLineLength(infoLines));
-            int messageHeight = 2 + infoLines.length;
-
-            // Dark Pink Rectangle message background
-            int rectWidth = messageWidth + 4; // Adding some leftover space
-            int rectHeight = messageHeight + 2;
-            int rectStartX = centerX - rectWidth / 2;
-            int rectStartY = centerY - rectHeight / 2;
-            textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
-            textGraphics.fillRectangle(new TerminalPosition(rectStartX, rectStartY), new TerminalSize(rectWidth, rectHeight), ' ');
-
-            // Draw greetings message inside rectangle
-            String greetings = model.getGreetings();
-            int greetingX = centerX - greetings.length() / 2;
-            textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
-            textGraphics.putString(greetingX, rectStartY + 1, greetings, SGR.BOLD);
-
-            //Draw info text bellow greetings message
-            int infoStartY = rectStartY + 3;
-            for (String line : infoLines) {
-                int LineX = centerX - line.length() / 2;
-                textGraphics.putString(LineX, infoStartY, line, SGR.BOLD);
-                infoStartY++;
-            }
-
-            // Draw Exit information
-            String exitInfo = model.getExitInfo();
-            textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
-            textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
-            textGraphics.putString(rectStartX, rectStartY - 1, exitInfo, SGR.BORDERED);
-
-            // Draw the option buttons (Play and Settings) and highlight the selected one
-            String[] options = model.getOptions();
-            int bottomRow = newSize.getRows() - 3;
-
-            // Position for "Settings" button
-            int settingsX = centerX - options[0].length() - 5;
-            int playX = centerX + 5;
+            drawBackground(textGraphics, newSize);
+            drawMessages(textGraphics,newSize);
 
             redrawButtons();
 
-            // Refresh the screen
             screen.refresh();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void drawBackground(TextGraphics textGraphics, TerminalSize newSize){
+        textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237)); // Pink
+        textGraphics.fillRectangle(new TerminalPosition(0, 0), newSize, ' '); // Fill screen with background color
+    }
+
+    private void drawMessages(TextGraphics textGraphics, TerminalSize newSize){
+        int centerX = newSize.getColumns() / 2;
+        int centerY = newSize.getRows() / 2;
+        String[] infoLines = model.getInfoText().split("\n");
+        int messageWidth = Math.max(model.getGreetings().length(), getMaxLineLength(infoLines));
+        int messageHeight = 2 + infoLines.length;
+
+        int rectStartX = centerX - (messageWidth + 4) / 2;
+        int rectStartY = centerY - (messageHeight + 2)/2;
+        drawMessageBackground(textGraphics,rectStartX,rectStartY,messageWidth,messageHeight);
+        drawGreetings(textGraphics,centerX,rectStartY);
+
+        int infoStartY = rectStartY+3;
+        drawInfoText(textGraphics,centerX,infoStartY,infoLines);
+
+        String exitInfo = model.getExitInfo();
+        drawExitInfo(textGraphics, rectStartX, rectStartY, messageWidth, exitInfo);
+    }
+    private void drawMessageBackground(TextGraphics textGraphics, int rectStartX, int rectStartY, int messageWidth, int messageHeight){
+        int rectWidth = messageWidth + 4; // Adding some leftover space
+        int rectHeight = messageHeight + 2;
+        textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
+        textGraphics.fillRectangle(new TerminalPosition(rectStartX, rectStartY), new TerminalSize(rectWidth, rectHeight), ' ');
+    }
+    private void drawGreetings(TextGraphics textGraphics, int centerX, int rectStartY){
+        String greetings = model.getGreetings();
+        int greetingX = centerX - greetings.length() / 2;
+        textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
+        textGraphics.putString(greetingX, rectStartY + 1, greetings, SGR.BOLD);
+    }
+
+    private void drawInfoText(TextGraphics textGraphics, int centerX, int infoStartY, String[] infoLines){
+        for (String line : infoLines) {
+            int LineX = centerX - line.length() / 2;
+            textGraphics.putString(LineX, infoStartY, line, SGR.BOLD);
+            infoStartY++;
+        }
+    }
+
+    private void drawExitInfo (TextGraphics textGraphics, int centerX, int rectStartY, int messageWidth, String exitInfo){
+        int exitX = centerX - messageWidth/2;
+        textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
+        textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
+        textGraphics.putString(exitX, rectStartY - 1, exitInfo, SGR.BORDERED);
     }
 
     @Override
