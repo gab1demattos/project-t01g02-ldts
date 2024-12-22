@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4cb35510-d3fe-42ba-84f8-6286a7164aa9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/GameKeyListenerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/KittyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/KittyControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/model/CharacterModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/StarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/t01g02/project/controller/StarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/StarControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/t01g02/project/controller/StarControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +107,7 @@
     "Gradle.FriendsControllerTest.friendShouldConsistentlyFollowKittyAcrossMultipleCalls.executor": "Run",
     "Gradle.FriendsControllerTest.testFriendFollowKittyPosition.executor": "Run",
     "Gradle.FriendsControllerTest.testMoveFollowingCharacters.executor": "Run",
+    "Gradle.GameKeyListenerTest.executor": "Run",
     "Gradle.GameMenuControllerTest.executor": "Coverage",
     "Gradle.GameMenuModelTest.executor": "Coverage",
     "Gradle.GameMenuViewTest (1).executor": "Run",
@@ -126,7 +128,12 @@
     "Gradle.SpriteTester.executor": "Run",
     "Gradle.StarControllerTest.executor": "Run",
     "Gradle.StarControllerTest.testConstructorInitializesValuesCorrectly.executor": "Run",
+    "Gradle.StarControllerTest.testMoveStar_BounceOffHorizontalBoundary.executor": "Run",
+    "Gradle.StarControllerTest.testMoveStar_BounceOffVerticalBoundary.executor": "Run",
     "Gradle.StarControllerTest.testMoveStar_updatesStarPosition.executor": "Run",
+    "Gradle.StarControllerTest.testRandomDirectionChangeAfterMultipleSteps.executor": "Run",
+    "Gradle.StarControllerTest.testStarDeletedAfterPickedUp.executor": "Run",
+    "Gradle.StarControllerTest.testStarPickedUpByHelloKitty.executor": "Run",
     "Gradle.Tests in 'com.t01g02.project'.executor": "Coverage",
     "Gradle.Tests in 'com.t01g02.project.Menu'.executor": "Coverage",
     "Gradle.Tests in 'com.t01g02.project.controller'.executor": "Run",
@@ -205,8 +212,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'project.test'">
-    <configuration name="CharacterModelTest.testFriendsWithinParty" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.StarControllerTest.testMoveStar_BounceOffHorizontalBoundary">
+    <configuration name="StarControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -219,7 +226,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.model.CharacterModelTest.testFriendsWithinParty&quot;" />
+            <option value="&quot;com.t01g02.project.controller.StarControllerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -230,7 +237,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StarControllerTest.testMoveStar_BounceOffHorizontalBoundary" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -243,7 +250,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.KittyControllerTest&quot;" />
+            <option value="&quot;com.t01g02.project.controller.StarControllerTest.testMoveStar_BounceOffHorizontalBoundary&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -254,7 +261,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest.testActivateStarPopUp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StarControllerTest.testRandomDirectionChangeAfterMultipleSteps" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -267,7 +274,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.KittyControllerTest.testActivateStarPopUp&quot;" />
+            <option value="&quot;com.t01g02.project.controller.StarControllerTest.testRandomDirectionChangeAfterMultipleSteps&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -278,7 +285,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="KittyControllerTest.testMoveKittyUp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StarControllerTest.testStarDeletedAfterPickedUp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -291,7 +298,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.t01g02.project.controller.KittyControllerTest.testMoveKittyUp&quot;" />
+            <option value="&quot;com.t01g02.project.controller.StarControllerTest.testStarDeletedAfterPickedUp&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -325,19 +332,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Gradle.CharacterModelTest.testFriendsWithinParty" />
-      <item itemvalue="Gradle.KittyControllerTest" />
-      <item itemvalue="Gradle.KittyControllerTest.testMoveKittyUp" />
+      <item itemvalue="Gradle.StarControllerTest.testMoveStar_BounceOffHorizontalBoundary" />
+      <item itemvalue="Gradle.StarControllerTest.testRandomDirectionChangeAfterMultipleSteps" />
+      <item itemvalue="Gradle.StarControllerTest.testStarDeletedAfterPickedUp" />
       <item itemvalue="Gradle.Tests in 'project.test'" />
-      <item itemvalue="Gradle.KittyControllerTest.testActivateStarPopUp" />
+      <item itemvalue="Gradle.StarControllerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.StarControllerTest.testMoveStar_BounceOffHorizontalBoundary" />
         <item itemvalue="Gradle.Tests in 'project.test'" />
-        <item itemvalue="Gradle.KittyControllerTest.testActivateStarPopUp" />
-        <item itemvalue="Gradle.KittyControllerTest" />
-        <item itemvalue="Gradle.KittyControllerTest.testMoveKittyUp" />
-        <item itemvalue="Gradle.CharacterModelTest.testFriendsWithinParty" />
+        <item itemvalue="Gradle.StarControllerTest" />
+        <item itemvalue="Gradle.StarControllerTest.testStarDeletedAfterPickedUp" />
+        <item itemvalue="Gradle.StarControllerTest.testRandomDirectionChangeAfterMultipleSteps" />
       </list>
     </recent_temporary>
   </component>
@@ -376,7 +383,7 @@
       <workItem from="1734610099638" duration="7300000" />
       <workItem from="1734705159461" duration="30338000" />
       <workItem from="1734790467641" duration="6034000" />
-      <workItem from="1734796522393" duration="7905000" />
+      <workItem from="1734796522393" duration="13032000" />
     </task>
     <servers />
   </component>

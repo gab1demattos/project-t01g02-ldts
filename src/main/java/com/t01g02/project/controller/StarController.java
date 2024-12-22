@@ -15,12 +15,12 @@ public class StarController {
     private int stepsSinceLastChange;
     private final CharacterModel hellokitty;
 
-    public StarController(CityModel city, PopUpsModel star) {
+    public StarController(CityModel city, PopUpsModel star, CharacterModel hellokitty) {
         this.city = city;
         this.star = star;
         this.starPickedUp = false;
         this.random = new Random();
-        this.hellokitty = CharacterModel.getHellokitty();
+        this.hellokitty = hellokitty;
         this.dx = random.nextBoolean() ? 1 : -1;
         this.dy = random.nextBoolean() ? 1 : -1;
         this.stepsSinceLastChange = 0;
@@ -29,7 +29,6 @@ public class StarController {
     public void moveStar() {
         if (starPickedUp) return;
         Position currentPosition = star.getPosition();
-
         Position nextPosition = new Position(
                 currentPosition.getX() + dx,
                 currentPosition.getY() + dy

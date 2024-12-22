@@ -58,7 +58,7 @@ public class Game {
         city.initializeZones();
 
         PopUpsModel star = PopUpsModel.getStar();
-        this.starController = new StarController(city, star);
+        this.starController = new StarController(city, star, CharacterModel.getHellokitty());
         this.kittyController = new KittyController(gui.getScreen(), city,sound,settingsModel, CharacterModel.getHellokitty());
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);
