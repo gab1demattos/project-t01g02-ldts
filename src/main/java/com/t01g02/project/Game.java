@@ -4,6 +4,7 @@ package com.t01g02.project;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFrame;
 import com.t01g02.project.controller.*;
 import com.t01g02.project.menu.*;
+import com.t01g02.project.menu.Sound;
 import com.t01g02.project.model.*;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.model.Score;
@@ -38,7 +39,7 @@ public class Game {
 
     }
 
-    public void initializeGameComponents() throws IOException, FontFormatException, URISyntaxException{
+    public void initializeGameComponents() throws IOException{
         Sound sound = new Sound();
         SettingsModel settingsModel = new SettingsModel();
         CityModel city = new CityModel(345, 180);
@@ -59,7 +60,7 @@ public class Game {
 
         PopUpsModel star = PopUpsModel.getStar();
         this.starController = new StarController(city, star, CharacterModel.getHellokitty());
-        this.kittyController = new KittyController(gui.getScreen(), city,sound,settingsModel, CharacterModel.getHellokitty());
+        this.kittyController = new KittyController(gui.getScreen(), city, sound,settingsModel, CharacterModel.getHellokitty());
         kittyController.addObserver(scoreController);
         friendsController.addObserver(scoreController);
 
@@ -126,28 +127,8 @@ public class Game {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
         gameEndListener.onGameOver(isWin, finalScore);
-
     }
-
-//    private void resetGame() throws IOException {
-//        CharacterModel.getHellokitty().setBeingFollowed(false);
-//        CharacterModel.getHellokitty().getKittyLastPositions().clear();
-//
-//        for (CharacterModel friend : CharacterModel.friends) {
-//            friend.setFollowing(false);
-//            friend.setInParty(false);
-//            friend.setOutOfHouse(false);
-//        }
-//        CharacterModel.initializeCharacters(gui.getScreen());
-//        city.reset();
-//        PopUpsModel.reset(gui.getScreen());
-//        timer.resetTimer(5, 0);
-//        score.resetScore();
-//        run();
-//
-//    }
 
 }
 

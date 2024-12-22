@@ -83,20 +83,4 @@ public class CityModel {
         return roads;
     }
 
-
-    /*public void reset() {
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                map[y][x] = null; // Reset all tiles to null
-            }
-        }
-
-        roads = new ArrayList<>();
-        initializeRoads();
-
-        zones = new ArrayList<>();
-        initializeZones();
-    }*/
-
-
 }

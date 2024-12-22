@@ -208,9 +208,5 @@ public class KittyController {
         return hasStarBeenPicked;
     }
 
-    public void removeObservers() {
-        observers.clear();
-    }
-
 }
 

@@ -117,27 +117,4 @@ public class PopUpsModel extends Element {
         return (newposition.getX() >= speedX - 10 && newposition.getX() <= speedX + 10) && (newposition.getY() >= speedY - 10 && newposition.getY() <= speedY + 10);
     }
 
-    /*public static void reset(Screen screen) throws IOException {
-        popupsPositions = new ArrayList<>(List.of(
-                new Position(4, 6),
-                new Position(4, 100),
-                new Position(30, 160),
-                new Position(190, 160),
-                new Position(130, 110),
-                new Position(170, 55),
-                new Position(150, 6),
-                new Position(260, 6),
-                new Position(320, 100),
-                new Position(255, 110),
-                new Position(130, 160),
-                new Position(100, 55),
-                new Position(200, 7),
-                new Position(320, 55)
-        ));
-
-        initializeSpeedPopUps(screen);
-        initializeMudPopUps(screen);
-        initializeBlockPopUps(screen);
-        initializeStar(screen);
-    }*/
 }
