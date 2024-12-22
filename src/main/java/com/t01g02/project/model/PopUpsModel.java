@@ -23,7 +23,7 @@ public class PopUpsModel extends Element {
     private static List<Position> popupsPositions = new ArrayList<>(
             List.of(
                 new Position(4, 6),
-                new Position(4, 100),
+                new Position(0, 100),
                 new Position(30, 160),
                 new Position(190, 160),
                 new Position(130, 110),
