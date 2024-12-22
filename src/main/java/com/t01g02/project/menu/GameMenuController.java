@@ -172,7 +172,7 @@ public class GameMenuController implements IController, GameEndListener {
     private void playMenuMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
         music.play("/audio/menuSong.wav",true, settingsModel.isMusicOn());
     }
-    private void playGameMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
+    public void playGameMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
         music.stop();
         music.play("/audio/gameSong.wav",true, settingsModel.isMusicOn());
     }
