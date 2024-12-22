@@ -57,6 +57,10 @@ public class GameOver implements IView {
         return isWin;
     }
 
+    public boolean isGameOver() {return isGameOver;}
+
+    public int getFinalScore() {return finalScore;}
+
     @Override
     public void redrawButtons(){}
 }

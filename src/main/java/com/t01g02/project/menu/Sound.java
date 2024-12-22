@@ -19,7 +19,8 @@ public class Sound {
                 in = AudioSystem.getAudioInputStream(url);
                 clip = AudioSystem.getClip();
                 clip.open(in);
-                FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN); volumeControl.setValue(volumeControl.getMaximum());
+                FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                volumeControl.setValue(volumeControl.getMaximum());
                 volumeControl.setValue(volumeControl.getMaximum());
                 volumeControl.setValue(-5.0f);
 

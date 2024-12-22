@@ -5,11 +5,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Music {
     private Clip clip;
     protected AudioInputStream in;
     private String currentTrack;
+    private ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    public void setExecutor(ExecutorService executor) {
+        this.executor = executor;
+    }
 
     public void play(String filePath, boolean loop, boolean musicEnabled) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
         if (!musicEnabled) {
@@ -23,7 +30,7 @@ public class Music {
 
         stop();
 
-        new Thread(() -> {
+        executor.submit(() -> {
             try{
                 URL url = getClass().getResource(filePath);
                 if (url == null){
@@ -44,7 +51,7 @@ public class Music {
                 e.printStackTrace();
             }
 
-        }).start();
+        });
     }
 
     public void stop(){
