@@ -117,7 +117,6 @@ public class SettingsController implements IController {
             sound.play("/audio/selectSound.wav");
         }
         if (inSubMenu){
-            int selectedOption = model.getSelectedOption();
             switch (model.getSelectedOption()){
                 case 0:
                     toggleMusic();

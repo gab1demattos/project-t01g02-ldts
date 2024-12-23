@@ -35,7 +35,7 @@ public class CityViewer {
                     TextCharacter textChar = new TextCharacter(displayChar, tile.getColor(), TextColor.Factory.fromString("#636363"));
                     cityImage.setCharacterAt(new TerminalPosition(x, y), textChar);
                 }
-                if (tile != null && tile.getType() == Tile.Type.PICKUP || tile != null && tile.getType() == Tile.Type.DROPOFF) {
+                if (tile != null && (tile.getType() == Tile.Type.PICKUP || tile.getType() == Tile.Type.DROPOFF)) {
                     char displayChar = '█';
                     TextCharacter textChar = new TextCharacter(displayChar, tile.getColor(), TextColor.Factory.fromString("#636363"));
                     cityImage.setCharacterAt(new TerminalPosition(x, y), textChar);

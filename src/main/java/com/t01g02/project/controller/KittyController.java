@@ -44,7 +44,7 @@ public class KittyController {
 
     public void processInput(Set<KeyStroke> keys) throws IOException {
         long speedtimerduration = 5000;
-        if (isSpeedOn && System.currentTimeMillis() - speedtimerstart >= speedtimerduration || isMudOn && System.currentTimeMillis() - speedtimerstart >= speedtimerduration) {
+        if ((isSpeedOn || isMudOn) && System.currentTimeMillis() - speedtimerstart >= speedtimerduration) {
             speed.resetSpeed();
            if (isSpeedOn) {deactivateSpeed();}
            if (isMudOn) {deactivateMud();}

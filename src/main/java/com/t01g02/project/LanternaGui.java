@@ -50,7 +50,7 @@ public class LanternaGui implements GUI {
         screen.setCursorPosition(null); // Hide the cursor
         screen.startScreen(); // Start the screen
 
-        (terminalFrame).addWindowListener(new WindowAdapter() {
+        terminalFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 System.exit(0);

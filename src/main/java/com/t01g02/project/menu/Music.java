@@ -1,7 +1,6 @@
 package com.t01g02.project.menu;
 
 import javax.sound.sampled.*;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;

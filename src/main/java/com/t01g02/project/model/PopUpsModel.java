@@ -13,7 +13,7 @@ public class PopUpsModel extends Element {
     public static List<PopUpsModel> mudpopups = new ArrayList<>();
     public static List<PopUpsModel> blockpopups = new ArrayList<>();
     static Random random = new Random();
-    private static PopUpsModel star;
+    public static PopUpsModel star;
 
     public PopUpsModel(Sprite sprite, Position position, String name) {
         super(sprite, position, name);

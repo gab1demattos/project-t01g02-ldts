@@ -23,7 +23,7 @@ public class SpriteTest {
 
         when(stubScreen.newTextGraphics()).thenReturn(stubTextGraphics);
 
-        sprite = new Sprite(stubScreen, "src/test/resources/hellokitty.png");
+        sprite = new Sprite(stubScreen, "src/test/resources/characters/hellokitty.png");
     }
 
     @Test

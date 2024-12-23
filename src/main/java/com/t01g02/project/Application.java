@@ -17,7 +17,6 @@ import java.net.URISyntaxException;
 
 public class Application {
     public static void main(String[] args) throws IOException, URISyntaxException, FontFormatException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
-        GameMenuModel menu = new GameMenuModel();
         Terminal terminal = new DefaultTerminalFactory().createTerminal();
 
         Screen screen = new TerminalScreen(terminal);

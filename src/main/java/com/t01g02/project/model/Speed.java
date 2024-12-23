@@ -1,7 +1,7 @@
 package com.t01g02.project.model;
 
 public class Speed {
-    private static int speed;
+    private int speed;
 
     public Speed() {
         speed = 2;

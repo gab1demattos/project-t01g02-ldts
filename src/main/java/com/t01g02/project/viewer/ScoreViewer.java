@@ -22,7 +22,6 @@ public class ScoreViewer {
         graphics.setBackgroundColor(new TextColor.RGB(255, 240, 245));
         for (int i = 0; i < sprite.length; i++) {
             for (int j = 0; j<sprite[i].length();j++){
-                char c = sprite[i].charAt(j);
                 graphics.putString(startX, startY + i, sprite[i], SGR.BOLD);
             }
         }
@@ -42,7 +41,6 @@ public class ScoreViewer {
         TextGraphics graphics = screen.newTextGraphics();
         for (int y = 180; y < 195; y++) {
             for (int x = 0; x < 345; x++){
-                TextCharacter pinkChar;
                 if (y==180){
                     graphics.setBackgroundColor(TextColor.Factory.fromString("#B7868D"));
                 }else{

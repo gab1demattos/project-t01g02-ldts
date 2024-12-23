@@ -1,10 +1,12 @@
 package com.t01g02.project.model;
 
 import com.googlecode.lanterna.TextColor;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,7 +18,6 @@ public class CityModelTest {
     void setUp() {
         cityModel = new CityModel(345, 195);
         cityModel.initializeRoads();
-        cityModel.initializeZones();
     }
 
     @Test
@@ -57,7 +58,7 @@ public class CityModelTest {
         assertNull(tile);
     }
 
-    /*@Test
+    @Test
     void testGetRoads() {
         List<Road> roads = cityModel.getRoads();
 
@@ -67,7 +68,12 @@ public class CityModelTest {
         Road road = roads.get(1);
         assertEquals(new Position(65, 0), road.getStart());
         assertEquals(new Position(65, 179), road.getEnd());
-    }*/
+    }
+    @AfterEach
+    void tearDown() {
+        List<Road> roads = new ArrayList<>();
+        List<Zone> zones = new ArrayList<>();
+    }
 
 }
 

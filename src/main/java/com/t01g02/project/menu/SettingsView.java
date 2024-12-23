@@ -100,7 +100,6 @@ public class SettingsView implements IView{
         int boxWidth = 20;
         int boxHeight = 10;
         int bottomBox = boxHeight - 3;
-        int buttonSpacing = 4;
         int musicBoxX = (centerX*2 - boxWidth + 4)/2 ;
         int soundBoxX = centerX + 2;
 

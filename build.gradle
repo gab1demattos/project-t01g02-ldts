@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'info.solidsoft.pitest' version '1.15.0'
+    //id("net.ltgt.errorprone") version "4.1.0"
 }
 application{
     mainClass = 'com.t01g02.project.Application'
@@ -20,6 +21,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testImplementation 'org.mockito:mockito-core:3.7.7'
     testImplementation 'net.jqwik:jqwik:1.5.1'
+    //errorprone("com.google.errorprone:error_prone_core:2.30.0")
 
 }
 

@@ -27,6 +27,7 @@ public class Position {
         this.y = y;
     }
 
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
@@ -34,10 +35,9 @@ public class Position {
         return x == position.x && y == position.y;
     }
 
-
-    public void reset(int x, int y) {
-        this.x = x;
-        this.y = y;
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
 }
