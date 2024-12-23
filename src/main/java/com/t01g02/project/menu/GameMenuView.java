@@ -41,12 +41,12 @@ public class GameMenuView implements IView {
         }
     }
 
-    private void drawBackground(TextGraphics textGraphics, TerminalSize newSize){
+    void drawBackground(TextGraphics textGraphics, TerminalSize newSize){
         textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237)); // Pink
         textGraphics.fillRectangle(new TerminalPosition(0, 0), newSize, ' '); // Fill screen with background color
     }
 
-    private void drawMessages(TextGraphics textGraphics, TerminalSize newSize){
+    void drawMessages(TextGraphics textGraphics, TerminalSize newSize){
         int centerX = newSize.getColumns() / 2;
         int centerY = newSize.getRows() / 2;
         String[] infoLines = model.getInfoText().split("\n");
@@ -64,20 +64,22 @@ public class GameMenuView implements IView {
         String exitInfo = model.getExitInfo();
         drawExitInfo(textGraphics, rectStartX, rectStartY, messageWidth, exitInfo);
     }
-    private void drawMessageBackground(TextGraphics textGraphics, int rectStartX, int rectStartY, int messageWidth, int messageHeight){
+
+    void drawMessageBackground(TextGraphics textGraphics, int rectStartX, int rectStartY, int messageWidth, int messageHeight){
         int rectWidth = messageWidth + 4; // Adding some leftover space
         int rectHeight = messageHeight + 2;
         textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
         textGraphics.fillRectangle(new TerminalPosition(rectStartX, rectStartY), new TerminalSize(rectWidth, rectHeight), ' ');
     }
-    private void drawGreetings(TextGraphics textGraphics, int centerX, int rectStartY){
+
+    void drawGreetings(TextGraphics textGraphics, int centerX, int rectStartY){
         String greetings = model.getGreetings();
         int greetingX = centerX - greetings.length() / 2;
         textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
         textGraphics.putString(greetingX, rectStartY + 1, greetings, SGR.BOLD);
     }
 
-    private void drawInfoText(TextGraphics textGraphics, int centerX, int infoStartY, String[] infoLines){
+    void drawInfoText(TextGraphics textGraphics, int centerX, int infoStartY, String[] infoLines){
         for (String line : infoLines) {
             int LineX = centerX - line.length() / 2;
             textGraphics.putString(LineX, infoStartY, line, SGR.BOLD);
@@ -85,7 +87,7 @@ public class GameMenuView implements IView {
         }
     }
 
-    private void drawExitInfo (TextGraphics textGraphics, int centerX, int rectStartY, int messageWidth, String exitInfo){
+    void drawExitInfo (TextGraphics textGraphics, int centerX, int rectStartY, int messageWidth, String exitInfo){
         int exitX = centerX - messageWidth/2;
         textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
         textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));

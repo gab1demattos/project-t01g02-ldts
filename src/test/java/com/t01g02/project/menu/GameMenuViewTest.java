@@ -8,13 +8,16 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.screen.Screen;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.io.IOException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class GameMenuViewTest {
@@ -34,29 +37,52 @@ public class GameMenuViewTest {
         MockitoAnnotations.openMocks(this);
         screen = mock(Screen.class);
         model = mock(GameMenuModel.class);
-        view = new GameMenuView(screen,model);
+        textGraphics = mock(TextGraphics.class);
+        view = spy(new GameMenuView(screen,model));
+
     }
 
-    // Test RedrawScreen
-
     @Test
-    void testDrawMessages() {
-        TerminalSize terminalSize = new TerminalSize(80, 24);
-        TextGraphics textGraphics = mock(TextGraphics.class);
+    void testRedrawScreen() throws IOException {
+        TerminalSize mockSize = new TerminalSize(80, 24);
+        when(screen.getTerminalSize()).thenReturn(mockSize);
 
-        when(screen.getTerminalSize()).thenReturn(terminalSize);
-        when(screen.newTextGraphics()).thenReturn(textGraphics);
         when(model.getInfoText()).thenReturn("Info Line 1\nInfo Line 2");
         when(model.getGreetings()).thenReturn("Hey there!");
-        when(model.getExitInfo()).thenReturn("Esc to Exit");
+        when(model.getExitInfo()).thenReturn("Esc to exit");
+        when(model.getOptions()).thenReturn(new String[]{"Settings", "Play"});
+        when(model.getSelectedOption()).thenReturn(0);
+
+        when(screen.newTextGraphics()).thenReturn(textGraphics);
 
         view.redrawScreen();
 
-        verify(textGraphics).putString(anyInt(), anyInt(), eq("Hey there!"), eq(SGR.BOLD));
-        verify(textGraphics).putString(anyInt(), anyInt(), eq("Info Line 1"), eq(SGR.BOLD));
-        verify(textGraphics).putString(anyInt(), anyInt(), eq("Info Line 2"), eq(SGR.BOLD));
-        verify(textGraphics).putString(anyInt(), anyInt(), eq("Esc to Exit"), eq(SGR.BORDERED));
+        verify(textGraphics, atLeastOnce()).setBackgroundColor(new TextColor.RGB(255, 225, 237));
+        verify(textGraphics, atLeastOnce()).fillRectangle(new TerminalPosition(0, 0),mockSize, ' ');
+
+        verify(textGraphics, atLeastOnce()).setBackgroundColor(new TextColor.RGB(229, 168, 177));
+        verify(textGraphics, atLeastOnce()).fillRectangle(new TerminalPosition(33, 9), new TerminalSize(15, 6), ' ');
+
+        verify(textGraphics, atLeastOnce()).setForegroundColor(TextColor.ANSI.BLACK);
+        verify(textGraphics, atLeastOnce()).putString(35, 10, "Hey there!", SGR.BOLD);
+
+        verify(textGraphics, atLeastOnce()).putString(35, 12, "Info Line 1", SGR.BOLD);
+        verify(textGraphics, atLeastOnce()).putString(35, 13, "Info Line 2", SGR.BOLD);
+
+        verify(textGraphics, atLeastOnce()).setForegroundColor(new TextColor.RGB(217, 167, 164));
+        verify(textGraphics, atLeastOnce()).setBackgroundColor(new TextColor.RGB(255, 225, 237));
+        verify(textGraphics, atLeastOnce()).putString(28, 8, "Esc to exit", SGR.BORDERED);
+
+        verify(textGraphics, atLeastOnce()).setForegroundColor(TextColor.ANSI.BLACK);
+        verify(textGraphics, atLeastOnce()).setBackgroundColor(new TextColor.RGB(229, 168, 177));
+        verify(textGraphics, atLeastOnce()).setBackgroundColor(new TextColor.RGB(255, 225, 237));
+        verify(textGraphics, atLeastOnce()).putString(27, 21, "Settings", SGR.BOLD);
+        verify(textGraphics, atLeastOnce()).putString(45, 21, "Play", SGR.BOLD);
+
+        verify(screen).clear();
+        verify(screen).refresh();
     }
+
 
     @Test
     void testRedrawButtons(){
@@ -75,7 +101,6 @@ public class GameMenuViewTest {
 
         verify(textGraphics).putString(anyInt(), anyInt(), eq("Settings"), eq(SGR.BOLD));
         verify(textGraphics).putString(anyInt(), anyInt(), eq("Play"), eq(SGR.BOLD));
-
     }
 
     @Test
