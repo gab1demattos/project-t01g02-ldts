@@ -31,7 +31,6 @@ public class PopUpsModel extends Element {
                 new Position(150, 6),
                 new Position(260, 6),
                 new Position(320, 100),
-                new Position(255, 110),
                 new Position(130, 160),
                 new Position(100, 55),
                 new Position(200, 7),

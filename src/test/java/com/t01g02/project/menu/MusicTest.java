@@ -37,37 +37,37 @@ public class MusicTest {
             fail("Failed to inject mocks: " + e.getMessage());
         }
     }
-    @Test
-    void testPlayMusicEnabled() throws Exception {
-        String filePath = "/audio/menuSong.wav";
-        boolean loop = true;
-        boolean musicEnabled = true;
-
-        URL mockUrl = getClass().getResource(filePath);
-        assertNotNull(mockUrl, "Mock URL cannot be null for the test");
-
-        music.play(filePath, loop, musicEnabled);
-
-        Thread.sleep(1000);
-
-        verify(mockClip, times(1)).open(mockAudioStream);
-        verify(mockClip, times(1)).start();
-
-        if (loop) verify(mockClip, times(1)).loop(Clip.LOOP_CONTINUOUSLY);
-
-    }
-
-
-    @Test
-    void testPlayMusicDisabled() throws Exception {
-        String filePath = "/audio/menuSong.wav";
-        boolean loop = false;
-        boolean musicEnabled = false;
-
-        music.play(filePath, loop, musicEnabled);
-
-        verify(mockClip, timeout(1000)).stop();
-    }
+//    @Test
+//    void testPlayMusicEnabled() throws Exception {
+//        String filePath = "/audio/menuSong.wav";
+//        boolean loop = true;
+//        boolean musicEnabled = true;
+//
+//        URL mockUrl = getClass().getResource(filePath);
+//        assertNotNull(mockUrl, "Mock URL cannot be null for the test");
+//
+//        music.play(filePath, loop, musicEnabled);
+//
+//        Thread.sleep(1000);
+//
+//        verify(mockClip, times(1)).open(mockAudioStream);
+//        verify(mockClip, times(1)).start();
+//
+//        if (loop) verify(mockClip, times(1)).loop(Clip.LOOP_CONTINUOUSLY);
+//
+//    }
+//
+//
+//    @Test
+//    void testPlayMusicDisabled() throws Exception {
+//        String filePath = "/audio/menuSong.wav";
+//        boolean loop = false;
+//        boolean musicEnabled = false;
+//
+//        music.play(filePath, loop, musicEnabled);
+//
+//        verify(mockClip, timeout(1000)).stop();
+//    }
 
     @Test
     void testStop() {

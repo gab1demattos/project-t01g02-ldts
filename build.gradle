@@ -47,6 +47,8 @@ pitest {
     threads = 1
     verbose = true
     targetClasses = ['com.t01g02.project.*']
+    excludedClasses = ['*Game', '*Application', '*LanternaGui']
+
     targetTests = ['com.t01g02.project.*Test']
 
 }

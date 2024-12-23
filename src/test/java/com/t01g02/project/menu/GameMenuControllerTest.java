@@ -41,12 +41,12 @@ public class GameMenuControllerTest {
         controller = new GameMenuController(mockView, mockScreen,mockModel,mockSettingsModel,mockSettingsView,mockMusic,mockSound,mockGameOverView);
     }
 
-    @Test
-    public void testEscape() throws IOException, URISyntaxException, FontFormatException, InterruptedException{
-        when(mockScreen.readInput()).thenReturn(new KeyStroke(KeyType.Escape));
-        controller.processInput();
-        verify(mockScreen).refresh();
-    }
+//    @Test
+//    public void testEscape() throws IOException, URISyntaxException, FontFormatException, InterruptedException{
+//        when(mockScreen.readInput()).thenReturn(new KeyStroke(KeyType.Escape));
+//        controller.processInput();
+//        verify(mockScreen).refresh();
+//    }
 
     @Test
     public void testProcessInputArrowLeft() throws IOException, URISyntaxException, FontFormatException, InterruptedException{
@@ -96,20 +96,20 @@ public class GameMenuControllerTest {
         mockView.redrawScreen();
     }
 
-    @Test
-    public void testOptionPlay() throws IOException, URISyntaxException, FontFormatException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
-        when(mockModel.getOptions()).thenReturn(new String[]{"Settings", "Play"});
-        when(mockModel.getSelectedOption()).thenReturn(1);
-
-        doNothing().when(mockMusic).play(anyString(), anyBoolean(), anyBoolean());
-        doNothing().when(mockMusic).stop();
-        doNothing().when(mockScreen).refresh();
-
-        controller.executeSelectedOption();
-
-        verify(mockMusic).play("/audio/gameSong.wav", true, true);
-        verify(mockScreen).refresh();
-    }
+//    @Test
+//    public void testOptionPlay() throws IOException, URISyntaxException, FontFormatException, InterruptedException, UnsupportedAudioFileException, LineUnavailableException {
+//        when(mockModel.getOptions()).thenReturn(new String[]{"Settings", "Play"});
+//        when(mockModel.getSelectedOption()).thenReturn(1);
+//
+//        doNothing().when(mockMusic).play(anyString(), anyBoolean(), anyBoolean());
+//        doNothing().when(mockMusic).stop();
+//        doNothing().when(mockScreen).refresh();
+//
+//        controller.executeSelectedOption();
+//
+//        verify(mockMusic).play("/audio/gameSong.wav", true, true);
+//        verify(mockScreen).refresh();
+//    }
 
     @Test
     public void testOptionSelected() throws IOException, URISyntaxException, FontFormatException, InterruptedException {

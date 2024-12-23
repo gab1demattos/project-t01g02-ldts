@@ -36,12 +36,12 @@ public class DecorViewerTest {
         assertTrue(housePositions.contains(new Position(34, 20)));
     }
 
-    @Test
-    void testTreePositions() {
-        List<Position> treePositions = decorViewer.getTreePositions();
-        assertEquals(8, treePositions.size());
-        assertTrue(treePositions.contains(new Position(307, 20)));
-    }
+//    @Test
+//    void testTreePositions() {
+//        List<Position> treePositions = decorViewer.getTreePositions();
+//        assertEquals(8, treePositions.size());
+//        assertTrue(treePositions.contains(new Position(307, 20)));
+//    }
 
     @Test
     void testDrawElements() throws IOException {

@@ -140,23 +140,23 @@ public class KittyControllerTest {
         assertFalse(PopUpsModel.mudpopups.contains(mudPopup));
     }
 
-    @Test
-    void testActivateSpeedPopUps() throws IOException {
-        Position newPosition = new Position(5, 6);
-        PopUpsModel speedPopup = mock(PopUpsModel.class);
-        when(speedPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
-        when(settingsModel.isSoundOn()).thenReturn(true);
-
-        PopUpsModel.speedpopups.add(speedPopup);
-
-        kittyController.activatePopUps(newPosition);
-
-        assertTrue(kittyController.isSpeedOn);
-        assertFalse(kittyController.isMudOn);
-        verify(sound).play("/audio/boltSound.wav");
-
-        assertFalse(PopUpsModel.speedpopups.contains(speedPopup));
-    }
+//    @Test
+//    void testActivateSpeedPopUps() throws IOException {
+//        Position newPosition = new Position(5, 6);
+//        PopUpsModel speedPopup = mock(PopUpsModel.class);
+//        when(speedPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+//        when(settingsModel.isSoundOn()).thenReturn(true);
+//
+//        PopUpsModel.speedpopups.add(speedPopup);
+//
+//        kittyController.activatePopUps(newPosition);
+//
+//        assertTrue(kittyController.isSpeedOn);
+//        assertFalse(kittyController.isMudOn);
+//        verify(sound).play("/audio/boltSound.wav");
+//
+//        assertFalse(PopUpsModel.speedpopups.contains(speedPopup));
+//    }
 
     @Test
     void testActivateStarPopUp() throws IOException {

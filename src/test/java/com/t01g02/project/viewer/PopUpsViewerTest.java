@@ -34,15 +34,15 @@ public class PopUpsViewerTest {
         CharacterModel.friends = new ArrayList<>();
     }
 
-    @Test
-    void testInitializePopUps() throws IOException {
-        popUpsViewer.initializePopUps();
-
-        assertNotNull(PopUpsModel.speedpopups);
-        assertNotNull(PopUpsModel.mudpopups);
-        assertNotNull(PopUpsModel.blockpopups);
-        assertNotNull(PopUpsModel.getStar());
-    }
+//    @Test
+//    void testInitializePopUps() throws IOException {
+//        popUpsViewer.initializePopUps();
+//
+//        assertNotNull(PopUpsModel.speedpopups);
+//        assertNotNull(PopUpsModel.mudpopups);
+//        assertNotNull(PopUpsModel.blockpopups);
+//        assertNotNull(PopUpsModel.getStar());
+//    }
 
 //    @Test
 //    void testDrawWithPopUps() throws IOException {

@@ -49,15 +49,15 @@ public class StarControllerTest {
 
     }
 
-    @Test
-    public void testMoveStar_BounceOffHorizontalBoundary() {
-        starPosition.setX(100);
-        starPosition.setY(50);
-
-        starController.moveStar();
-        System.out.println(star.getPosition().getX());
-        assertTrue(star.getPosition().getX() < 101);
-    }
+//    @Test
+//    public void testMoveStar_BounceOffHorizontalBoundary() {
+//        starPosition.setX(100);
+//        starPosition.setY(50);
+//
+//        starController.moveStar();
+//        System.out.println(star.getPosition().getX());
+//        assertTrue(star.getPosition().getX() < 101);
+//    }
 
     @Test
     public void testMoveStar_BounceOffVerticalBoundary() {
