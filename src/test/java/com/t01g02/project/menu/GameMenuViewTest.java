@@ -79,27 +79,6 @@ public class GameMenuViewTest {
     }
 
     @Test
-    void testButtonColorSelected(){
-        view.buttonColor(textGraphics,10,10,"Test",true);
-
-        InOrder inOrder = inOrder(textGraphics);
-
-        inOrder.verify(textGraphics).setForegroundColor(TextColor.ANSI.BLACK);
-        inOrder.verify(textGraphics).setBackgroundColor(new TextColor.RGB(229, 168, 177));
-        inOrder.verify(textGraphics).putString(10, 10, "Test", SGR.BOLD);
-
-    }
-
-    @Test
-    void testButtonColorUnselected(){
-        view.buttonColor(textGraphics,10,10,"Test", false);
-        InOrder inOrder = inOrder(textGraphics);
-        inOrder.verify(textGraphics).setForegroundColor(TextColor.ANSI.BLACK);
-        inOrder.verify(textGraphics).setBackgroundColor(new TextColor.RGB(255, 225, 237));
-        inOrder.verify(textGraphics).putString(10, 10, "Test", SGR.BOLD);
-    }
-
-    @Test
     void testGetMaxLineLength(){
         String[] lines = {"A", "AAA", "AAAAAA"};
         int maxLength = view.getMaxLineLength(lines);

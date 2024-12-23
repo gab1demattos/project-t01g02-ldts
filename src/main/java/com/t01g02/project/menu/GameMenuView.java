@@ -41,12 +41,12 @@ public class GameMenuView implements IView {
         }
     }
 
-    public void drawBackground(TextGraphics textGraphics, TerminalSize newSize){
+    private void drawBackground(TextGraphics textGraphics, TerminalSize newSize){
         textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237)); // Pink
         textGraphics.fillRectangle(new TerminalPosition(0, 0), newSize, ' '); // Fill screen with background color
     }
 
-    public void drawMessages(TextGraphics textGraphics, TerminalSize newSize){
+    private void drawMessages(TextGraphics textGraphics, TerminalSize newSize){
         int centerX = newSize.getColumns() / 2;
         int centerY = newSize.getRows() / 2;
         String[] infoLines = model.getInfoText().split("\n");
@@ -64,13 +64,13 @@ public class GameMenuView implements IView {
         String exitInfo = model.getExitInfo();
         drawExitInfo(textGraphics, rectStartX, rectStartY, messageWidth, exitInfo);
     }
-    public void drawMessageBackground(TextGraphics textGraphics, int rectStartX, int rectStartY, int messageWidth, int messageHeight){
+    private void drawMessageBackground(TextGraphics textGraphics, int rectStartX, int rectStartY, int messageWidth, int messageHeight){
         int rectWidth = messageWidth + 4; // Adding some leftover space
         int rectHeight = messageHeight + 2;
         textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
         textGraphics.fillRectangle(new TerminalPosition(rectStartX, rectStartY), new TerminalSize(rectWidth, rectHeight), ' ');
     }
-    public void drawGreetings(TextGraphics textGraphics, int centerX, int rectStartY){
+    private void drawGreetings(TextGraphics textGraphics, int centerX, int rectStartY){
         String greetings = model.getGreetings();
         int greetingX = centerX - greetings.length() / 2;
         textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
@@ -113,7 +113,7 @@ public class GameMenuView implements IView {
 
     }
 
-    public void buttonColor(TextGraphics textGraphics, int x, int y, String name, boolean isSelected) {
+    private void buttonColor(TextGraphics textGraphics, int x, int y, String name, boolean isSelected) {
         if (isSelected) {
             textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
             textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));

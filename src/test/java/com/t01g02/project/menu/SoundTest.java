@@ -16,7 +16,7 @@ import java.net.URL;
 
 import static org.mockito.Mockito.*;
 
-/*public class SoundTest {
+ public class SoundTest {
     private Sound sound;
 
     @Mock
@@ -33,8 +33,8 @@ import static org.mockito.Mockito.*;
 
     @Test
     public void testPLay() throws Exception{
-        String filePath = new String(filePath);
-        URL url = getClass().getResource(filePath);
+
+        URL url = getClass().getResource("/audio/selectSound.wav");
         Sound soundSpy = spy(sound);
         doReturn(url).when(soundSpy).getClass().getResource(anyString());
         when(AudioSystem.getClip()).thenReturn(clip);
@@ -53,10 +53,5 @@ import static org.mockito.Mockito.*;
         verify(volumeControl, times(3)).setValue(anyFloat());
         verify(clip).start();
     }
-
-
-
-
-
-}*/
+ }
 

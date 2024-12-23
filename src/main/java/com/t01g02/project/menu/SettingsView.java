@@ -52,17 +52,14 @@ public class SettingsView implements IView{
         int boxWidth = 20;
         int boxHeight = 10;
 
-        // Draw Background Squares
         drawBox(textGraphics, centerX - boxWidth - 2, centerY - boxHeight / 2, boxWidth, boxHeight);
         drawBox(textGraphics, centerX + 2, centerY - boxHeight / 2, boxWidth, boxHeight);
 
-        // Exit Info
         String exitInfo = model.getExitSettingsInfo();
         textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
         textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
         textGraphics.putString(centerX - exitInfo.length() / 2, centerY - boxHeight / 2 - 2, exitInfo, SGR.BOLD);
 
-        // Enter Info
         String enterInfo = model.getEnterSettingsInfo();
         textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
         textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
@@ -75,7 +72,6 @@ public class SettingsView implements IView{
         textGraphics.fillRectangle(new TerminalPosition(startX, startY), new TerminalSize(width, height), ' ');
     }
 
-    // 'B' Info
     public void drawBInfo (boolean show){
         TerminalSize newSize = screen.getTerminalSize();
         if (lastKnownSize == null || !lastKnownSize.equals(newSize)) {
@@ -107,11 +103,9 @@ public class SettingsView implements IView{
         int boxWidth = 20;
         int boxHeight = 10;
         int bottomBox = boxHeight - 3;
-        int buttonSpacing = 4;
         int musicBoxX = (centerX*2 - boxWidth + 4)/2 ;
         int soundBoxX = centerX + 2;
 
-        // Define button positions and options
         String[] options = model.getOptions();
         int[] buttonPositions = {
                 musicBoxX - (boxWidth - "Music".length()) / 2,  // Music X position
@@ -152,7 +146,6 @@ public class SettingsView implements IView{
         }
         textGraphics.putString(x, y, name, SGR.BOLD);
     }
-
 
 
 }
