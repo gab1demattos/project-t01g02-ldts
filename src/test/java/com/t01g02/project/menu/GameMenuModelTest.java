@@ -27,7 +27,7 @@ public class GameMenuModelTest {
 
                 1. Use the arrows to move Kitty
 
-                2.You can only pick up a friend at a time
+                2. You can only pick up a friend at a time
 
                 3. Avoid roadblocks and mud puddles
 

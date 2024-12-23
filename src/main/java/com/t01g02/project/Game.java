@@ -28,12 +28,14 @@ public class Game {
     private StarController starController;
     private PopUpsViewer popUpsViewer;
     private final GameEndListener gameEndListener;
+    private SettingsModel settingsModel;
     ScoreController scoreController;
 
 
-    public Game(GameEndListener gameEndListener) throws IOException, FontFormatException, URISyntaxException {
+    public Game(GameEndListener gameEndListener, SettingsModel settingsModel) throws IOException, FontFormatException, URISyntaxException {
         this.gui = new LanternaGui(345, 195, "Hello Kitty Game!");
         this.gameEndListener = gameEndListener;
+        this.settingsModel = settingsModel;
         initializeGameComponents();
         addKeyListener();
 
@@ -41,7 +43,7 @@ public class Game {
 
     public void initializeGameComponents() throws IOException{
         Sound sound = new Sound();
-        SettingsModel settingsModel = new SettingsModel();
+        SettingsModel settingsModel = this.settingsModel;
         CityModel city = new CityModel(345, 180);
         this.cityViewer = new CityViewer(city, gui.getScreen());
         this.characterViewer = new CharacterViewer(gui.getScreen());

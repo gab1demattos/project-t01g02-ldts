@@ -15,7 +15,6 @@ public class GameMenuView implements IView {
     public GameMenuView(Screen screen, GameMenuModel model) {
         this.screen = screen;
         this.model = model;
-
     }
 
     @Override
@@ -30,40 +29,8 @@ public class GameMenuView implements IView {
             screen.clear();
 
             TextGraphics textGraphics = screen.newTextGraphics();
-
-            textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237)); // Pink
-            textGraphics.fillRectangle(new TerminalPosition(0, 0), newSize, ' '); // Fill screen with background color
-
-            int centerX = newSize.getColumns() / 2;
-            int centerY = newSize.getRows() / 2;
-            String[] infoLines = model.getInfoText().split("\n");
-            int messageWidth = Math.max(model.getGreetings().length(), getMaxLineLength(infoLines));
-            int messageHeight = 2 + infoLines.length;
-
-            int rectWidth = messageWidth + 4;
-            int rectHeight = messageHeight + 2;
-            int rectStartX = centerX - rectWidth / 2;
-            int rectStartY = centerY - rectHeight / 2;
-            textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
-            textGraphics.fillRectangle(new TerminalPosition(rectStartX, rectStartY), new TerminalSize(rectWidth, rectHeight), ' ');
-
-            String greetings = model.getGreetings();
-            int greetingX = centerX - greetings.length() / 2;
-            textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
-            textGraphics.putString(greetingX, rectStartY + 1, greetings, SGR.BOLD);
-
-            int infoStartY = rectStartY + 3;
-            for (String line : infoLines) {
-                int LineX = centerX - line.length() / 2;
-                textGraphics.putString(LineX, infoStartY, line, SGR.BOLD);
-                infoStartY++;
-            }
-
-            String exitInfo = model.getExitInfo();
-            textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
-            textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
-            textGraphics.putString(rectStartX, rectStartY - 1, exitInfo, SGR.BORDERED);
-
+            drawBackground(textGraphics, newSize);
+            drawMessages(textGraphics,newSize);
 
             redrawButtons();
 
@@ -72,6 +39,59 @@ public class GameMenuView implements IView {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    void drawBackground(TextGraphics textGraphics, TerminalSize newSize){
+        textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237)); // Pink
+        textGraphics.fillRectangle(new TerminalPosition(0, 0), newSize, ' '); // Fill screen with background color
+    }
+
+    void drawMessages(TextGraphics textGraphics, TerminalSize newSize){
+        int centerX = newSize.getColumns() / 2;
+        int centerY = newSize.getRows() / 2;
+        String[] infoLines = model.getInfoText().split("\n");
+        int messageWidth = Math.max(model.getGreetings().length(), getMaxLineLength(infoLines));
+        int messageHeight = 2 + infoLines.length;
+
+        int rectStartX = centerX - (messageWidth + 4) / 2;
+        int rectStartY = centerY - (messageHeight + 2)/2;
+        drawMessageBackground(textGraphics,rectStartX,rectStartY,messageWidth,messageHeight);
+        drawGreetings(textGraphics,centerX,rectStartY);
+
+        int infoStartY = rectStartY+3;
+        drawInfoText(textGraphics,centerX,infoStartY,infoLines);
+
+        String exitInfo = model.getExitInfo();
+        drawExitInfo(textGraphics, rectStartX, rectStartY, messageWidth, exitInfo);
+    }
+
+    void drawMessageBackground(TextGraphics textGraphics, int rectStartX, int rectStartY, int messageWidth, int messageHeight){
+        int rectWidth = messageWidth + 4; // Adding some leftover space
+        int rectHeight = messageHeight + 2;
+        textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
+        textGraphics.fillRectangle(new TerminalPosition(rectStartX, rectStartY), new TerminalSize(rectWidth, rectHeight), ' ');
+    }
+
+    void drawGreetings(TextGraphics textGraphics, int centerX, int rectStartY){
+        String greetings = model.getGreetings();
+        int greetingX = centerX - greetings.length() / 2;
+        textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
+        textGraphics.putString(greetingX, rectStartY + 1, greetings, SGR.BOLD);
+    }
+
+    void drawInfoText(TextGraphics textGraphics, int centerX, int infoStartY, String[] infoLines){
+        for (String line : infoLines) {
+            int LineX = centerX - line.length() / 2;
+            textGraphics.putString(LineX, infoStartY, line, SGR.BOLD);
+            infoStartY++;
+        }
+    }
+
+    void drawExitInfo (TextGraphics textGraphics, int centerX, int rectStartY, int messageWidth, String exitInfo){
+        int exitX = centerX - messageWidth/2;
+        textGraphics.setForegroundColor(new TextColor.RGB(217, 167, 164));
+        textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
+        textGraphics.putString(exitX, rectStartY - 1, exitInfo, SGR.BORDERED);
     }
 
     @Override
@@ -105,7 +125,7 @@ public class GameMenuView implements IView {
         textGraphics.putString(x, y, name, SGR.BOLD);
     }
 
-    private int getMaxLineLength(String[] lines) {
+    public int getMaxLineLength(String[] lines) {
         int maxLength = 0;
         for (String line : lines) {
             if (line.length() > maxLength) {

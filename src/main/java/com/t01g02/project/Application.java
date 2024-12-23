@@ -41,7 +41,7 @@ public class Application {
         GameMenuModel model = new GameMenuModel();
         GameMenuView view = new GameMenuView(screen, model);
 
-        GameOverView gameOverView = new GameOverView(screen);
+        GameOver gameOverView = new GameOver(screen);
 
         SettingsModel settingsModel = new SettingsModel();
         SettingsView settingsView = new SettingsView(screen, settingsModel);

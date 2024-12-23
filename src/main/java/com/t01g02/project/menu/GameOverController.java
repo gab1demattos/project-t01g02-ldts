@@ -8,37 +8,30 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class GameOverController implements IController{
-    private GameOverView gameOverView;
+    private GameOver gameOverView;
     private final Screen screen;
-
     private final SettingsModel settingsModel;
     private final Sound sound;
 
 
-    public GameOverController (GameOverView gameOverView, Screen screen , SettingsModel settingsModel ,Sound sound){
+    public GameOverController (GameOver gameOverView, Screen screen , SettingsModel settingsModel , Sound sound){
         this.gameOverView=gameOverView;
         this.screen=screen;
-
         this.settingsModel=settingsModel;
         this.sound=sound;
-
-
     }
 
     public void setGameOverState(boolean isWin, int finalScore) {
         gameOverView.setGameOver(isWin, finalScore);
-
         if (settingsModel.isSoundOn()) {
             try {
                 Thread.sleep(5);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+
+            } catch (InterruptedException e) {throw new RuntimeException(e);}
+
             if (isWin) {
-                System.out.println("Playing win sound...");
                 sound.play("/audio/winSound.wav");
             } else {
-                System.out.println("Playing lose sound...");
                 sound.play("/audio/loseSound.wav");
             }
         }
@@ -52,12 +45,6 @@ public class GameOverController implements IController{
                 case Escape:
                     System.exit(0);
                     break;
-
-//                case Character:
-//                    if (input.getCharacter() == 'b') {
-//                        gameMenuController.setInGameOver(false);
-//                    }
-
                 default:
                     break;
             }
@@ -69,7 +56,5 @@ public class GameOverController implements IController{
     public void updateView() {
         gameOverView.redrawScreen();
     }
-
-
 
 }

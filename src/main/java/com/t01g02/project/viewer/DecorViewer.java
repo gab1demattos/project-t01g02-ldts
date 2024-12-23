@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class DecorViewer {
-    private final Sprite house, tree, lighttree, yellowhouse, bluehouse, pinkhouse; //flowers;
+    private final Sprite house, tree, lighttree, yellowhouse, bluehouse, pinkhouse, pinkflower, yellowflower, groundright,groundleft,groundleft2, groundhouse, partyground, lamp;
 
 
     public DecorViewer(Screen screen) throws IOException {
@@ -17,6 +17,14 @@ public class DecorViewer {
         this.yellowhouse = new Sprite(screen, "src/main/resources/extras/yellowhouse.png");
         this.bluehouse = new Sprite(screen, "src/main/resources/extras/bluehouse.png");
         this.pinkhouse = new Sprite(screen, "src/main/resources/extras/pinkhouse.png");
+        this.pinkflower = new Sprite(screen, "src/main/resources/extras/pinkflower.png");
+        this.groundright = new Sprite(screen, "src/main/resources/extras/ground.png");
+        this.groundleft = new Sprite(screen, "src/main/resources/extras/groundleft.png");
+        this.groundleft2 = new Sprite(screen, "src/main/resources/extras/groundleft2.png");
+        this.yellowflower = new Sprite(screen, "src/main/resources/extras/yellowflower.png");
+        this.groundhouse = new Sprite(screen, "src/main/resources/extras/groundhouse.png");
+        this.partyground = new Sprite(screen, "src/main/resources/extras/partyground.png");
+        this.lamp = new Sprite(screen, "src/main/resources/extras/lamp.png");
     }
 
     private final List<Position> housePositions = List.of(
@@ -27,11 +35,8 @@ public class DecorViewer {
     );
 
     private final List<Position> treePositions = List.of(
-            new Position(307, 20),
-            new Position(307, 34),
-            new Position(26, 18),
-            new Position(24, 38),
-            new Position(151, 73),
+            new Position(23, 24),
+            new Position(306, 34),
             new Position(119, 129),
             new Position(155, 78),
             new Position(155, 87)
@@ -39,32 +44,62 @@ public class DecorViewer {
 
     private final List<Position> yellowHousePositions = List.of(
             new Position(95, 71),
-            new Position(222, 20),
-            new Position(155, 121)
+            new Position(224, 20),
+            new Position(154, 121)
     );
 
     private final List<Position> blueHousePositions = List.of(
             new Position(95, 20),
-            new Position(188, 121),
-            new Position(222, 71)
+            new Position(189, 121),
+            new Position(224, 71)
     );
 
     private final List<Position> pinkHousePositions = List.of(
-            new Position(160, 20),
+            new Position(154, 20),
             new Position(30, 121),
-            new Position(222,121)
+            new Position(224,121)
     );
 
     private final List<Position> lighttreePositions = List.of(
-            new Position(310, 27),
-            new Position(22, 27),
+            new Position(23, 35),
+            new Position(182, 30),
             new Position(151, 83),
             new Position(117, 136)
     );
+
+    private final List<Position> pinkflowerPositions = List.of(
+            new Position(169, 130));
+    private final List<Position> groundRightPositions = List.of(
+            new Position(150, 21),
+            new Position(275, 21)
+
+    );
+    private final List<Position> groundLeftPositions = List.of(
+            new Position(150, 75)
+
+    );
+    private final List<Position> groundLeft2Positions = List.of(
+            new Position(20, 21)
+    );
+    private final List<Position> yellowflowerPositions = List.of(
+            new Position(204, 130)
+    );
+    private final List<Position> groundHousePositions = List.of(
+            new Position(20, 75)
+    );
+    private final List<Position> partygroundPositions = List.of(
+            new Position(275, 75)
+    );
+    private final List<Position> lampPositions = List.of(
+            new Position(78, 28),
+            new Position(208, 28),
+            new Position(208, 79),
+            new Position(78, 79)
+    );
+
     public List<Position> getHousePositions() {
         return housePositions;
     }
-
     public List<Position> getBlueHousePositions() {
         return blueHousePositions;
     }
@@ -84,6 +119,7 @@ public class DecorViewer {
     public List<Position> getYellowHousePositions() {
         return yellowHousePositions;
     }
+
     public void drawElements(Sprite sprite, List<Position> positions) {
         for (Position position : positions) {
             sprite.drawImage(position);
@@ -96,6 +132,14 @@ public class DecorViewer {
         drawElements(yellowhouse, yellowHousePositions);
         drawElements(bluehouse, blueHousePositions);
         drawElements(pinkhouse, pinkHousePositions);
+        drawElements(pinkflower, pinkflowerPositions);
+        drawElements(yellowflower, yellowflowerPositions);
+        drawElements(groundhouse, groundHousePositions);
+        drawElements(partyground, partygroundPositions);
+        drawElements(lamp,lampPositions);
+        drawElements(groundright, groundRightPositions);
+        drawElements(groundleft,groundLeftPositions);
+        drawElements(groundleft2,groundLeft2Positions);
     }
 
 }

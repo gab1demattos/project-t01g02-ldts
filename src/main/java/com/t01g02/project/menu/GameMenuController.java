@@ -20,11 +20,11 @@ public class GameMenuController implements IController, GameEndListener {
     private final Sound sound;
     private boolean inSettings;
     private final SettingsController settingsController;
-    private final GameOverView gameOverView;
+    private final GameOver gameOverView;
     private final GameOverController gameOverController;
     private boolean inGameOver ;
 
-    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOverView gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOver gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.view = view;
         this.screen = screen;
         this.model = model;
@@ -34,17 +34,10 @@ public class GameMenuController implements IController, GameEndListener {
         this.sound = sound;
         this.gameOverView = gameOverView;
 
-        if (settingsModel.isMusicOn()){
-                playMenuMusic();
-        }else{
-            music.stop();
-        }
+        setupMusic();
+
         this.settingsController = new SettingsController(settingsView, screen, settingsModel, music,sound, this);
         this.gameOverController = new GameOverController(gameOverView,screen,settingsModel,sound);
-    }
-
-    public boolean isRunning() {
-        return running;
     }
 
     @Override
@@ -53,48 +46,76 @@ public class GameMenuController implements IController, GameEndListener {
         if (input != null && !inSettings) {
             switch (input.getKeyType()) {
                 case Escape:
-                    if(settingsModel.isSoundOn()){
-                        sound.play("/audio/keyPressSound.wav");
-                    }
-                    if (!inSettings){
-                        running = false;
-                        System.exit(0);
-                        break;
-                    }else{
-                        setInSettings(false);  // Switch back to the main menu
-                        updateView();
-                        break;
-                    }
-
+                    handleEscapeKey();
+                    break;
                 case ArrowLeft:
-                    if(settingsModel.isSoundOn()){
-                        sound.play("/audio/arrowMenuSound.wav");
-                    }
-                    model.setSelectedOption((model.getSelectedOption() - 1 + model.getOptions().length) % model.getOptions().length);
-                    view.redrawButtons();
+                    handleArrowLeft();
                     break;
                 case ArrowRight:
-                    if(settingsModel.isSoundOn()){
-                        sound.play("/audio/arrowMenuSound.wav");
-                    }
-                    model.setSelectedOption((model.getSelectedOption() + 1) % model.getOptions().length);
-                    view.redrawButtons();
+                    handleArrowRight();
                     break;
                 case Enter:
-                    if (settingsModel.isSoundOn()){
-                        sound.play("/audio/selectSound.wav");
-                    }
+                    handleEnterKey();
                     executeSelectedOption();
                     break;
                 default:
                     break;
             }
+
         } else if (inSettings){
             settingsController.processInput();
+
         }else if (inGameOver){
             gameOverController.processInput();
         }
+
         screen.refresh();
+    }
+
+    private void handleEscapeKey() {
+        if (settingsModel.isSoundOn()) {
+            sound.play("/audio/keyPressSound.wav");
+        }
+        if (!inSettings) {
+            running = false;
+            System.exit(0);
+        } else {
+            setInSettings(false);  // Switch back to the main menu
+            updateView();
+        }
+    }
+
+    private void handleArrowLeft() {
+        if (settingsModel.isSoundOn()) {
+            sound.play("/audio/arrowMenuSound.wav");
+        }
+        model.setSelectedOption((model.getSelectedOption() - 1 + model.getOptions().length) % model.getOptions().length);
+        view.redrawButtons();
+    }
+
+    private void handleArrowRight() {
+        if (settingsModel.isSoundOn()) {
+            sound.play("/audio/arrowMenuSound.wav");
+        }
+        model.setSelectedOption((model.getSelectedOption() + 1) % model.getOptions().length);
+        view.redrawButtons();
+    }
+
+    private void handleEnterKey() {
+        if (settingsModel.isSoundOn()) {
+            sound.play("/audio/selectSound.wav");
+        }
+        try {
+            executeSelectedOption();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        } catch (FontFormatException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     void executeSelectedOption() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
@@ -116,20 +137,6 @@ public class GameMenuController implements IController, GameEndListener {
         updateView();
     }
 
-    public boolean isInSettings() {
-        return inSettings;
-    }
-    public void setInSettings(boolean inSettings) {
-        this.inSettings = inSettings;
-    }
-
-    public boolean isInGameOver(){
-        return inGameOver;
-    }
-    public void setInGameOver(boolean inGameOver) {
-        this.inGameOver = inGameOver;
-    }
-
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         Thread.sleep(870); //slight delay so audio can play while still in settings
@@ -142,7 +149,7 @@ public class GameMenuController implements IController, GameEndListener {
             throw new RuntimeException(e);
         }
 
-        Game game = new Game(this);
+        Game game = new Game(this,settingsModel);
         game.run();
     }
 
@@ -152,6 +159,14 @@ public class GameMenuController implements IController, GameEndListener {
         gameOverView.setGameOver(isWin, finalScore);
         gameOverController.setGameOverState(isWin, finalScore);
         updateView();
+    }
+
+    private void setupMusic() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        if (settingsModel.isMusicOn()) {
+            playMenuMusic();
+        } else {
+            music.stop();
+        }
     }
 
     private void playMenuMusic() throws UnsupportedAudioFileException, IOException,LineUnavailableException{
@@ -183,7 +198,22 @@ public class GameMenuController implements IController, GameEndListener {
         }
     }
 
-    public void setRunning(boolean running) {
-        this.running = running;
+
+
+    public boolean isInSettings() {
+        return inSettings;
     }
+    public void setInSettings(boolean inSettings) {
+        this.inSettings = inSettings;
+    }
+
+    public boolean isInGameOver(){
+        return inGameOver;
+    }
+
+    public boolean isRunning() {
+        return running;
+    }
+
+
 }
