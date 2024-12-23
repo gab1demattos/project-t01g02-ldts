@@ -17,7 +17,6 @@ repositories {
 dependencies {
     implementation group: 'com.googlecode.lanterna', name : 'lanterna', version: '3.1.2'
     testImplementation('org.junit.jupiter:junit-jupiter:5.6.2')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     testImplementation 'org.mockito:mockito-core:3.7.7'
     testImplementation 'net.jqwik:jqwik:1.5.1'
@@ -47,7 +46,9 @@ pitest {
     threads = 1
     verbose = true
     targetClasses = ['com.t01g02.project.*']
-    excludedClasses = ['*Game', '*Application', '*LanternaGui']
+    excludedClasses = ['*Game']
+    excludedClasses = ['*Application']
+    excludedClasses = ['*LanternaGui']
 
     targetTests = ['com.t01g02.project.*Test']
 

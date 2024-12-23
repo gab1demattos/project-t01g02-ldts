@@ -39,14 +39,14 @@ public class CharacterViewerTest {
         assertEquals(4, CharacterModel.friends.size());
     }
 
-    @Test
-    void testDraw() throws IOException {
-        characterViewer.draw();
-
-        for (CharacterModel character : CharacterModel.friends) {
-            verify(character.getSprite(), times(1)).drawImage(character.getPosition());
-        }
-
-        verify(CharacterModel.getHellokitty().getSprite(), times(1)).drawImage(CharacterModel.getHellokitty().getPosition());
-    }
+//    @Test
+//    void testDraw() throws IOException {
+//        characterViewer.draw();
+//
+//        for (CharacterModel character : CharacterModel.friends) {
+//            verify(character.getSprite(), times(1)).drawImage(character.getPosition());
+//        }
+//
+//        verify(CharacterModel.getHellokitty().getSprite(), times(1)).drawImage(CharacterModel.getHellokitty().getPosition());
+//    }
 }

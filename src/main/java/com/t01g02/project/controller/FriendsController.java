@@ -11,7 +11,7 @@ import static com.t01g02.project.model.CharacterModel.friends;
 import static com.t01g02.project.model.CharacterModel.hellokitty;
 
 public class FriendsController {
-    private static CityModel cityModel;
+    static CityModel cityModel;
     private final List<KittyObserver> observers = new ArrayList<>();
     private final Sound sound;
     private final SettingsModel settingsModel;
