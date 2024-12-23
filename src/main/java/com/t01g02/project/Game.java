@@ -29,6 +29,7 @@ public class Game {
     private PopUpsViewer popUpsViewer;
     private final GameEndListener gameEndListener;
     private SettingsModel settingsModel;
+    private boolean gameOver = false;
     ScoreController scoreController;
 
 
@@ -76,6 +77,7 @@ public class Game {
     }
 
     public void run() throws IOException{
+        if (gameOver) return;
         cityViewer.initializeCityImage();
         int FPS = 10;
         int frameTime = 1000 / FPS;
@@ -108,6 +110,7 @@ public class Game {
                 scoreController.incrementScore(timer.getRemainingSeconds());
                 System.out.println("Game Over!");
                 setGameOver(friendsController.areAllFriendsInParty() && kittyController.HasStarBeenPicked(), score.getScore() );
+                gameOver = true;
                 break;
             }
 
@@ -125,6 +128,7 @@ public class Game {
 
     private void setGameOver(boolean isWin, int finalScore) throws IOException {
         try {
+            gui.getTerminalFrame().dispose();
             gui.getScreen().close();
         } catch (IOException e) {
             throw new RuntimeException(e);

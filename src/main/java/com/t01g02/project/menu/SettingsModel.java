@@ -43,7 +43,7 @@ public class SettingsModel {
     }
 
     public void setSelectedOption(int selectedOption) {
-        this.selectedOption = selectedOption;
+        this.selectedOption = (selectedOption + options.length) % options.length;
     }
 
     public String getExitSettingsInfo() {
