@@ -19,22 +19,21 @@ public class PopUpsModel extends Element {
         super(sprite, position, name);
     }
 
-
     private static List<Position> popupsPositions = new ArrayList<>(
             List.of(
-                new Position(4, 6),
-                new Position(0, 100),
-                new Position(30, 160),
-                new Position(190, 160),
-                new Position(130, 110),
-                new Position(170, 55),
-                new Position(150, 6),
-                new Position(260, 6),
-                new Position(320, 100),
-                new Position(130, 160),
-                new Position(100, 55),
-                new Position(200, 7),
-                new Position(320, 55)
+                    new Position(3, 6),
+                    new Position(3, 100),
+                    new Position(30, 160),
+                    new Position(190, 160),
+                    new Position(130, 108),
+                    new Position(170, 57),
+                    new Position(150, 6),
+                    new Position(260, 6),
+                    new Position(323, 100),
+                    new Position(130, 158),
+                    new Position(100, 57),
+                    new Position(200, 7),
+                    new Position(323, 55)
     ));
 
     public static Position getRandomPosition() {
@@ -72,15 +71,15 @@ public class PopUpsModel extends Element {
 
     public static void initializeMudPopUps(Screen screen) throws IOException {
         mudpopups = new ArrayList<>( List.of(
-                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud2.png"), getRandomPosition(), "Mud"),
-                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud2.png"), getRandomPosition(), "Mud"),
-                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud2.png"), getRandomPosition(), "Mud")
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud3.png"), getRandomPosition(), "Mud"),
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud3.png"), getRandomPosition(), "Mud"),
+                new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud3.png"), getRandomPosition(), "Mud")
 
         ));
     }
 
     public static void addMud(Screen screen) throws IOException {
-        mudpopups.add(new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud2.png"), getRandomPosition(), "Mud"));
+        mudpopups.add(new PopUpsModel(new Sprite(screen, "src/main/resources/Pop-ups/mud3.png"), getRandomPosition(), "Mud"));
     }
 
     public static void initializeBlockPopUps(Screen screen) throws IOException {
