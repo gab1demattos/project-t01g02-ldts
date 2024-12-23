@@ -42,7 +42,7 @@ public class GameMenuControllerTest {
     }
 
     @Test
-    public void testProcessInputEscape() throws IOException, URISyntaxException, FontFormatException, InterruptedException{
+    public void testEscape() throws IOException, URISyntaxException, FontFormatException, InterruptedException{
         when(mockScreen.readInput()).thenReturn(new KeyStroke(KeyType.Escape));
         controller.processInput();
         verify(mockScreen).refresh();

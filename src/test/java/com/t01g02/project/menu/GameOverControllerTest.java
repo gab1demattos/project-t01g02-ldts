@@ -11,6 +11,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class GameOverControllerTest {
@@ -62,14 +63,19 @@ public class GameOverControllerTest {
     }
 
     @Test
-    void testEscape() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
-        KeyStroke escapeKey = mock(KeyStroke.class);
-        when(escapeKey.getKeyType()).thenReturn(KeyType.Escape);
-        when(screen.readInput()).thenReturn(escapeKey);
+    public void testPressEsc() throws IOException, InterruptedException {
+        when(screen.readInput()).thenReturn(new KeyStroke(KeyType.Escape));
 
-        controller.processInput();
+        boolean[] exited = {false};
 
-        verify(screen, times(1)).readInput();
+        try {
+            controller.processInput();
+            exited[0]=true;
+        } catch (IOException | URISyntaxException | FontFormatException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        assertTrue(exited[0]);
     }
 
     @Test
