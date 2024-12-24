@@ -34,16 +34,21 @@ Bonus Star
 
 ### Mockups
 
-Menu Mockup
-<p align="center">
-    <img width="500" src="/docs/images/menu_mockup.jpeg" alt="Menu Mockup"/>
-</p>
+<div align="center">
+    <table>
+        <tr>
+            <td align="center">
+                <img width="300" src="/docs/images/menu_mockup.jpeg" alt="Menu Mockup"/><br/>
+                <strong>Menu Mockup</strong>
+            </td>
+            <td align="center">
+                <img width="300" src="/docs/images/game_mockup.jpg" alt="Game Mockup"/><br/>
+                <strong>Game Mockup</strong>
+            </td>
+        </tr>
+    </table>
+</div>
 
-
-Game Mockup
-<p align="center">
-    <img  src="/docs/images/game_mockup.jpg" alt="Game Mockup"/>
-</p>
 
 ### Design Patterns
 
