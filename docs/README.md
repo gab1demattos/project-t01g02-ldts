@@ -1,6 +1,10 @@
 # LDTS Project T01G02 - Hello Kitty's Party
 
 
+<p align="center">
+    <img width="500" src="/docs/images/GameStart.png" alt="Hello Kitty's Party"/>
+</p>
+
 ## Description
 Our game is inspired by an existing game from our childhood, however we added our own personal twist.
 
@@ -13,9 +17,20 @@ At the top of the screen, you will find the timer and your current score, keep a
 
 The aim of the game is to pick up the four friends and drop them off at the party as quickly as possible. The faster you complete your mission and the more bonuses you collect, the higher your final score.
 
-To make the game more interesting and enjoyable there will be power-ups and obstacles. Lightning bolts will increase Kitty´s speed, helping you complete the tasks more efficiently. Hearts add extra points to your score. Avoid roadblocks and beware of mud puddles, as they will slow Kitty down and reduce your score.
+To make the game more interesting and enjoyable there are power-ups and obstacles. Lightning bolts will incre
+ase Kitty´s speed, helping you complete the tasks more efficiently. Hearts add extra points to your score. Avoid roadblocks and beware of mud puddles, as they will slow Kitty down and reduce your score.
 
-METER SCREENSHOTS DAS FEATURES
+
+Picking up a Friend
+<p align="center">
+    <img width="500" src="/docs/images/PickupFriend.png" alt="Pickup Friend"/>
+</p>
+
+
+Bonus Star
+<p align="center">
+    <img width="500" src="/docs/images/Star.png" alt="Bonus Star"/>
+</p>
 
 ### Mockups
 
@@ -27,38 +42,10 @@ Menu Mockup
 
 Game Mockup
 <p align="center">
-    <img  src="/docs/images/game_mockup.jpg" alt="Menu Mockup"/>
+    <img  src="/docs/images/game_mockup.jpg" alt="Game Mockup"/>
 </p>
 
 ### Design Patterns
-
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
-
-- **Problem in Context.** Explain the diifferent problemse description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
-
-**Example of one of such subsections**:
-
-------
-
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
-
-**Problem in Context**
-
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
-
-**The Pattern**
-
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
-
-**Implementation**
-
-The following figure shows how the pattern’s roles were mapped to the application classes.
-
-///rewrite this into the top part
-Having studied design and architectural patterns, we took them into consideration before starting to write our code to improve readability, flexibility and code reusability.
 
 ### Menu
 For our game’s menu, we adhered to the **Model-View-Controller (MVC)** architectural pattern, organizing the code into three interfaces: IModel, IView, and IController—and their respective implementations: GameMenuModel, GameMenuView, and GameMenuController. 
@@ -87,14 +74,18 @@ Regarding design patterns, our menu employs the strategy, command, and observer 
 These design patterns help us maintain a clean and scalable architecture, facilitating easier maintenance and extension of the game’s menu system. 
 By adhering to MVC and employing these patterns, we ensure a clear separation of concerns and robust design.
 
+<p align="center">
+    <img  src="/docs/images/UMLs/Menu.png" alt="Menu UML"/>
+</p>
+
 
 ### Game
 #### Architectural Pattern
 
-We Implemented the MVC (Model/View/Controller) design pattern.
+We also implemented the MVC (Model/View/Controller) architectural pattern in the game itself.
 
 - The Model stores all the structure of each element inside the game (City, Characters).
-- The View displays the Model in a graphical user interface
+- The View displays the Model in a graphical user interface.
 - The Controller handles user input and updates the Model and View
 
 **Consequences**
@@ -125,24 +116,54 @@ tiles and groups (like roads) uniformly.
 This approach simplifies game logic by allowing it to handle tiles and composed structures the same way. It also makes 
 the system more flexible, as adding new components like buildings or new road types can be done without modifying the
 existing structure.
- ////
+
+#### Observer Pattern
+
+We also applied the observer pattern in the Game, making the Score Controller a Kitty Observer. We used Score Controller
+so that the MVC would be clean and there would be no classes in model observing the controllers. Kitty Observer 
+observed the Friends Controller to always be notified immediately when hello kitty picked up or dropped off a friend and 
+Kitty Controller, so that the score would double
+
+**Consequences**
+
+The Observer pattern keeps the ScoreController updated whenever something important happens, like a friend being picked 
+up or dropped off. This makes the system easier to expand or change since the ScoreController doesn’t need to directly 
+control or depend on the other components. However, it can make debugging harder because the updates happen 
+automatically in the background.
+
+<p align="center">
+    <img  src="/docs/images/UMLs/ObserverPattern.png" alt="OberverUML"/>
+</p>
+
+
 
 #### KNOWN CODE SMELLS
 
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
+Some code smells that we know are present in our code is for example the game loop, along with its initialization. 
+We realized too late that there were far too many elements that needed to be initialized and then updated, and so the
+game loop became very messy. We created a separate method for element initialization to keep the constructor cleaner.
+However, the game loop isn't sustainable in the long term and should be updated, perhaps with a State pattern. 
 
-Menu and game start is confusing and should the game start and loop should be cleaner
+Another detail we noticed, is that we since we initialize the game in a new terminal that is not the same in the menu
+screen, there's a disconnect in the user experience. This forces the user to switch between interfaces, which isn't 
+smooth or intuitive. Refactoring this process to maintain a unified interface throughout the game, possibly by reusing 
+the same terminal or using a single window with dynamic views, would improve the overall user experience.
+
+Finally, some methods and classes have grown larger than initially planned, making them harder to read and maintain. 
+Breaking these into smaller, more focused components would align better with the Single Responsibility Principle and 
+improve code readability and scalability. This includes simplifying the logic in controllers and separating concerns 
+further, ensuring each part of the code has a clear and specific role.
 
 
 ### TESTING
 
+The full Pitest report is included in the Docs folder
 - Screenshot of coverage report.
-- Link to mutation testing report.
 
 ### SELF-EVALUATION
 
-- Gabriela de Mattos:
-- Matilde Duarte:
-- Matilde Sousa:
+- Gabriela de Mattos: 33%
+- Matilde Duarte: 33%
+- Matilde Sousa: 33%
 
 
