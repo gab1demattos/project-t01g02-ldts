@@ -42,8 +42,8 @@ public class GameMenuView implements IView {
     }
 
     void drawBackground(TextGraphics textGraphics, TerminalSize newSize){
-        textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237)); // Pink
-        textGraphics.fillRectangle(new TerminalPosition(0, 0), newSize, ' '); // Fill screen with background color
+        textGraphics.setBackgroundColor(new TextColor.RGB(255, 225, 237));
+        textGraphics.fillRectangle(new TerminalPosition(0, 0), newSize, ' ');
     }
 
     void drawMessages(TextGraphics textGraphics, TerminalSize newSize){
@@ -66,7 +66,7 @@ public class GameMenuView implements IView {
     }
 
     void drawMessageBackground(TextGraphics textGraphics, int rectStartX, int rectStartY, int messageWidth, int messageHeight){
-        int rectWidth = messageWidth + 4; // Adding some leftover space
+        int rectWidth = messageWidth + 4;
         int rectHeight = messageHeight + 2;
         textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
         textGraphics.fillRectangle(new TerminalPosition(rectStartX, rectStartY), new TerminalSize(rectWidth, rectHeight), ' ');

@@ -7,10 +7,13 @@ import com.t01g02.project.model.Position;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentCaptor;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
@@ -34,38 +37,16 @@ public class PopUpsViewerTest {
         CharacterModel.friends = new ArrayList<>();
     }
 
-//    @Test
-//    void testInitializePopUps() throws IOException {
-//        popUpsViewer.initializePopUps();
-//
-//        assertNotNull(PopUpsModel.speedpopups);
-//        assertNotNull(PopUpsModel.mudpopups);
-//        assertNotNull(PopUpsModel.blockpopups);
-//        assertNotNull(PopUpsModel.getStar());
-//    }
+    @Test
+    void testInitializePopUps() throws IOException {
+        popUpsViewer.initializePopUps();
 
-//    @Test
-//    void testDrawWithPopUps() throws IOException {
-//        PopUpsModel speedPopUpMock = new PopUpsModel(stubSprite, new Position(10, 10), null);
-//        PopUpsModel mudPopUpMock = new PopUpsModel(stubSprite, new Position(20, 20), null);
-//        PopUpsModel blockPopUpMock = new PopUpsModel(stubSprite, new Position(30, 30), null);
-//        PopUpsModel starMock = new PopUpsModel(stubSprite, new Position(40, 40), null);
-//
-//        PopUpsModel.speedpopups.add(speedPopUpMock);
-//        PopUpsModel.mudpopups.add(mudPopUpMock);
-//        PopUpsModel.blockpopups.add(blockPopUpMock);
-//        PopUpsModel.star = starMock;
-//
-//        CharacterModel.friends.add(mock(CharacterModel.class));
-//        CharacterModel.friends.add(mock(CharacterModel.class));
-//
-//        popUpsViewer.draw();
-//
-//        verify(speedPopUpMock.getSprite(), times(1)).drawImage(argThat(pos -> pos.hashCode() == new Position(10, 10).hashCode()));
-//        verify(mudPopUpMock.getSprite(), times(1)).drawImage(argThat(pos -> pos.hashCode() == new Position(20, 20).hashCode()));
-//        verify(blockPopUpMock.getSprite(), times(1)).drawImage(argThat(pos -> pos.hashCode() == new Position(30, 30).hashCode()));
-//        verify(starMock.getSprite(), times(1)).drawImage(argThat(pos -> pos.hashCode() == new Position(40, 40).hashCode()));
-//    }
+        assertNotNull(PopUpsModel.speedpopups);
+        assertNotNull(PopUpsModel.mudpopups);
+        assertNotNull(PopUpsModel.blockpopups);
+        assertNotNull(PopUpsModel.getStar());
+    }
+
 
     @Test
     void testDrawWithoutEnoughFriends() throws IOException {

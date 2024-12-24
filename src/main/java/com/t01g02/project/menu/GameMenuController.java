@@ -80,7 +80,7 @@ public class GameMenuController implements IController, GameEndListener {
             running = false;
             System.exit(0);
         } else {
-            setInSettings(false);  // Switch back to the main menu
+            setInSettings(false);
             updateView();
         }
     }
@@ -135,7 +135,7 @@ public class GameMenuController implements IController, GameEndListener {
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
         if (inGame) return;
         inGame = true;
-        Thread.sleep(100); //slight delay so audio can play while still in settings
+        Thread.sleep(100);
 
         try {
             playGameMusic();
@@ -179,7 +179,7 @@ public class GameMenuController implements IController, GameEndListener {
             gameOverView.redrawScreen();
         }
         else {
-            view.redrawScreen();  // Redraw main menu view
+            view.redrawScreen();
         }
 
         if (screen.doResizeIfNecessary() != null) {

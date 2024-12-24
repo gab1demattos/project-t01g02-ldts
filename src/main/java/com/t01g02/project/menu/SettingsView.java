@@ -108,8 +108,8 @@ public class SettingsView implements IView{
 
         String[] options = model.getOptions();
         int[] buttonPositions = {
-                musicBoxX - (boxWidth - "Music".length()) / 2,  // Music X position
-                soundBoxX + (boxWidth - "Sound".length())/2   // Sound X position
+                musicBoxX - (boxWidth - "Music".length()) / 2,
+                soundBoxX + (boxWidth - "Sound".length())/2
         };
         for (int i = 0; i < options.length; i++) {
             buttonColor(textGraphics, buttonPositions[i], boxHeight - 2, options[i], model.getSelectedOption() == i);
@@ -117,8 +117,8 @@ public class SettingsView implements IView{
 
         String[] musicOptions = model.getMusicOptions();
         int[] buttonPositionsMusic = {
-                centerX - boxWidth/2 - 6,                               // Music ON X position
-                centerX - boxWidth/2 - 6 + musicOptions[0].length() +3  // Music OFF X position
+                centerX - boxWidth/2 - 6,
+                centerX - boxWidth/2 - 6 + musicOptions[0].length() +3
         };
         for (int i = 0; i < musicOptions.length; i++) {
             buttonColor(textGraphics, buttonPositionsMusic[i], centerY + bottomBox - 4, musicOptions[i], model.getMusicSelectedOption() == i);
@@ -126,8 +126,8 @@ public class SettingsView implements IView{
 
         String[] soundOptions = model.getSoundOptions();
         int[] buttonPositionsSound = {
-                centerX - boxWidth/2 + 18,                               // Sound ON X position
-                centerX - boxWidth/2 + 18 + soundOptions[0].length()+3   // Sound OFF X position
+                centerX - boxWidth/2 + 18,
+                centerX - boxWidth/2 + 18 + soundOptions[0].length()+3
         };
         for (int i = 0; i < soundOptions.length; i++) {
             buttonColor(textGraphics, buttonPositionsSound[i], centerY + bottomBox - 4, soundOptions[i], model.getSoundSelectedOption() == i);

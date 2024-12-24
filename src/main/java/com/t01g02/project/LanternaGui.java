@@ -63,10 +63,6 @@ public class LanternaGui implements GUI {
         return screen;
     }
 
-    public TextGraphics getTextGraphics() {
-        return screen.newTextGraphics();
-    }
-
     @Override
     public void clear() {
         screen.clear();

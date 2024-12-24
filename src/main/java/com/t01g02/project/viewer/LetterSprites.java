@@ -207,7 +207,7 @@ public class LetterSprites {
     }
     public static String[] getStringSprite(String input) {
 
-        String[] result = new String[7]; // 7 lines tall
+        String[] result = new String[7];
         for (int i = 0; i < 7; i++) {
             result[i] = "";
         }
@@ -215,7 +215,7 @@ public class LetterSprites {
         for (char c : input.toCharArray()) {
             String[] charSprite = getSprite(c);
             for (int i = 0; i < 7; i++) {
-                result[i] += charSprite[i] + " "; // Add a space between characters
+                result[i] += charSprite[i] + " ";
             }
         }
         return result;

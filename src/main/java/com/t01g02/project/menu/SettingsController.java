@@ -16,7 +16,7 @@ public class SettingsController implements IController {
     private final Music music;
     private final Sound sound;
     private final GameMenuController mainMenuController;
-    private boolean inSubMenu = false;  //access ON and OFF buttons
+    private boolean inSubMenu = false;
 
 
     public SettingsController(SettingsView view, Screen screen, SettingsModel model, Music music,Sound sound,GameMenuController mainMenuController){
