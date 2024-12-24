@@ -22,9 +22,7 @@ public class PopUpsModelTest {
     @BeforeEach
     void setUp() {
         stubScreen = mock(Screen.class);
-//        Sprite stubBlockSprite = mock(Sprite.class);
-//        Sprite stubMudSprite = mock(Sprite.class);
-//        Sprite stubSpeedSprite = mock(Sprite.class);
+
     }
 
     @Test
@@ -47,23 +45,6 @@ public class PopUpsModelTest {
     }
 
 
-//    @Test
-//    void testInitializeSpeedPopUps() throws IOException {
-//        PopUpsModel.initializeSpeedPopUps(stubScreen);
-//
-//        assertEquals(4, PopUpsModel.speedpopups.size());
-//
-//        for (PopUpsModel speedpopup : PopUpsModel.speedpopups) {
-//            assertEquals("Speed", speedpopup.getName());
-//        }
-//    }
-//
-//    @Test
-//    void testRandomPosition() {
-//        Position randomPosition = PopUpsModel.getRandomPosition();
-//        assertNotNull(randomPosition);
-//    }
-
     @Test
     void testAddSpeedPopUp() throws IOException {
         PopUpsModel.initializeSpeedPopUps(stubScreen);
@@ -84,14 +65,6 @@ public class PopUpsModelTest {
         }
     }
 
-//    @Test
-//    void testAddMudPopUp() throws IOException {
-//        PopUpsModel.initializeMudPopUps(stubScreen);
-//
-//        PopUpsModel.addMud(stubScreen);
-//
-//        assertEquals(4, PopUpsModel.mudpopups.size());
-//    }
 
     @Test
     void testInitializeBlockPopUps() throws IOException {

@@ -168,7 +168,9 @@ further, ensuring each part of the code has a clear and specific role.
 ### TESTING
 
 The full Pitest report is included in the Docs folder
-- Screenshot of coverage report.
+<p align="center">
+    <img width="500" src="/docs/images/PitestReport.png" alt="PitestReport"/>
+</p>
 
 ### SELF-EVALUATION
 

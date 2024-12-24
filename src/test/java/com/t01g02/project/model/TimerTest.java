@@ -15,7 +15,7 @@ public class TimerTest {
 
     @Test
     public void testConstructor() {
-        assertEquals(90*1000, timer.getRemainingSeconds()*1000); // (90 seconds)
+        assertEquals(90*1000, timer.getRemainingSeconds()*1000);
         assertFalse(timer.isTimeUp());
     }
 
@@ -28,8 +28,8 @@ public class TimerTest {
 
     @Test
     public void testUpdateWithTimeUp() {
-        timer.update(90 * 1000); // (90 seconds)
-        assertEquals(0, timer.getRemainingSeconds()); // time is up
+        timer.update(90 * 1000);
+        assertEquals(0, timer.getRemainingSeconds());
         assertTrue(timer.isTimeUp());
     }
 
@@ -37,16 +37,16 @@ public class TimerTest {
     public void testGetFormattedTime() {
         assertEquals("01:30", timer.getFormattedTime());
 
-        timer.update(30 * 1000); // (30 seconds)
+        timer.update(30 * 1000);
         assertEquals("01:00", timer.getFormattedTime());
 
-        timer.update(60 * 1000); // + (60 seconds)
-        assertEquals("00:00", timer.getFormattedTime()); // 30 + 60 = 90 seconds
+        timer.update(60 * 1000);
+        assertEquals("00:00", timer.getFormattedTime());
     }
 
     @Test
     public void testResetTimer() {
-        timer.update(60 * 1000); // (60 seconds)
+        timer.update(60 * 1000);
         assertEquals("00:30", timer.getFormattedTime());
 
         timer.resetTimer(2, 0);

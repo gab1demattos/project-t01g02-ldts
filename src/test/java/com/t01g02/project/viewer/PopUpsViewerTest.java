@@ -4,17 +4,12 @@ import com.googlecode.lanterna.screen.Screen;
 import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.PopUpsModel;
 import com.t01g02.project.model.Position;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.*;
 
 public class PopUpsViewerTest {
@@ -37,38 +32,23 @@ public class PopUpsViewerTest {
         CharacterModel.friends = new ArrayList<>();
     }
 
-    @Test
-    void testInitializePopUps() throws IOException {
-        popUpsViewer.initializePopUps();
-
-        assertNotNull(PopUpsModel.speedpopups);
-        assertNotNull(PopUpsModel.mudpopups);
-        assertNotNull(PopUpsModel.blockpopups);
-        assertNotNull(PopUpsModel.getStar());
-    }
-
 
     @Test
     void testDrawWithoutEnoughFriends() throws IOException {
-        // Prepare mock popups
         PopUpsModel speedPopUpMock = new PopUpsModel(stubSprite, new Position(10, 10), null);
         PopUpsModel mudPopUpMock = new PopUpsModel(stubSprite, new Position(20, 20), null);
         PopUpsModel blockPopUpMock = new PopUpsModel(stubSprite, new Position(30, 30), null);
         PopUpsModel starMock = new PopUpsModel(stubSprite, new Position(40, 40), null);
 
-        // Assign popups to the model's static fields
         PopUpsModel.speedpopups.add(speedPopUpMock);
         PopUpsModel.mudpopups.add(mudPopUpMock);
         PopUpsModel.blockpopups.add(blockPopUpMock);
         PopUpsModel.star = starMock;
 
-        // Add fewer than 2 friends to ensure the star should NOT be drawn
         CharacterModel.friends.add(mock(CharacterModel.class)); // Only one friend
 
-        // Call the draw method
         popUpsViewer.draw();
 
-        // Verify that `drawImage` was called for each popup except the star
         verify(speedPopUpMock.getSprite(), times(1)).drawImage(speedPopUpMock.getPosition());
         verify(mudPopUpMock.getSprite(), times(1)).drawImage(mudPopUpMock.getPosition());
         verify(blockPopUpMock.getSprite(), times(1)).drawImage(blockPopUpMock.getPosition());

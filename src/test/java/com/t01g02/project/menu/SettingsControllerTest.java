@@ -125,7 +125,6 @@ class SettingsControllerTest {
         when(model.getMusicSelectedOption()).thenReturn(0);
         controller.toggleMusic();
 
-        // Verify that the music is played
         verify(music).play("/audio/menuSong.wav", true, true);
         verify(model).setMusicOn(true);
     }

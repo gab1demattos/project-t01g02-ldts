@@ -62,22 +62,6 @@ public class GameOverControllerTest {
         verify(sound, never()).play(anyString());
     }
 
-//    @Test
-//    public void testPressEsc() throws IOException, InterruptedException {
-//        when(screen.readInput()).thenReturn(new KeyStroke(KeyType.Escape));
-//
-//        boolean[] exited = {false};
-//
-//        try {
-//            controller.processInput();
-//            exited[0]=true;
-//        } catch (IOException | URISyntaxException | FontFormatException | InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//
-//        assertTrue(exited[0]);
-//    }
-
     @Test
     void testUpdateView() {
         controller.updateView();

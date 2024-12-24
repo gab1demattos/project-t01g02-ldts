@@ -53,20 +53,4 @@ public class LetterSpritesTest {
         assertArrayEquals(expected, result);
     }
 
-    /*@Test
-    public void testGetStringSprite() {
-        String input = "OI";
-        String[] expected = {
-                " █████  ███████",
-                "█     █    █   ",
-                "█     █    █   ",
-                "█     █    █   ",
-                "█     █    █   ",
-                "█     █    █   ",
-                " █████  ███████"
-        };
-
-        String[] result = LetterSprites.getStringSprite(input);
-        assertArrayEquals(expected, result);
-    }*/
 }

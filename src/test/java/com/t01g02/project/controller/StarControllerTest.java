@@ -31,7 +31,6 @@ public class StarControllerTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);  // Initialize mocks
 
-        // Set up mock city dimensions
         when(city.getWidth()).thenReturn(100);
         when(city.getHeight()).thenReturn(100);
 
