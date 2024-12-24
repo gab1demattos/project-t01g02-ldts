@@ -13,9 +13,9 @@ Players take on the role of Kitty, whose mission is to gather her friend´s- Cin
 The gameplay is simple and engaging. Use the key arrows to guide Kitty through town. When you reach a friend´s house, they will begin following Kitty. Your job is then to bring them to the designated party venue.
 
 ### Features
-At the top of the screen, you will find the timer and your current score, keep an eye on both! 
+On the screen, you will find the timer and your current score, keep an eye on both! 
 
-The aim of the game is to pick up the four friends and drop them off at the party as quickly as possible. The faster you complete your mission and the more bonuses you collect, the higher your final score.
+The aim of the game is to pick up the four friends and drop them off at the party as quickly as possible, as well as catching the special bonus star. The faster you complete your mission, the higher your final score.
 
 To make the game more interesting and enjoyable there are power-ups and obstacles. Lightning bolts will incre
 ase Kitty´s speed, helping you complete the tasks more efficiently. Hearts add extra points to your score. Avoid roadblocks and beware of mud puddles, as they will slow Kitty down and reduce your score.
