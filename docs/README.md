@@ -21,16 +21,21 @@ To make the game more interesting and enjoyable there are power-ups and obstacle
 ase Kitty´s speed, helping you complete the tasks more efficiently. Hearts add extra points to your score. Avoid roadblocks and beware of mud puddles, as they will slow Kitty down and reduce your score.
 
 
-Picking up a Friend
-<p align="center">
-    <img width="500" src="/docs/images/PickupFriend.png" alt="Pickup Friend"/>
-</p>
+<div align="center">
+    <table>
+        <tr>
+            <td align="center">
+                <img width="300" src="/docs/images/PickupFriend.png" alt="Pickup Friend"/><br/>
+                <strong>Picking up a Friend</strong>
+            </td>
+            <td align="center">
+                <img width="300" src="/docs/images/Star.png" alt="Bonus Star"/><br/>
+                <strong>Bonus Star</strong>
+            </td>
+        </tr>
+    </table>
+</div>
 
-
-Bonus Star
-<p align="center">
-    <img width="500" src="/docs/images/Star.png" alt="Bonus Star"/>
-</p>
 
 ### Mockups
 
