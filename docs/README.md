@@ -85,7 +85,7 @@ These design patterns help us maintain a clean and scalable architecture, facili
 By adhering to MVC and employing these patterns, we ensure a clear separation of concerns and robust design.
 
 <p align="center">
-    <img width="1000" src="/docs/images/UMLs/Menu.png" alt="Menu UML"/>
+    <img width="500" src="/docs/images/UMLs/Menu.png" alt="Menu UML"/>
 </p>
 
 
@@ -142,7 +142,7 @@ control or depend on the other components. However, it can make debugging harder
 automatically in the background.
 
 <p align="center">
-    <img width="750" src="/docs/images/UMLs/ObserverPattern.png" alt="OberverUML"/>
+    <img width="500" src="/docs/images/UMLs/ObserverPattern.png" alt="OberverUML"/>
 </p>
 
 
