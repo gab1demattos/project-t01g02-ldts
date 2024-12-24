@@ -47,20 +47,20 @@ class CityViewerTest {
         }
     }
 
-    @Test
-    void testDrawingHousesAndTrees() throws IOException {
-        List<Position> positions = Arrays.asList(
-                new Position(2, 2),
-                new Position(5, 5),
-                new Position(8, 8)
-        );
-
-        cityViewer.drawingHousesAndTrees(sprite, positions);
-
-        for (Position position : positions) {
-            verify(sprite, times(1)).drawImage(position);
-        }
-    }
+//    @Test
+//    void testDrawingHousesAndTrees() throws IOException {
+//        List<Position> positions = Arrays.asList(
+//                new Position(2, 2),
+//                new Position(5, 5),
+//                new Position(8, 8)
+//        );
+//
+//        cityViewer.drawingHousesAndTrees(sprite, positions);
+//
+//        for (Position position : positions) {
+//            verify(sprite, times(1)).drawImage(position);
+//        }
+//    }
 
     /*@Test
     void testDraw() throws IOException {

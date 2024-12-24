@@ -130,7 +130,7 @@ public class SettingsController implements IController {
         updateView();
     }
 
-    private void toggleMusic() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    void toggleMusic() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         if (model.getMusicSelectedOption()==0){
             if (!music.isPlaying()){
                 music.play("/audio/menuSong.wav",true, true);
@@ -162,4 +162,7 @@ public class SettingsController implements IController {
         }
     }
 
+    public void setInSubMenu(boolean inSubMenu) {
+        this.inSubMenu = inSubMenu;
+    }
 }

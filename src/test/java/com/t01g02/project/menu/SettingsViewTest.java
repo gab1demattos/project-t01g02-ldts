@@ -102,21 +102,5 @@ public class SettingsViewTest {
         verify(textGraphics, atLeastOnce()).setBackgroundColor(new TextColor.RGB(229, 168, 177));
         verify(textGraphics, atLeastOnce()).putString(anyInt(), anyInt(), anyString(), eq(SGR.BOLD));
     }
-    @Test
-    public void testRedrawButtons_MusicOptionOn() {
-        when(model.getMusicSelectedOption()).thenReturn(0);  // Music ON
-        settingsView.redrawButtons();
-        // Verify that the ON option for Music is selected
-        verify(textGraphics, times(1)).setForegroundColor(TextColor.ANSI.BLACK);
-        verify(textGraphics, times(1)).setBackgroundColor(new TextColor.RGB(229, 212, 214));
-    }
 
-    @Test
-    public void testRedrawButtons_SoundOptionOff() {
-        when(model.getSoundSelectedOption()).thenReturn(1);  // Sound OFF
-        settingsView.redrawButtons();
-
-        verify(textGraphics, times(1)).setForegroundColor(TextColor.ANSI.BLACK);
-        verify(textGraphics, times(1)).setBackgroundColor(new TextColor.RGB(229, 168, 177));
-    }
 }

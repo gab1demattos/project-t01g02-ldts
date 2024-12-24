@@ -96,5 +96,52 @@ class SettingsControllerTest {
         verify(view, times(1)).redrawScreen();
         verify(view).drawBInfo(anyBoolean());
     }
+    @Test
+    void testArrowLeftWrapAround() throws IOException {
+        when(screen.readInput()).thenReturn(new KeyStroke(KeyType.ArrowLeft));
+        when(model.isSoundOn()).thenReturn(true);
+        when(model.getSelectedOption()).thenReturn(0);
+
+        controller.processInput();
+
+        verify(model).setSelectedOption(1);
+        verify(view).redrawScreen();
+    }
+
+    @Test
+    void testArrowRightWrapAround() throws IOException {
+        when(screen.readInput()).thenReturn(new KeyStroke(KeyType.ArrowRight));
+        when(model.isSoundOn()).thenReturn(true);
+        when(model.getSelectedOption()).thenReturn(1);
+
+        controller.processInput();
+
+        verify(model).setSelectedOption(0);
+        verify(view).redrawScreen();
+    }
+
+    @Test
+    void testToggleMusicOn() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        when(model.getMusicSelectedOption()).thenReturn(0);
+        controller.toggleMusic();
+
+        // Verify that the music is played
+        verify(music).play("/audio/menuSong.wav", true, true);
+        verify(model).setMusicOn(true);
+    }
+    @Test
+    void testHandleEnterKeyInSubMenu() throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+        when(model.isSoundOn()).thenReturn(true);
+        when(model.getSelectedOption()).thenReturn(0);
+        when(screen.readInput()).thenReturn(new KeyStroke(KeyType.Enter));
+
+        controller.setInSubMenu(true);
+
+        controller.processInput();
+
+        verify(music).play("/audio/menuSong.wav", true, true);
+        verify(model).setMusicOn(true);
+    }
+
 }
 

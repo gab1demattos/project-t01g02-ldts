@@ -4,9 +4,8 @@ import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assumptions;
 
-public class SettingsModelPBT {
+public class SettingsModelPBTTest {
     @Property
     void toggleMusic(@ForAll boolean musicOn){
         SettingsModel model = new SettingsModel();

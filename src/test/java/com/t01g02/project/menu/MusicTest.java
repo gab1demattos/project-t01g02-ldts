@@ -39,35 +39,44 @@ public class MusicTest {
     }
 //    @Test
 //    void testPlayMusicEnabled() throws Exception {
+//        // Arrange
 //        String filePath = "/audio/menuSong.wav";
 //        boolean loop = true;
 //        boolean musicEnabled = true;
 //
+//        // Mock: Set up the mock URL and input stream
 //        URL mockUrl = getClass().getResource(filePath);
 //        assertNotNull(mockUrl, "Mock URL cannot be null for the test");
 //
+//        AudioInputStream mockAudioStream = mock(AudioInputStream.class);
+//        when(mockClip.isRunning()).thenReturn(false);  // Ensure the clip is not running already
+//
+//        // Act: Call the play method with music enabled
 //        music.play(filePath, loop, musicEnabled);
 //
-//        Thread.sleep(1000);
+//        // Assert: Verify that open, start, and loop were called
+//        verify(mockClip, times(1)).open(mockAudioStream);  // The clip should be opened with the mock audio stream
+//        verify(mockClip, times(1)).start();  // The clip should start playing
 //
-//        verify(mockClip, times(1)).open(mockAudioStream);
-//        verify(mockClip, times(1)).start();
-//
-//        if (loop) verify(mockClip, times(1)).loop(Clip.LOOP_CONTINUOUSLY);
-//
+//        if (loop) {
+//            verify(mockClip, times(1)).loop(Clip.LOOP_CONTINUOUSLY);  // The clip should loop
+//        } else {
+//            verify(mockClip, never()).loop(anyInt());  // The clip should not loop if `loop` is false
+//        }
 //    }
-//
-//
-//    @Test
-//    void testPlayMusicDisabled() throws Exception {
-//        String filePath = "/audio/menuSong.wav";
-//        boolean loop = false;
-//        boolean musicEnabled = false;
-//
-//        music.play(filePath, loop, musicEnabled);
-//
-//        verify(mockClip, timeout(1000)).stop();
-//    }
+    @Test
+    void testPlayMusicDisabled() throws Exception {
+        String filePath = "/audio/menuSong.wav";
+        boolean loop = false;
+        boolean musicEnabled = false;
+
+        when(mockClip.isRunning()).thenReturn(true);
+        music.play(filePath, loop, musicEnabled);
+
+        verify(mockClip, timeout(1000)).stop();
+        verify(mockClip, never()).start();
+        verify(mockClip, never()).loop(anyInt());
+    }
 
     @Test
     void testStop() {

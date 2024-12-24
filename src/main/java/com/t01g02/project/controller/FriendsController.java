@@ -29,15 +29,16 @@ public class FriendsController {
         for (Zone zone : zones) {
             if (zone.getType() == Tile.Type.PICKUP && zone.isWithin(kittyPosition)) {
                 CharacterModel friend = zone.getAssociatedFriend();
-                if (friend != null && !friend.isFollowing() && !hellokitty.isBeingFollowed() && !friend.isInParty()) {
-                    friend.setFollowing(true);
-                    hellokitty.setBeingFollowed(true);
-                    if (settingsModel.isSoundOn()){
-                        sound.play("/audio/pickupSound.wav");
-                    }
-                    notifyPickedUp();
-
+                if (friend == null || friend.isFollowing() || hellokitty.isBeingFollowed() || friend.isInParty()) {
+                    return;
                 }
+                friend.setFollowing(true);
+                hellokitty.setBeingFollowed(true);
+                if (settingsModel.isSoundOn()){
+                    sound.play("/audio/pickupSound.wav");
+                }
+                notifyPickedUp();
+
             }
         }
 

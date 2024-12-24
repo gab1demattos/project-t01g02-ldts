@@ -136,11 +136,11 @@ public class SettingsView implements IView{
     }
 
     private void buttonColor(TextGraphics textGraphics, int x, int y, String name, boolean isSelected) {
+        textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
+
         if (isSelected) {
-            textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
             textGraphics.setBackgroundColor(new TextColor.RGB(229, 212, 214));
         } else {
-            textGraphics.setForegroundColor(TextColor.ANSI.BLACK);
             textGraphics.setBackgroundColor(new TextColor.RGB(229, 168, 177));
 
         }

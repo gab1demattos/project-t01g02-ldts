@@ -16,7 +16,7 @@ import java.io.IOException;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
-public class SettingsViewPBT {
+public class SettingsViewPBTTest {
     @Mock private Screen screen;
     @Mock private TextGraphics textGraphics;
     @Mock private SettingsModel model;
