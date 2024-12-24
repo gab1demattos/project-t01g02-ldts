@@ -17,7 +17,7 @@ public class CharacterModelTest {
         CharacterModel.initializeCharacters(screen);
     }
 
-    /*@Test
+    @Test
     void testInitializeCharacters() {
         CharacterModel helloKitty = CharacterModel.getHellokitty();
         assertNotNull(helloKitty);
@@ -38,7 +38,7 @@ public class CharacterModelTest {
 
         assertEquals("Cinnamoroll", CharacterModel.friends.get(3).getName());
         assertEquals(new Position(283, 39), CharacterModel.friends.get(3).getPosition());
-    }*/
+    }
 
     @Test
     void testSetPosition() {

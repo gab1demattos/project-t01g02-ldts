@@ -77,6 +77,9 @@ public class CharacterModel extends Element {
         return c;
     }
 
+    public static List<CharacterModel> getFriends() {
+        return friends;
+    }
     @Override
     public void setPosition(Position newPosition) {
         super.setPosition(newPosition);

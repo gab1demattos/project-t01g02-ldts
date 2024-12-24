@@ -82,9 +82,29 @@ public class StarControllerTest {
         starController.moveStar();
         assertTrue(star.getPosition().getY() < 80);
     }
+
+    @Test
+    public void testMoveStar_AtTopLeftCorner() {
+        starPosition.setX(0);
+        starPosition.setY(0);
+
+        starController.moveStar();
+
+        assertTrue(star.getPosition().getX() >= 0 && star.getPosition().getY() >= 0);
+    }
+    @Test
+    public void testMoveStar_AtBottomRightCorner() {
+        starPosition.setX(city.getWidth() - 26);
+        starPosition.setY(city.getHeight() - 21);
+
+        starController.moveStar();
+
+
+        assertTrue(star.getPosition().getX() < city.getWidth() && star.getPosition().getY() < city.getHeight());
+    }
+
     @Test
     public void testSetPositionCalled() {
-        Position initialPosition = star.getPosition();
 
         starController.moveStar();
 

@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CityModelTest {
     private CityModel cityModel;
+    private Zone zone;
 
     @BeforeEach
     void setUp() {
@@ -48,6 +49,27 @@ public class CityModelTest {
         Tile tile = cityModel.getTile(0, 0);
         assertNotNull(tile);
     }
+    @Test
+    void testGetColor() {
+        TextColor color = TextColor.Factory.fromString("#FFFFFF");
+        Tile tile = new Tile(Tile.Type.ROAD, color);
+        assertEquals(color, tile.getColor());
+
+        tile = new Tile(Tile.Type.ROAD, null);
+        assertNull(tile.getColor());
+    }
+    @Test
+    void testGetIdentifier() {
+        String identifier = "testIdentifier";
+        Tile tile = new Tile(Tile.Type.ROAD, TextColor.Factory.fromString("#FFFFFF"), identifier);
+        assertEquals(identifier, tile.getIdentifier());
+
+        tile = new Tile(Tile.Type.ROAD, TextColor.Factory.fromString("#FFFFFF"), "");
+        assertEquals("", tile.getIdentifier());
+
+        tile = new Tile(Tile.Type.ROAD, TextColor.Factory.fromString("#FFFFFF"), null);
+        assertNull(tile.getIdentifier());
+    }
 
     @Test
     void testGetTileOutOfBounds() {
@@ -69,10 +91,10 @@ public class CityModelTest {
         assertEquals(new Position(65, 0), road.getStart());
         assertEquals(new Position(65, 179), road.getEnd());
     }
+
     @AfterEach
     void tearDown() {
         List<Road> roads = new ArrayList<>();
-        List<Zone> zones = new ArrayList<>();
     }
 
 }

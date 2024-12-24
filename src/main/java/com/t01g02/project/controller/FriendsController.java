@@ -7,7 +7,6 @@ import com.t01g02.project.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.t01g02.project.model.CharacterModel.friends;
 import static com.t01g02.project.model.CharacterModel.hellokitty;
 
 public class FriendsController {
@@ -15,11 +14,12 @@ public class FriendsController {
     private final List<KittyObserver> observers = new ArrayList<>();
     private final Sound sound;
     private final SettingsModel settingsModel;
+    private static final List<CharacterModel> friends = CharacterModel.getFriends();
 
     public FriendsController(CityModel cityModel, Sound sound,SettingsModel settingsModel) {
         FriendsController.cityModel = cityModel;
         this.sound=sound;
-        this.settingsModel= settingsModel;
+        this.settingsModel= settingsModel;;
     }
 
 
@@ -74,12 +74,13 @@ public class FriendsController {
 
     public  void leaveHouse(int friendId) {
         int speed = KittyController.speed.getSpeed();
-
+        System.out.println(friends.size());
         CharacterModel friend = friends.get(friendId);
         if (!cityModel.getZones().get(friendId).isWithin(hellokitty.getPosition())) {
             friend.setPosition(new Position(friend.getPosition().getX(), friend.getPosition().getY() + speed));
         }
         if(cityModel.getZones().get(friendId).isWithin(friend.getPosition())){
+            System.out.println("yey");
             friend.setOutOfHouse(true);
         }
 
@@ -88,7 +89,10 @@ public class FriendsController {
     public void updateFriendsPosition(){
         for (int i = 0; i< friends.size(); i++) {
             CharacterModel friend = friends.get(i);
+            System.out.println(friend.isFollowing());
+            System.out.println(friend.isOutOfHouse());
             if(friend.isFollowing() && !friend.isOutOfHouse()){
+                System.out.println("hes here");
                 leaveHouse(i);
             }
             if(!friend.isFollowing() && friend.isOutOfHouse() && !friend.isInParty()){
