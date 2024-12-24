@@ -36,4 +36,5 @@ public class SpriteTest {
         verify(stubTextGraphics, times(1)).setBackgroundColor(color);
         verify(stubTextGraphics, times(1)).setCharacter(pixelPos.getX(), pixelPos.getY(), ' ');
     }
+
 }

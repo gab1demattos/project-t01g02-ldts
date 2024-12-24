@@ -13,7 +13,7 @@ public class CityViewer {
     private final CityModel city;
     private final Screen screen;
     private final BasicTextImage cityImage;
-    private final Sprite party; //flowers;
+    private final Sprite party;
     private final DecorViewer decor;
 
     public CityViewer(CityModel city, Screen screen) throws IOException {
@@ -46,7 +46,9 @@ public class CityViewer {
 
     public void drawingHousesAndTrees(Sprite sprite, List<Position> positions) {
         for (Position position : positions) {
-            sprite.drawImage(position);
+            if (position.getX() >= 0 && position.getY() >= 0) {
+                sprite.drawImage(position);
+            }
         }
     }
 
@@ -61,6 +63,18 @@ public class CityViewer {
         decor.drawDecorations();
 
 
+    }
+
+    public BasicTextImage getCityImage() {
+        return cityImage;
+    }
+
+    public DecorViewer getDecor() {
+        return decor;
+    }
+
+    public Sprite getParty() {
+        return party;
     }
 }
 
