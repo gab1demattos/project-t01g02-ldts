@@ -1,6 +1,7 @@
 package com.t01g02.project.controller;
 
 import com.t01g02.project.menu.SettingsModel;
+import com.t01g02.project.menu.SoundTest;
 import com.t01g02.project.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import static com.t01g02.project.controller.FriendsController.cityModel;
 import static com.t01g02.project.model.CharacterModel.friends;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.*;
 
 public class FriendsControllerTest {
@@ -30,7 +32,6 @@ public class FriendsControllerTest {
         when(friend.getPosition()).thenReturn(position);
 
         CharacterModel.friends.clear();
-        CharacterModel.friends.add(friend);
     }
 
     @Test
@@ -177,38 +178,34 @@ public class FriendsControllerTest {
         verify(friend, never()).setFollowing(false);
     }
 
-//    @Test
-//    void testUpdateFriendsPosition_FriendLeavesHouse() {
-//        CityModel mockCityModel = mock(CityModel.class);
-//        KittyController.speed = mock(Speed.class);
-//        cityModel = mockCityModel;
-//
-//        CharacterModel mockHelloKitty = mock(CharacterModel.class);
-//        when(mockHelloKitty.getPosition()).thenReturn(new Position(10, 10));
-//        CharacterModel.hellokitty = mockHelloKitty;
-//        Zone mockZone = mock(Zone.class);
-//        when(mockZone.isWithin(any(Position.class))).thenReturn(true);
-//        when(mockCityModel.getZones()).thenReturn(List.of(mockZone));
-//
-//        FriendsController controller = new FriendsController(mockCityModel, null, null);
-//
-//        CharacterModel friend = mock(CharacterModel.class);
-//
-//        Position friendPosition = new Position(10, 10);
-//        when(friend.getPosition()).thenReturn(friendPosition);
-//        friend.setFollowing(true);
-//        friend.setOutOfHouse(false);
-//
-//        when(friend.isFollowing()).thenReturn(true);
-//        when(friend.isOutOfHouse()).thenReturn(false);
-//        when(mockCityModel.getZones().get(0).isWithin(friend.getPosition())).thenReturn(true);
-//        List<CharacterModel> friends = List.of(friend);
-//
-//        controller.updateFriendsPosition();
-//
-//        verify(friend).setOutOfHouse(true);
-//    }
+    @Test
+    void testUpdateFriendsPosition_FriendLeavesHouse() {
+        Zone zone1 = mock(Zone.class);
 
+        CharacterModel friend = mock(CharacterModel.class);
+        when(friend.isFollowing()).thenReturn(true);
+        when(friend.isOutOfHouse()).thenReturn(false);
+        Position mockPosition = new Position(10, 20);
+        when(friend.getPosition()).thenReturn(mockPosition);
+
+        CharacterModel hellokitty = mock(CharacterModel.class);
+        Position kittyPosition = new Position(20, 20);
+        when(hellokitty.getPosition()).thenReturn(kittyPosition);
+        when(zone1.isWithin(kittyPosition)).thenReturn(false);
+
+        CharacterModel.friends.add(friend);
+        CityModel mockCityModel = mock(CityModel.class);
+
+        List<Zone> mockZones = new ArrayList<>();
+        mockZones.add(zone1);
+        when(mockCityModel.getZones()).thenReturn(mockZones);
+        when(zone1.isWithin(friend.getPosition())).thenReturn(true);
+
+        FriendsController controller = new FriendsController(mockCityModel, null, null);
+        controller.updateFriendsPosition();
+
+        verify(friend).setOutOfHouse(true);
+    }
     @Test
     void testUpdateFriendsPosition_FriendEntersHouse() {
         CharacterModel friend = mock(CharacterModel.class);
@@ -246,6 +243,24 @@ public class FriendsControllerTest {
 
         verify(friend, never()).setFollowing(false);  // Ensure the friend isn't dropped off.
     }
+    @Test
+    void testAreAllFriendsInParty() {
+        CharacterModel friend1 = mock(CharacterModel.class);
+        when(friend1.isInParty()).thenReturn(true);
+
+        CharacterModel friend2 = mock(CharacterModel.class);
+        when(friend2.isInParty()).thenReturn(false);  // This one is not in the party.
+
+        friends.clear();
+        friends.add(friend1);
+        friends.add(friend2);
+
+        FriendsController controller = new FriendsController(null, null, null);
+        boolean result = controller.areAllFriendsInParty();
+
+        assertFalse(result);  // Should return false since not all friends are in the party.
+    }
+
 
     @Test
     void testObserverNotifiedOnPickup() {

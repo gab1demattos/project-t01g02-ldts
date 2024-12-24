@@ -74,4 +74,51 @@ public class CharacterModelTest {
             assertEquals(new Position(5 + i, 5 + i), helloKitty.getKittyLastPositions().get(i));
         }
     }
+    @Test
+    void testIsFollowing() {
+        CharacterModel character = new CharacterModel(null, null, null);
+
+        assertFalse(character.isFollowing());
+
+        character.setFollowing(true);
+        assertTrue(character.isFollowing());
+
+        character.setFollowing(false);
+        assertFalse(character.isFollowing());
+    }
+    @Test
+    void testIsOutOfHouse() {
+        CharacterModel character = new CharacterModel(null, null, null);
+
+        assertFalse(character.isOutOfHouse());
+
+        character.setOutOfHouse(true);
+        assertTrue(character.isOutOfHouse());
+
+        character.setOutOfHouse(false);
+        assertFalse(character.isOutOfHouse());
+    }
+    @Test
+    void testIsBeingFollowed() {
+        CharacterModel character = new CharacterModel(null, null, null);
+
+        assertFalse(character.isBeingFollowed());
+
+        character.setBeingFollowed(true);
+        assertTrue(character.isBeingFollowed());
+
+        character.setBeingFollowed(false);
+        assertFalse(character.isBeingFollowed());
+    }
+    @Test
+    void testIsInParty() {
+        CharacterModel character = new CharacterModel(null, null, null);
+        assertFalse(character.isInParty());
+
+        character.setInParty(true);
+        assertTrue(character.isInParty());
+
+        character.setInParty(false);
+        assertFalse(character.isInParty());
+    }
 }

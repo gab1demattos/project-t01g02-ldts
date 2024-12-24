@@ -31,27 +31,27 @@ import static org.mockito.Mockito.*;
         sound = new Sound();
     }
 
-//    @Test
-//    public void testPLay() throws Exception{
-//
-//        URL url = getClass().getResource("/audio/selectSound.wav");
-//        Sound soundSpy = spy(sound);
-//        doReturn(url).when(soundSpy).getClass().getResource(anyString());
-//        when(AudioSystem.getClip()).thenReturn(clip);
-//
-//        doNothing().when(clip).open(audioInputStream);
-//        doNothing().when(clip).start();
-//
-//        FloatControl volumeControl = mock(FloatControl.class);
-//        when(clip.getControl(FloatControl.Type.MASTER_GAIN)).thenReturn(volumeControl);
-//
-//        soundSpy.play("/audio/selectSound.wav");
-//
-//        Thread.sleep(1000);
-//
-//        verify(clip).open(audioInputStream);
-//        verify(volumeControl, times(3)).setValue(anyFloat());
-//        verify(clip).start();
-//    }
+    @Test
+    public void testPLay() throws Exception{
+
+        URL url = getClass().getResource("/audio/selectSound.wav");
+        Sound soundSpy = spy(sound);
+        doReturn(url).when(soundSpy).getClass().getResource(anyString());
+        when(AudioSystem.getClip()).thenReturn(clip);
+
+        doNothing().when(clip).open(audioInputStream);
+        doNothing().when(clip).start();
+
+        FloatControl volumeControl = mock(FloatControl.class);
+        when(clip.getControl(FloatControl.Type.MASTER_GAIN)).thenReturn(volumeControl);
+
+        soundSpy.play("/audio/selectSound.wav");
+
+        Thread.sleep(1000);
+
+        verify(clip).open(audioInputStream);
+        verify(volumeControl, times(3)).setValue(anyFloat());
+        verify(clip).start();
+    }
  }
 

@@ -249,6 +249,24 @@ public class KittyControllerTest {
         when(cityModel.getTile(-5, -5)).thenReturn(null);
         assertFalse(kittyController.canMove(outOfBounds));
     }
+    @Test
+    void testKittyNoValidTileToMove() throws IOException {
+        Position noTilePosition = new Position(10, 10);
+        when(cityModel.getTile(10, 10)).thenReturn(null);
+
+        assertFalse(kittyController.canMove(noTilePosition));
+
+        Position initialPosition = new Position(5, 5);
+        hellokitty.setPosition(initialPosition);
+        Set<KeyStroke> keyStrokes = new HashSet<>();
+        KeyStroke moveKey = mock(KeyStroke.class);
+        when(moveKey.getKeyType()).thenReturn(KeyType.ArrowRight);
+        keyStrokes.add(moveKey);
+
+        kittyController.processInput(keyStrokes);
+
+        assertEquals(initialPosition, hellokitty.getPosition());
+    }
 
 
     @Test
@@ -311,6 +329,64 @@ public class KittyControllerTest {
         assertFalse(PopUpsModel.speedpopups.contains(speedPopup));
     }
 
+    @Test
+    void testSimultaneousPopUps() throws IOException {
+        Position newPosition = new Position(3, 4);
+
+        PopUpsModel mudPopup = mock(PopUpsModel.class);
+        when(mudPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+        PopUpsModel.mudpopups.add(mudPopup);
+
+        PopUpsModel speedPopup = mock(PopUpsModel.class);
+        when(speedPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+        PopUpsModel.speedpopups.add(speedPopup);
+
+        when(settingsModel.isSoundOn()).thenReturn(true);
+
+        kittyController.activatePopUps(newPosition);
+
+        assertFalse(kittyController.isMudOn);
+        assertTrue(kittyController.isSpeedOn);
+        verify(sound).play("/audio/mudSound.wav");
+
+        assertFalse(PopUpsModel.mudpopups.contains(mudPopup));
+        assertFalse(PopUpsModel.speedpopups.contains(speedPopup));
+    }
+    @Test
+    void testActivateMudPopUpMultipleTimes() throws IOException {
+        Position newPosition = new Position(2, 3);
+        PopUpsModel mudPopup = mock(PopUpsModel.class);
+        when(mudPopup.getPosition()).thenReturn(newPosition);
+        when(mudPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+        when(settingsModel.isSoundOn()).thenReturn(true);
+
+        PopUpsModel.mudpopups.add(mudPopup);
+
+        kittyController.activatePopUps(newPosition);
+        assertTrue(kittyController.isMudOn);
+        verify(sound).play("/audio/mudSound.wav");
+
+        kittyController.activatePopUps(newPosition);
+        assertTrue(kittyController.isMudOn);
+        verify(sound, times(1)).play("/audio/mudSound.wav");
+
+        assertFalse(PopUpsModel.mudpopups.contains(mudPopup));
+    }
+    @Test
+    void testActivateMudPopUpWhenSoundIsOff() throws IOException {
+        Position newPosition = new Position(2, 3);
+        PopUpsModel mudPopup = mock(PopUpsModel.class);
+        when(mudPopup.getPosition()).thenReturn(newPosition);
+        when(mudPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+        when(settingsModel.isSoundOn()).thenReturn(false);
+
+        PopUpsModel.mudpopups.add(mudPopup);
+
+        kittyController.activatePopUps(newPosition);
+
+        assertTrue(kittyController.isMudOn);
+        verify(sound, times(0)).play("/audio/mudSound.wav");
+    }
     @Test
     void testActivateStarPopUp() throws IOException {
         Position newPosition = new Position(7, 8);

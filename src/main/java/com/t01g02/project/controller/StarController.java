@@ -9,8 +9,8 @@ public class StarController {
     private final CityModel city;
     private final PopUpsModel star;
     boolean starPickedUp;
-    private int dx;
-    private int dy;
+    int dx;
+    int dy;
     private final Random random;
     int stepsSinceLastChange;
     private final CharacterModel hellokitty;

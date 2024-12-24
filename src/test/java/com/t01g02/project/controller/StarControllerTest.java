@@ -4,6 +4,7 @@ import com.t01g02.project.model.CharacterModel;
 import com.t01g02.project.model.CityModel;
 import com.t01g02.project.model.PopUpsModel;
 import com.t01g02.project.model.Position;
+import com.t01g02.project.viewer.Sprite;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -104,6 +105,27 @@ public class StarControllerTest {
     }
 
     @Test
+    void testStarMovementInNegativeDirection() {
+        CityModel city = new CityModel(1000, 1000);
+        Position initialPosition = new Position(10, 10);
+        PopUpsModel star = new PopUpsModel(null, initialPosition, null);
+        CharacterModel hellokitty = new CharacterModel(null, new Position(20, 20), "HelloKitty");
+
+        StarController starController = new StarController(city, star, hellokitty);
+
+        starController.dx = -1;
+        starController.dy = -1;
+
+        Position beforeMove = star.getPosition();
+        starController.moveStar();
+        Position afterMove = star.getPosition();
+
+        assertNotEquals(beforeMove, afterMove);
+        assertTrue(afterMove.getX() < beforeMove.getX());
+        assertTrue(afterMove.getY() < beforeMove.getY());
+    }
+
+    @Test
     public void testSetPositionCalled() {
 
         starController.moveStar();
@@ -128,16 +150,15 @@ public class StarControllerTest {
     }
 
     @Test
-    public void testRandomDirectionChangeAfterMultipleSteps() {
-        Position initialPosition = new Position(star.getPosition().getX(), star.getPosition().getY());
-
+    public void testRandomDirectionChangeAfterSteps() {
+        starController.moveStar();
         for (int i = 0; i < 50; i++) {
             starController.moveStar();
         }
 
-        Position newPosition = star.getPosition();
 
-        assertNotEquals(initialPosition, newPosition);
+        Position newPosition = star.getPosition();
+        assertNotEquals(new Position(50, 50), newPosition);
     }
 
     @Test
@@ -145,13 +166,11 @@ public class StarControllerTest {
         when(hellokitty.getPosition()).thenReturn(new Position(50, 50));
         when(star.getPosition()).thenReturn(new Position(50, 50));
 
-        // Simulate star being picked up
         starController = spy(new StarController(city, star, hellokitty));
         starController.moveStar();
 
         assertTrue(starController.starPickedUp);
 
-        // Move the star and verify it doesn't move after being picked up
         Position initialPosition = new Position(star.getPosition().getX(), star.getPosition().getY());
         starController.moveStar();
 
@@ -173,5 +192,24 @@ public class StarControllerTest {
         starController.moveStar();
 
         assertTrue(star.getPosition().getY() < city.getHeight());
+    }
+    @Test
+    void testStarDoesNotMoveAfterPickedUp() {
+        CityModel city = new CityModel(1000, 1000);
+        Position initialPosition = new Position(10, 10);
+        PopUpsModel star = new PopUpsModel(null, initialPosition, null);
+        CharacterModel hellokitty = new CharacterModel(null, new Position(20, 20), "HelloKitty");
+
+        StarController starController = new StarController(city, star, hellokitty);
+
+        star.setPosition(new Position(hellokitty.getPosition().getX(), hellokitty.getPosition().getY()));
+        starController.moveStar();
+        assertTrue(starController.starPickedUp); // Star should be picked up
+
+        Position beforeMove = star.getPosition();
+        starController.moveStar();
+        Position afterMove = star.getPosition();
+
+        assertEquals(beforeMove, afterMove);
     }
 }

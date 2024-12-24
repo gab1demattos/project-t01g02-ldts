@@ -74,25 +74,26 @@ public class FriendsController {
 
     public  void leaveHouse(int friendId) {
         int speed = KittyController.speed.getSpeed();
-        System.out.println(friends.size());
         CharacterModel friend = friends.get(friendId);
+
+        if(cityModel.getZones().get(friendId).isWithin(friend.getPosition())){
+
+            friend.setOutOfHouse(true);
+            return;
+        }
+
         if (!cityModel.getZones().get(friendId).isWithin(hellokitty.getPosition())) {
             friend.setPosition(new Position(friend.getPosition().getX(), friend.getPosition().getY() + speed));
         }
-        if(cityModel.getZones().get(friendId).isWithin(friend.getPosition())){
-            System.out.println("yey");
-            friend.setOutOfHouse(true);
-        }
+
+
 
     }
 
     public void updateFriendsPosition(){
         for (int i = 0; i< friends.size(); i++) {
             CharacterModel friend = friends.get(i);
-            System.out.println(friend.isFollowing());
-            System.out.println(friend.isOutOfHouse());
             if(friend.isFollowing() && !friend.isOutOfHouse()){
-                System.out.println("hes here");
                 leaveHouse(i);
             }
             if(!friend.isFollowing() && friend.isOutOfHouse() && !friend.isInParty()){
