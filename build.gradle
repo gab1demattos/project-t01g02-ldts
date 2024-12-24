@@ -45,10 +45,9 @@ pitest {
     junit5PluginVersion = '1.0.0'
     threads = 1
     verbose = true
-    targetClasses = ['com.t01g02.project.*']
-    excludedClasses = ['*Game']
-    excludedClasses = ['*Application']
-    excludedClasses = ['*LanternaGui']
+    targetClasses = ['com.t01g02.project.controller.*'] //, 'com.t01g02.project.menu.*', 'com.t01g02.project.model.*', 'com.t01g02.project.viewer.*']
+
+    excludedClasses = ['*Game', '*Application', '*LanternaGui']
 
     targetTests = ['com.t01g02.project.*Test']
 

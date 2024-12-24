@@ -8,7 +8,7 @@ public class Tile {
     private final String identifier;
 
     public enum Type {
-        ROAD, TREE, PICKUP, DROPOFF, EMPTY
+        ROAD, PICKUP, DROPOFF, EMPTY
     }
 
     public Tile(Type type, TextColor color) {

@@ -12,7 +12,7 @@ public class StarController {
     private int dx;
     private int dy;
     private final Random random;
-    private int stepsSinceLastChange;
+    int stepsSinceLastChange;
     private final CharacterModel hellokitty;
 
     public StarController(CityModel city, PopUpsModel star, CharacterModel hellokitty) {

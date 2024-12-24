@@ -8,6 +8,8 @@ import com.t01g02.project.menu.SettingsModel;
 import com.t01g02.project.menu.Sound;
 import com.t01g02.project.model.*;
 
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,6 +54,7 @@ public class KittyControllerTest {
 
 
     }
+
     private void mockCityModelTiles() {
         Tile[][] map = new Tile[35][35];
 
@@ -72,11 +75,13 @@ public class KittyControllerTest {
         Tile.fillLine(map, startHorizontal, endHorizontal, Tile.Type.ROAD, roadColor);
 
         when(cityModel.getTile(anyInt(), anyInt())).thenAnswer(invocation -> {
-            int x = invocation.getArgument(0); // Retrieve the x-coordinate
-            int y = invocation.getArgument(1); // Retrieve the y-coordinate
+            int x = invocation.getArgument(0);
+            int y = invocation.getArgument(1);
             return (x >= 0 && y >= 0 && x < map.length && y < map[0].length) ? map[y][x] : null;
         });
     }
+
+
     @Test
     void testMoveKittyUp() throws Exception {
         mockCityModelTiles();
@@ -103,7 +108,132 @@ public class KittyControllerTest {
         assertEquals(expectedPosition.getX(), newPosition.getX());
         assertEquals(expectedPosition.getY(), newPosition.getY());
     }
+    @Test
+    void testMoveKittyDown() throws Exception {
+        mockCityModelTiles();
 
+        Set<KeyStroke> keyStrokes = new HashSet<>();
+        KeyStroke downArrow = mock(KeyStroke.class);
+        when(downArrow.getKeyType()).thenReturn(KeyType.ArrowDown);
+        keyStrokes.add(downArrow);
+
+        Position initialPosition = new Position(5, 5);
+        hellokitty.setPosition(initialPosition);
+
+        kittyController.processInput(keyStrokes);
+
+        Position expectedPosition = new Position(5, 7);
+        Position newPosition = hellokitty.getPosition();
+
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    void testMoveKittyLeft() throws Exception {
+        mockCityModelTiles();
+
+        Set<KeyStroke> keyStrokes = new HashSet<>();
+        KeyStroke leftArrow = mock(KeyStroke.class);
+        when(leftArrow.getKeyType()).thenReturn(KeyType.ArrowLeft);
+        keyStrokes.add(leftArrow);
+
+        Position initialPosition = new Position(5, 5);
+        hellokitty.setPosition(initialPosition);
+
+        kittyController.processInput(keyStrokes);
+
+        Position expectedPosition = new Position(3, 5);
+        Position newPosition = hellokitty.getPosition();
+
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    void testMoveKittyRight() throws Exception {
+        mockCityModelTiles();
+
+        Set<KeyStroke> keyStrokes = new HashSet<>();
+        KeyStroke rightArrow = mock(KeyStroke.class);
+        when(rightArrow.getKeyType()).thenReturn(KeyType.ArrowRight);
+        keyStrokes.add(rightArrow);
+
+        Position initialPosition = new Position(5, 5);
+        hellokitty.setPosition(initialPosition);
+
+        kittyController.processInput(keyStrokes);
+
+        Position expectedPosition = new Position(7, 5);
+        Position newPosition = hellokitty.getPosition();
+
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
+
+
+    @Test
+    void testMoveKittyUpBeyondBounds() throws Exception {
+        mockCityModelTiles();
+
+        Set<KeyStroke> keyStrokes = new HashSet<>();
+        KeyStroke upArrow = mock(KeyStroke.class);
+        when(upArrow.getKeyType()).thenReturn(KeyType.ArrowUp);
+        keyStrokes.add(upArrow);
+
+        Position initialPosition = new Position(0, 0);
+        hellokitty.setPosition(initialPosition);
+
+        kittyController.processInput(keyStrokes);
+
+        Position expectedPosition = new Position(0, 0);
+        Position newPosition = hellokitty.getPosition();
+
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    void testMoveKittyRightBeyondBounds() throws Exception {
+        mockCityModelTiles();
+
+        Set<KeyStroke> keyStrokes = new HashSet<>();
+        KeyStroke rightArrow = mock(KeyStroke.class);
+        when(rightArrow.getKeyType()).thenReturn(KeyType.ArrowRight);
+        keyStrokes.add(rightArrow);
+
+        Position initialPosition = new Position(34, 5);
+        hellokitty.setPosition(initialPosition);
+
+        kittyController.processInput(keyStrokes);
+
+        Position expectedPosition = new Position(34, 5);
+        Position newPosition = hellokitty.getPosition();
+
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
+
+    @Test
+    void testMoveKittyDownBeyondBounds() throws Exception {
+        mockCityModelTiles();
+
+        Set<KeyStroke> keyStrokes = new HashSet<>();
+        KeyStroke downArrow = mock(KeyStroke.class);
+        when(downArrow.getKeyType()).thenReturn(KeyType.ArrowDown);
+        keyStrokes.add(downArrow);
+
+        Position initialPosition = new Position(5, 34);
+        hellokitty.setPosition(initialPosition);
+
+        kittyController.processInput(keyStrokes);
+
+        Position expectedPosition = new Position(5, 34);
+        Position newPosition = hellokitty.getPosition();
+
+        assertEquals(expectedPosition.getX(), newPosition.getX());
+        assertEquals(expectedPosition.getY(), newPosition.getY());
+    }
 
     @Test
     void testCanMove() {
@@ -120,8 +250,9 @@ public class KittyControllerTest {
         assertFalse(kittyController.canMove(outOfBounds));
     }
 
+
     @Test
-    void testActivateMudPopUp() throws IOException {
+    void testActivateMudPopUpWhenNotActive() throws IOException {
         Position newPosition = new Position(2, 3);
         PopUpsModel mudPopup = mock(PopUpsModel.class);
 
@@ -140,23 +271,45 @@ public class KittyControllerTest {
         assertFalse(PopUpsModel.mudpopups.contains(mudPopup));
     }
 
-//    @Test
-//    void testActivateSpeedPopUps() throws IOException {
-//        Position newPosition = new Position(5, 6);
-//        PopUpsModel speedPopup = mock(PopUpsModel.class);
-//        when(speedPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
-//        when(settingsModel.isSoundOn()).thenReturn(true);
-//
-//        PopUpsModel.speedpopups.add(speedPopup);
-//
-//        kittyController.activatePopUps(newPosition);
-//
-//        assertTrue(kittyController.isSpeedOn);
-//        assertFalse(kittyController.isMudOn);
-//        verify(sound).play("/audio/boltSound.wav");
-//
-//        assertFalse(PopUpsModel.speedpopups.contains(speedPopup));
-//    }
+
+    @Test
+    void testActivateMudPopUpWhenAlreadyActive() throws IOException {
+        Position newPosition = new Position(2, 3);
+        PopUpsModel mudPopup = mock(PopUpsModel.class);
+
+        kittyController.isMudOn = true;
+
+        when(mudPopup.getPosition()).thenReturn(newPosition);
+        when(mudPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+        when(settingsModel.isSoundOn()).thenReturn(true);
+
+        PopUpsModel.mudpopups.add(mudPopup);
+
+        kittyController.activatePopUps(newPosition);
+
+        assertTrue(kittyController.isMudOn, "Mud should remain activated");
+        verify(sound, times(1)).play("/audio/mudSound.wav");
+
+        assertFalse(PopUpsModel.mudpopups.contains(mudPopup), "Mud popup should be removed after activation");
+    }
+
+    @Test
+    void testActivateSpeedPopUps() throws IOException {
+        Position newPosition = new Position(5, 6);
+        PopUpsModel speedPopup = mock(PopUpsModel.class);
+        when(speedPopup.isPositionOnPopUp(newPosition)).thenReturn(true);
+        when(settingsModel.isSoundOn()).thenReturn(true);
+
+        PopUpsModel.speedpopups.add(speedPopup);
+
+        kittyController.activatePopUps(newPosition);
+
+        assertTrue(kittyController.isSpeedOn);
+        assertFalse(kittyController.isMudOn);
+        verify(sound).play("/audio/boltSound.wav");
+
+        assertFalse(PopUpsModel.speedpopups.contains(speedPopup));
+    }
 
     @Test
     void testActivateStarPopUp() throws IOException {
@@ -170,10 +323,11 @@ public class KittyControllerTest {
 
         kittyController.activatePopUps(newPosition);
 
-        assertTrue(kittyController.hasStarBeenPicked, "Star should be picked after activation");
+        assertTrue(kittyController.hasStarBeenPicked);
         verify(sound).play("/audio/starSound.wav");
-        assertNull(kittyController.star, "Star should be null after deletion");
+        assertNull(kittyController.star);
     }
+
     @AfterEach
     void tearDown() {
         hellokitty = null;

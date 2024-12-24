@@ -10,6 +10,7 @@ import net.jqwik.api.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.t01g02.project.controller.FriendsController.cityModel;
 import static com.t01g02.project.model.CharacterModel.friends;
 import static org.mockito.Mockito.*;
 
@@ -17,12 +18,13 @@ public class FriendsControllerTest {
     private CityModel mockCityModel;
     private Position position;
     private CharacterModel friend;
+    private SettingsModel settingsModel;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         mockCityModel = mock(CityModel.class);
-        FriendsController.cityModel = mockCityModel;
-
+        cityModel = mockCityModel;
+        settingsModel = mock(SettingsModel.class);
         friend = mock(CharacterModel.class);
         position = new Position(10, 20);
         when(friend.getPosition()).thenReturn(position);
@@ -131,6 +133,7 @@ public class FriendsControllerTest {
             verify(friend, never()).setPosition(any());
         }
     }
+
     @Test
     void testCheckPickup_FriendAlreadyFollowing() {
         Zone pickupZone = mock(Zone.class);
@@ -154,6 +157,7 @@ public class FriendsControllerTest {
 
         verify(friend, never()).setFollowing(true);
     }
+
     @Test
     void testCheckDropoff_NotInDropoffZone() {
         Zone nonDropoffZone = mock(Zone.class);
@@ -172,11 +176,12 @@ public class FriendsControllerTest {
 
         verify(friend, never()).setFollowing(false);
     }
+
     @Test
     void testUpdateFriendsPosition_FriendLeavesHouse() {
         CityModel mockCityModel = mock(CityModel.class);
         KittyController.speed = mock(Speed.class);
-        FriendsController.cityModel = mockCityModel;
+        cityModel = mockCityModel;
 
         when(KittyController.speed.getSpeed()).thenReturn(5);
 
@@ -191,6 +196,7 @@ public class FriendsControllerTest {
         CharacterModel friend = mock(CharacterModel.class);
         Position friendPosition = new Position(10, 10);
         when(friend.getPosition()).thenReturn(friendPosition);
+        when(cityModel.getZones().get(0).isWithin(friend.getPosition())).thenReturn(true);
 
         FriendsController controller = new FriendsController(mockCityModel, null, null);
 
@@ -217,6 +223,27 @@ public class FriendsControllerTest {
 
         verify(friend).setInParty(true);
     }
+
+
+    @Test
+    void testCheckDropoff_FriendNotInDropoffZone() {
+        Zone nonDropoffZone = mock(Zone.class);
+        when(nonDropoffZone.getType()).thenReturn(Tile.Type.PICKUP);
+
+        CharacterModel friend = mock(CharacterModel.class);
+        when(friend.isFollowing()).thenReturn(true);
+
+        CharacterModel.friends.add(friend);
+
+        CityModel mockCityModel = mock(CityModel.class);
+        when(mockCityModel.getZones()).thenReturn(List.of(nonDropoffZone));
+
+        FriendsController controller = new FriendsController(mockCityModel, null, null);
+        controller.checkDropoff();
+
+        verify(friend, never()).setFollowing(false);  // Ensure the friend isn't dropped off.
+    }
+
     @Test
     void testObserverNotifiedOnPickup() {
         KittyObserver observer = mock(KittyObserver.class);

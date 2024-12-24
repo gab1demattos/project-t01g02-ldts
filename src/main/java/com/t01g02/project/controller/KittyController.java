@@ -23,7 +23,7 @@ public class KittyController {
     private final SettingsModel settingsModel;
     boolean isMudOn = false;
     public static Speed speed = new Speed();
-    private long speedtimerstart = 0;
+    long speedtimerstart = 0;
     PopUpsModel star;
     boolean hasStarBeenPicked=false;
     private final FriendsController controller;

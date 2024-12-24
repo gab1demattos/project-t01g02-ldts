@@ -49,15 +49,30 @@ public class StarControllerTest {
 
     }
 
-//    @Test
-//    public void testMoveStar_BounceOffHorizontalBoundary() {
-//        starPosition.setX(100);
-//        starPosition.setY(50);
-//
-//        starController.moveStar();
-//        System.out.println(star.getPosition().getX());
-//        assertTrue(star.getPosition().getX() < 101);
-//    }
+    @Test
+    void testMoveStarWhenStarPickedUp() {
+        starController.starPickedUp = true;
+        starController.moveStar();
+
+        verify(star, never()).setPosition(any(Position.class));
+    }
+    @Test
+    void testMoveStarWhenNotPickedUp() {
+        starController.starPickedUp = false;
+        starController.moveStar();
+
+        verify(star, times(1)).setPosition(any(Position.class));
+    }
+
+    @Test
+    public void testMoveStar_BounceOffHorizontalBoundary() {
+        starPosition.setX(75);
+        starPosition.setY(50);
+
+        starController.moveStar();
+        System.out.println(star.getPosition().getX());
+        assertTrue(star.getPosition().getX() < 75);
+    }
 
     @Test
     public void testMoveStar_BounceOffVerticalBoundary() {
@@ -66,6 +81,14 @@ public class StarControllerTest {
 
         starController.moveStar();
         assertTrue(star.getPosition().getY() < 80);
+    }
+    @Test
+    public void testSetPositionCalled() {
+        Position initialPosition = star.getPosition();
+
+        starController.moveStar();
+
+        verify(star, times(1)).setPosition(any(Position.class));
     }
 
     @Test
@@ -114,5 +137,21 @@ public class StarControllerTest {
 
         Position newPosition = star.getPosition();
         assertEquals(initialPosition, newPosition);
+    }
+
+    @Test
+    void testMoveStarDoesNotExceedBounds() {
+        Position nearRightEdge = new Position(90, 50); // Near the right boundary
+        Position nearTopEdge = new Position(50, 90); // Near the top boundary
+
+        when(star.getPosition()).thenReturn(nearRightEdge);
+        starController.moveStar();
+
+        assertTrue(star.getPosition().getX() < city.getWidth());
+
+        when(star.getPosition()).thenReturn(nearTopEdge);
+        starController.moveStar();
+
+        assertTrue(star.getPosition().getY() < city.getHeight());
     }
 }
