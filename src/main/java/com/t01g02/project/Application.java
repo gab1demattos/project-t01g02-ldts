@@ -71,6 +71,5 @@ public class Application {
 
         screen.stopScreen();
 
-
     }
 }

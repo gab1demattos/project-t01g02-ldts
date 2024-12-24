@@ -22,7 +22,8 @@ public class GameMenuController implements IController, GameEndListener {
     private final SettingsController settingsController;
     private final GameOver gameOverView;
     private final GameOverController gameOverController;
-    private boolean inGameOver ;
+    private boolean inGameOver = false ;
+    private boolean inGame = false;
 
     public GameMenuController(GameMenuView view, Screen screen, IModel model,SettingsModel settingsModel,SettingsView settingsView, Music music, Sound sound, GameOver gameOverView) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         this.view = view;
@@ -68,7 +69,6 @@ public class GameMenuController implements IController, GameEndListener {
         }else if (inGameOver){
             gameOverController.processInput();
         }
-
         screen.refresh();
     }
 
@@ -107,13 +107,7 @@ public class GameMenuController implements IController, GameEndListener {
         }
         try {
             executeSelectedOption();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        } catch (FontFormatException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (IOException | URISyntaxException | FontFormatException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
@@ -139,16 +133,15 @@ public class GameMenuController implements IController, GameEndListener {
 
 
     private void startGame() throws IOException, URISyntaxException, FontFormatException, InterruptedException {
-        Thread.sleep(870); //slight delay so audio can play while still in settings
+        if (inGame) return;
+        inGame = true;
+        Thread.sleep(100); //slight delay so audio can play while still in settings
 
         try {
             playGameMusic();
-        } catch (UnsupportedAudioFileException e) {
-            throw new RuntimeException(e);
-        } catch (LineUnavailableException e) {
+        } catch (UnsupportedAudioFileException | LineUnavailableException e) {
             throw new RuntimeException(e);
         }
-
         Game game = new Game(this,settingsModel);
         game.run();
     }

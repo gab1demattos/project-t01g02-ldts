@@ -161,4 +161,5 @@ public class SettingsController implements IController {
             view.redrawScreen();
         }
     }
+
 }
