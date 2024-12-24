@@ -61,19 +61,32 @@ The following figure shows how the pattern’s roles were mapped to the applicat
 Having studied design and architectural patterns, we took them into consideration before starting to write our code to improve readability, flexibility and code reusability.
 
 ### Menu
-For our game´s menu, we adhered to the **Model-View-Controller (MVC)** architectural pattern, organizing the code into three interfaces- IModel, IView, and IController- and their respective implementations: GameMenuModel, GameMenuView, and GameMenuController. Additionally, we created a separate model class, Settings, to manage the game´s settings.
+For our game’s menu, we adhered to the **Model-View-Controller (MVC)** architectural pattern, organizing the code into three interfaces: IModel, IView, and IController—and their respective implementations: GameMenuModel, GameMenuView, and GameMenuController. 
+Additionally, we have also created new classes to handle our game´s settings following the same principle.
 
-The GameMenuModel class handles data such as menu options and game information. The GameMenuView renders the interface based on the model´s data. Finally, the GameMenuController processes user inputs, updating the view and model accordingly.
+The GameMenuModel class handles data such as menu options and game information. 
+The GameMenuView renders the interface based on the model’s data. Finally, the GameMenuController processes user inputs, updating the view and model accordingly.
 
-Regarding design patterns, our menu employs the **strategy**, **command**, and **observer** **behavioral patterns**, as well as the **factory creational pattern**.
+Similarly, the SettingsModel class manages settings data, such as music and sound options, storing the current state and providing methods to update this state. 
+The SettingsView class is responsible for rendering the settings menu based on the data in the SettingsModel. 
+Ultimately, the SettingsController processes user inputs, updating the settings model and refreshing the view.
 
-Firstly, the observer pattern is implemented by the interaction between the GameMenuModel and GameMenuView classes. The view continuously checks for changes in the model and updates the display accordingly, such as redrawing the screen.
+We also have other components in our menu system, such as:
 
-Next, the strategy pattern can be identified in the Settings class, which encapsulates two related behaviors- musicSound() and toggleSound()- that dynamically modify the system´s behavior by toggling music or sound.
+•	GameOverController: Manages the game over state, processes inputs related to restarting or exiting the game, and updates the view accordingly.
 
-Moving on to the command pattern, this is evident in the processInput() method in the GameMenuController, which processes various user inputs (ArrowLeft, ArrowRight, Esc and Enter). Each input triggers distinct actions, such as selecting options, exiting or starting the game.
+•	GameOverView: Displays the game over screen to the player.
 
-Finally, the factory method is demonstrated through the use of DefaultTerminalFactory().createTerminal(). This abstraction simplifies the creation of terminal objects, allowing the client code in Main to interact with a generic interface without dealing with the instantiation details.
+Regarding design patterns, our menu employs the strategy, command, and observer behavioral patterns, as well as the factory creational pattern.
+
+1.	**Observer Pattern**: Implemented by the interaction between the GameMenuModel and GameMenuView classes. The view continuously checks for changes in the model and updates the display accordingly, such as redrawing the screen. This ensures that the view remains consistent with the underlying data.
+2.	**Strategy Pattern**: Identified in the SettingsController class, which encapsulates related behaviors such as toggleMusic() and toggleSound(). These methods dynamically modify the system’s behavior by toggling music or sound settings, allowing for flexible and interchangeable strategies.
+3.	**Command Pattern**: Evident in the processInput() method in the GameMenuController and SettingsController, which processes various user inputs (ArrowLeft, ArrowRight, Esc, and Enter). Each input triggers distinct actions, such as selecting options, exiting, or starting the game. This decouples the sender of a request from its receiver, promoting flexibility in command execution.
+4.	**Factory Pattern**: Demonstrated through the use of DefaultTerminalFactory().createTerminal(). This abstraction simplifies the creation of terminal objects, allowing the client code in Main to interact with a generic interface without dealing with the instantiation details. This promotes encapsulation and decouples object creation from its usage.
+
+These design patterns help us maintain a clean and scalable architecture, facilitating easier maintenance and extension of the game’s menu system. 
+By adhering to MVC and employing these patterns, we ensure a clear separation of concerns and robust design.
+
 
 ### Game
 #### Architectural Pattern
