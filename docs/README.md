@@ -178,6 +178,6 @@ The full Pitest report is included in the Docs folder
 - Matilde Duarte: 33%
 - Matilde Sousa: 33%
 
-### FINAL GRADE: 16.0/20.0
+**Final Grade:** 16.0/20.0
 
 
